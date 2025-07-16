@@ -1,0 +1,61 @@
+<!-- SERP Result Card -->
+<div class="serp-result" onclick="toggleSection('feedback')">
+    <p class="serp-source">💬 Feedback · allison.dev › contact › feedback</p>
+    <h3 class="serp-title">Leave Feedback – Help improve this site</h3>
+    <p class="serp-description">
+      Jul 2025 · Share your thoughts, reactions, and helpful criticism. I read it all and truly appreciate it.
+      ⭐ Rate the design • ⚙️ Report bugs • 🧠 Share ideas
+    </p>
+  </div>
+  
+  <!-- Hidden Content Section -->
+  <div id="feedback" class="serp-expanded hidden">
+    <form>
+      <label>Your Name (optional):</label><br>
+      <input type="text" placeholder="Jane Doe"><br><br>
+  
+      <label>Feedback:</label><br>
+      <textarea rows="4" placeholder="Tell me what you think..."></textarea><br><br>
+  
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+  
+  <!-- Toggle Script -->
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      section.classList.toggle('hidden');
+    }
+  </script>
+  
+  <!-- Basic Styling -->
+  <style>
+    .serp-result {
+      border-bottom: 1px solid #ccc;
+      padding: 16px;
+      cursor: pointer;
+    }
+    .serp-source {
+      color: gray;
+      font-size: 0.9rem;
+    }
+    .serp-title {
+      color: #1a0dab;
+      font-size: 1.2rem;
+      margin: 4px 0;
+    }
+    .serp-description {
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .serp-expanded {
+      padding: 16px;
+      background: #f9f9f9;
+      border-left: 4px solid #1a0dab;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+  

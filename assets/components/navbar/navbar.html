@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Bar</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/components/navbar/navbar.css">
+</head>
+<body>
+    <div class="nav-wrapper">
+        <div class="navRow-one">
+            <a href="/home/index.html" class="header-logoContainer logo-navbar"></a>
+            <div class="searchBar-container searchBar-nav"></div>
+            <div class="top-controlBar topControl-nav"></div>
+        </div>
+    
+        <div class="navRow-two">
+            <nav class="main-nav">
+                <button class="main-toggle"> 
+                    <span>Select Tab</span>
+                    <span>▼</span>
+                </button>
+                <ul class="main-menu">
+                    <li class="main-tab" data-target="about">About Me</li>
+                    <li class="main-tab" data-target="resume">Resume</li>
+                    <li class="main-tab" data-target="projects">Projects</li>
+                    <li class="main-tab" data-target="contact">Contact Me</li>
+                    <li class="main-tab" data-target="extras">Extras</li>
+                </ul>
+            </nav>
+
+            <div class="subtab-group">
+                <button class="sub-tab"> All </button>
+                <button class="sub-tab"> Section 1 </button>
+                <button  class="sub-tab"> Section 2 </button >
+                <button  class="sub-tab"> Section 3 </button >
+                <button  class="sub-tab"> Section 4 </button >
+                <button  class="sub-tab"> More </button >
+            </div>
+        </div>
+
+        <div class="nav-dividerLine"></div>
+    </div>
+    <script src="/assets/components/topcontrol-bar/topBar.js" defer></script>
+    <script src="/assets/components/searchbar/searchBar.js" defer></script>
+    <script src="/assets/js/load-components.js" defer></script>
+    <script src="/assets/components/navbar/navbar.js"></script>
+</body>
+</html>

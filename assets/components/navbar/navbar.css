@@ -1,0 +1,173 @@
+body{
+    margin: 0%;
+}
+.nav-wrapper{
+    display: flex;
+    flex-direction: column; 
+}
+
+.navRow-one{
+    display: grid;
+    grid-template-columns: 17vw 45vw 30vw;  
+    align-items: center;
+    gap: 1%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0% 1% 0% 1%;
+    margin: 0% 0.5% 0% 0.5%;;
+}
+ 
+.logo-navbar{
+    width: 18vw;  
+    margin: 0% 0% 4% 3%;
+    transform: translateY(-35%);            
+}
+  
+.searchBar-nav{
+    width: 100vw;
+    margin: 0% 10% 0% 8%;   
+    transform: translateY(-5%);  
+    color: gray;       
+    z-index: 10;            
+}
+
+.searchBar-nav .search-optionsBody{
+    color: black;
+}
+  
+.topControl-nav{
+    width: 20vw;
+    margin: 0% 10% 2% 40%;  
+    transform: translateY(-5%);             
+}
+
+.navRow-two{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; 
+    gap: 3%;
+    margin: 0% 1% 1% 1%;
+    transform: translateX(-2vw);
+    font-family: "Work Sans";
+}
+
+.main-nav{
+    display: flex;
+    position: relative;
+    width: fit-content; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    margin: 0% 0% 0% 2.75%;
+}
+
+.main-toggle,
+.subtab-group{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    cursor: pointer;
+}
+
+.main-toggle span:first-child{
+    font-size: 1.15vw;
+}
+
+.main-toggle span:last-child{
+    flex: 1.2;
+    font-size: 0.6vw;
+    align-self: center;
+}
+
+.main-toggle:hover{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    border-radius: 7px;
+}
+
+.main-menu{
+    display: none;
+    position: absolute;
+    top: 40%;
+    width: 9vw;
+    padding: 3% 7% 3% 8%;
+    font-size: 1vw;
+    list-style-type: none; 
+    line-height: 3vw;
+    background: white;
+    border: 1px solid #f6f6f6;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    z-index: 5;
+}
+
+.main-menu.show{
+    display: block; 
+}
+
+.main-menu li{
+    padding: 0.5% 5%;
+    text-align: center; 
+    /* border-radius: 15px; */
+    cursor: pointer;
+}
+
+.main-menu li:hover{
+    background: linear-gradient(
+        to right,
+        #e6ffff 10%,
+        #fbfaed 34%,
+        #F4FBFF 62%,
+        #f9e1f3 100%
+    );
+}
+
+.main-tab{
+    width: 100%;
+    display: block;    
+    align-self: center;
+    justify-self: center;
+    text-align: center; 
+}
+
+.subtab-group{
+    flex: 0.41;
+}
+
+.subtab-group button{
+    font-size: 1.15vw;
+    border-radius: 5px
+}
+
+.subtab-group button{
+    font-size: 1.15vw;
+    border-radius: 5px;
+}
+
+.subtab-group button:hover,
+.subtab-activated{
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+
+.nav-dividerLine{
+    height: 1px;
+    width: 100%;
+    margin: 0% 5% 0% 0%;
+  
+    background: linear-gradient(
+      to right,
+      #D4F2EF 8%,
+      #FCF9D2 34%,
+      #C6E4FC 62%,
+      #FFCEF2 89%
+    );
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+  
+
+
+

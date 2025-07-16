@@ -1,0 +1,153 @@
+body{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.top-controlBar{
+    align-self: flex-end;
+    margin: 1% 2% 0% 0%;
+}
+  
+.header-logoContainer{
+    margin: 2% 0% 10% 3%;
+    justify-self: center;
+}
+
+.searchBar-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0% 0% 0% 50%;
+}
+  
+.shortcut-options{
+    display: grid;
+    grid-template-columns: repeat(3, 10vw);
+    gap: 15% 5%;
+    justify-content: center;
+    margin: 3% 0%;
+}
+
+.shortcut-tile{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    background: rgb(232, 232, 232);
+    height: 6vw;
+    width: 7.5vw;
+    padding: 9% 3%;
+    border-radius: 22%;
+    font-weight: 500;
+    --shadow-color: rgb(223, 223, 223);
+    /* box-shadow: 4px 4px 4px 1px var(--shadow-color); */
+    box-shadow: var(--shadow-color) 0px 1px 3px 0px, 
+                var(--shadow-color) 0px 1px 2px 0px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+.shortcut-tile img{
+    width: 3vw;
+    object-fit: contain;
+    display: block;
+    margin: 0%;
+}
+
+.shortcut-tile p{
+    font-size: 1.25vw;
+}
+
+.shortcut-tile p{
+    margin: 5% 0%;
+}
+
+.shortcut-tile:hover{
+    box-shadow: var(--shadow-color) 0px 3px 6px, 
+                var(--shadow-color) 0px 3px 6px;
+   
+}
+
+#tile-about{
+    background: #F0F9FF;
+    --shadow-color: #b2d5ea;
+}
+
+#tile-about:hover{
+    --shadow-color: #88bfdf;
+}
+
+#tile-about img,
+#tile-projects img{
+    width: 3.5vw;
+}
+
+#tile-resume{
+    background: #FAF5FF;
+    --shadow-color: #e0cdf1;
+}
+
+#tile-resume img{
+    margin: 5% 0% 0% 0%;
+}
+
+#tile-resume p{
+    margin: 15% 0% 5% 0%;
+}
+
+#tile-resume:hover{
+    --shadow-color: #ceb2ea;
+}
+
+#tile-projects{
+    background: #FFF8F8;
+    --shadow-color: #FDCCB5;
+}
+
+#tile-projects p{
+    margin: 13% 0% 5% 0%;
+}
+
+#tile-projects:hover{
+    --shadow-color: #efb9a0;
+}
+
+#tile-contact{
+    background: #f0fff2;
+    --shadow-color: #aae5b4c3;
+}
+
+#tile-contact img{
+    width: 4vw;
+}
+
+#tile-contact p{
+    margin: 13% 0% 5% 0%;
+}
+
+#tile-contact:hover{
+    --shadow-color: #8fe19ddf;
+}
+
+#tile-extras{
+    background: #FFFAFA;
+    --shadow-color: #f19f9f7c;
+}
+
+#tile-extras img{
+    width: 3.5vw;
+}
+
+#tile-extras:hover{
+    --shadow-color: #f19f9feb;
+}
+
+

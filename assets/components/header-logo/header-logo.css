@@ -1,0 +1,39 @@
+.header-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0%;
+    height: 5vw; 
+}
+  
+.logo-frameContainer{
+    display: inline-block;
+    width: 40vw;
+    height: 18vw;
+    position: relative;
+}
+  
+.logo-frame{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+    opacity: 0;
+    animation: fade 8.8s infinite;
+    transition: opacity 0.4s ease-in-out;
+    margin: 20% 1% 1% 5%;
+}
+  
+.frame1 { animation-delay: 0s; }
+.frame2 { animation-delay: 2.2s; }
+.frame3 { animation-delay: 4.4s; }
+.frame4 { animation-delay: 6.6s; }
+
+  
+@keyframes fade{
+    0%, 22%   { opacity: 1; }
+    25%, 100% { opacity: 0; }
+}
+  

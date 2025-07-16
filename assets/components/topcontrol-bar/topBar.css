@@ -1,0 +1,127 @@
+
+.topBar-controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 1% 2% 0% 0%;
+    gap: 1.5vw;
+    font-family: "Work Sans";
+}
+
+button{
+    border: none;
+    background: none;
+    font-family: "Work Sans";
+    cursor: pointer;
+}
+
+#mode-button{
+    font-weight: 500;
+    font-size: 1vw;
+}
+
+#help-button{
+    font-size: 1.25vw;
+    font-weight: 700;
+}
+
+#profile-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 11.5vw;
+    height: 3.35vw;
+    border: 0.45px solid rgb(190, 190, 190);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    border-radius: 35px;
+    gap: 5%;
+    cursor: pointer;
+}
+
+#profile-button:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.icon-circle{
+    width: 2.75vw;
+    height: 2.5vw;
+    border-radius: 50%;
+    background: rgb(199, 199, 199);
+    margin-left: 3%;
+}
+
+span img{
+    width: 1.25vw;
+    margin: 12% 0% 0% 0%;
+    z-index: 3;
+}
+
+.role-label{
+    font-size: 1vw;
+    font-weight: 500;
+    margin: 0% 0% 0% 2%;
+}
+
+.caret{
+    font-size: 0.75vw;
+    margin: 0% 4% 0% 3%;
+    color: #656565;
+}
+
+.profile-window{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 5vw;
+    right: -4.5vw; 
+    width: 15vw;
+    font-family: "Work Sans";
+    font-size: 0.85vw; 
+    background: white;
+    border: 0.45px solid rgb(190, 190, 190);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+                rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    padding: 2%;
+    line-height: 1.5vw;
+    transform: translateX(-30%);
+    z-index: 5;
+}
+
+.profile-window h1{
+    font-size: 1vw; 
+}
+
+.profile-window p{
+    margin: 0% 0% 3% 0%;
+}
+
+.profile-window.show{
+    display: flex;
+}
+
+.profile-switch{
+    line-height: 1.7vw;
+    cursor: pointer;
+    padding: 1% 15%;
+    border-radius: 20px;
+}
+
+.profile-switch:nth-of-type(1):hover{
+    background-color: #A5DED2;
+}
+
+.profile-switch:nth-of-type(2):hover{
+    background-color: #F6EC83;
+}
+  
+.profile-switch:nth-of-type(3):hover{
+    background-color: #B7DEFC;
+}
+  
+.profile-switch:nth-of-type(4):hover{
+    background-color: #FACDEE;
+}
+  
+  

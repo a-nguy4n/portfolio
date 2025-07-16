@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+</head>
+<body>
+    <img src="/assets/images/index/index-lamp.gif" alt="Lamp Icon">
+    <h1> 404 - Page Founded </h1>
+    <h2 class="fade-in"> Choose your profile . . . </h2>
+    <div class="profile-options">
+        <a href="/home/index.html" onclick="setRole('browser')"
+        class="profile-tile fade-in" id="browser">
+            <img src="/assets/images/index/index-browse.png" alt="Browser Icon">
+            <p> Just Browsing </p>
+        </a>
+
+        <a href="/home/index.html" onclick="setRole('recruiter')"
+        class="profile-tile fade-in" id="recruiter" >
+            <img src="/assets/images/index/index-recruit.png" alt="Recruiter Icon">
+            <p>Recruiter</p>
+        </a>
+
+        <a href="/home/index.html"  onclick="setRole('developer')"
+        class="profile-tile fade-in" id="developer" >
+            <img src="/assets/images/index/index-develop.png" alt="Developer Icon">
+            <p>Developer</p>
+        </a>
+    </div>
+
+    <em class="fade-in"> <a href="/home/index.html"  onclick="setRole('default')"> 
+        I'll choose later &#8594; 
+    </a> </em>
+
+    <script src="/assets/js/index.js"></script>
+</body>
+</html>

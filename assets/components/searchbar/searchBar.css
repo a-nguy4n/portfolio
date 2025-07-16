@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "Be Vietnam Pro Light";
+    src: url("/assets/fonts/BeVietnamPro-Light.ttf");
+}
+
+.searchBar-shell{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    font-family: "Be Vietnam Pro Light";
+}
+
+.search-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 3%;
+    width: 50%;
+    border-radius: 30px;
+    background: #ffffff;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    z-index: 10;
+}
+
+.search-bar img{
+    width: 1.75vw;
+    height: 1.75vw;
+    margin: 0% 0% 0% 3%;
+}
+
+.search-bar span{
+    font-size: 1.15vw;
+    font-family: "Be Vietnam Pro Light";
+    padding: 2.5% 2%;
+}
+
+.search-optionsBody{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    position: absolute;
+    top: 100%;
+    width: 40%;
+    margin: 0% 0% 0% 1.5%;
+    padding: 1% 3.5%;
+    font-size: 1.10vw;
+    line-height: 2.5vw;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    z-index: 5;
+}
+
+.close-options{
+    display: none;
+}
+
+.search-option{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+.search-option span:last-child{
+    position: absolute;
+    right: 0;
+    display: none;
+}
+
+.search-option:hover{
+    color: rgb(48, 86, 181);
+    cursor: pointer;
+}
+
+.search-option:hover span:last-child{
+    display: inline;
+}
