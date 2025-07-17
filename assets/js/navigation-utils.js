@@ -32,16 +32,14 @@ const tabKey = {
     }
 }
 
-// function to handle main page navigations 
-export function routeToMainTab(tab_name){
-    const tabData = tabKey[tab_name];
-
-    if(tab_name && tabData){
-        const {path, tab_label, subtab_arr} = tabData;
+export function updateMainTabUI(tab_name){
+     const tabData = tabKey[tab_name];
+     if(tab_name && tabData){
+        const {tab_label, subtab_arr} = tabData;
 
         // changing dropdown label 
         const changeLabel = document.querySelector('.main-toggle span:first-child');
-        changeLabel.textContent = tab_label || tab_name; 
+        changeLabel.textContent = tab_label; 
 
         // changing subtab names
         const subSections = document.querySelectorAll('.subtab-group .sub-tab');
@@ -50,10 +48,23 @@ export function routeToMainTab(tab_name){
             sub.textContent = subtab_arr[sub_index];
             sub_index++;
         });
+     }
+}
+
+// function to handle main page navigations 
+export function routeToMainTab(tab_name){
+    const tabData = tabKey[tab_name];
+
+    if(tab_name && tabData){
+        const {path} = tabData;
+
+         localStorage.setItem('selectedMainTab', tab_name);
 
         // main page redirection
-        if(path && window.location.pathname !== path){
-            localStorage.setItem('selectedMainTab', tab_name);
+        if(window.location.pathname === path){
+            updateMainTabUI(tab_name);
+        }
+        else{
             setTimeout(() => {
                 window.location.href = path;
             }, 15);

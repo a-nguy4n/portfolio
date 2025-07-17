@@ -1,7 +1,6 @@
 import { renderResults } from "/assets/js/renderResults-utils.js";
 import { subTabFilter } from "/assets/js/subtabFilter-utils.js";
-
-localStorage.removeItem('selectedMainTab');
+import { updateMainTabUI } from "/assets/js/navigation-utils.js";
 
 const aboutMe_data = [
     {
@@ -62,12 +61,30 @@ const aboutMe_data = [
     }
 ];
 
-window.addEventListener("DOMContentLoaded", () => {
+// window.addEventListener("DOMContentLoaded", () => {
+//     console.log("Calling renderResults with data:", aboutMe_data);
+//     renderResults(aboutMe_data, "aboutResults-body", "aboutResults-count");
+//     setTimeout(() => {
+//         subTabFilter(aboutMe_data, "aboutResults-body", "aboutResults-count");  
+//     },50);
+// });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  requestAnimationFrame(() => {
+    const tabToSelect = localStorage.getItem("selectedMainTab");
+    if(tabToSelect) {
+      updateMainTabUI(tabToSelect);
+      localStorage.removeItem("selectedMainTab");
+    }
+
     console.log("Calling renderResults with data:", aboutMe_data);
     renderResults(aboutMe_data, "aboutResults-body", "aboutResults-count");
+
     setTimeout(() => {
-        subTabFilter(aboutMe_data, "aboutResults-body", "aboutResults-count");  
-    },50);
+      subTabFilter(aboutMe_data, "aboutResults-body", "aboutResults-count");
+    }, 10);
+  });
 });
 
 

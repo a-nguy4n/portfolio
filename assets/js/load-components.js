@@ -1,3 +1,5 @@
+import { navbarFunc } from '/assets/components/navbar/navbar.js';
+
 // Top Control Bar
 fetch('/assets/components/topcontrol-bar/topBar.html')
   .then(res => res.text())
@@ -38,29 +40,28 @@ fetch('/assets/components/searchbar/searchBar.html')
 
 
 // Loading NavBar + dependent components 
-fetch('/assets/components/navbar/navbar.html')
-  .then(res => res.text())
-  .then(html => {
-    const targets = document.querySelectorAll('.navBar-container');
-    if(targets.length > 0) {
-      targets.forEach(target => {
-        target.innerHTML = html;
-      });
+const navbarTarget = document.querySelector('.navBar-container');
 
-      return loadNavbarParts(); 
-    }
-  })
-  .then(() => {
-    if(typeof navbarFunc === 'function'){
-      navbarFunc();
-    }
-    else{
-      console.warn('navbarFunc() is not defined');
-    }
-  });
+if(navbarTarget){
+  fetch('/assets/components/navbar/navbar.html')
+    .then(res => res.text())
+    
+    .then(html => {
+      navbarTarget.innerHTML = html;
+      return loadNavbarParts();
+    })
+    
+    .then(() => {
+      requestAnimationFrame(() => {
+        if(typeof navbarFunc === 'function') {
+          navbarFunc();
+        }
+      });
+    });
+}
 
 // Loading navbar parts (topbar, logo, search)
-function loadNavbarParts() {
+function loadNavbarParts(){
   const fetches = [];
 
   fetches.push(
@@ -102,7 +103,6 @@ function loadNavbarParts() {
       document.dispatchEvent(new CustomEvent("searchbar:loaded"));
     }
       })
-  );
-
+  )
   return Promise.all(fetches); 
 }

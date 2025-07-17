@@ -1,7 +1,6 @@
 import { renderResults } from "/assets/js/renderResults-utils.js";
 import { subTabFilter } from "/assets/js/subtabFilter-utils.js";
-
-localStorage.removeItem('selectedMainTab');
+import { updateMainTabUI } from "/assets/js/navigation-utils.js";
 
 const projects_data = [
     {
@@ -142,10 +141,19 @@ const projects_data = [
     }
 ];
 
-window.addEventListener("DOMContentLoaded", () => {
-    console.log("Calling renderResults with data:", projects_data);
-    renderResults(projects_data, "projectResults-body", "projectResults-count");
+document.addEventListener("DOMContentLoaded", () => {
+  requestAnimationFrame(() => {
+    const tabToSelect = localStorage.getItem("selectedMainTab");
+    if(tabToSelect){
+      updateMainTabUI(tabToSelect);
+      localStorage.removeItem("selectedMainTab");
+    }
+
+   console.log("Calling renderResults with data:", projects_data);
+   renderResults(projects_data, "projectResults-body", "projectResults-count");
+
     setTimeout(() => {
-            subTabFilter(projects_data, "projectResults-body", "projectResults-count");
-    },50);
+        subTabFilter(projects_data, "projectResults-body", "projectResults-count");
+    }, 10);
+  });
 });

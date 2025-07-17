@@ -1,4 +1,4 @@
-import { routeToMainTab } from "../assets/js/navigation-utils"; 
+import { routeToMainTab } from "/assets/js/navigation-utils.js";
 
 // Nav Main Tabs for Tiles 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
       tile.addEventListener('click', (e) => {
         const navTarget = tile.getAttribute('data-target');
         if(navTarget){
-          sessionStorage.setItem('navOverride', navTarget);
+            routeToMainTab(navTarget);
         }
       });
     });
-  });
+});
   

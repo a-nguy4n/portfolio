@@ -1,7 +1,12 @@
 import { renderResults } from "/assets/js/renderResults-utils.js";
 import { subTabFilter } from "/assets/js/subtabFilter-utils.js";
+import { updateMainTabUI } from "/assets/js/navigation-utils.js";
 
-localStorage.removeItem('selectedMainTab');
+// const tabToSelect = localStorage.getItem("selectedMainTab");
+// if(tabToSelect){
+//   updateMainTabUI(tabToSelect);
+//   localStorage.removeItem('selectedMainTab');
+// }
 
 const contactPage_data = [
     {
@@ -115,15 +120,22 @@ const contactPage_data = [
     }
 ];
 
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+  requestAnimationFrame(() => {
+    const tabToSelect = localStorage.getItem("selectedMainTab");
+    if(tabToSelect){
+      updateMainTabUI(tabToSelect);
+      localStorage.removeItem("selectedMainTab");
+    }
+
     console.log("Calling renderResults with data:", contactPage_data);
     renderResults(contactPage_data, "contactResults-body", "contactResults-count");
+
     setTimeout(() => {
         subTabFilter(contactPage_data, "contactResults-body", "contactResults-count");
-    },50);
+    }, 10);
+  });
 });
-
-
 
 
 

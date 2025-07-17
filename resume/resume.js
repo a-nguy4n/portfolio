@@ -1,7 +1,6 @@
 import { renderResults } from "/assets/js/renderResults-utils.js";
 import { subTabFilter } from "/assets/js/subtabFilter-utils.js";
-
-localStorage.removeItem('selectedMainTab');
+import { updateMainTabUI } from "/assets/js/navigation-utils.js";
 
 const resumePage_data = [
     {
@@ -117,10 +116,19 @@ const resumePage_data = [
     }
 ];
 
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+  requestAnimationFrame(() => {
+    const tabToSelect = localStorage.getItem("selectedMainTab");
+    if(tabToSelect){
+      updateMainTabUI(tabToSelect);
+      localStorage.removeItem("selectedMainTab");
+    }
+
     console.log("Calling renderResults with data:", resumePage_data);
     renderResults(resumePage_data, "resumeResults-body", "resumeResults-count");
+
     setTimeout(() => {
         subTabFilter(resumePage_data, "resumeResults-body", "resumeResults-count");
-    },50);
+    }, 10);
+  });
 });
