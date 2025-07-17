@@ -6,6 +6,16 @@ export function searchBarInit(){
   const toggle_OptionsBody = document.querySelector(".close-options");
   console.log("searchbar:loaded event received");
 
+  // changing searchbar's inner text to match query
+  const storedQueryText = sessionStorage.getItem("searchQueryText");
+  const searchBar_text = document.querySelector(".search-bar span");
+  console.log("saved query is:", storedQueryText);
+  if(storedQueryText){
+    console.log("saved query is:", storedQueryText);
+    searchBar_text.innerHTML = storedQueryText;
+    searchBar_text.style.color = "black";
+  }
+
   searchSuggestions();
 
   // search bar dropdown suggestions on click 

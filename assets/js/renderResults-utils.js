@@ -24,7 +24,10 @@ export function renderResults(dataArray, resultBodyId, resultCountId){
         else{
             search_query.innerHTML = storedQueryText;
         }
-        sessionStorage.removeItem("searchQueryText");
+       
+        setTimeout(() => {
+            sessionStorage.removeItem("searchQueryText");
+        }, 100); // delay so search.js can read value 
     }
 
     // formats each result into layout 
