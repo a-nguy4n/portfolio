@@ -87,3 +87,5 @@ export function waitForUIElements(callback, retries = 10, delay = 50){
     console.warn("Main UI elements not found in time.");
   }
 }
+
+

@@ -1,6 +1,6 @@
 import { renderResults } from "/assets/js/renderResults-utils.js";
 import { subTabFilter } from "/assets/js/subtabFilter-utils.js";
-import { updateMainTabUI } from "/assets/js/navigation-utils.js";
+import { waitForUIElements, updateMainTabUI } from "/assets/js/navigation-utils.js";
 
 const aboutMe_data = [
     {
@@ -63,7 +63,7 @@ const aboutMe_data = [
 
 document.addEventListener("DOMContentLoaded", () => {
   const dropdown_tab = "about";
-  updateMainTabUI(dropdown_tab);
+  waitForUIElements(() => updateMainTabUI(dropdown_tab));
 
   requestAnimationFrame(() => {
     renderResults(aboutMe_data, "aboutResults-body", "aboutResults-count");

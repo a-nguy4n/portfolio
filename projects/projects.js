@@ -1,6 +1,6 @@
 import { renderResults } from "/assets/js/renderResults-utils.js";
 import { subTabFilter } from "/assets/js/subtabFilter-utils.js";
-import { updateMainTabUI } from "/assets/js/navigation-utils.js";
+import { waitForUIElements, updateMainTabUI } from "/assets/js/navigation-utils.js";
 
 const projects_data = [
     {
@@ -143,7 +143,7 @@ const projects_data = [
 
 document.addEventListener("DOMContentLoaded", () => {
   const dropdown_tab = "projects";
-  updateMainTabUI(dropdown_tab);
+  waitForUIElements(() => updateMainTabUI(dropdown_tab));
 
   requestAnimationFrame(() => { 
     renderResults(projects_data, "projectResults-body", "projectResults-count");

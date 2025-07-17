@@ -1,111 +1,105 @@
 import { navbarFunc } from '/assets/components/navbar/navbar.js';
 
-// Header Logo
-fetch('/assets/components/header-logo/header-logo.html')
-  .then(res => res.text())
-  .then(html => {
-    const targets = document.querySelectorAll('.header-logoContainer');
-    if(targets.length > 0){
-      targets.forEach(target => {
-        target.innerHTML = html;
-      });
+// need to wait for element to appear before logic runs 
+function waitForSelector(selector, callback, maxRetries = 10, delay = 50) {
+  const attempt = () => {
+    const element = document.querySelector(selector);
+    if(element){
+      callback();
+    } 
+    else if (maxRetries > 0){
+      setTimeout(() => waitForSelector(selector, callback, maxRetries - 1, delay), delay);
+    } 
+    else{
+      console.warn(`Element "${selector}" not found after retries.`);
     }
-  });
-
-// Search Bar
-fetch('/assets/components/searchbar/searchBar.html')
-  .then(res => res.text())
-  .then(html => {
-    const targets = document.querySelectorAll('.searchBar-container');
-    if(targets.length > 0){
-      targets.forEach(target => {
-        target.innerHTML = html;
-      });
-      document.dispatchEvent(new CustomEvent("searchbar:loaded"));
-    }
-  }); 
-
-
-// Loading NavBar + dependent components 
-const navbarTarget = document.querySelector('.navBar-container');
-
-if(navbarTarget){
-  fetch('/assets/components/navbar/navbar.html')
-    .then(res => res.text())
-    
-    .then(html => {
-      navbarTarget.innerHTML = html;
-      return loadNavbarParts();
-    })
-    
-    .then(() => {
-      requestAnimationFrame(() => {
-        if(typeof navbarFunc === 'function') {
-          navbarFunc();
-          document.dispatchEvent(new CustomEvent("navbar:ready"));
-        }
-      });
-    });
+  };
+  attempt();
 }
 
-// Loading navbar parts (topbar, logo, search)
-function loadNavbarParts(){
-  const fetches = [];
 
-  // topbar for nav
-  fetches.push(
-    fetch('/assets/components/topcontrol-bar/topBar.html')
-      .then(res => res.text())
-      .then(html => {
-        const targets = document.querySelectorAll('.top-controlBar');
-        if(targets.length > 0){
-          targets.forEach(target => {
-            target.innerHTML = html;
-          });
+/**
+ * @param {string} selector - CSS selector for target container
+ * @param {string} htmlPath - Path to the HTML component to inject
+ * @param {string|null} jsPath - Optional path to a JS module to import
+ * @param {string|null} initFunction - Optional function to call from imported JS module
+ * @param {string|null} customEvent - Optional custom event to dispatch after load
+ */
+async function loadComponent(selector, htmlPath, jsPath = null, initFunction = null, customEvent = null) {
+  const res = await fetch(htmlPath);            
+  const html = await res.text();                 
+  const targets = document.querySelectorAll(selector);  
 
-          requestAnimationFrame(() => {
-            import('/assets/components/topcontrol-bar/topBar.js')
-            .then(module => {
-              if(module.topBarCreate){
-                module.topBarCreate();
-                requestAnimationFrame(() => {
-                  document.dispatchEvent(new CustomEvent('topbar:loaded'));
-                });
-              }
-            });
-          });
-        }
-      })
-  );
+  if(targets.length > 0){
+    targets.forEach(target => target.innerHTML = html);
 
-  fetches.push(
-    fetch('/assets/components/header-logo/header-logo.html')
-      .then(res => res.text())
-      .then(html => {
-        const targets = document.querySelectorAll('.header-logoContainer');
-        if(targets.length > 0){
-          targets.forEach(target => {
-            target.innerHTML = html;
-          });
-        }
-      })
-  );
+    if(jsPath && initFunction){
+      const module = await import(jsPath);
+      if (module[initFunction]){
+        module[initFunction](); 
+      }
+    }
 
-  fetches.push(
-    fetch('/assets/components/searchbar/searchBar.html')
+    if(customEvent){
+      document.dispatchEvent(new CustomEvent(customEvent));
+    }
+  }
+}
+
+loadComponent(
+  '.header-logoContainer',
+  '/assets/components/header-logo/header-logo.html'
+);
+
+loadComponent(
+  '.searchBar-container',
+  '/assets/components/searchbar/searchBar.html',
+  '/assets/components/searchbar/searchBar.js',
+  'searchBarInit',
+  'searchbar:loaded'
+);
+
+const navbarTarget = document.querySelector('.navBar-container');
+
+if (navbarTarget){
+  fetch('/assets/components/navbar/navbar.html')
     .then(res => res.text())
     .then(html => {
-      const targets = document.querySelectorAll('.searchBar-container');
-      if(targets.length > 0){
-        targets.forEach(target => {
-          target.innerHTML = html;
-        });
+      navbarTarget.innerHTML = html;
+      return loadNavbarParts();  
+    });
 
-        document.dispatchEvent(new CustomEvent("searchbar:loaded"));
-        import('/assets/components/searchbar/searchBar.js')
-          .then(module => module.searchBarInit && module.searchBarInit());
-      }
-    })
-  )
-  return Promise.all(fetches); 
+  document.addEventListener('topbar:loaded', () => {
+    waitForSelector('.main-toggle', () => {
+      requestAnimationFrame(() => {
+        navbarFunc();
+        document.dispatchEvent(new CustomEvent("navbar:ready"));
+      });
+    });
+  });
+}
+
+function loadNavbarParts(){
+  return Promise.all([
+    loadComponent(
+      '.top-controlBar',
+      '/assets/components/topcontrol-bar/topBar.html',
+      '/assets/components/topcontrol-bar/topBar.js',
+      'topBarCreate',
+      'topbar:loaded'
+    ),
+
+    loadComponent(
+      '.header-logoContainer',
+      '/assets/components/header-logo/header-logo.html'
+    ),
+
+    loadComponent(
+      '.searchBar-container',
+      '/assets/components/searchbar/searchBar.html',
+      '/assets/components/searchbar/searchBar.js',
+      'searchBarInit',
+      'searchbar:loaded'
+    )
+  ]);
 }

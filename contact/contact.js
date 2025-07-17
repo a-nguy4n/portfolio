@@ -1,12 +1,6 @@
 import { renderResults } from "/assets/js/renderResults-utils.js";
 import { subTabFilter } from "/assets/js/subtabFilter-utils.js";
-import { updateMainTabUI } from "/assets/js/navigation-utils.js";
-
-// const tabToSelect = localStorage.getItem("selectedMainTab");
-// if(tabToSelect){
-//   updateMainTabUI(tabToSelect);
-//   localStorage.removeItem('selectedMainTab');
-// }
+import { waitForUIElements, updateMainTabUI } from "/assets/js/navigation-utils.js";
 
 const contactPage_data = [
     {
@@ -122,7 +116,7 @@ const contactPage_data = [
 
 document.addEventListener("DOMContentLoaded", () => {
   const dropdown_tab = "contact";
-  updateMainTabUI(dropdown_tab);
+  waitForUIElements(() => updateMainTabUI(dropdown_tab));
 
   requestAnimationFrame(() => { 
     renderResults(contactPage_data, "contactResults-body", "contactResults-count");

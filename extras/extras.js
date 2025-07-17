@@ -27,7 +27,7 @@ const extrasPage_data = [
 
 document.addEventListener("DOMContentLoaded", () => {
   const dropdown_tab = "extras";
-  updateMainTabUI(dropdown_tab);
+  waitForUIElements(() => updateMainTabUI(dropdown_tab));
 
   requestAnimationFrame(() => { 
     renderResults(extrasPage_data, "extraResults-body", "extraResults-count");
