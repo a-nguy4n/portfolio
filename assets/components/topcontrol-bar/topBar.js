@@ -1,5 +1,6 @@
 // Profile Role Render
 document.addEventListener('topbar:loaded', () => {
+  console.log("topbar:loaded event received");
 
   const role = localStorage.getItem('selectedRole') || 'default';
   const profileButton = document.getElementById('profile-button');
