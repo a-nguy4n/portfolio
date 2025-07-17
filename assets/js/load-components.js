@@ -17,21 +17,30 @@ function waitForSelector(selector, callback, maxRetries = 10, delay = 50) {
   attempt();
 }
 
-
 /**
  * @param {string} selector - CSS selector for target container
  * @param {string} htmlPath - Path to the HTML component to inject
  * @param {string|null} jsPath - Optional path to a JS module to import
  * @param {string|null} initFunction - Optional function to call from imported JS module
  * @param {string|null} customEvent - Optional custom event to dispatch after load
+ * @param {string|null} cssPath - Optional path to a CSS file to inject
  */
-async function loadComponent(selector, htmlPath, jsPath = null, initFunction = null, customEvent = null) {
+async function loadComponent(selector, htmlPath, jsPath = null, initFunction = null, 
+                             customEvent = null, cssPath = null){
+
   const res = await fetch(htmlPath);            
   const html = await res.text();                 
   const targets = document.querySelectorAll(selector);  
 
   if(targets.length > 0){
     targets.forEach(target => target.innerHTML = html);
+
+    if(cssPath && !document.querySelector(`link[href="${cssPath}"]`)){
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = cssPath;
+      document.head.appendChild(link);
+    }
 
     if(jsPath && initFunction){
       const module = await import(jsPath);
@@ -49,6 +58,10 @@ async function loadComponent(selector, htmlPath, jsPath = null, initFunction = n
 loadComponent(
   '.header-logoContainer',
   '/assets/components/header-logo/header-logo.html',
+  '',
+  '',
+  '',
+  '/assets/components/header-logo/header-logo.css',
 );
 
 loadComponent(
@@ -56,7 +69,8 @@ loadComponent(
   '/assets/components/searchbar/searchBar.html',
   '/assets/components/searchbar/searchBar.js',
   'searchBarInit',
-  'searchbar:loaded'
+  'searchbar:loaded',
+  '/assets/components/searchbar/searchBar.css'
 );
 
 const navbarTarget = document.querySelector('.navBar-container');
@@ -86,12 +100,17 @@ function loadNavbarParts(){
       '/assets/components/topcontrol-bar/topBar.html',
       '/assets/components/topcontrol-bar/topBar.js',
       'topBarCreate',
-      'topbar:loaded'
+      'topbar:loaded',
+      'assets/components/topcontrol-bar/topBar.css'
     ),
 
     loadComponent(
       '.header-logoContainer',
       '/assets/components/header-logo/header-logo.html',
+      '',
+      '',
+      '',
+      '/assets/components/header-logo/header-logo.css',
     ),
 
     loadComponent(
@@ -99,7 +118,8 @@ function loadNavbarParts(){
       '/assets/components/searchbar/searchBar.html',
       '/assets/components/searchbar/searchBar.js',
       'searchBarInit',
-      'searchbar:loaded'
+      'searchbar:loaded',
+      '/assets/components/searchbar/searchBar.css'
     )
   ]);
 }

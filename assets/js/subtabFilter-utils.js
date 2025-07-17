@@ -36,7 +36,6 @@ export function subTabFilter(currPageArray ,resultBodyId, resultCountId){
                 renderResults(filter_data, resultBodyId, resultCountId);
             }
         })
-        console.log("Sub-tab listeners attached to:", tab.textContent.trim());
     });
 
     const activate_AllTab = Array.from(subTabs).find(tab => tab.textContent.trim() === "All");
