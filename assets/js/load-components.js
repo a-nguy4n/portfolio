@@ -55,6 +55,7 @@ if(navbarTarget){
       requestAnimationFrame(() => {
         if(typeof navbarFunc === 'function') {
           navbarFunc();
+          document.dispatchEvent(new CustomEvent("navbar:ready"));
         }
       });
     });

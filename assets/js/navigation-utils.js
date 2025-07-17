@@ -39,7 +39,9 @@ export function updateMainTabUI(tab_name){
 
         // changing dropdown label 
         const changeLabel = document.querySelector('.main-toggle span:first-child');
-        changeLabel.textContent = tab_label; 
+        if(changeLabel){
+            changeLabel.textContent = tab_label;
+        }
 
         // changing subtab names
         const subSections = document.querySelectorAll('.subtab-group .sub-tab');
@@ -51,7 +53,7 @@ export function updateMainTabUI(tab_name){
      }
 }
 
-// function to handle main page navigations 
+// function to handle main pages navigations 
 export function routeToMainTab(tab_name){
     const tabData = tabKey[tab_name];
 
@@ -70,4 +72,21 @@ export function routeToMainTab(tab_name){
             }, 15);
         }
     }
+}
+
+export function waitForUIElements(callback, retries = 10, delay = 50){
+  const label = document.querySelector('.main-toggle span:first-child');
+  const subTabs = document.querySelectorAll('.subtab-group .sub-tab');
+
+  if(label && subTabs.length > 0) {
+    callback(); 
+  }
+  else if (retries > 0){
+    setTimeout(() => {
+      waitForUIElements(callback, retries - 1, delay);
+    }, delay);
+  } 
+  else{
+    console.warn("Main UI elements not found in time.");
+  }
 }

@@ -145,8 +145,10 @@ document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(() => {
     const tabToSelect = localStorage.getItem("selectedMainTab");
     if(tabToSelect){
-      updateMainTabUI(tabToSelect);
-      localStorage.removeItem("selectedMainTab");
+        document.addEventListener("navbar:ready", () => {
+        updateMainTabUI(tabToSelect);
+        localStorage.removeItem("selectedMainTab");
+        });
     }
 
    console.log("Calling renderResults with data:", projects_data);

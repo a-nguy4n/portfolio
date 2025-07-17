@@ -73,10 +73,12 @@ const aboutMe_data = [
 document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(() => {
     const tabToSelect = localStorage.getItem("selectedMainTab");
-    if(tabToSelect) {
+    if(tabToSelect){
+    document.addEventListener("navbar:ready", () => {
       updateMainTabUI(tabToSelect);
       localStorage.removeItem("selectedMainTab");
-    }
+    });
+  }
 
     console.log("Calling renderResults with data:", aboutMe_data);
     renderResults(aboutMe_data, "aboutResults-body", "aboutResults-count");

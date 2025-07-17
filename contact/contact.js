@@ -124,9 +124,11 @@ document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(() => {
     const tabToSelect = localStorage.getItem("selectedMainTab");
     if(tabToSelect){
+    document.addEventListener("navbar:ready", () => {
       updateMainTabUI(tabToSelect);
       localStorage.removeItem("selectedMainTab");
-    }
+    });
+  }
 
     console.log("Calling renderResults with data:", contactPage_data);
     renderResults(contactPage_data, "contactResults-body", "contactResults-count");

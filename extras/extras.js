@@ -1,6 +1,6 @@
 import { renderResults } from "/assets/js/renderResults-utils.js";
 import { subTabFilter } from "/assets/js/subtabFilter-utils.js";
-import { updateMainTabUI } from "/assets/js/navigation-utils.js";
+import { updateMainTabUI, waitForUIElements } from "/assets/js/navigation-utils.js";
 
 const extrasPage_data = [
     {
@@ -27,11 +27,13 @@ const extrasPage_data = [
 
 document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(() => {
-    const tabToSelect = localStorage.getItem("selectedMainTab");
-    if(tabToSelect){
+  const tabToSelect = localStorage.getItem("selectedMainTab");
+  if(tabToSelect){
+    document.addEventListener("navbar:ready", () => {
       updateMainTabUI(tabToSelect);
       localStorage.removeItem("selectedMainTab");
-    }
+    });
+  }
 
     console.log("Calling renderResults with data:", extrasPage_data);
     renderResults(extrasPage_data, "extraResults-body", "extraResults-count");
