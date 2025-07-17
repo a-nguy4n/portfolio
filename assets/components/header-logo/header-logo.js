@@ -1,5 +1,5 @@
 
-const logoContent = document.getElementById('header-logo');
+const logoContent = document.querySelector('.header-logo');
 
 const rotateElements = [ 
                         '<img src="/assets/images/headerLogo/logo-two.png" alt="Logo Header">',

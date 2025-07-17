@@ -48,7 +48,8 @@ async function loadComponent(selector, htmlPath, jsPath = null, initFunction = n
 
 loadComponent(
   '.header-logoContainer',
-  '/assets/components/header-logo/header-logo.html'
+  '/assets/components/header-logo/header-logo.html',
+  'assets/components/header-logo/header-logo.js'
 );
 
 loadComponent(
@@ -91,7 +92,8 @@ function loadNavbarParts(){
 
     loadComponent(
       '.header-logoContainer',
-      '/assets/components/header-logo/header-logo.html'
+      '/assets/components/header-logo/header-logo.html',
+      '/assets/components/header-logo/header-logo.js'
     ),
 
     loadComponent(
