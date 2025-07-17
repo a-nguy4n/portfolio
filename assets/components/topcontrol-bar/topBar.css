@@ -25,6 +25,10 @@ button{
     font-weight: 700;
 }
 
+.profile-toggle{
+    position: relative;
+}
+
 #profile-button{
     display: flex;
     flex-direction: row;

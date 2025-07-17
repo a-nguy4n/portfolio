@@ -61,15 +61,6 @@ const aboutMe_data = [
     }
 ];
 
-// window.addEventListener("DOMContentLoaded", () => {
-//     console.log("Calling renderResults with data:", aboutMe_data);
-//     renderResults(aboutMe_data, "aboutResults-body", "aboutResults-count");
-//     setTimeout(() => {
-//         subTabFilter(aboutMe_data, "aboutResults-body", "aboutResults-count");  
-//     },50);
-// });
-
-
 document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(() => {
     const tabToSelect = localStorage.getItem("selectedMainTab");

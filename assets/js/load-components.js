@@ -1,18 +1,5 @@
 import { navbarFunc } from '/assets/components/navbar/navbar.js';
 
-// Top Control Bar
-fetch('/assets/components/topcontrol-bar/topBar.html')
-  .then(res => res.text())
-  .then(html => {
-    const targets = document.querySelectorAll('.top-controlBar');
-    if(targets.length > 0){
-      targets.forEach(target => {
-        target.innerHTML = html;
-        document.dispatchEvent(new CustomEvent('topbar:loaded'));
-      });
-    }
-  });
-
 // Header Logo
 fetch('/assets/components/header-logo/header-logo.html')
   .then(res => res.text())
@@ -65,6 +52,7 @@ if(navbarTarget){
 function loadNavbarParts(){
   const fetches = [];
 
+  // topbar for nav
   fetches.push(
     fetch('/assets/components/topcontrol-bar/topBar.html')
       .then(res => res.text())
@@ -73,7 +61,18 @@ function loadNavbarParts(){
         if(targets.length > 0){
           targets.forEach(target => {
             target.innerHTML = html;
-            document.dispatchEvent(new CustomEvent('topbar:loaded'));
+          });
+
+          requestAnimationFrame(() => {
+            import('/assets/components/topcontrol-bar/topBar.js')
+            .then(module => {
+              if(module.topBarCreate){
+                module.topBarCreate();
+                requestAnimationFrame(() => {
+                  document.dispatchEvent(new CustomEvent('topbar:loaded'));
+                });
+              }
+            });
           });
         }
       })
@@ -94,16 +93,19 @@ function loadNavbarParts(){
 
   fetches.push(
     fetch('/assets/components/searchbar/searchBar.html')
-      .then(res => res.text())
-      .then(html => {
-        const targets = document.querySelectorAll('.searchBar-container');
-        if(targets.length > 0){
-          targets.forEach(target => {
+    .then(res => res.text())
+    .then(html => {
+      const targets = document.querySelectorAll('.searchBar-container');
+      if(targets.length > 0){
+        targets.forEach(target => {
           target.innerHTML = html;
-      });
-      document.dispatchEvent(new CustomEvent("searchbar:loaded"));
-    }
-      })
+        });
+
+        document.dispatchEvent(new CustomEvent("searchbar:loaded"));
+        import('/assets/components/searchbar/searchBar.js')
+          .then(module => module.searchBarInit && module.searchBarInit());
+      }
+    })
   )
   return Promise.all(fetches); 
 }

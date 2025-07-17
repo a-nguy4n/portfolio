@@ -22,12 +22,12 @@ a{
 }
 
 .searchBar-container{
-    width: 100%;
+    width: 50%;
     display: flex;
     justify-content: center;
-    margin: 0% 0% 0% 50%;
+    margin: 0%;
 }
-  
+
 .shortcut-options{
     display: grid;
     grid-template-columns: repeat(3, 10vw);
@@ -48,7 +48,6 @@ a{
     border-radius: 22%;
     font-weight: 500;
     --shadow-color: rgb(223, 223, 223);
-    /* box-shadow: 4px 4px 4px 1px var(--shadow-color); */
     box-shadow: var(--shadow-color) 0px 1px 3px 0px, 
                 var(--shadow-color) 0px 1px 2px 0px;
     cursor: pointer;
