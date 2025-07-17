@@ -26,14 +26,17 @@ export function searchBarInit(){
   }
 
   // routing each option to appropriate page based on attribute value 
+  // capturing the option's inner text to be used in renderResults-utils 
   const search_options = document.querySelectorAll(".search-option");
   if(search_options.length > 0){
     search_options.forEach((option) => {
       option.addEventListener("click", (e) => {
         e.preventDefault();
         const tab = option.getAttribute("data-target");
+        const clicked_optionText = option.querySelector('a span:first-child').innerHTML;
         if(tab){
           routeToMainTab(tab);
+          sessionStorage.setItem("searchQueryText", clicked_optionText);
         }
       });
     });

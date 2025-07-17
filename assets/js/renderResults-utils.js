@@ -1,16 +1,33 @@
 export function renderResults(dataArray, resultBodyId, resultCountId){
     const result_body = document.getElementById(resultBodyId);
     const number_results = document.getElementById(resultCountId);
+    const search_query = document.querySelector('.search-query');
 
     if(!dataArray || !resultBodyId){
         console.warn("Missing required data or container");
         return;
     }
 
+    // changing # of results per page 
     if(number_results){
         number_results.textContent = dataArray.length;
     }
 
+    // shows what query was founded: 'results found for: <query>'
+    const storedQueryText = sessionStorage.getItem("searchQueryText");
+    let truncateText;
+    if(storedQueryText){
+        if(storedQueryText.length > 30){
+            truncateText = storedQueryText.slice(0,28) + ". . .";
+            search_query.innerHTML = truncateText;
+        }
+        else{
+            search_query.innerHTML = storedQueryText;
+        }
+        sessionStorage.removeItem("searchQueryText");
+    }
+
+    // formats each result into layout 
     dataArray.forEach((result, index) => {
         const result_link = document.createElement('a');
         result_link.href = result.href || '#';

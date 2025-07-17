@@ -35,11 +35,14 @@ async function loadComponent(selector, htmlPath, jsPath = null, initFunction = n
   if(targets.length > 0){
     targets.forEach(target => target.innerHTML = html);
 
-    if(cssPath && !document.querySelector(`link[href="${cssPath}"]`)){
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = cssPath;
-      document.head.appendChild(link);
+    if(cssPath){
+      const fullHref = new URL(cssPath, location.origin).href;
+      if(!document.querySelector(`link[href="${fullHref}"]`)){
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = cssPath;
+        document.head.appendChild(link);
+      }
     }
 
     if(jsPath && initFunction){
@@ -101,7 +104,7 @@ function loadNavbarParts(){
       '/assets/components/topcontrol-bar/topBar.js',
       'topBarCreate',
       'topbar:loaded',
-      'assets/components/topcontrol-bar/topBar.css'
+      '/assets/components/topcontrol-bar/topBar.css'
     ),
 
     loadComponent(
