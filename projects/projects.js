@@ -142,20 +142,14 @@ const projects_data = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  requestAnimationFrame(() => {
-    const tabToSelect = localStorage.getItem("selectedMainTab");
-    if(tabToSelect){
-        document.addEventListener("navbar:ready", () => {
-        updateMainTabUI(tabToSelect);
-        localStorage.removeItem("selectedMainTab");
-        });
-    }
+  const dropdown_tab = "projects";
+  updateMainTabUI(dropdown_tab);
 
-   console.log("Calling renderResults with data:", projects_data);
-   renderResults(projects_data, "projectResults-body", "projectResults-count");
-
-    setTimeout(() => {
+  requestAnimationFrame(() => { 
+    renderResults(projects_data, "projectResults-body", "projectResults-count");
+    console.log("Calling renderResults with data:", projects_data);
+    setTimeout(() => { 
         subTabFilter(projects_data, "projectResults-body", "projectResults-count");
-    }, 10);
+    },10);
   });
 });

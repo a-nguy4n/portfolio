@@ -63,13 +63,12 @@ export function routeToMainTab(tab_name){
          localStorage.setItem('selectedMainTab', tab_name);
 
         // main page redirection
-        if(window.location.pathname === path){
-            updateMainTabUI(tab_name);
-        }
+        if(window.location.pathname !== path){
+            sessionStorage.setItem('navOverride', tab_name);
+            window.location.href = path;
+        } 
         else{
-            setTimeout(() => {
-                window.location.href = path;
-            }, 15);
+            updateMainTabUI(tab_name);
         }
     }
 }

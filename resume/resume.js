@@ -117,20 +117,14 @@ const resumePage_data = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  requestAnimationFrame(() => {
-    const tabToSelect = localStorage.getItem("selectedMainTab");
-    if(tabToSelect){
-        document.addEventListener("navbar:ready", () => {
-        updateMainTabUI(tabToSelect);
-        localStorage.removeItem("selectedMainTab");
-        });
-    }
+  const dropdown_tab = "resume";
+  updateMainTabUI(dropdown_tab);
 
-    console.log("Calling renderResults with data:", resumePage_data);
+  requestAnimationFrame(() => { 
     renderResults(resumePage_data, "resumeResults-body", "resumeResults-count");
-
-    setTimeout(() => {
+    console.log("Calling renderResults with data:", resumePage_data);
+    setTimeout(() => { 
         subTabFilter(resumePage_data, "resumeResults-body", "resumeResults-count");
-    }, 10);
+    },10);
   });
 });

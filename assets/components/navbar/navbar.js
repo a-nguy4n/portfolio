@@ -26,18 +26,12 @@ export function navbarFunc(){
   });
   
   // Navigation Main Tab Selection Logic
-  let tabToSelect = null;
-
-  if(sessionStorage.getItem('navOverride')){
-    tabToSelect = sessionStorage.getItem('navOverride');
-  } 
-  else if(localStorage.getItem('selectedMainTab')){
-    tabToSelect = localStorage.getItem('selectedMainTab');
-  }
-
-  if(tabToSelect){
-      routeToMainTab(tabToSelect); 
-  }
+ const tabToSelect = sessionStorage.getItem('navOverride');
+ 
+ if(tabToSelect){
+  routeToMainTab(tabToSelect);
+  sessionStorage.removeItem('navOverride');
+ }
   console.log("Navbar function initialized");
 };
 

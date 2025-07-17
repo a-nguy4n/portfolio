@@ -121,21 +121,15 @@ const contactPage_data = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  requestAnimationFrame(() => {
-    const tabToSelect = localStorage.getItem("selectedMainTab");
-    if(tabToSelect){
-    document.addEventListener("navbar:ready", () => {
-      updateMainTabUI(tabToSelect);
-      localStorage.removeItem("selectedMainTab");
-    });
-  }
+  const dropdown_tab = "contact";
+  updateMainTabUI(dropdown_tab);
 
-    console.log("Calling renderResults with data:", contactPage_data);
+  requestAnimationFrame(() => { 
     renderResults(contactPage_data, "contactResults-body", "contactResults-count");
-
-    setTimeout(() => {
-        subTabFilter(contactPage_data, "contactResults-body", "contactResults-count");
-    }, 10);
+    console.log("Calling renderResults with data:", contactPage_data);
+    setTimeout(() => { 
+      subTabFilter(contactPage_data, "contactResults-body", "contactResults-count");
+    },10);
   });
 });
 

@@ -26,21 +26,14 @@ const extrasPage_data = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  requestAnimationFrame(() => {
-  const tabToSelect = localStorage.getItem("selectedMainTab");
-  if(tabToSelect){
-    document.addEventListener("navbar:ready", () => {
-      updateMainTabUI(tabToSelect);
-      localStorage.removeItem("selectedMainTab");
-    });
-  }
+  const dropdown_tab = "extras";
+  updateMainTabUI(dropdown_tab);
 
-    console.log("Calling renderResults with data:", extrasPage_data);
+  requestAnimationFrame(() => { 
     renderResults(extrasPage_data, "extraResults-body", "extraResults-count");
-
-    setTimeout(() => {
-        subTabFilter(extrasPage_data, "extraResults-body", "extraResults-count");
-    }, 10);
+    console.log("Calling renderResults with data:", extrasPage_data);
+    setTimeout(() => { 
+      subTabFilter(extrasPage_data, "extraResults-body", "extraResults-count");
+    },10);
   });
 });
-
