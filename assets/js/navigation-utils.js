@@ -59,9 +59,7 @@ export function routeToMainTab(tab_name){
 
     if(tab_name && tabData){
         const {path} = tabData;
-
-         localStorage.setItem('selectedMainTab', tab_name);
-
+        
         // main page redirection
         if(window.location.pathname !== path){
             sessionStorage.setItem('navOverride', tab_name);

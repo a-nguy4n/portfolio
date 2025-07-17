@@ -5,12 +5,17 @@ export function navbarFunc(){
   const mainMenu = document.querySelector('.main-menu');
   const mainTabs = document.querySelectorAll('.main-menu .main-tab');
 
+  if(!toggleMainSection || !mainMenu || mainTabs.length === 0){
+    console.warn("Navbar: Missing navigation elements.");
+    return;
+  }
+
   toggleMainSection.addEventListener('click', () =>{
     mainMenu.classList.toggle('show');
   });
 
   document.addEventListener('click', (e) => {
-    if (!document.querySelector('.main-nav').contains(e.target)){
+    if (!document.querySelector('.main-nav')?.contains(e.target)){
       mainMenu.classList.remove('show');
     }
   });
@@ -24,15 +29,6 @@ export function navbarFunc(){
       mainMenu.classList.remove('show');
     });
   });
-  
-  // Navigation Main Tab Selection Logic
- const tabToSelect = sessionStorage.getItem('navOverride');
- 
- if(tabToSelect){
-  routeToMainTab(tabToSelect);
-  sessionStorage.removeItem('navOverride');
- }
-  console.log("Navbar function initialized");
 };
 
 

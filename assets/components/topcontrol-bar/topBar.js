@@ -102,14 +102,8 @@ export function topBarCreate(){
     span.addEventListener('click', () => {
       const selectedProfile = span.dataset.role;
       localStorage.setItem('selectedRole', selectedProfile);
-
-      // 👇 Capture and store current tab before reload
-      const currentTab = localStorage.getItem('selectedMainTab') || null;
-      if (currentTab) {
-        sessionStorage.setItem('navOverride', currentTab);
-      }
-
       applyRoleStyles(selectedProfile);
+      
       profileWindow.classList.remove('show');
       window.location.reload();
     });
