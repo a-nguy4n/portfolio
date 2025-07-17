@@ -10,6 +10,7 @@ export function navbarFunc(){
     return;
   }
 
+  // drop down logic 
   toggleMainSection.addEventListener('click', () =>{
     mainMenu.classList.toggle('show');
   });
@@ -20,6 +21,7 @@ export function navbarFunc(){
     }
   });
 
+  // routing each tab with associated attribute 
   mainTabs.forEach((tab) => {
     tab.addEventListener('click', () => {
       const tabLabel = tab.getAttribute('data-target');

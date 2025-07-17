@@ -51,13 +51,14 @@ export function topBarCreate(){
     }
   };
   
+  // applying profile style to its role 
   function applyRoleStyles(role){
     const { borderColor, img, size, bgColor, label } = roleStyles[role];
-    if (profileButton){
+    if(profileButton){
       profileButton.style.borderColor = borderColor;
     }
 
-    if (profileImg){
+    if(profileImg){
       profileImg.src = img;
       profileImg.style.width = size;
     }

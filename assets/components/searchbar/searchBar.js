@@ -1,10 +1,14 @@
 import { routeToMainTab } from "/assets/js/navigation-utils.js";
+import { searchSuggestions } from "/assets/js/search-suggestions.js"
 
 document.addEventListener("searchbar:loaded", () => {
     const search_bar = document.querySelector(".search-bar");
     const toggle_OptionsBody = document.querySelector(".close-options");
     console.log("searchbar:loaded event received");
+
+    searchSuggestions();
   
+    // search bar dropdown suggestions on click 
     if(search_bar && toggle_OptionsBody){
         search_bar.addEventListener("click", (e) => {
         toggle_OptionsBody.style.display = 'inline';
@@ -21,6 +25,7 @@ document.addEventListener("searchbar:loaded", () => {
       });
     }
 
+    // routing each option to appropriate page based on attribute value 
     const search_options = document.querySelectorAll(".search-option");
     if(search_options.length > 0){
       search_options.forEach((option) => {
@@ -34,4 +39,3 @@ document.addEventListener("searchbar:loaded", () => {
       });
     }
 });
-  
