@@ -35,7 +35,6 @@ export function renderResults(dataArray, resultBodyId, resultCountId){
         const result_link = document.createElement('a');
         result_link.href = result.href || '#';
         result_link.className = 'result-layout';
-
         const result_icon = document.createElement('div');
         result_icon.className = 'result-icon';
         result_icon.style.backgroundColor = result.iconBgColor;

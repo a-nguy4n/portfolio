@@ -80,7 +80,7 @@ const resumePage_data = [
     {
         href: "/projects/index.html",
         iconType: "image",
-        iconValue: "/home/images/home-projects.png",
+        iconValue: "/assets/images/default/home-projects.png",
         iconBgColor: "transparent",
         iconImgSize: "",
         iconImgMargin: "",

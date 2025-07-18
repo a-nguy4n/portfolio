@@ -77,14 +77,14 @@ const contactPage_data = [
     },
 
     {
-        href: "portfolio/contactme/feedback",
+        href: "/contact/subpages/feedback/feedback.html",
         iconType: "emoji",
         iconValue: "💬",
         iconBgColor: "transparent",
         iconImgSize: "",
         iconImgMargin: "",
         title: "Feedback",
-        path: "portfolio/contactme/feedback",
+        path: "/contact/subpages/feedback/feedback.html",
         subtitle: "Leave Feedback – Help improve this site",
         description: `Jul 2025 · Let me know how the design, layout, or content worked for you. 
                       Every message helps shape what’s next.`,
@@ -96,14 +96,14 @@ const contactPage_data = [
     },
 
     {
-        href: "portfolio/contactme/inquiry",
+        href: "/contact/subpages/inquiry/inquiry.html",
         iconType: "emoji",
         iconValue: "📮",
         iconBgColor: "#EEF5EF",
         iconImgSize: "",
         iconImgMargin: "",
         title: "Direct Inquiry",
-        path: "portfolio/contactme/inquiry",
+        path: "/contact/subpages/inquiry/inquiry.html",
         subtitle: "Inquiries – Reach Out for Work or Collaboration",
         description: `Jul 2025 · I’m open to learning opportunities, collabs, and conversations.`,
         tags: "",
@@ -125,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
       subTabFilter(contactPage_data, "contactResults-body", "contactResults-count");
     },10);
   });
+
 });
 
 
