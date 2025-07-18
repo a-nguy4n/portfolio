@@ -59,14 +59,14 @@ const contactPage_data = [
     },
 
     {
-        href: "portfolio/contactme/polls",
+        href: "/contact/subpages/polls/polls.html",
         iconType: "emoji",
         iconValue: "📊",
         iconBgColor: "#C3F0C9",
         iconImgSize: "",
         iconImgMargin: "",
         title: "Visitor Polls",
-        path: "portfolio/contactme/polls",
+        path: "/contact/subpages/polls/polls.html",
         subtitle: "Poll: Help shape what comes next . . .",
         description: `Jul 2025 · Quick polls on your experience, interests, and what you'd like to see next.`,
         tags: "📌 Click to vote ↓ • Suggest features • Guide future updates",

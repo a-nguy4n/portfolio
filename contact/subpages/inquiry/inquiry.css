@@ -17,7 +17,7 @@ form{
     margin: 5%;
     padding: 0.25% 2.5% 2% 1%;
     background-color: rgba(255, 207, 207, 0.935);
-    color: rgb(6, 32, 40);
+    color: rgb(46, 2, 2);
     text-align: left;
     font-size: 1.5vw;
 }
@@ -61,14 +61,15 @@ h1{
 button{
     font-family: "Be Vietnam Pro Regular";
     width: 20%;
+    font-size: 1vw;
     margin: 1% 1% 1% 80%;
     padding: 1.5% 0.5%;
     background-color: rgb(255, 152, 152);
     border: none;
     border-radius: 15px;
-    color: rgb(6, 32, 40);
+    color: rgb(46, 2, 2);
     cursor: pointer;
-    font-size: 1vw;
+
 }
 
 button:hover{
