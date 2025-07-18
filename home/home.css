@@ -150,3 +150,139 @@ a{
 }
 
 
+/** Browser Tiles Styling **/
+.browserTile-style #tile-about{ 
+    background: #FCF9D2; 
+    --shadow-color: #ECE9C3;
+}
+
+.browserTile-style #tile-resume{ 
+    background: #FFE8F9;
+     --shadow-color: #f3cbe9;
+}
+
+.browserTile-style #tile-projects{ 
+    background: #E8F9FF;
+    --shadow-color: #B9DDEA;
+}
+
+.browserTile-style #tile-contact{ 
+    background: #E7D3F7;
+    --shadow-color: #D198FF;
+}
+
+.browserTile-style #tile-extras{ 
+    background: #C4EDE4;
+    --shadow-color: #59AF9D;
+}
+
+.browserTile-style #tile-resume img{
+    margin-top: 3%;
+    width: 4vw;
+}
+
+.browserTile-style #tile-projects img{
+    margin-top: 5%;
+    width: 4.5vw;
+}
+
+.browserTile-style #tile-contact img{
+    width: 3.5vw;
+}
+
+.browserTile-style #tile-extras img{
+    margin-top: 10%;
+    padding-bottom: 5%;
+}
+
+.browserTile-style #tile-about:hover{ --shadow-color: #ede798; }
+.browserTile-style #tile-projects:hover{ --shadow-color: #a1d4e6;}
+.browserTile-style #tile-projects:hover{ --shadow-color: #a1d4e6;}
+.browserTile-style #tile-contact:hover{--shadow-color: #D198FF;}
+.browserTile-style #tile-extras:hover{ --shadow-color: #6bc9b5;}
+
+
+/** Recruiter Tiles Styling **/
+.recruiterTile-style #tile-about,
+.recruiterTile-style #tile-projects,
+.recruiterTile-style #tile-extras{ 
+    background: #E8F7FF; 
+    --shadow-color: #b2d5ea;
+}
+
+.recruiterTile-style #tile-resume,
+.recruiterTile-style #tile-contact{ 
+    background: #F5FCFF;
+    --shadow-color: #b2d5ea;
+}
+
+.recruiterTile-style #tile-projects img{
+    margin-top: 5%;
+    padding: 10% 5% 10% 5%;
+}
+
+.recruiterTile-style #tile-extras img{
+    width: 2.5vw;
+    padding: 6%;
+    margin-bottom: 3%;
+}
+
+.recruiterTile-style #tile-about:hover,
+.recruiterTile-style #tile-resume:hover,
+.recruiterTile-style #tile-projects:hover,
+.recruiterTile-style #tile-contact:hover,
+.recruiterTile-style #tile-extras:hover{ 
+    --shadow-color: #B1D6EA; 
+}
+
+
+/** Developer Tiles Styling **/
+.developerTile-style #tile-about,
+.developerTile-style #tile-about:hover{ 
+    background: #E7FFFD; 
+    --shadow-color: #BEDCDA;
+}
+
+.developerTile-style #tile-resume,
+.developerTile-style #tile-resume:hover{ 
+    background: #E7F8D7;
+    --shadow-color: #C2D6B0;}
+
+
+.developerTile-style #tile-projects,
+.developerTile-style #tile-projects:hover{ 
+    background: #E3EAFC;
+    --shadow-color: #B4C0E0;
+}
+
+.developerTile-style #tile-contact,
+.developerTile-style #tile-contact:hover{ 
+    background: #FFCCCC;
+    --shadow-color: #D4A7A7;}
+
+
+.developerTile-style #tile-extras,
+.developerTile-style #tile-extras:hover{ 
+    background: #F8DBF9;
+    --shadow-color: #D3B6D4;
+}
+
+.developerTile-style #tile-about img{
+    width: 4.5vw;
+    padding: 5% 5% 10% 5%;
+}
+
+.developerTile-style #tile-projects img{
+    padding: 10% 0% 0% 0%;
+}
+
+.developerTile-style #tile-extras img{
+      padding: 10% 0% 0% 0%;
+}
+
+
+
+
+
+
+

@@ -31,10 +31,23 @@
     margin: 0% 0% 0% 3%;
 }
 
-.search-bar span{
+.search-bar input{
     font-size: 1.15vw;
     font-family: "Be Vietnam Pro Light";
     padding: 2.5% 2%;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+}
+
+.search-bar input:focus{
+  outline: none;
+  box-shadow: none;
+}
+
+.active-search{
+    color: black;
+    opacity: 1;
 }
 
 .search-optionsBody{

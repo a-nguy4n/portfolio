@@ -6,14 +6,13 @@ export function searchBarInit(){
   const toggle_OptionsBody = document.querySelector(".close-options");
   console.log("searchbar:loaded event received");
 
-  // changing searchbar's inner text to match query
+  // changing searchbar's text to match query
   const storedQueryText = sessionStorage.getItem("searchQueryText");
-  const searchBar_text = document.querySelector(".search-bar span");
+  const searchBar_input = document.querySelector(".search-bar input");
   console.log("saved query is:", storedQueryText);
   if(storedQueryText){
-    console.log("saved query is:", storedQueryText);
-    searchBar_text.innerHTML = storedQueryText;
-    searchBar_text.style.color = "black";
+    searchBar_input.value = storedQueryText;
+    searchBar_input.classList.add("active-search");
   }
 
   searchSuggestions();
@@ -36,7 +35,7 @@ export function searchBarInit(){
   }
 
   // routing each option to appropriate page based on attribute value 
-  // capturing the option's inner text to be used in renderResults-utils 
+  // capturing the search option's inner text to be used in renderResults-utils 
   const search_options = document.querySelectorAll(".search-option");
   if(search_options.length > 0){
     search_options.forEach((option) => {

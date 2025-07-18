@@ -6,7 +6,7 @@ const resumePage_data = [
     {
         href: "",
         iconType: "image",
-        iconValue: "/home/images/home-resume.png",
+        iconValue: "/assets/images/default/home-resume.png",
         iconBgColor: "transparent",
         iconImgSize: "90%",
         iconImgMargin: "",
@@ -78,14 +78,14 @@ const resumePage_data = [
     },
 
     {
-        href: "",
+        href: "/projects/index.html",
         iconType: "image",
         iconValue: "/home/images/home-projects.png",
         iconBgColor: "transparent",
         iconImgSize: "",
         iconImgMargin: "",
         title: "Projects",
-        path: "www.path1/pathEx2/path3.com",
+        path: "/projects/index.html",
         subtitle: "Code, Design, and Everything in Between",
         description: `A collection of projects that demonstrate my creativity and technical skill sets. 
                     They range from independent builds to collaborative work, each showing a thoughtful

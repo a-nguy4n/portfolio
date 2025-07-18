@@ -31,6 +31,10 @@ export function subTabFilter(currPageArray ,resultBodyId, resultCountId){
             if(selectedTab === 'All'){
                 renderResults(currPageArray, resultBodyId, resultCountId);
             }
+
+            if(selectedTab === 'Projects'){
+                window.location.href = "/projects/index.html";
+            }
             else{
                 const filter_data = currPageArray.filter(item => item.subTabs.includes(selectedTab));
                 renderResults(filter_data, resultBodyId, resultCountId);

@@ -20,7 +20,7 @@ export function topBarCreate(){
   const roleStyles = {
     default:{
       borderColor: '#A5DED2',
-      img: '/home/images/home-profile.png',
+      img: '/assets/images/default/home-profile.png',
       size: '1.5vw',
       bgColor: '#A5DED2',
       label: 'Default',
