@@ -87,18 +87,20 @@ export function topBarCreate(){
   }
   applyRoleStyles(role);
 
-  // drop down to switch profiles
-  profileButton.addEventListener('click', (e) =>{
+  // toggle dropdown to switch profiles
+  profileButton.addEventListener('click', (e) =>{ 
     e.stopPropagation(); 
     profileWindow.classList.toggle('show');
   });
   
+  // close dropdown when click outside 
   document.addEventListener('click', (e) => {
     if (!profileWindow.contains(e.target) && !profileButton.contains(e.target)) {
       profileWindow.classList.remove('show');
     }
   });
 
+  // handle profile switching 
   switches.forEach(span => {
     span.addEventListener('click', () => {
       const selectedProfile = span.dataset.role;

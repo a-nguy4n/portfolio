@@ -1,3 +1,4 @@
+
 const profileKey = {
     browser: {
         about: "about me, not just the pixels",
@@ -24,6 +25,7 @@ const profileKey = {
     }
 }
 
+// updates search suggestions for each role 
 export function searchSuggestions(){
     const role = localStorage.getItem('selectedRole') || 'default';
     const search_options = document.querySelectorAll(".search-option");

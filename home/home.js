@@ -21,20 +21,7 @@ fetch('/assets/components/topcontrol-bar/topBar.html')
     }
 });
 
-// Nav Main Tabs for Tiles 
-// document.addEventListener('DOMContentLoaded', () => {
-//     const shortcutTiles = document.querySelectorAll('.shortcut-tile');
-  
-//     shortcutTiles.forEach(tile => {
-//       tile.addEventListener('click', (e) => {
-//         const navTarget = tile.getAttribute('data-target');
-//         if(navTarget){
-//             routeToMainTab(navTarget);
-//         }
-//       });
-//     });
-// });
-
+// Tile Styling per Role or Profile + Tile Nav
 const tileMap = {
   browser:{
     about: '/about-me/icons/about-overview.png',

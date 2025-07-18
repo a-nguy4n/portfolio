@@ -1,5 +1,6 @@
 import { renderResults } from "/assets/js/renderResults-utils.js";
 
+// helper function for filtering out data based on tags for each page 
 export function subTabFilter(currPageArray ,resultBodyId, resultCountId){
     const result_body = document.getElementById(resultBodyId);
     const number_results = document.getElementById(resultCountId);

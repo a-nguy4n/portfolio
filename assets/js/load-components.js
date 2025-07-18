@@ -5,9 +5,9 @@ function waitForSelector(selector, callback, maxRetries = 10, delay = 50) {
   const attempt = () => {
     const element = document.querySelector(selector);
     if(element){
-      callback();
+      callback(); // running callback when element is founded 
     } 
-    else if (maxRetries > 0){
+    else if(maxRetries > 0){
       setTimeout(() => waitForSelector(selector, callback, maxRetries - 1, delay), delay);
     } 
     else{
@@ -25,6 +25,7 @@ function waitForSelector(selector, callback, maxRetries = 10, delay = 50) {
  * @param {string|null} customEvent - Optional custom event to dispatch after load
  * @param {string|null} cssPath - Optional path to a CSS file to inject
  */
+// inserts component into given container 
 async function loadComponent(selector, htmlPath, jsPath = null, initFunction = null, 
                              customEvent = null, cssPath = null){
 
@@ -35,6 +36,7 @@ async function loadComponent(selector, htmlPath, jsPath = null, initFunction = n
   if(targets.length > 0){
     targets.forEach(target => target.innerHTML = html);
 
+    // adding css if exists 
     if(cssPath){
       const fullHref = new URL(cssPath, location.origin).href;
       if(!document.querySelector(`link[href="${fullHref}"]`)){
@@ -45,6 +47,7 @@ async function loadComponent(selector, htmlPath, jsPath = null, initFunction = n
       }
     }
 
+    // loading module + function call if exists 
     if(jsPath && initFunction){
       const module = await import(jsPath);
       if (module[initFunction]){
@@ -76,8 +79,8 @@ loadComponent(
   '/assets/components/searchbar/searchBar.css'
 );
 
+// for pages that have nav bar 
 const navbarTarget = document.querySelector('.navBar-container');
-
 if (navbarTarget){
   fetch('/assets/components/navbar/navbar.html')
     .then(res => res.text())
@@ -96,6 +99,7 @@ if (navbarTarget){
   });
 }
 
+//helper to load navbar and its dependent components
 function loadNavbarParts(){
   return Promise.all([
     loadComponent(
