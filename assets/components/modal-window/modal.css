@@ -1,0 +1,225 @@
+@font-face{
+    font-family: "Be Vietnam Pro Regular";
+    src: url("/assets/fonts/BeVietnamPro-Regular.ttf");
+}
+
+@font-face{
+    font-family: "Be Vietnam Pro Medium";
+    src: url("/assets/fonts/BeVietnamPro-Medium.ttf");
+}
+
+@font-face{
+    font-family: "Work Sans";
+    src: url("/assets/fonts/WorkSans-VariableFont_wght.ttf");
+}
+  
+/***  ------ Global Modal Layout ------  ***/
+#openModalBtn{
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modal-window{
+  display: none;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; 
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: "Be Vietnam Pro Regular";
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;        
+  justify-content: center;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  padding: 3% 5%;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  font-size: 1.25vw;
+  margin: 10vw;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-close{
+  color: #000000;
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  font-size: 2.5vw;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content h1{
+   font-size: 2vw;
+}
+
+.modal-close:hover,
+.modal-close:focus{
+  color: #ac1616;
+}
+
+
+/* ------ Contact Page Modal Styling ------*/
+.polls-font{
+    color: rgb(142, 206, 142);
+}
+
+/*--- Inquiry ---*/
+#inquiry-form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;          
+  justify-content: center;
+  line-height: 5vw;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1%;
+  background-color: rgb(248, 185, 185);
+  color: rgb(46, 2, 2);
+  text-align: left;
+  font-size: 1.5vw;
+}
+
+#inquiry-form h1{
+  width: 100%;
+  margin: 1%;
+  padding: 3%;
+  text-align: left;
+  font-size: 2.5vw;
+}
+
+.inquiry-email{
+  font-weight: bold;
+  margin-left: 5%; 
+}
+
+.message-row{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  margin: 1% 1% 2% 5%;
+  width: 90%;
+}
+
+.message-row label{
+  margin-bottom: 0.5%;
+  font-weight: bold;
+}
+
+.message-row textarea{
+  width: 100%;
+  padding: 0.5%;
+  font-family: "Be Vietnam Pro Regular";
+  border: 2px solid #999;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+#inquiry-form button{
+  font-family: "Be Vietnam Pro Regular";
+  width: 20%;
+  font-size: 1vw;
+  margin: 1% 1% 1% 80%;
+  padding: 1.5% 0.5%;
+  background-color: rgb(255, 152, 152);
+  border: none;
+  border-radius: 15px;
+  color: rgb(46, 2, 2);
+  cursor: pointer;
+
+}
+
+#inquiry-form button:hover{
+   background-color: rgb(243, 120, 120);
+}
+
+/*--- Feedback ---*/
+#feedback-form{
+    line-height: 2vw;
+    width: 50%;
+    margin: 5%;
+    padding: 2% 2.5% 2% 1%;
+    background-color: rgb(174, 226, 241);
+    color: rgb(6, 32, 40);
+}
+
+#feedback-form h1{
+    width: 100%;
+    margin: 1%;
+    padding: 3%;
+    text-align: center;
+    font-size: 2.5vw;
+}
+
+.feedback-modal{
+  padding: 1%;
+}
+
+#feedback-form textarea,
+#feedback-form input::placeholder{
+    font-family: "Be Vietnam Pro Regular";
+    width: 100%;
+}
+
+#feedback-form textarea,
+#feedback-form select{
+    border-color: rgb(20, 151, 191);
+}
+
+.feedback-rowOne{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.feedback-rowOne,
+.feedback-rowTwo,
+.feedback-rowThree,
+.feedback-rowFour{
+    width: 100%;
+    margin: 1%;
+    padding: 1%;
+    font-size: 1.25vw;
+}
+
+.feedback-rowTwo,
+.feedback-rowThree{
+    cursor: pointer;
+}
+
+.feedback-rowFour{
+    display: flex;
+    flex-direction: column;
+}
+
+#feedback-form button{
+    font-family: "Be Vietnam Pro Regular";
+    width: 20%;
+    margin: 1% 1% 1% 79%;
+    padding: 2%;
+    background-color: rgb(106, 202, 229);
+    border: none;
+    border-radius: 15px;
+    color: rgb(6, 32, 40);
+    font-size: 0.9vw;
+    cursor: pointer;
+}
+
+#feedback-form button:hover{
+    background-color: rgb(79, 178, 206)
+}

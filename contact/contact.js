@@ -1,4 +1,4 @@
-import { renderResults } from "/assets/js/renderResults-utils.js";
+import { renderResults, triggerModal } from "/assets/js/renderResults-utils.js";
 import { subTabFilter } from "/assets/js/subtabFilter-utils.js";
 import { waitForUIElements, updateMainTabUI } from "/assets/js/navigation-utils.js";
 
@@ -59,58 +59,62 @@ const contactPage_data = [
     },
 
     {
-        href: "/contact/subpages/polls/polls.html",
+        href: "",
         iconType: "emoji",
         iconValue: "📊",
         iconBgColor: "#C3F0C9",
         iconImgSize: "",
         iconImgMargin: "",
         title: "Visitor Polls",
-        path: "/contact/subpages/polls/polls.html",
+        path: "/contact/subpages/polls/modal-polls.html",
         subtitle: "Poll: Help shape what comes next . . .",
         description: `Jul 2025 · Quick polls on your experience, interests, and what you'd like to see next.`,
-        tags: "📌 Click to vote ↓ • Suggest features • Guide future updates",
+        tags: "📌 Click to vote • Suggest features • Guide future updates",
         thumbnailImage: "",
         thumbnailWidth: "",
         thumbnailMargin: "",
-        subTabs: ['Polls']
+        subTabs: ['Polls'],
+        modalWindow: true,
     },
 
     {
-        href: "/contact/subpages/feedback/feedback.html",
+        // href: "/contact/subpages/feedback/feedback.html",
+        href: '',
         iconType: "emoji",
         iconValue: "💬",
         iconBgColor: "transparent",
         iconImgSize: "",
         iconImgMargin: "",
         title: "Feedback",
-        path: "/contact/subpages/feedback/feedback.html",
+        path: "/contact/subpages/feedback/modal-feedback.html",
         subtitle: "Leave Feedback – Help improve this site",
         description: `Jul 2025 · Let me know how the design, layout, or content worked for you. 
                       Every message helps shape what’s next.`,
-        tags: " 📌 Click to rate the design ↓  •  Report bugs ",
+        tags: " 📌 Click to rate the design  •  Report bugs ",
         thumbnailImage: "",
         thumbnailWidth: "",
         thumbnailMargin: "",
-        subTabs: ['Feedback']
+        subTabs: ['Feedback'],
+        modalWindow: true,
     },
 
     {
-        href: "/contact/subpages/inquiry/inquiry.html",
+        href: "",
         iconType: "emoji",
         iconValue: "📮",
         iconBgColor: "#EEF5EF",
         iconImgSize: "",
         iconImgMargin: "",
         title: "Direct Inquiry",
-        path: "/contact/subpages/inquiry/inquiry.html",
+        path: "/contact/subpages/inquiry/modal-inquiry.html",
         subtitle: "Inquiries – Reach Out for Work or Collaboration",
         description: `Jul 2025 · I’m open to learning opportunities, collabs, and conversations.`,
         tags: "",
         thumbnailImage: "",
         thumbnailWidth: "",
         thumbnailMargin: "",
-        subTabs: ['Inquiries']
+        subTabs: ['Inquiries'],
+        modalWindow: true,
     }
 ];
 
@@ -121,6 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(() => { 
     renderResults(contactPage_data, "contactResults-body", "contactResults-count");
     console.log("Calling renderResults with data:", contactPage_data);
+
+    triggerModal(contactPage_data, "contactResults-body");
+
     setTimeout(() => { 
       subTabFilter(contactPage_data, "contactResults-body", "contactResults-count");
     },10);

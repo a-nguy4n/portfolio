@@ -1,3 +1,5 @@
+import { openModalContent } from "/assets/components/modal-window/modal.js";
+
 export function renderResults(dataArray, resultBodyId, resultCountId){
     const result_body = document.getElementById(resultBodyId);
     const number_results = document.getElementById(resultCountId);
@@ -82,3 +84,37 @@ export function renderResults(dataArray, resultBodyId, resultCountId){
         result_body.appendChild(result_link);
     });
 }
+
+// Helper: Check for results that have marker for modal windows 
+export function triggerModal(dataArray, resultBodyId){
+    const result_body = document.getElementById(resultBodyId);
+    if(!result_body) return;
+
+    const resultItems = result_body.querySelectorAll('.result-layout');
+    resultItems.forEach((element, index) => {
+        const resultData = dataArray[index];
+
+        if(resultData.modalWindow === true){
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // remove any previously injected modal
+                const existingModal = document.getElementById("mainModal");
+                if (existingModal) existingModal.remove();
+
+                // create modal container
+                const modalDiv = document.createElement("div");
+                modalDiv.id = "mainModal";
+                modalDiv.className = "modal-window";
+
+                // inject it after the clicked result
+                element.insertAdjacentElement("afterend", modalDiv);
+
+                // load modal content (in modal.js)
+                openModalContent(resultData);
+                modalDiv.scrollIntoView({ behavior: "smooth", block: "center" });
+            });
+        }
+    });
+}
+
