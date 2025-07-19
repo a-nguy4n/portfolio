@@ -45,14 +45,14 @@ const projects_data = [
     },
 
     {
-        href: "",
+        href: "https://a-nguy4n.github.io/puppyPongGame/",
         iconType: "emoji",
         iconValue: "🐾",
         iconBgColor: "#FFB429",
         iconImgSize: "",
         iconImgMargin: "",
         title: "Puppy Pong",
-        path: "/placeholder/Pathway",
+        path: "https://a-nguy4n.github.io/puppyPongGame/",
         subtitle: "Click to Play",
         description: `Puppy Pong is a browser-based game that reimagines the classic Pong experience. 
                     Built with JavaScript and DOM manipulation, it focuses on interactivity, responsive 
@@ -61,18 +61,18 @@ const projects_data = [
         thumbnailImage: "/projects/thumbnails/puppyPong-thumbnail.png",
         thumbnailWidth: "",
         thumbnailMargin: "3% 0% 0% 2%",
-        subTabs: ['Games','In Progress']
+        subTabs: ['Games']
     },
 
     {
-        href: "",
+        href: "https://youtu.be/m3Xlao0JmpI",
         iconType: "image",
         iconValue: "/projects/icons/socal-icon.png",
         iconBgColor: "transparent",
         iconImgSize: "",
         iconImgMargin: "",
         title: "SoCal Social",
-        path: "/placeholder/Pathway",
+        path: "https://youtu.be/m3Xlao0JmpI",
         subtitle: "Local event discovery platform for students",
         description: `A community-based app concept for discovering and sharing campus events. 
                     Includes login, event creation, filters by interest, and dynamic content rendering.`,
