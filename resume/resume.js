@@ -1,4 +1,4 @@
-import { renderResults } from "/assets/js/renderResults-utils.js";
+import { renderResults, triggerModal} from "/assets/js/renderResults-utils.js";
 import { subTabFilter } from "/assets/js/subtabFilter-utils.js";
 import { waitForUIElements, updateMainTabUI } from "/assets/js/navigation-utils.js";
 
@@ -48,14 +48,15 @@ const resumePage_data = [
         iconImgSize: "1.4vw",
         iconImgMargin: "",
         title: "Academic Background",
-        path: "www.path1/pathEx2/path3.com",
+        path: "/resume/subpages/education/modal-education.html",
         subtitle: "Degree & Relevant Coursework",
         description: `An overview of my degree, specialization, and relevant coursework.`,
-        tags: "🔽 Expand to view details ",
+        tags: "Click to view details ",
         thumbnailImage: "",
         thumbnailWidth: "",
         thumbnailMargin: "",
-        subTabs: ['Education']
+        subTabs: ['Education'],
+        modalWindow: true,
     },
 
     {
@@ -70,11 +71,12 @@ const resumePage_data = [
         subtitle: "Putting Skills to Work",
         description: `Roles where I combined technical expertise, clear communication, and 
                       leadership to contribute across various responsibilities.`,
-        tags: "🔽 Expand to view details",
+        tags: "Click to view details ",
         thumbnailImage: "",
         thumbnailWidth: "",
         thumbnailMargin: "",
-        subTabs: ['Experience']
+        subTabs: ['Experience'],
+        modalWindow: true,
     },
 
     {
@@ -105,14 +107,15 @@ const resumePage_data = [
         iconImgSize: "1.5vw",
         iconImgMargin: "",
         title: "Skill Set",
-        path: "www.path1/pathEx2/path3.com",
+        path: "/resume/subpages/skills/modal-skills.html",
         subtitle: "Tools, Technologies, and Strengths",
         description: `An overview of the tools, skills, and strengths I bring to my work. `,
-        tags: "🔽 Expand to view details",
+        tags: "Click to view details ",
         thumbnailImage: "",
         thumbnailWidth: "",
         thumbnailMargin: "",
-        subTabs: ['Skills']
+        subTabs: ['Skills'],
+        modalWindow: true,
     }
 ];
 
@@ -123,6 +126,9 @@ document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(() => { 
     renderResults(resumePage_data, "resumeResults-body", "resumeResults-count");
     console.log("Calling renderResults with data:", resumePage_data);
+
+    triggerModal(resumePage_data, "resumeResults-body");
+
     setTimeout(() => { 
         subTabFilter(resumePage_data, "resumeResults-body", "resumeResults-count");
     },10);

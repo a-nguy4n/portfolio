@@ -78,7 +78,6 @@ const contactPage_data = [
     },
 
     {
-        // href: "/contact/subpages/feedback/feedback.html",
         href: '',
         iconType: "emoji",
         iconValue: "💬",

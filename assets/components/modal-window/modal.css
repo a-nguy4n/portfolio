@@ -69,7 +69,8 @@
 
 .modal-close:hover,
 .modal-close:focus{
-  color: #ac1616;
+  color: #d60f0f;
+  font-size: 2.75vw;
 }
 
 
@@ -222,4 +223,107 @@
 
 #feedback-form button:hover{
     background-color: rgb(79, 178, 206)
+}
+
+/* ------ Resume Page Modal Styling ------*/
+
+/*--- Education ---*/
+.res-education{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 1%;
+    font-size: 1.25vw;
+}
+
+.res-education h1{
+   font-size: 1.3vw;
+    margin: 1%  0.5%;
+}
+
+.res-education span{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    margin: 1%;
+}
+
+.res-education span > p{
+  margin: 1% 1% 1% 0%;
+}
+
+.education-text{
+    margin: 1% 1% 2% 1%;
+}
+
+.course-tags{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3%;
+    font-size: 1vw;
+    margin: 0.5%;
+}
+
+.course-tags span{
+    padding: 1% 1.5%;
+    background: rgb(204, 226, 243);
+    border-radius: 15px;
+}
+
+
+/*--- Skills ---*/
+.res-skills{
+    display: flex;
+    flex-direction: column;
+    margin: 1% 25% 1% 1%;
+}
+
+.res-skills h1{
+    font-size: 1.3vw;
+    margin: 1%;
+}
+
+.skills-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 5%;
+}
+
+.res-skills h2{
+    font-size: 1.15vw;
+    white-space: nowrap;
+}
+
+.skills-colOne,
+.skills-colTwo,
+.skills-colThree{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    margin: 3%;
+    flex-wrap: nowrap;
+}
+
+.skills-tags{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content .skills-tags span{
+    margin: 2%;
+    align-self: center;
+    font-size: 0.9vw;
+    padding: 2% 5%;
+    background: rgb(203, 232, 253);
+    border-radius: 15px;
+}
+
+.modal-content .skills-colTwo span{
+    background: rgb(216, 245, 211);
+}
+
+.modal-content .skills-colThree span{
+    background: rgb(255, 249, 192);
 }
