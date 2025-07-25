@@ -25,14 +25,14 @@ const projects_data = [
     },
 
     {
-        href: "",
+        href: "https://a-nguy4n.github.io/projects-docs/aura-fit/weather-wardrobe.html",
         iconType: "emoji",
         iconValue: "☔️",
         iconBgColor: "#F0D4FF",
         iconImgSize: "1.5vw",
         iconImgMargin: "",
         title: "Weather Wardrobe",
-        path: "/placeholder/Pathway",
+        path: "https://a-nguy4n.github.io/projects-docs/aura-fit/weather-wardrobe.html",
         subtitle: "Smart Weather Wardrobe Assistant",
         description: `Weather Wardrobe pairs real-time weather data with personalized outfit recommendations. 
                     The app uses a weather API to generate suggestions based on location, temperature, and 
@@ -40,7 +40,7 @@ const projects_data = [
         tags: "🏷️ Teamwork  ·  IoT ·  Full-Stack  · Weather API ",
         thumbnailImage: "/projects/thumbnails/weatherWardrobe-thumbnail.png",
         thumbnailWidth: "10vw",
-        thumbnailMargin: "3% 0% 0% 3%",
+        thumbnailMargin: "5% 0% 0% 3%",
         subTabs: ['Web Apps']
     },
 
@@ -65,21 +65,21 @@ const projects_data = [
     },
 
     {
-        href: "https://youtu.be/m3Xlao0JmpI",
+        href: "https://a-nguy4n.github.io/projects-docs/socal-social/socal-social.html",
         iconType: "image",
         iconValue: "/projects/icons/socal-icon.png",
         iconBgColor: "transparent",
         iconImgSize: "",
         iconImgMargin: "",
         title: "SoCal Social",
-        path: "https://youtu.be/m3Xlao0JmpI",
+        path: "https://a-nguy4n.github.io/projects-docs/socal-social/socal-social.html",
         subtitle: "Local event discovery platform for students",
         description: `A community-based app concept for discovering and sharing campus events. 
                     Includes login, event creation, filters by interest, and dynamic content rendering.`,
         tags: "🏷️  Full-Stack · React · Teamwork",
         thumbnailImage: "/projects/thumbnails/socal-thumbnail.png",
         thumbnailWidth: "13vw",
-        thumbnailMargin: "3% 0% 0% 1%",
+        thumbnailMargin: "3% 0% 0% 5%",
         subTabs: ['Web Apps']
     },
 

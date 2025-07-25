@@ -3,27 +3,27 @@ import { subTabFilter } from "/assets/js/subtabFilter-utils.js";
 import { waitForUIElements, updateMainTabUI } from "/assets/js/navigation-utils.js";
 
 const resumePage_data = [
-    {
-        href: "",
-        iconType: "image",
-        iconValue: "/assets/images/default/home-resume.png",
-        iconBgColor: "transparent",
-        iconImgSize: "90%",
-        iconImgMargin: "",
-        title: "Resume: Styled",
-        path: " www.path1/pathEx2/path3.com",
-        subtitle: "Formatted for Aesthetic and Clarity",
-        description: `A resume layout that combines clear information with a thoughtful 
-                      use of design and formatting.`,
-        tags: "Last Updated: July 2025",
-        thumbnailImage: "",
-        thumbnailWidth: "",
-        thumbnailMargin: "",
-        subTabs: ['']
-    },
+    // {
+    //     href: "",
+    //     iconType: "image",
+    //     iconValue: "/assets/images/default/home-resume.png",
+    //     iconBgColor: "transparent",
+    //     iconImgSize: "90%",
+    //     iconImgMargin: "",
+    //     title: "Resume: Styled",
+    //     path: " www.path1/pathEx2/path3.com",
+    //     subtitle: "Formatted for Aesthetic and Clarity",
+    //     description: `A resume layout that combines clear information with a thoughtful 
+    //                   use of design and formatting.`,
+    //     tags: "Last Updated: July 2025",
+    //     thumbnailImage: "",
+    //     thumbnailWidth: "",
+    //     thumbnailMargin: "",
+    //     subTabs: ['']
+    // },
 
     {
-        href: "",
+        href: "https://docs.google.com/document/d/1GT12OHIFvVNmR8oivXxNba1AACKdDL9G-8mjQYvvqoI/edit?tab=t.0",
         iconType: "image",
         iconValue: "/resume/icons/tradResume-icon.png",
         iconBgColor: "transparent",

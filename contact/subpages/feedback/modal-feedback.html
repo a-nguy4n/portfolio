@@ -1,19 +1,22 @@
 
 <div class="modal-content feedback-modal">
     <span class="modal-close">&times;</span>
-    <form id="feedback-form">
+    <form id="feedback-form"
+        action="https://formspree.io/f/xblkogjg"
+        method="POST"
+    >
         <h1> Leave Feedback 💬 </h1>
         <div class="feedback-rowOne">
-            <label for="feedback-name">Name:</label>
-            <input type="text" id="feedback-name" name="feedback-name" placeholder="name (optional)"> 
+            <label for="name">Name:</label>
+            <input type="text" id="feedback-name" name="name" placeholder="name (optional)"> 
 
-            <label for="feedback-email">Email:</label>
-            <input type="email" id="feedback-email" name="feedback-email" placeholder="email (optional)">
+            <label for="email">Email:</label>
+            <input type="email" id="feedback-email" name="email" placeholder="email (optional)">
         </div>
 
         <div class="feedback-rowTwo">
-            <label for="feedback-rating">Rate the Design:</label>
-            <select id="feedback-rating" name="feedback-rating">
+            <label for="rating">Rate the Design:</label>
+            <select id="feedback-rating" name="rating">
                 <option value="">— Select —</option>
                 <option value="5"> ⭐⭐⭐⭐⭐ </option>
                 <option value="4"> ⭐⭐⭐⭐ </option>
@@ -24,8 +27,8 @@
         </div>
     
         <div class="feedback-rowThree">
-            <label for="feedback-category">Feedback Type:</label>
-            <select id="feedback-category" name="feedback-category">
+            <label for="category">Feedback Type:</label>
+            <select id="feedback-category" name="category">
                 <option value="">— Select —</option>
                 <option value="bug">🪲 Bug Report</option>
                 <option value="idea">💡 Suggestion</option>
@@ -35,8 +38,8 @@
         </div>
     
         <div class="feedback-rowFour">
-            <label for="feedback-message">Feedback:</label>
-            <textarea id="feedback-message" name="feedback-message" rows="8" 
+            <label for="message">Feedback:</label>
+            <textarea id="feedback-message" name="message" rows="8" 
                 placeholder="Please tell me what you think..." required></textarea>
         </div>
         

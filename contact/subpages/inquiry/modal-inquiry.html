@@ -2,17 +2,31 @@
 <div class="modal-content">
     <span class="modal-close">&times;</span>
     
-    <form id="inquiry-form">
+    <form id="inquiry-form"
+        action="https://formspree.io/f/mrblqenq"
+        method="POST"
+    >
         <h1> Direct Inquiry 📮</h1>
 
         <div class="inquiry-email">
-            <label>Email:</label>
-            <input type="email" placeholder="please enter email">
+            <label for="inquiry-email">Email:</label>
+            <input id="inquiry-email"
+                type="email" 
+                name="email" 
+                placeholder="please enter email"
+               
+            >
         </div>
       
         <div class="message-row">
             <label for="inquiry-message">Message:</label>
-            <textarea id="inquiry-message" rows="4" placeholder="Send a message my way..."></textarea>
+            <textarea id="inquiry-message" 
+                name="message" 
+                rows="4" 
+                placeholder="Send a message my way..."
+                required
+            >
+            </textarea>
         </div>
 
         <button type="submit">Send</button>
