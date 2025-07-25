@@ -59,25 +59,6 @@ const contactPage_data = [
     },
 
     {
-        href: "",
-        iconType: "emoji",
-        iconValue: "📊",
-        iconBgColor: "#C3F0C9",
-        iconImgSize: "",
-        iconImgMargin: "",
-        title: "Visitor Polls",
-        path: "/contact/subpages/polls/modal-polls.html",
-        subtitle: "Poll: Help shape what comes next . . .",
-        description: `Jul 2025 · Quick polls on your experience, interests, and what you'd like to see next.`,
-        tags: "📌 Click to vote • Suggest features • Guide future updates",
-        thumbnailImage: "",
-        thumbnailWidth: "",
-        thumbnailMargin: "",
-        subTabs: ['Polls'],
-        modalWindow: true,
-    },
-
-    {
         href: '',
         iconType: "emoji",
         iconValue: "💬",
@@ -113,6 +94,25 @@ const contactPage_data = [
         thumbnailWidth: "",
         thumbnailMargin: "",
         subTabs: ['Inquiries'],
+        modalWindow: true,
+    },
+
+    {
+        href: "",
+        iconType: "emoji",
+        iconValue: "📊",
+        iconBgColor: "#C3F0C9",
+        iconImgSize: "",
+        iconImgMargin: "",
+        title: "Visitor Polls",
+        path: "/contact/subpages/polls/modal-polls.html",
+        subtitle: "Poll: Help shape what comes next . . .",
+        description: `Jul 2025 · Quick polls on your experience, interests, and what you'd like to see next.`,
+        tags: "📌 Click to vote • Suggest features • Guide future updates",
+        thumbnailImage: "",
+        thumbnailWidth: "",
+        thumbnailMargin: "",
+        subTabs: ['Polls'],
         modalWindow: true,
     }
 ];
