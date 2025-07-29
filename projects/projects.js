@@ -4,14 +4,14 @@ import { waitForUIElements, updateMainTabUI } from "/assets/js/navigation-utils.
 
 const projects_data = [
     {
-        href: "",
+        href: "https://a-nguy4n.github.io/projects-docs/dermi-dew/index.html",
         iconType: "image",
         iconValue: "/about-me/icons/dermidew-icon.png",
         iconBgColor: "transparent",
         iconImgSize: "",
         iconImgMargin: "",
         title: "DermiDew",
-        path: "/placeholder/Pathway",
+        path: "https://a-nguy4n.github.io/projects-docs/dermi-dew/index.html",
         subtitle: "Smart Skincare Face Analyzer",
         description: `DermiDew combines hardware and software to deliver personalized skincare insights. 
                     A smart mirror with an ESP32 camera captures facial images, which the app analyzes to 

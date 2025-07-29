@@ -24,16 +24,18 @@ const aboutMe_data = [
     },
 
     {
-        href: "/path/placeholder",
+        href: "https://a-nguy4n.github.io/projects-docs/dermi-dew/index.html",
         iconType: "image",
         iconValue: "/about-me/icons/dermidew-icon.png",
         iconBgColor: "transparent",
         iconImgSize: "80%",
         iconImgMargin: "0% 0% 3% 3%",
         title: "Full-Stack Favorite",
-        path: "/placeholder/for/path",
+        path: "https://a-nguy4n.github.io/projects-docs/dermi-dew/index.html",
         subtitle: "DermiDew: A Skincare Analyzer",
-        description: `Add later`,
+        description: `DermiDew is about reimagining skincare through smart, personalized technology. 
+                      The setup features a mirror, camera, and light source that capture real-time skin 
+                      data, analyzed by AI to deliver tailored insights to the user. Through the web...`,
         tags: "",
         thumbnailImage: "",
         thumbnailWidth: "",
