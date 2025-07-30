@@ -189,7 +189,7 @@ a{
   /* Styles for TABLETS in vertical orientation */
 
   body{
-    margin-top: 25%;
+    margin-top: 20%;
     overflow-y: auto;
   }
 
@@ -216,12 +216,11 @@ a{
     }
 
     .profile-options{
-        gap: 5%;
+        gap: 7%;
     }
 
-
     .profile-tile{
-        width: 25vw;
+        width: 20vw;
         padding: 3%;
         margin-bottom: 5vw;
     }
