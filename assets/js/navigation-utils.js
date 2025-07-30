@@ -25,11 +25,11 @@ const tabKey = {
         subtab_arr: ['All', 'Polls', 'Feedback', 'Inquiries', '', '']
     },
 
-    // "extras":{
-    //     path: "/extras/index.html",
-    //     tab_label: "Extras",
-    //     subtab_arr: ['All', 'Case Studies', 'Process', 'Archived', '', '']
-    // }
+    "extras":{
+        path: "/extras/index.html",
+        tab_label: "Extras",
+        subtab_arr: ['All', 'Case Studies', 'Process', 'Archived', '', '']
+    }
 }
 
 export function updateMainTabUI(tab_name){
