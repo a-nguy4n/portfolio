@@ -37,7 +37,7 @@ a{
     color: black;
 }
 
-/* .fade-in{
+.fade-in{
     opacity: 0;
     animation: fadeIn 1.5s ease-in-out forwards;
     animation-delay: 1s;
@@ -47,7 +47,7 @@ a{
     to{
       opacity: 1;
     }
-} */
+}
   
 .profile-options{
     display: flex;
@@ -215,10 +215,10 @@ a{
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
   /* Styles for TABLETS in vertical orientation */
 
-  body{
-    margin-top: 20%;
-    overflow-y: auto;
-  }
+    body{
+        margin-top: 20%;
+        overflow-y: auto;
+    }
 
     body > img:first-of-type{
         width: 11vw;
@@ -273,7 +273,6 @@ a{
     }
 
 }
-
 
 @media (min-width: 540px) and (max-width: 540px) and (orientation: portrait){
 /* surface duo */
