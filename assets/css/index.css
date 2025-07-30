@@ -283,6 +283,6 @@ a{
 @media (min-width: 720px) and (max-width: 720px) and (orientation: landscape){
 /* surface duo */
     body{
-        margin-top: 10%;
+        margin-top: 7%;
     }
 }
