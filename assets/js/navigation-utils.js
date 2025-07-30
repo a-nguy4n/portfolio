@@ -4,7 +4,7 @@ const tabKey = {
     "about": {
         path: "/about-me/index.html",
         tab_label : "About Me",
-        subtab_arr : ['All', 'Favorites', 'Now', 'Fun Facts', '', '']
+        subtab_arr : ['All', 'Favorites', '', '', '', '']
     },
 
     "resume":{
@@ -25,11 +25,11 @@ const tabKey = {
         subtab_arr: ['All', 'Polls', 'Feedback', 'Inquiries', '', '']
     },
 
-    "extras":{
-        path: "/extras/index.html",
-        tab_label: "Extras",
-        subtab_arr: ['All', 'Case Studies', 'Process', 'Archived', '', '']
-    }
+    // "extras":{
+    //     path: "/extras/index.html",
+    //     tab_label: "Extras",
+    //     subtab_arr: ['All', 'Case Studies', 'Process', 'Archived', '', '']
+    // }
 }
 
 export function updateMainTabUI(tab_name){
