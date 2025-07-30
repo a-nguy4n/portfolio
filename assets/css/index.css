@@ -37,7 +37,7 @@ a{
     color: black;
 }
 
-.fade-in{
+/* .fade-in{
     opacity: 0;
     animation: fadeIn 1.5s ease-in-out forwards;
     animation-delay: 1s;
@@ -47,7 +47,7 @@ a{
     to{
       opacity: 1;
     }
-}
+} */
   
 .profile-options{
     display: flex;
@@ -125,6 +125,7 @@ a{
     box-shadow: 4px 4px 4px 1px #EEC0E2;
 }
 
+
 @media (max-width: 480px) and (orientation: portrait){
 /* Styles for PHONES in vertical orientation */
     body{
@@ -180,12 +181,38 @@ a{
     }
 }
 
+@media (max-width: 940px) and (orientation: landscape){
+/* Styles for PHONES in horizontal orientation */
+    body > img:first-of-type{
+        width: 5vw;
+        margin: 3% 0% 1% 0%;
+    } 
+
+    body > em:last-of-type{
+        margin-top: 3%;
+        font-size: 1.4vw;
+        animation-delay: 2.7s;
+    }
+
+    body > em:last-of-type a:hover{
+        font-size: 1.3vw;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    }
+
+    h1{
+        font-size: 2.75vw;
+        margin: 0% 0% 1% 0%;
+    }
+
+    h2{
+        margin: 1% 0% 2% 0%;
+        font-size: 2vw;
+    }
+
+}
 
 
-
-
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
   /* Styles for TABLETS in vertical orientation */
 
   body{
@@ -236,6 +263,28 @@ a{
 
     #developer img{
         width: 11vw;
-        margin-bottom: 1%;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1370px) and (orientation: landscape){
+/* Styles for TABLET in horizontal orientation */
+    body{
+        margin-top: 7%;
+    }
+
+}
+
+
+@media (min-width: 540px) and (max-width: 540px) and (orientation: portrait){
+/* surface duo */
+    body{
+        margin-top: 30%;
+    }
+}
+
+@media (min-width: 720px) and (max-width: 720px) and (orientation: landscape){
+/* surface duo */
+    body{
+        margin-top: 10%;
     }
 }
