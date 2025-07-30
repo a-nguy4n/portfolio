@@ -125,3 +125,105 @@ a{
     box-shadow: 4px 4px 4px 1px #EEC0E2;
 }
 
+@media (max-width: 480px) and (orientation: portrait) {
+/* Styles for phones in portrait */
+    body{
+        overflow-x: hidden;
+        margin-top: 25%;
+    }
+
+    body > img:first-of-type{
+        width: 11vw;
+    } 
+
+    body > em:last-of-type{
+        margin-top: 1%;
+        font-size: 3.5vw;
+    }
+
+    h1{
+        font-size: 6.5vw;
+    }
+
+    h2{
+        font-size: 4vw;
+        margin: 1% 0% 7% 0%;
+    }
+
+    .profile-options{
+        display: flex;
+        flex-direction: column;
+        gap: 10%;
+    }
+
+    .profile-tile{
+        width: 18vw;
+        padding: 10% 2%;
+        margin-bottom: 5vw;
+    }
+
+    .profile-tile img{
+        width: 6vw;
+        margin-top: 3%;
+    }
+
+    .profile-tile p{
+        font-size: 2vw;
+    }
+
+    #developer img{
+        width: 8.5vw;
+    }
+}
+
+
+
+
+
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  /* Styles for iPads in vertical orientation */
+
+  body{
+    margin-top: 25%;
+    overflow-y: auto;
+  }
+
+    body > img:first-of-type{
+        width: 11vw;
+    } 
+
+    body > em:last-of-type{
+        margin-top: 1%;
+        font-size: 1.75vw;
+    }
+
+    h1{
+        font-size: 6vw;
+    }
+
+    h2{
+        font-size: 4vw;
+        margin: 1% 0% 7% 0%;
+    }
+
+    .profile-tile{
+        width: 25vw;
+        padding: 3.5% 5%;
+        margin-bottom: 5vw;
+    }
+
+    .profile-tile img{
+        width: 7vw;
+        margin-top: 3%;
+    }
+
+    .profile-tile p{
+        font-size: 1.8vw;
+    }
+
+    #developer img{
+        width: 9.5vw;
+        margin-bottom: 10%;
+    }
+}
