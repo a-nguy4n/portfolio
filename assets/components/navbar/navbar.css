@@ -141,12 +141,8 @@ body{
 
 .subtab-group button{
     font-size: 1.15vw;
-    border-radius: 5px
-}
-
-.subtab-group button{
-    font-size: 1.15vw;
     border-radius: 5px;
+    color: black;
 }
 
 .subtab-group button:hover,
