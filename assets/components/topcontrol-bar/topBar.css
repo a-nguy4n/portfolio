@@ -131,13 +131,12 @@ span img{
     background-color: #FACDEE;
 }
   
-  
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
+
 /* Styles for TABLETS in vertical orientation */
+/* @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
     .topBar-controls{
         gap: 2vw;
     }
-
 
     #help-button{
         font-size: 2.85vw;
@@ -152,6 +151,7 @@ span img{
         width: 3.75vw;
         height: 3.5vw;
         border-radius: 50%;
+        margin-left: 1%;
     }
 
     span img{
@@ -170,4 +170,4 @@ span img{
         color: #656565;
     }
 
-}
+} */
