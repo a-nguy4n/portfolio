@@ -269,14 +269,19 @@ a{
 @media (min-width: 1024px) and (max-width: 1370px) and (orientation: landscape){
 /* Styles for TABLET in horizontal orientation */
     body{
-        margin-top: 4%;
+        margin-top: 2%;
+    }
+
+    h2{
+        font-size: 4vw;
+        margin: 1% 0% 4% 0%;
     }
 }
 
 @media (min-width: 540px) and (max-width: 540px) and (orientation: portrait){
 /* surface duo */
     body{
-        margin-top: 30%;
+        margin-top: 7%;
     }
 }
 
