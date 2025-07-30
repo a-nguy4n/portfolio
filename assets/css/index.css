@@ -295,30 +295,3 @@ a{
     }
 }
 
-@media (min-width: 1440px) {
-  /* Styles for MacBook Pro 14" and other large screens */
-    .profile-tile{
-        display: flex; 
-        flex-direction: column;
-        align-items: center;
-        justify-items: center;
-        text-decoration: none;
-        cursor: pointer;
-        background: rgb(194, 194, 194);
-        width: 13.5vw;
-        padding: 2%;
-        border-radius: 20%;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-    }
-
-    .profile-tile img{
-        width: 4vw;
-        margin-top: 3%;
-    }
-
-    .profile-tile p{
-        font-weight: 500;
-        font-size: 1.25vw;
-        margin: 10% 0% 7% 0%;
-    }
-}
