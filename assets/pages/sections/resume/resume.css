@@ -191,7 +191,7 @@ time{
 @media screen and (max-width: 600px) and (orientation: portrait){
 
     .results-container{
-        margin: 2% 0 0 0;
+        margin: 2% 0 0 3%;
     }
     
     #resume-container{
