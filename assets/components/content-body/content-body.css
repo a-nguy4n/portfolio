@@ -168,6 +168,7 @@
             "thumb thumb thumb"
             "tags  tags  tags";
         margin: 5% 0%;
+        padding-left: 0%;
     }
 
     .result-icon{
@@ -224,6 +225,7 @@
 
     .end-page{
         font-size: 0.6em;
-        transform: translateX(5%);
+        margin: 5% 0% 5% 7%;
+        padding-left: 6%;
     }
 }
