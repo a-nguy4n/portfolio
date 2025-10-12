@@ -149,6 +149,7 @@
     .results-container{
         align-self: center;
         justify-self: center;
+        margin-left: 3%;
     }
 
     .results-container h1{
@@ -223,6 +224,6 @@
 
     .end-page{
         font-size: 0.6em;
-        margin: 5% 0% 5% 7%;
+        transform: translateX(5%);
     }
 }
