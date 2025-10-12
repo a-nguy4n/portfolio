@@ -1,0 +1,227 @@
+
+.results-container{
+    margin: 2% 5% 0% 0%;
+    align-self: center;
+    justify-self: flex-start;
+}
+
+.results-container h1{
+    font-family: "Be Vietnam Pro Light";
+    font-size: 0.9em;
+    color: rgb(42, 42, 42);
+}
+
+#result-query{
+    font-style: italic;
+}
+
+.main-content{
+    margin: 1% 2% 0.5% 2%;
+    padding: 1% 5%;
+    width: 100%;
+    justify-self: center;
+}
+
+
+/*** For Formatted Content ***/
+
+.resultContent-layout{
+    display: grid;
+    grid-template-columns: 35px minmax(350px, 600px) auto 15px;
+    gap: 7px;    
+    justify-content: start;
+    margin: 3% 0%;
+    padding-left: 3%;
+    width: 100%;
+
+    font-family: "Work Sans";
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.result-icon{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(207, 207, 207);
+}
+
+.result-icon img{
+    display: block;
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.result-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+}
+
+.result-info h2{
+    margin: 7px;
+    font-family: "Work Sans";
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.result-info h3{
+    margin: 3px 7px;
+    font-weight: 400;
+    font-size: 0.85em;
+}
+
+.result-description{
+    margin: 3px 7px;
+    font-size: 0.8em;
+}
+
+.result-tags{
+    margin: 3px 7px;
+    font-size: 0.8em;
+}
+
+.thumbnail{
+    min-width: 100px;
+    align-self: center;
+    margin: 3px 7%;
+}
+
+.external-symbol{
+    width: 15px;
+    height: 15px;
+    opacity: 0; 
+}
+
+.resultContent-layout:hover{
+    color: rgb(0, 102, 255);
+}
+
+.resultContent-layout:hover .external-symbol{
+    opacity: 100;
+}
+
+
+/* End Page Caption */
+
+.end-page{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    justify-self: center;
+    align-items: center;
+    justify-items: center;
+
+    width: fit-content;
+    margin: 5% 0% 5% 0%;
+    font-family: "Work Sans";
+    font-size: 0.75em;
+    color: rgb(148, 148, 148);
+}
+
+.end-page span{
+    margin: none;
+}
+
+.end-page a{
+    color: rgb(148, 148, 148);
+    cursor: pointer;
+}
+
+#recommendationOne,
+#recommendationTwo{
+    background: none;
+    border: none;
+    box-shadow: none; 
+    text-decoration: underline;
+}
+
+
+/* for Mobile: Portrait */
+@media screen and (max-width: 600px) and (orientation: portrait){
+
+    .results-container{
+        align-self: center;
+        justify-self: center;
+    }
+
+    .results-container h1{
+        font-size: 0.75em;
+    }
+
+    .main-content{
+        margin-bottom: 5%;
+    }
+
+    .resultContent-layout{
+        display: grid;
+        grid-template-columns: 27px 1fr 20px;
+        grid-template-areas:
+            "icon info ext"
+            "thumb thumb thumb"
+            "tags  tags  tags";
+        margin: 5% 0%;
+    }
+
+    .result-icon{
+        grid-area: icon;
+        width: 27px;
+        height: 27px;
+    }
+
+    .resultContent-layout section{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .result-info{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .result-info h2{
+        grid-area: info;
+        font-size: 0.75em;
+        line-height: 1.4;
+    }
+
+    .result-info h3{
+        font-size: 0.70em;
+        line-height: 1.4;
+    }
+
+  
+    .result-description,
+    .result-tags{
+        font-size: 0.65em;
+        line-height: 1.4;
+    }
+
+    .thumbnail{
+        grid-area: thumb;
+        width: 100%; 
+        height: auto; 
+        justify-self: center;
+    }
+
+    .result-tags{
+        grid-area: tags;
+        justify-self: center;
+    }
+
+    .external-symbol{
+        grid-area: ext;
+        display: none;
+    }
+
+    .end-page{
+        font-size: 0.6em;
+    }
+}

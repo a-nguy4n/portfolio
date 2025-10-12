@@ -1,0 +1,120 @@
+@font-face{
+    font-family: "Rubik Mono One";
+    src: url("/assets/fonts/RubikMonoOne-Regular.ttf");
+}
+
+:root{ 
+    --logo-size: 2.3rem; 
+}   
+
+.page-intro{
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  text-align: center; 
+  width: 100%; 
+  min-height: 90svh;
+
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  animation: intro-exit 400ms ease forwards 3800ms; 
+}
+
+.page-intro p{
+  font-family: "Rubik Mono One";
+  font-size: 2.3em;         
+  color: black;
+}
+
+/* Transition 1 + 3: fade in, then collapse non-span text */
+.intro-logo{
+  opacity: 0;
+  transform: translateY(6px);
+  font-size: var(--logo-size);  /* start size for whole line */
+
+  animation:
+    fade-in-up    2000ms ease forwards 400ms,
+    rest-collapse  700ms cubic-bezier(.4,0,.2,1) forwards 3100ms;
+}
+
+/* Transition 1b: "Portfolio" */
+.page-intro p:last-child{
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fade-in-up 2300ms ease forwards 900ms;
+}
+
+@keyframes fade-in-up{
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Transition 2) Keep spans at a fixed, parent-independent size */
+.intro-logo > span{
+  font-size: var(--logo-size);  
+  line-height: 1.1;
+  display: inline-block;
+  --tint: currentColor;
+  animation: logo-tint 300ms ease forwards;
+}
+
+.intro-logo > span:nth-of-type(1){ --tint:#EE6593; animation-delay:2400ms; }
+.intro-logo > span:nth-of-type(2){ --tint:#FFD770; animation-delay:2600ms; }
+.intro-logo > span:nth-of-type(3){ --tint:#3FA4D3; animation-delay:2800ms; }
+
+@keyframes logo-tint { to { color: var(--tint); } }
+
+/* for Transition 3 */
+@keyframes rest-collapse{
+  from { font-size: var(--logo-size); }  
+  to   { font-size: 0; }
+}
+
+/* Transition 4 */
+main{
+    opacity: 0;
+    animation: page-reveal 500ms ease forwards 4000ms;
+}
+
+@keyframes intro-exit{ to 
+    { opacity: 0; 
+      display: none;
+      visibility: hidden; 
+      pointer-events: none; } 
+}
+
+@keyframes page-reveal { 
+  to { opacity: 1; transform: none; } 
+}
+
+
+/* for Mobile: Portrait */
+
+/* @media screen and (orientation: landscape){
+body * {
+    display: none !important;
+  }
+  body::before {
+    content: "Please rotate your device to portrait mode 📱";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 20px;
+  }
+} */
+
+@media screen and (max-width: 600px) and (orientation: portrait){
+  :root{ 
+    --logo-size: 1.35rem; 
+  }   
+
+  .page-intro p{
+    font-size: 1.35rem;
+  }
+}
+

@@ -1,0 +1,76 @@
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: center;
+  margin: 1% 0 0 0;
+  width: 100%;
+}
+
+search-bar{
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+}
+
+h1{
+    font-family: "Rubik Mono One";
+    font-size: 3em;
+    box-shadow: #EE6593 0px 5px, #FFD770 0px 10px, #3FA4D3 0px 15px;
+    margin: 5% 0% 2.5% 0%;
+}
+
+p{
+    font-family: "Be Pro Vietnam Regular";
+    font-size: 0.9em;
+    color: rgb(119, 119, 119);
+    margin: 0;
+}
+
+a{
+    color: black;
+    cursor: pointer;
+    font-family: "Work Sans";
+    text-decoration: none;
+}
+
+#landing-circle{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden; 
+
+    align-self: flex-end;
+    margin: 0% 1% 5% 0%;
+}
+
+#landing-profile{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* for Mobile: Portrait */
+@media screen and (max-width: 600px) and (orientation: portrait){
+
+    h1{
+        font-size: 1.5em;
+        margin: 10% 0% 2.5% 0%;
+    }
+
+    #landing-circle{
+        width: 30px;
+        height: 30px;
+        margin: 1% 1% 10% 0%;
+    }
+}

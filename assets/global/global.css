@@ -1,0 +1,32 @@
+@font-face{
+    font-family: "Rubik Mono One";
+    src: url("/assets/fonts/RubikMonoOne-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Work Sans";
+    src: url("/assets/fonts/WorkSans-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Be Vietnam Pro Light";
+    src: url("/assets/fonts/BeVietnamPro-Light.ttf");
+}
+
+@font-face {
+    font-family: "Be Vietnam Pro Regular";
+    src: url("/assets/fonts/BeVietnamPro-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Be Vietnam Pro Medium";
+    src: url("/assets/fonts/BeVietnamPro-Medium.ttf");
+}
+
+.dropdown .dropdown-menu { 
+  display: none; 
+}
+
+.dropdown .dropdown-menu.open { 
+  display: block; 
+}

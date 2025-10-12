@@ -1,0 +1,26 @@
+
+.welcome-container{
+    display: grid;
+    grid-template-columns: max(200px) auto;
+    gap: 3%;
+    justify-items: center;
+    align-items: center;
+}
+
+.welcome-img{
+    max-width: 200px;
+}
+
+.welcome-contents{
+    font-family: "Be Vietnam Pro Light";
+    width: 100%;
+}
+
+.welcome-contents span{
+    font-family: "Be Vietnam Pro Medium";
+}
+
+.welcome-cta{
+    font-style: italic;
+    margin-top: 3%;
+}

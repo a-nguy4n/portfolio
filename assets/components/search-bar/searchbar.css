@@ -1,0 +1,182 @@
+@font-face {
+    font-family: "Be Vietnam Pro Light";
+    src: url("/assets/fonts/BeVietnamPro-Light.ttf");
+}
+
+@font-face {
+    font-family: "Work Sans";
+    src: url("/assets/fonts/WorkSans-VariableFont_wght.ttf");
+}
+
+.searchbar-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+   
+    font-family: "Be Vietnam Pro Light";
+    margin: 2% 1% 1% 1%;
+    width: 100%;
+    /* min-width: 50%; */
+}
+
+.searchbar-text{
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 10px;
+    width: 100%;
+    padding: 5px 10px 5px 5px;
+
+    border-radius: 30px;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    z-index: 25;
+}
+
+.searchbar-text img{
+    width: 21px;
+    height: 21px;
+    margin: 0% 0% 0% 3%;
+}
+
+.search-input{
+    font-size: 1rem;
+    font-family: "Be Vietnam Pro Light";
+    background: white;
+    border: none;
+    padding: 10px;
+    width: 90%;
+}
+
+.search-input:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.search-input::placeholder{
+    color: rgb(65, 65, 65);
+    background: white;
+}
+
+.search-dropdown{
+    display: flex; 
+    flex-direction: column;
+    align-self: flex-start;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    margin: 0 5% 0 5%;
+
+    width: 86%;
+    background: white;
+    padding: 20px 2% 20px 22px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    z-index: 100;
+}
+
+.search-option{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between; 
+    width: 100%;
+    background: white;
+    box-shadow: none;
+    color: black;
+    z-index: 100;
+}
+
+.search-option:hover{
+    background: rgb(246, 246, 246);
+}
+
+.search-option span:nth-child(1){
+    margin: 5px 0 7px 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.indicator-arrow{
+    opacity: 0;
+}
+
+.search-option:hover .indicator-arrow{
+    opacity: 1;
+}
+
+
+[data-page_type="landing"]{
+    .searchbar-body{
+        width: 60%;
+    }
+
+    .search-input{
+        font-size: 1.1rem;
+    }
+    
+    .search-option{
+        margin: 1%;
+
+    span:nth-child(1){
+        margin: 5px 0 7px 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+    }
+  }
+}
+
+
+@media screen and (max-width: 600px) and (orientation: portrait){
+    
+    .searchbar-body{
+        margin: 10% 1% 1% 1%;
+    }
+
+    .searchbar-text{
+       gap: 1px;
+       border-radius: 30px;
+       padding: 5px 15px 5px 5px;
+    }
+
+    .searchbar-text img{
+        width: 15px;
+        height: 15px;
+    }
+    .search-input{
+        font-size: 0.75em;
+        padding: 8px;
+    }
+
+    .search-input::placeholder{
+        font-size: 0.75em;
+    }
+
+    [data-page_type="landing"]{
+        .searchbar-body{
+            width: 85%;
+        }
+
+        .search-input{
+            font-size: 0.85rem;
+        }
+    
+        .search-option{
+            margin: 1%;
+
+        span:nth-child(1){
+            margin: 5px 0 7px 5px;
+            font-size: 0.75rem;
+
+            }
+        }
+    }
+
+    [data-page_type="regular"]{
+        .search-input{
+            font-size: 0.93rem;
+        }
+    }
+
+}
