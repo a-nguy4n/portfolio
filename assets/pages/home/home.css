@@ -75,4 +75,8 @@ content-body{
         width: 100%;
         margin-right: 10%;
     }
+
+    content-body{
+        overflow-y: hidden;
+    }
 }
