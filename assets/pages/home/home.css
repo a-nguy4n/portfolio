@@ -52,6 +52,7 @@ content-body{
     justify-content: center;
     margin: 0 0% 5% 0%;
     padding: 2%;
+    overflow-x: hidden;
     overflow-y: scroll;
 }
 
