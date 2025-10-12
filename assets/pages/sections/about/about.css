@@ -8,7 +8,7 @@
     grid-template-columns: 60% 35%;
     gap: 2%;
     justify-items: center;
-    margin: 3% 1%;
+    margin: 3% 2% 1% 10%;
     width: 80%;
 }
 
@@ -16,7 +16,7 @@
     font-family: "Be Vietnam Pro Regular";
     font-size: 1em;
     line-height: 2;
-    padding: 3px;
+    padding: px;
 }
 
 #aboutMe-profile{
@@ -28,7 +28,7 @@
 }
 
 .results-container{
-    margin: 2% 0 0 7%;
+    margin: 2% 0 0 5%;
 }
 
 
@@ -39,7 +39,7 @@
         flex-direction: column-reverse;
         gap: 2%;
         justify-items: center;
-        margin: 3% 2%;
+        margin: 3% 2% 3% 0%;
         width: 89%;
     }
 
@@ -54,7 +54,7 @@
     }
 
     .results-container{
-        margin: 2% 0 0 0;
+        margin: 2% 0 0 3%;
     }
 
 }
