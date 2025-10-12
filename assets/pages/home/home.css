@@ -58,6 +58,8 @@ content-body{
 /* for Mobile: Portrait */
 @media screen and (max-width: 600px) and (orientation: portrait){
     body{
+    min-height: 100%;
+    height: auto; 
     overflow-x: hidden;
     }
 
@@ -77,6 +79,6 @@ content-body{
     }
 
     content-body{
-        overflow-y: hidden;
+        overflow-y: auto;
     }
 }
