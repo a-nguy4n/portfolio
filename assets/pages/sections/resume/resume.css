@@ -195,7 +195,7 @@ time{
     }
     
     #resume-container{
-        margin: 1% 1% 8% 3%;
+        margin: 1% 1% 8% 1%;
         width: 95%; 
     }
 
@@ -265,6 +265,10 @@ time{
 
     .project-detail time{
         align-self: flex-start;
+        margin-left: 5%;
+    }
+
+    .end-page{
         margin-left: 5%;
     }
 }
