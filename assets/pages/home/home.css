@@ -58,13 +58,20 @@ content-body{
 
 /* for Mobile: Portrait */
 @media screen and (max-width: 600px) and (orientation: portrait){
-    body{
-    min-height: 100%;
-    height: auto; 
-    overflow-x: hidden;
+    html, body {
+        height: auto;
+        min-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .page-wrapper,
+    .bottom-section {
+        min-height: 0;  
+        height: auto;
     }
 
     .top-section{
+        position: static;
         flex-direction: column;
         margin: 5% 0%;
     }
@@ -80,6 +87,6 @@ content-body{
     }
 
     content-body{
-        overflow-y: auto;
+        overflow-y: hidden;
     }
 }
