@@ -188,7 +188,7 @@ h2{
     .right-top{
         flex-direction: column;
         width: 85%;
-        gap: 55%;
+        gap: 5%;
     }
 
     #profile-photo{
@@ -231,6 +231,7 @@ h2{
         width: 90%;
         height: auto;
         padding: 2%, 5%;
+        margin-top: 50px;
     }
 
     .goals-left{
