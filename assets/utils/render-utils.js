@@ -1,5 +1,5 @@
 import { RESULT_KEY } from "/assets/global/constants.js";
-
+import { getSectionName } from "/assets/utils/state-utils.js";
 
 /**
  * Function: updateSearchBarText
@@ -47,6 +47,19 @@ export function resultQueryDisplay(section_type, loaded_section){
     }
 
     querySpan.innerText = savedLabel;
+
+    const sectionName = getSectionName();
+    if(sectionName === "about"){
+        resultCount.style.paddingLeft = "25%";
+        if(window.innerWidth <= 600){
+            resultCount.style.paddingLeft= "0%";
+            resultCount.style.paddingRight= "0%";
+        }
+        return; 
+    }
+    else{
+        resultCount.style.paddingLeft = "0%";
+    }
 
     return;
 }

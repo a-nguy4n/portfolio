@@ -3,6 +3,7 @@
     margin: 2% 5% 0% 0%;
     align-self: center;
     justify-self: flex-start;
+    white-space: nowrap;
 }
 
 .results-container h1{
