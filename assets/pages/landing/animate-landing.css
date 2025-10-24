@@ -71,9 +71,9 @@
   animation: logo-tint 300ms ease forwards;
 }
 
-.intro-logo > span:nth-of-type(1){ --tint:#EE6593; animation-delay:2400ms; }
-.intro-logo > span:nth-of-type(2){ --tint:#FFD770; animation-delay:2600ms; }
-.intro-logo > span:nth-of-type(3){ --tint:#3FA4D3; animation-delay:2800ms; }
+.intro-logo > span:nth-of-type(1){ --tint:#5BADFF; animation-delay:2400ms; }
+.intro-logo > span:nth-of-type(2){ --tint:#FF6BAD; animation-delay:2600ms; }
+.intro-logo > span:nth-of-type(3){ --tint:#FFD000; animation-delay:2800ms; }
 
 @keyframes logo-tint { to { color: var(--tint); } }
 
