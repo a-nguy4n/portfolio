@@ -3,6 +3,11 @@
     src: url("/assets/fonts/RubikMonoOne-Regular.ttf");
 }
 
+@font-face{
+    font-family: "Be Vietnam Pro Regular";
+    src: url("/assets/fonts/BeVietnamPro-Regular.ttf");
+}
+
 :root{ 
     --logo-size: 2.3rem; 
 }   
@@ -26,6 +31,12 @@
   font-family: "Rubik Mono One";
   font-size: 2.3em;         
   color: black;
+}
+
+#signature-line{
+  font-family: "Be Vietnam Pro Regular";
+  font-size: 1em;
+  margin-top: 5%;
 }
 
 /* Transition 1 + 3: fade in, then collapse non-span text */
@@ -115,6 +126,10 @@ body * {
 
   .page-intro p{
     font-size: 1.35rem;
+  }
+
+  #signature-line{
+    font-size: 0.8em;
   }
 }
 

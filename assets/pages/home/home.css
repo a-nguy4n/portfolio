@@ -16,7 +16,8 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 3%;
+    justify-content: flex-start;
+    gap: 1rem;
     margin: 0.5% 2%;
     width: 100%;
 }
@@ -26,14 +27,34 @@ body{
     width: 100%;
 }
 
+
 #logo{
     font-family: "Rubik Mono One";
-    font-size: 1.2em;
-    box-shadow: #EE6593 0px 5px, #FFD770 0px 10px, #3FA4D3 0px 15px;
-    color: black;
-    flex: 0 0 auto;
+    font-size: 3em;
+    flex: 0 0 120px;
+    display: inline-flex;
     text-decoration: none;
+    width: auto;
     white-space: nowrap;
+}
+
+#logo-a{
+    color: #5BADFF;
+    text-shadow:
+        6px 0 #3678B9, 
+        0 0px #3678B9;
+    z-index: 5;
+}
+
+#logo-h{
+    color: #FF6BAD;
+    text-shadow: -6px 0 #C93D7B;
+}
+
+#logo-n{
+    color: #FFD000;
+    text-shadow: 6px 0 #C09D00;
+    transform: translateX(-8px);
 }
 
 search-bar{
@@ -64,8 +85,9 @@ content-body{
         overflow-x: hidden;
         overflow-y: auto;
     }
+
     .page-wrapper,
-    .bottom-section {
+    .bottom-section{
         min-height: 0;  
         height: auto;
     }
@@ -77,8 +99,27 @@ content-body{
     }
 
     #logo{
-        font-size: 1.2em;
-        box-shadow: #EE6593 0px 2px, #FFD770 0px 4px, #3FA4D3 0px 6px;
+        font-size: 1.5em;
+        flex: 0 0 40px;
+    }
+
+    #logo-a{
+        color: #5BADFF;
+        text-shadow:
+            2px 0 #3678B9, 
+            0 0px #3678B9;
+        z-index: 5;
+    }
+
+    #logo-h{
+        color: #FF6BAD;
+        text-shadow: -2px 0 #C93D7B;
+    }
+
+    #logo-n{
+        color: #FFD000;
+        text-shadow: 3px 0 #C09D00;
+        transform: translateX(-3px);
     }
 
     search-bar{
