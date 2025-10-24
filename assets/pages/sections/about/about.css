@@ -176,7 +176,8 @@ h2{
     }
 
     .about-left{
-        width: 90%;
+        width: 75%;
+        margin: 5%;
     }
 
     .about-right{
@@ -187,7 +188,7 @@ h2{
     .right-top{
         flex-direction: column;
         width: 85%;
-        gap: 5%;
+        gap: 55%;
     }
 
     #profile-photo{
