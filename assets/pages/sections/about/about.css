@@ -227,7 +227,7 @@ h2{
     #goals-card{
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 75%;
         height: auto;
         padding: 2%, 5%;
         margin-top: 120px;
