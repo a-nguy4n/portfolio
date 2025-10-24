@@ -222,7 +222,7 @@ h2{
     #hobbies-card{
         width: 90%;
         padding: 2% 5% 20% 5%;
-        margin-bottom: 100px;
+        margin-bottom: 500px;
     }
 
     #goals-card{
@@ -231,7 +231,6 @@ h2{
         width: 90%;
         height: auto;
         padding: 2%, 5%;
-        margin-top: 50px;
     }
 
     .goals-left{
