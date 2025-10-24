@@ -191,8 +191,18 @@ h2{
     }
 
     #profile-photo{
+        display: inline-block;
+        width: 85x;
+        height: 85px;
+        border-radius: 100%;
+        background-color: gray;
+    }   
+
+    #profile-photo img{
+        border-radius: 100%;
         width: 85px;
         height: 85px;
+        object-fit: cover;
     }
 
     #facts-card{
