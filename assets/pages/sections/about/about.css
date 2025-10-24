@@ -192,21 +192,21 @@ h2{
 
     #profile-photo{
         display: inline-block;
-        width: 85x;
-        height: 85px;
+        width: 90px;
+        height: 90px;
         border-radius: 100%;
         background-color: gray;
     }   
 
     #profile-photo img{
         border-radius: 100%;
-        width: 85px;
-        height: 85px;
+        width: 90px;
+        height: 90px;
         object-fit: cover;
     }
 
     #facts-card{
-        width: 100%;
+        width: 90%;
         padding: 2% 5%;
     }
 
@@ -219,8 +219,9 @@ h2{
     }
 
     #hobbies-card{
-        width: 100%;
+        width: 90%;
         padding: 2% 5% 20% 5%;
+        margin-bottom: 100px;
     }
 
     #goals-card{
