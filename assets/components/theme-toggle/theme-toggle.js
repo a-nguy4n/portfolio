@@ -356,7 +356,7 @@ export function initThemeSlider(root, cfg){
         mode: "manual",
       });
 
-      await setUIFromMinutes(currentMinutes);
+      await setUIFromMinutes(nextMinutes);
       updateAllTimeSideDisplays(widget);
       await renderSVGAssets(widget, { skipIfFilled: false });
 
@@ -442,6 +442,20 @@ export function initThemeSlider(root, cfg){
     const t = safeMinutes / 1440;
     const angle = t * 2 * Math.PI - Math.PI / 2;
     const activeTheme = getThemeForMinutes(safeMinutes);
+
+    const iconSrc = ICON_MAP[activeTheme] || ICON_MAP.day;
+
+    if(toggleIconEl){
+      toggleIconEl.setAttribute("data-src", iconSrc);
+      toggleIconEl.replaceChildren();
+    }
+
+    if(centerIconEl){
+      centerIconEl.setAttribute("data-src", iconSrc);
+      centerIconEl.replaceChildren();
+    }
+
+await renderSVGAssets(widget, { skipIfFilled: false });
 
     knob.setAttribute("cx", String(cx + r * Math.cos(angle)));
     knob.setAttribute("cy", String(cy + r * Math.sin(angle)));
