@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Theme Toggle </title>
+    <link rel="stylesheet" href="/assets/components/theme-toggle/theme-toggle.css">
+    <link rel="stylesheet" href="/assets/css/global.css">
+</head>
+<body>
+    <div class="theme-toggle-root">
+        <button class="theme-toggle time-chip" type="button" aria-label="Change theme"
+            aria-expanded="false">
+            
+            <span class="cloud-layer cloud-layer-back" aria-hidden="true"></span>
+            <span class="cloud-layer cloud-layer-middle" aria-hidden="true"></span>
+            <span class="cloud-layer cloud-layer-front" aria-hidden="true"></span>
+
+            <span class="shooting-star" aria-hidden="true"></span>
+            <span class="shooting-star" aria-hidden="true"></span>
+            <span class="shooting-star" aria-hidden="true"></span>
+
+            <span class="bird bird-one" aria-hidden="true"></span>
+            <span class="bird bird-two" aria-hidden="true"></span>
+
+            <span class="time-icon" data-svg
+              data-src="/assets/images/icons/for-components/sun-icon.svg"
+              aria-hidden="true"
+            >
+            </span>
+          </button>
+
+          <time class="time-label">--:--</time>
+          
+          <aside class="time-popup" aria-hidden="true" role="tooltip">
+            <article id="user-time" class="time-row">
+                <header class="time-popup-content">
+                    <time id="time-date-user" class="time-date" datetime="2026-03-02"> Mon · June 2 </time>
+                    <p class="time-loc"> Your Time </p>
+                    <time id="time-clock-user" datetime="18:00" class="time-clock"> 6:00 PM </time>
+                    <p id="time-phrase-user" class="time-phrase"></p>
+                    <p id="time-message-user" class="time-message"></p>
+                </header>
+
+                <section class="time-slider" aria-label="Time selector">
+                    <button class="circle-slider" id="circleSlider-user" aria-label="Adjust time">
+                        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+                            <circle class="ring-track" cx="60" cy="60" r="46"></circle>
+
+                            <circle class="ring-progress" cx="60" cy="60" r="46"></circle>
+
+                            <circle class="ring-knob" cx="60" cy="14" r="7"></circle>
+                        </svg>
+                        <span
+                            data-svg
+                            data-src="/assets/images/icons/for-components/sun-icon.svg"
+                            class="circle-icon"
+                            aria-hidden="true">
+                        </span>
+                    </button>
+                </section>
+            </article>
+
+            <article id="an-time" class="time-row">
+                <header class="time-popup-content">
+                    <time id="time-date-an" class="time-date" datetime="2026-03-02"> Mon · June 2 </time>
+                    <p class="time-loc"> Allison's Time </p>
+                    <time id="time-clock-an" datetime="18:00" class="time-clock"> 6:00 PM </time>
+                    <p id="time-phrase-an" class="time-phrase"></p>
+                </header>
+
+                <section class="time-slider" aria-label="Time selector">
+                    <button class="circle-slider" id="circleSlider-an" aria-label="Adjust time">
+                        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+                            <circle class="ring-track" cx="60" cy="60" r="46"></circle>
+
+                            <circle class="ring-progress" cx="60" cy="60" r="46"></circle>
+
+                            <circle class="ring-knob" cx="60" cy="14" r="7"></circle>
+                        </svg>
+                        <span
+                            data-svg
+                            data-src="/assets/images/icons/for-components/moon-icon.svg"
+                            class="circle-icon"
+                            aria-hidden="true">
+                        </span>
+                    </button>
+                </section>
+            </article>
+          </aside>
+        </div>
+    <script type="module" src="/scripts/init.js"></script>
+</body>
+</html>

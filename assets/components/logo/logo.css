@@ -1,0 +1,24 @@
+.logo-button,
+logo-button{
+  display: inline-block;
+}
+
+.logo{
+  display: inline-block;
+  width: 100%; 
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+  color: var(--logo-color);
+}
+
+.logo svg{
+  width: 100%;
+  height: auto;
+  display: block;
+  stroke-width: 1;
+}
+
+.logo:hover{
+  color: var(--logo-hover);
+}

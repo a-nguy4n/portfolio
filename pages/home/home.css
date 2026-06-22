@@ -1,0 +1,298 @@
+body{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-areas: 
+                       "top-row"
+                       "home-main"
+                       "home-end";
+}
+
+.top-row{
+    grid-area: top-row;
+}
+
+.home-main{
+    grid-area: home-main;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-areas: 
+        "results-count"
+        "top-result"
+        "projects-result"
+        "resume-result"
+        "about-result"
+        "contact-result"
+        "extra-searches";
+}
+
+#home-count{
+    grid-area: results-count;
+}
+
+#top-resultcard{
+    grid-area: top-result;
+    
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        "result-rowone"
+        "result-rowtwo"
+        "result-rowthree";
+
+    gap: 1%;
+    width: clamp(55vw, 60vw, 65vw);
+}
+
+#top-resultcard h1{
+    font-size: var(--text-large);
+    font-weight: 500;
+}
+
+#top-resultcard h2{
+    font-size: var(--text-medium);
+    font-weight: 500;
+}
+
+#top-resultcard p{
+    font-size: var(--text-small);
+}
+
+/*---- Result Card: Row One ----*/
+
+#status-row{
+    grid-area: result-rowone;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "result status-detail";
+    gap: 1rem;
+    
+    align-items: center;
+}
+
+#status-row p:first-child{
+    grid-area: result;
+    margin: 0;
+}
+
+#status-pill{
+    grid-area: status-detail;
+
+    background: rgba(255, 255, 255, 0.103); 
+    backdrop-filter: var(--blur-value);
+    -webkit-backdrop-filter: var(--blur-value);
+    box-shadow: var(--box-shadow);
+    border: var(--border-value);
+    border-radius: var(--button-radius);
+    width: fit-content;
+    height: fit-content;
+    padding: 1% 3%;
+    margin: 0;
+    place-self: end;
+}
+
+#status-pill span{
+    color: greenyellow;
+    font-weight: 700;
+}
+
+/*---- Result Card: Row Two----*/
+
+#home-detail{
+    grid-area: result-rowtwo;
+
+    display: grid;
+    grid-template-rows: auto auto;
+    align-items: start;
+}
+
+#home-detail > h1{
+    grid-row: 1;
+    margin: 0;
+}
+
+#home-detail > p{
+    grid-row: 2;
+    margin: 1.25% 0;
+}
+
+/*---- Result Card: Row Three ----*/
+
+.home-widget{
+    grid-area: result-rowthree;  
+
+    display: grid;
+    grid-template-columns: 32% 20% 1fr 23%;
+    grid-template-areas: "picture content-one content-two content-three";
+    gap: 1.5%;
+}
+
+#home-image{
+    grid-area: picture;
+
+    width: 100%;
+    border-radius: var(--widget-radius);
+    place-self: center;
+}
+
+#home-coltwo{
+    grid-area: content-one; 
+    display: grid;
+    grid-template-rows: 1fr auto; 
+    grid-template-areas: 
+        "widget-content"
+        "tagline-content";
+    gap: 10px;
+    width: 100%;
+}
+
+#home-coltwo h2{
+    grid-area: tagline-content;
+
+    display: flex;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.248);
+    font-size: var(--text-medium);
+    font-weight: 500;
+    line-height: 1.2;
+    border-radius: 6px;
+    padding: clamp(0.75rem, 2vw, 1rem);
+    margin: 0;
+
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#home-coltwo .overview-one{
+    grid-area: widget-content;
+
+    font-size: var(--text-small);
+    color: black;
+    border-radius: var(--widget-radius);
+    padding: 1.5%;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box; 
+
+    position: relative;   
+    overflow: hidden; 
+}
+
+#home-coltwo .overview-one img{
+    display: block;
+    width: 100%; 
+    height: auto;
+    object-fit: cover;
+}
+
+.overview-one .overlay{
+    position: absolute;
+    inset: 0; 
+
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overview-one:hover .overlay{
+    opacity: 1;
+    cursor: pointer;
+}
+
+#home-colthree{
+    grid-area: content-two;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "photo-content"
+        "personal-content";
+    gap: 2%;
+    width: 100%;
+}
+
+#home-colthree img{
+    grid-area: photo-content;
+
+    width: 100%;
+    border-radius: 6px;
+    margin: 0;
+    place-self: start;
+}
+
+#home-colfour{
+    grid-area: content-three;
+
+    background: rgba(255, 255, 255, 0.248);
+    border-radius: 6px;
+    padding: 1% 3%;
+}
+
+#home-colfour h2{
+    margin: 0.75%;
+    padding: 1% 5%;
+    font-size: var(--text-medium);
+    font-weight: 500;
+}
+
+.stats-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.stats-list li{
+    font-size: var(--text-small);
+    /* background: rgba(255, 255, 255, 0.15); */
+    padding: 5px 10px;
+}
+
+
+
+
+/*---- Items after Top Result Card----*/
+
+#projects-result{ 
+    grid-area: projects-result;
+}
+
+#resume-result{ 
+    grid-area: resume-result;
+}
+
+#about-result{ 
+    grid-area: about-result;
+}
+ 
+#contact-result{ 
+    grid-area: contact-result;
+}
+
+#contact-result .item-circle-icon{
+    background: #6CD64A;
+}
+
+#extra-searches.additional-searches{ 
+    grid-area: extra-searches;
+}
+
+.end-result{ 
+    grid-area: home-end;
+}

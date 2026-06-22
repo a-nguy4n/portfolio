@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar Component</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/components/searchbar/searchbar.css">
+</head>
+<body>
+    <button class="search-overlay-trigger" id="search-overlay-trigger" aria-label="Open Search">
+        <img src="/assets/images/icons/magnifying-glass.png" alt="Search Icon">
+    </button>
+
+    <section class="explore-layer" id="explore-layer" aria-hidden="true">
+        <button class="explore-layer-close" id="explore-close" type="button" aria-label="Close search overlay">
+            ×
+        </button>
+
+        <search class="explore-layer-search" aria-label="Search portfolio">
+            <img class="explore-layer-icon" src="/assets/images/icons/magnifying-glass.png" alt="" aria-hidden="true">
+
+            <input
+                class="explore-layer-input regular"
+                type="text"
+                placeholder="Explore my page..."
+                autocomplete="off"
+            >
+        </search>
+
+        <svg class="explore-layer-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+            <path d="
+                        M0,0
+                        C60,40 120,40 180,0
+                        C240,40 300,40 360,0
+                        C420,40 480,40 540,0
+                        C600,40 660,40 720,0
+                        C780,40 840,40 900,0
+                        C960,40 1020,40 1080,0
+                        C1140,40 1200,40 1260,0
+                        C1320,40 1380,40 1440,0
+                        L1440,0
+                        L0,0
+                        Z
+                    ">
+            </path>
+        </svg>
+    </section>
+
+
+    <script src="/scripts/init.js" type="module"></script>
+    <script src="/assets/components/searchbar/searchbar.js" type="module"></script>
+</body>
+</html>
+

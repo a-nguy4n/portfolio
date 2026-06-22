@@ -1,0 +1,402 @@
+html[data-theme="dawn"]{
+  --sidebar-item-bg: #024146;
+}
+
+html[data-theme="day"]{
+  --sidebar-item-bg: #064a68;
+}
+
+html[data-theme="sunset"]{
+  --sidebar-item-bg: #3c224f;
+}
+
+html[data-theme="night"]{
+  --sidebar-item-bg: #080D3D;
+}
+
+sidebar-component{
+  display: inline-flex;
+  width: fit-content;
+  font-family: var(--font-style-medium);
+
+  --sidebar-text-color: white;
+  --sidebar-menu-btn-size: 2rem;
+  --sidebar-panel-padding: 7% 0 0 2%;
+  --sidebar-panel-open-width: clamp(110px, 15%, 250px);
+  --sidebar-panel-transition-duration: .25s;
+  --sidebar-item-radius: 8px;
+  --sidebar-item-padding: 2%;
+  --sidebar-item-content-padding: 3% 2% 3% 5%;
+  --sidebar-item-content-margin: 0 11% 11% 0%;
+  --sidebar-dropdown-max-height: 10rem;
+  --sidebar-dropdown-transition-duration: .35s;
+  --sidebar-dropdown-spacing-top: 0.35rem;
+  --sidebar-dropdown-padding-y: 0.6rem;
+  --sidebar-dropdown-gap: 0.5rem;
+}
+
+sidebar-component .sidebarMenuBtn{
+  position: relative;
+  font-size: var(--sidebar-menu-btn-size);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--sidebar-text-color);
+  z-index: var(--z-nav);
+}
+
+sidebar-component .sidebarToggle{
+  position: absolute;
+  border: 0;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+sidebar-component .sidebarOverlay{
+  position:fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: var(--z-overlay);
+}
+
+sidebar-component .sidebarToggle:checked ~ .sidebarOverlay{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+sidebar-component .sidebarPanel{
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  height: 100vh;
+  width: 0;
+  overflow: hidden;
+
+  padding: var(--sidebar-panel-padding);
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition:
+    width var(--sidebar-panel-transition-duration) ease,
+    background var(--sidebar-panel-transition-duration) ease,
+    box-shadow var(--sidebar-panel-transition-duration) ease,
+    backdrop-filter var(--sidebar-panel-transition-duration) ease;
+}
+
+sidebar-component .sidebarToggle:checked ~ .sidebarPanel{
+  background: var(--glass-background);
+  border-right: var(--border-value);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.191);
+  backdrop-filter: var(--blur-value);
+  -webkit-backdrop-filter: var(--blur-value);
+  width: var(--sidebar-panel-open-width);
+}
+
+sidebar-component .sidebarNav{
+  display: flex;          
+  flex-direction: column;
+  gap: 2%;
+}
+
+sidebar-component .sidebarItem{
+  color: var(--sidebar-text-color);
+  cursor: pointer;  
+  background: var(--sidebar-item-bg);
+  border-radius: var(--sidebar-item-radius);
+  font-size: var(--font-size-medium);
+  text-decoration: none;
+  padding: var(--sidebar-item-content-padding);
+  margin: var(--sidebar-item-content-margin);
+}
+
+sidebar-component .sidebarExpandable{
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+sidebar-component .sidebarExpandable .sidebarMainLink{
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+sidebar-component .sidebarDropdownContent{
+  display: flex;
+  flex-direction: column;
+  gap: var(--sidebar-dropdown-gap);
+}
+
+sidebar-component .sidebarDropdownContent{
+  display: block;
+  width: 100%;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  background: inherit;
+  border-radius: inherit;
+  white-space: normal;
+  line-height: 1.25;
+  padding: 0 0 0 0;
+  margin-top: 0;
+  transition:
+    max-height var(--sidebar-dropdown-transition-duration) ease,
+    opacity var(--sidebar-dropdown-transition-duration) ease,
+    padding var(--sidebar-dropdown-transition-duration) ease,
+    margin-top var(--sidebar-dropdown-transition-duration) ease;
+}
+
+sidebar-component .sidebarExpandable:hover .sidebarDropdownContent,
+sidebar-component .sidebarExpandable:focus-within .sidebarDropdownContent{
+  max-height: var(--sidebar-dropdown-max-height);
+  opacity: 1;
+  padding-top: var(--sidebar-dropdown-padding-y);
+  padding-bottom: var(--sidebar-dropdown-padding-y);
+  margin-top: var(--sidebar-dropdown-spacing-top);
+}
+
+sidebar-component .sidebarDropdownContent p{
+  margin: 0;
+}
+
+/* ---- Resume Dropdown ---- */
+sidebar-component .resumeTerminalContent{
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+
+  margin-top: 0;
+  padding: 0;
+
+  font-family: monospace;
+  font-size: var(--text-xsmall);
+  line-height: 1.5;
+
+  border-radius: inherit;
+
+  transition:
+    max-height .35s ease,
+    opacity .3s ease,
+    margin-top .35s ease,
+    padding .35s ease;
+}
+
+sidebar-component .sidebarExpandable:hover .resumeTerminalContent,
+sidebar-component .sidebarExpandable:focus-within .resumeTerminalContent{
+  max-height: 12rem;
+  opacity: 1;
+  margin-top: 0.6rem;
+  padding: 0.8rem;
+}
+
+sidebar-component .terminalLine{
+  margin: 0;
+  opacity: 0;
+  transform: translateX(-6px);
+  animation: terminalReveal .35s ease forwards;
+}
+
+sidebar-component .terminalLine:nth-child(1){ animation-delay: .1s; }
+sidebar-component .terminalLine:nth-child(2){ animation-delay: .45s; }
+sidebar-component .terminalLine:nth-child(3){ animation-delay: .8s; }
+sidebar-component .terminalLine:nth-child(4){ animation-delay: 1.15s; }
+sidebar-component .terminalLine:nth-child(5){ animation-delay: 1.5s; }
+
+sidebar-component .command{
+  color: #63e755;
+}
+
+sidebar-component .finalLine{
+  color: #ffd500;
+
+  text-shadow:
+    0 0 8px rgba(255,213,0,.35);
+}
+
+sidebar-component .cursor{
+  animation: cursorBlink .8s steps(2, start) infinite;
+}
+
+sidebar-component .sidebarExpandable:not(:hover) .terminalLine{
+  animation: none;
+}
+
+@keyframes terminalReveal{
+  from{
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cursorBlink{
+  0%, 45%{
+    opacity: 1;
+  }
+
+  46%, 100%{
+    opacity: 0;
+  }
+}
+
+
+/* ---- Contact Me Dropdown ---- */
+sidebar-component .chatBubble{
+  --s: 0.9rem; /* triangle size */
+  --r: 1rem;  /* border radius */
+
+  position: relative;
+
+  width: fit-content;
+  max-width: 28ch;
+
+  padding: 0.5rem 0.8rem;
+
+  color: white;
+  font-size: var(--text-xsmall);
+  line-height: 1.3;
+  text-align: center;
+
+  border: var(--s) solid transparent;
+
+  opacity: 0;
+  transform: translateY(8px) scale(.96);
+
+  animation:
+    bubblePopIn .45s ease forwards;
+}
+
+
+sidebar-component .leftBubble{
+  align-self: flex-start;
+
+  border-radius:
+    calc(var(--r) + var(--s))
+    calc(var(--r) + var(--s))
+    calc(var(--r) + var(--s))
+    0;
+
+  background:
+    border-box
+    linear-gradient(
+      -45deg,
+      rgba(99,201,255,.95),
+      rgba(99,201,255,.55)
+    );
+
+  -webkit-mask:
+    radial-gradient(
+      100% 100% at 0 0,
+      transparent 99%,
+      black 102%
+    )
+    0 calc(100% - var(--s)) /
+    var(--s) var(--s)
+    no-repeat border-box,
+
+    linear-gradient(black 0 0)
+    padding-box;
+}
+
+sidebar-component .rightBubble{
+  align-self: flex-end;
+
+  border-radius:
+    calc(var(--r) + var(--s))
+    calc(var(--r) + var(--s))
+    0
+    calc(var(--r) + var(--s));
+
+  background:
+    border-box
+    linear-gradient(
+      45deg,
+      rgba(224, 187, 0, 0.95),
+      rgba(224, 187, 0, 0.95)
+    );
+
+  -webkit-mask:
+    radial-gradient(
+      100% 100% at 100% 0,
+      transparent 99%,
+      black 102%
+    )
+    100% calc(100% - var(--s)) /
+    var(--s) var(--s)
+    no-repeat border-box,
+
+    linear-gradient(black 0 0)
+    padding-box;
+}
+
+sidebar-component .messageBubble{
+  max-width: 90%;
+
+  padding:
+    0.5rem
+    1rem;
+}
+
+sidebar-component .chatBubble:nth-child(1){
+  animation-delay: 0.1s;
+}
+
+sidebar-component .chatBubble:nth-child(2){
+  animation-delay: 0.45s;
+}
+
+sidebar-component .chatBubble:nth-child(3){
+  animation-delay: 0.8s;
+}
+
+sidebar-component .chatBubble:nth-child(4){
+  animation-delay: 1.15s;
+}
+
+sidebar-component .sidebarExpandable:not(:hover) .chatBubble{
+  animation: none;
+}
+
+@keyframes bubblePopIn{
+
+  0%{
+    opacity: 0;
+    transform:
+      translateY(8px)
+      scale(.96);
+  }
+
+  70%{
+    opacity: 1;
+    transform:
+      translateY(-2px)
+      scale(1.02);
+  }
+
+  100%{
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+
+
+
+
+
+
+
+

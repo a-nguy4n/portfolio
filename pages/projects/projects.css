@@ -1,0 +1,90 @@
+body{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-areas: "top-row"
+                       "project-main"
+                       "project-end";
+}
+
+.top-row{
+    grid-area: top-row;
+}
+
+.project-main{
+    grid-area: project-main;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-areas: 
+        "project-count"
+
+        "dermidew"
+        "git-weatherward"
+        "weatherward"
+        "socal"
+        "git-dermidew"
+        "git-socal"
+        "puppypong"
+        
+        "project-extra";
+}
+
+#project-count{
+    grid-area: project-count;
+}
+
+#dermidew{ 
+    grid-area: dermidew;
+}
+
+#weatherward{ 
+    grid-area: weatherward;
+}
+#weatherward .item-circle-icon{
+    background: #F1D4FF;
+}
+
+#socal{ 
+    grid-area: socal;
+}
+#socal .item-circle-icon{
+    background: rgba(255, 255, 255, 0);
+}
+ 
+#git-dermidew{ 
+    grid-area: git-dermidew;
+}
+
+#git-weatherward{ 
+    grid-area: git-weatherward;
+
+}
+#git-socal{ 
+    grid-area: git-socal;
+}
+
+#git-dermidew .item-circle-icon,
+#git-weatherward .item-circle-icon,
+#git-socal .item-circle-icon{
+    background: rgb(255, 255, 255);
+}
+
+#puppypong{ 
+    grid-area: puppypong;
+}
+#puppypong .item-circle-icon{ 
+    background: orange;
+}
+
+#project-extra.additional-searches{ 
+    grid-area: project-extra;
+}
+
+.end-result{ 
+    grid-area: project-end;
+}
+

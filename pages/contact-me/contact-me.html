@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me: Let's connect!</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/animations/ambient-background/ambient-background.css">
+    <link rel="stylesheet" href="/assets/css/page-outline.css">
+    <link rel="stylesheet" href="/pages/contact-me/contact-me.css">
+</head>
+<body data-page="contact-me">
+    <div class="ambient-background">
+        <span data-svg data-src="/assets/images/clouds/cloud-two.svg" class="cloud cloud-medium move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-seven.svg" class="cloud cloud-medium move-left"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-eight.svg" class="cloud cloud-medium move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-nine.svg" class="cloud cloud-large move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-one.svg" class="cloud cloud-small move-left"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-thirteen.svg" class="cloud cloud-medium move-left"></span>
+    </div>
+    
+    <header class="top-row"> 
+        <logo-button></logo-button>
+        <navbar-component></navbar-component>
+        <search-bar></search-bar>
+        <theme-toggle></theme-toggle>
+    </header>
+
+    <main class="contact-main result-layout" data-pagefind-body>
+
+        <h3 id="message-count" class="results-count"> 4 New Messages Waiting </h3>
+
+        <a id="my-gmail" class="message-row" 
+            href="mailto:1512alli@email.com?subject=Connection Request&body=Hi Allison, I came across your portfolio...">
+            <span class="message-notif"> </span>
+           
+            <span class="item-circle-icon">
+                <img src="/assets/images/icons/contact-page/gmail-icon.png" alt="Gmail Icon">
+            </span>
+
+            <section class="message-description">
+                <h2> Gmail </h2>
+
+                <p class="message-caption"> 
+                    Hello Allison, I came across your portfolio and really enjoyed your work. 
+                    I’d love to connect and talk more about a potential opportunity.
+                </p>
+            </section>
+            
+            <p class="message-occurrence"> Now </p>
+            <span data-svg data-src="/assets/images/icons/caret-icon.svg" class="right-caret-icon"></span>
+        </a>
+
+        <a id="my-linkedin" class="message-row" href="https://www.linkedin.com/in/allison-nguyen-668598296/" target="_blank" rel="noopener noreferrer">
+            <span class="message-notif is-hidden"> </span>
+           
+            <span class="item-circle-icon">
+                <img src="/assets/images/icons/contact-page/linkedin-icon.png" alt="LinkedIn Icon"> 
+            </span>
+
+            <section class="message-description">
+                <h2> LinkedIn</h2>
+
+                <p class="message-caption"> 
+                    A new connection request for Allison…
+                </p>
+            </section>
+            
+            <p class="message-occurrence"> 3min ago </p>
+            <span data-svg data-src="/assets/images/icons/caret-icon.svg" class="right-caret-icon"></span>
+        </a>
+
+        <section class="collab-thread">
+            <input type="checkbox" class="chat-toggle" id="chat-toggle-work-with-me">
+            <label class="message-row collab chat-open" for="chat-toggle-work-with-me">
+                <span class="message-notif"> </span>
+               
+                <span class="item-circle-icon">
+                    <img src="/assets/images/icons/contact-page/collaborate-icon.png" alt="Collaborate Icon">
+                </span>
+
+                <section class="message-description">
+                    <h2> Work With Me </h2>
+
+                    <p class="message-caption"> 
+                        Allison, I came across your work and would love to collaborate on…
+                    </p>
+                </section>
+                
+                <p class="message-occurrence"> 1hr ago </p>
+                <span data-svg data-src="/assets/images/icons/caret-icon.svg" class="right-caret-icon"></span>
+            </label>
+
+            <label class="chat-overlay" for="chat-toggle-work-with-me"></label>
+
+            <section class="chat-panel">
+                <label class="chat-close" for="chat-toggle-work-with-me">×</label>
+                <div class="chat-messages">
+                    <p class="chat-bubble incoming">Let’s collaborate together on something meaningful and fun.</p>
+                </div>
+                <form class="chat-composer">
+                    <input type="text" name="message" placeholder="Type your message..." autocomplete="off" required>
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </section>
+
+        <section class="collab-thread">
+            <input type="checkbox" class="chat-toggle" id="chat-toggle-next-opportunity">
+            <label class="message-row collab chat-open" for="chat-toggle-next-opportunity">
+                <span class="message-notif"> </span>
+               
+                <span class="item-circle-icon">
+                    <img src="/assets/images/icons/contact-page/opportunity-icon.png" alt="Opportunity-Icon">
+                </span>
+
+                <section class="message-description">
+                    <h2> Your Next Opportunity </h2>
+
+                    <p class="message-caption"> 
+                        Hello Allison, I came across your work and think you’d be a great fit for…
+                    </p>
+                </section>
+                
+                <p class="message-occurrence"> Now </p>
+                <span data-svg data-src="/assets/images/icons/caret-icon.svg" class="right-caret-icon"></span>
+            </label>
+
+            <label class="chat-overlay" for="chat-toggle-next-opportunity"></label>
+
+            <section class="chat-panel">
+                <label class="chat-close" for="chat-toggle-next-opportunity">×</label>
+                <div class="chat-messages">
+                    <p class="chat-bubble incoming">Hi! Do you have an opportunity you'd like to discuss?</p>
+                </div>
+                <form class="chat-composer">
+                    <input type="text" name="message" placeholder="Type your message..." autocomplete="off" required>
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </section>
+
+        <section class="collab-thread" id="future-teammate">
+            <input type="checkbox" class="chat-toggle" id="chat-toggle-future-teammate">
+            <label class="message-row collab chat-open" for="chat-toggle-future-teammate">
+                <span class="message-notif"> </span>
+               
+                <span class="item-circle-icon">
+                    <img src="/assets/images/pics/home-page/profile.jpg" alt="profile-picture">
+                </span>
+
+                <section class="message-description">
+                    <h2> Future Teammate </h2>
+
+                    <p class="message-caption"> 
+                        Hi I’m Allison! Your future teammate… at least that’s the plan.
+                    </p>
+                </section>
+                
+                <p class="message-occurrence"> 6/20/26 </p>
+                <span data-svg data-src="/assets/images/icons/caret-icon.svg" class="right-caret-icon"></span>
+            </label>
+
+            <label class="chat-overlay" for="chat-toggle-future-teammate"></label>
+
+            <section class="chat-panel">
+                <label class="chat-close" for="chat-toggle-future-teammate">×</label>
+                <div class="chat-messages">
+                    <p class="chat-bubble incoming">Future teammate check-in: want to build the next project together?</p>
+                </div>
+                <form class="chat-composer">
+                    <input type="text" name="message" placeholder="Type your message..." autocomplete="off" required>
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </section>
+ 
+    </main>
+
+    <footer class="end-result">
+        <h3> ── End of Results ── </h3>
+        <logo-button></logo-button>
+        <p> Allison H. Nguyen's Portfolio</p>
+        <i> designed & coded-line-by-line, old school style </i>
+        <p> Thank you for visiting! </p>
+    </footer>
+    
+    <script type="module" src="/scripts/init.js"></script>
+</body>
+</html>

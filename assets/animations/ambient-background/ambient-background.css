@@ -1,0 +1,305 @@
+
+/* ===== Ambient Background Styling ===== */
+
+html[data-theme="dawn"] .ambient-background{
+    --cloud-color: #f7fff7;
+    --star-layer-1-opacity: 0;
+    --star-layer-2-opacity: 0;
+    --star-twinkle-min-opacity: 0;
+    --star-twinkle-max-opacity: 0;
+}
+
+html[data-theme="day"] .ambient-background{
+    --cloud-color: rgba(255, 255, 255, 0.72);
+    --star-layer-1-opacity: 0;
+    --star-layer-2-opacity: 0;
+    --star-twinkle-min-opacity: 0;
+    --star-twinkle-max-opacity: 0;
+}
+
+html[data-theme="sunset"] .ambient-background{
+    --cloud-color: #fff0e8;
+    --star-color-primary: #fff1c9;
+    --star-color-secondary: rgba(255, 241, 201, 0.7);
+    --star-layer-1-opacity: 0;
+    --star-layer-2-opacity: 0;
+    --star-twinkle-min-opacity: 0;
+    --star-twinkle-max-opacity: 0;
+}
+
+html[data-theme="night"] .ambient-background{
+    --cloud-color: #cfe7ff;
+    --star-color-primary: #ffffff;
+    --star-color-secondary: rgba(173, 216, 255, 0.85);
+    --star-layer-1-opacity: 0.45;
+    --star-layer-2-opacity: 0.25;
+    --star-twinkle-min-opacity: 0.5;
+    --star-twinkle-max-opacity: 0.75;
+}
+
+.ambient-background{
+    position: fixed;
+    inset: 0;
+    overflow: clip;
+    pointer-events: none;
+    --cloud-color: white;
+    --star-color-primary: rgb(255, 255, 255);
+    --star-color-secondary: rgba(255, 255, 255, 0.835);
+    --star-layer-1-opacity: 0;
+    --star-layer-2-opacity: 0;
+    --star-twinkle-min-opacity: 0.5;
+    --star-twinkle-max-opacity: 0.75;
+
+    z-index: var(--z-ambient);  
+}
+
+.ambient-background::before,
+.ambient-background::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-repeat: repeat;
+    animation: ambient-stars-twinkle 7s ease-in-out infinite alternate;
+    opacity: var(--star-twinkle-min-opacity);
+}
+
+.ambient-background::before{
+    background-image:
+        radial-gradient(circle, var(--star-color-primary) 1px, transparent 1.5px),
+        radial-gradient(circle, var(--star-color-primary) 1px, transparent 1.5px);
+    background-size: 170px 170px, 220px 220px;
+    background-position: 0 0, 60px 120px;
+    opacity: var(--star-layer-1-opacity);
+}
+
+.ambient-background::after{
+    background-image:
+        radial-gradient(circle, var(--star-color-secondary) 1.2px, transparent 1.8px),
+        radial-gradient(circle, var(--star-color-secondary) 0.8px, transparent 1.4px);
+    background-size: 260px 260px, 320px 320px;
+    background-position: 40px 30px, 150px 90px;
+    animation-duration: 11s;
+    opacity: var(--star-layer-2-opacity);
+}
+
+.ambient-background .cloud{
+    position: absolute;
+    display: block;
+    color: var(--cloud-color);
+    opacity: 0.9;
+    z-index: 1;
+    will-change: transform;
+    filter: blur(1.5px);
+    animation-duration: var(--float-duration, 20s);
+    animation-delay: var(--float-delay, 0s);
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.ambient-background .cloud.move-right{
+    animation-name: ambient-float-right;
+}
+
+.ambient-background .cloud.move-left{
+    animation-name: ambient-float-left;
+}
+
+.ambient-background .cloud svg{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.ambient-background .cloud.cloud-small{
+    width: clamp(90px, 10vw, 180px);
+}
+
+.ambient-background .cloud.cloud-medium{
+    width: clamp(180px, 18vw, 320px);
+}
+
+.ambient-background .cloud.cloud-large{
+    width: clamp(260px, 26vw, 420px);
+}
+
+
+.ambient-background .cloud:nth-child(1){
+    top: 15%;
+    right: 8%;
+    --float-duration: 15s;
+}
+
+.ambient-background .cloud:nth-child(2){
+    top: 35%;
+    left: -5%;
+    --float-duration: 15s;
+    --float-delay: 1s;
+}
+
+.ambient-background .cloud:nth-child(3){
+    top: 60%;
+    right: 5%;
+    --float-duration: 28s;
+    --float-delay: 2s;
+}
+
+.ambient-background .cloud:nth-child(4){
+    top: 50%;
+    right: -5%;
+    --float-duration: 28s;
+    --float-delay: 1s;
+}
+
+.ambient-background .cloud:nth-child(5){
+    bottom: 20%;
+    left: 3%;
+    --float-duration: 28s;
+    --float-delay: 1s;
+}
+
+.ambient-background .cloud:nth-child(6){
+    bottom: 6%;
+    right: 1%;
+    --float-duration: 28s;
+    --float-delay: 1s;
+}
+
+/** --------------- Splash Page --------------- **/
+
+.ambient-background.splash .cloud:nth-child(1){
+    top: 15%;
+    right: 8%;
+    --float-duration: 10s;
+}
+
+.ambient-background.splash .cloud:nth-child(2){
+    top: 35%;
+    left: -5%;
+    --float-duration: 10s;
+    --float-delay: 1s;
+}
+
+.ambient-background.splash .cloud:nth-child(3){
+    top: 65%;
+    right: 39%;
+    --float-duration: 7s;
+    --float-delay: 0s;
+}
+
+.ambient-background.splash .cloud:nth-child(4){
+    top: 80%;
+    right: 50%;
+    --float-duration: 20s;
+    --float-delay: 4s;
+}
+
+.ambient-background.splash .cloud:nth-child(5){
+    bottom: 35%;
+    left: 5%;
+    --float-duration: 22s;
+    --float-delay: 1s;
+}
+
+.ambient-background.splash .cloud:nth-child(6){
+    bottom: 6%;
+    right: 1%;
+    --float-duration: 22s;
+    --float-delay: 1s;
+}
+
+.ambient-background.splash .cloud:nth-child(7){
+    top: 6%;
+    left: 15%;
+    --float-duration: 22s;
+    --float-delay: 1s;
+}
+
+.ambient-background.splash .cloud:nth-child(8){
+    top: 25%;
+    left: 45%;
+    --float-duration: 22s;
+    --float-delay: 1s;
+}
+
+.ambient-background.splash .cloud:nth-child(9){
+    top: 60%;
+    right: -6%;
+    --float-duration: 13s;
+    --float-delay: 1s;
+}
+
+.ambient-background.splash .cloud:nth-child(10){
+    bottom: 35%;
+    right: 40%;
+    --float-duration: 10s;
+    --float-delay: 0.5s;
+}
+
+.splash-time-icon{
+    display: none;
+    position: absolute;
+    width: 45%;
+    filter: blur(1.5px);
+}
+
+html[data-theme="dawn"] .ambient-background.splash .sunrise-icon{
+    display: block;
+    width: clamp(350px, 15vw, 500px);
+    bottom: -3%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+html[data-theme="day"] .ambient-background.splash .sun-icon{
+    display: block;
+    width: clamp(150px, 7vw, 200px);
+    top: 23%;
+    left: 15%;
+}
+
+html[data-theme="sunset"] .ambient-background.splash .sunset-icon{
+    display: block;
+    width: clamp(350px, 15vw, 500px);
+    bottom: -3%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+html[data-theme="night"] .ambient-background.splash .moon-icon{
+    display: block;
+    width: clamp(150px, 7vw, 200px);
+    top: 23%;
+    left: 15%;
+}
+
+
+@keyframes ambient-float-right{
+    from{
+        transform: translate3d(0, 0, 0);
+    }
+    to{
+        transform: translate3d(24px, -12px, 0);
+    }
+}
+
+@keyframes ambient-float-left{
+    from{
+        transform: translate3d(0, 0, 0);
+    }
+    to{
+        transform: translate3d(-24px, 12px, 0);
+    }
+}
+
+@keyframes ambient-stars-twinkle{
+    from{
+        opacity: var(--star-twinkle-min-opacity);
+        transform: translate3d(0, 0, 0);
+    }
+    to{
+        opacity: var(--star-twinkle-max-opacity);
+        transform: translate3d(0, -6px, 0);
+    }
+}
+

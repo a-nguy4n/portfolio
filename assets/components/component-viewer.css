@@ -1,0 +1,27 @@
+.top-row{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    margin: 1.5% 0 0 0;
+    padding: 0 1% 1% 0;
+}
+
+.top-row > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.top-row > :nth-child(3){ 
+    margin-left: auto;
+    width: fit-content;
+}
+
+
+.top-row theme-toggle{
+    margin: 15% 50%;
+}

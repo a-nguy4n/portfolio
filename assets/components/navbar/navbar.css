@@ -1,0 +1,317 @@
+:root{
+    --pill-button-color: #ffffff;
+    --pill-button-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    --pill-color: var(--theme-text-color);
+    --pill-shadow-hover: var(--logo-hover) 0px 1px 8px;
+}
+
+html[data-theme="dawn"]{ 
+    --pill-button-color: #edfdf3;
+    --pill-color:  var(--theme-text-color);
+    --pill-button-shadow:
+        var(--logo-color) 0px 1px 3px;
+}
+
+html[data-theme="day"]{ 
+    --pill-button-color: #e5f6ff;
+}
+
+html[data-theme="sunset"]{ 
+    --pill-button-color: #f7e5dd;
+}
+
+html[data-theme="night"]{ 
+    --pill-button-color: #a9bfe2;
+    
+}
+
+.pill-nav{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: var(--font-style);
+}
+
+.pill-grid{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    gap: clamp(15px, 1.75vw, 30px);
+
+    list-style: none;
+    margin: 1%;
+    padding: 0;
+}
+
+.pill-item{
+    display: flex;
+
+    /* ======== DEFAULT CLOUD VARIABLES ======== */
+
+    --pill-button-radius: 50px;
+
+    /* BEFORE CLOUD PUFF */
+
+    --pill-before-width: 40px;
+    --pill-before-height: 40px;
+
+    --pill-before-top: -30px;
+    --pill-before-right: 20%;
+
+    /* AFTER CLOUD PUFF */
+
+    --pill-after-width: 80px;
+    --pill-after-height: 50px;
+
+    --pill-after-top: -20px;
+    --pill-after-left: 15%;
+}
+
+/* ======== MAIN BUTTON ======== */
+
+.pill-button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: clamp(30px, 3.2vw, 35px);
+    padding: clamp(3px, 0.25vw, 5px) clamp(10px, 1vw, 18px);
+
+    background: var(--pill-button-bg);
+    border: none;
+    border-radius: var(--pill-button-radius);
+    color: var(--pill-color);
+
+    font-family: var(--font-style);
+    font-weight: 600;
+    font-size: var(--text-small);
+
+    letter-spacing: 1px;
+    text-transform: none;
+
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+
+    box-shadow: var(--pill-button-shadow);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+    animation: cloudFloat 9s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes cloudFloat{
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-6px) scale(1.03);
+    }
+}
+
+.pill-button:hover{
+    animation-play-state: paused;
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: var(--pill-shadow-hover);
+}
+
+/* ======== LEFT CLOUD PUFF ========*/
+
+.pill-button::before{
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+
+    width: var(--pill-before-width);
+    height: var(--pill-before-height);
+
+    top: var(--pill-before-top);
+    right: var(--pill-before-right);
+
+    background: var(--pill-button-bg);
+
+    border-radius: var(--pill-button-radius);
+
+    transition: inherit;
+}
+
+/* ======== RIGHT CLOUD PUFF ======== */
+
+.pill-button::after{
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+
+    width: var(--pill-after-width);
+    height: var(--pill-after-height);
+
+    top: var(--pill-after-top);
+    left: var(--pill-after-left);
+
+    background: var(--pill-button-bg);
+
+    border-radius: var(--pill-button-radius);
+
+    transition: inherit;
+}
+
+/* ======== HOVER ========*/
+
+.pill-button:hover{
+    transform: translateY(-2px);
+
+    box-shadow: var(--pill-shadow-hover);
+}
+
+/* ======== FOCUS ======== */
+
+.pill-button:focus-visible{
+    outline: 2px solid rgba(255,255,255,0.85);
+    outline-offset: 2px;
+}
+
+/* ======== INDIVIDUAL BUTTON CUSTOMIZATION ======== */
+
+/* HOME */
+.pill-item.home{
+    --pill-button-bg: var(--pill-button-color);
+
+    --pill-before-width: 15px;
+    --pill-before-height: 30px;
+
+    --pill-before-top: -5px;
+    --pill-before-right: 20%;
+
+    --pill-after-width: 35px;
+    --pill-after-height: 40px;
+
+    --pill-after-top: -10px;
+    --pill-after-left: 18%;
+}
+
+/* RESUME */
+.pill-item.resume{
+    --pill-button-bg: var(--pill-button-color);
+
+    --pill-before-width: 48px;
+    --pill-before-height: 48px;
+
+    --pill-before-top: -15px;
+    --pill-before-right: 14%;
+
+    --pill-after-width: 65px;
+    --pill-after-height: 42px;
+
+    --pill-after-top: -10px;
+    --pill-after-left: 12%;
+}
+
+/* PROJECTS */
+.pill-item.projects{
+    --pill-button-bg: var(--pill-button-color);
+
+    --pill-before-width: 45px;
+    --pill-before-height: 45px;
+
+    --pill-before-top: -15px;
+    --pill-before-right: 15%;
+
+    --pill-after-width: 90px;
+    --pill-after-height: 50px;
+
+    --pill-after-top: -10px;
+    --pill-after-left: 15%;
+}
+
+/* ABOUT ME */
+.pill-item.about{
+    --pill-button-bg: var(--pill-button-color);
+
+    --pill-before-width: 50px;
+    --pill-before-height: 50px;
+
+    --pill-before-top: -15px;
+    --pill-before-right: 10%;
+
+    --pill-after-width: 45px;
+    --pill-after-height: 45px;
+
+    --pill-after-top: -12px;
+    --pill-after-left: 15%;
+}
+
+
+/* CONTACT ME */
+
+.pill-item.contact{
+    --pill-button-bg: var(--pill-button-color);
+
+    --pill-before-width: 90px;
+    --pill-before-height: 40px;
+
+    --pill-before-top: -10px;
+    --pill-before-right: 15%;
+
+    --pill-after-width: 45px;
+    --pill-after-height: 55px;
+
+    --pill-after-top: -20px;
+    --pill-after-left: 15%;
+}
+
+/* EXTRAS */
+
+.pill-item.extras{
+    --pill-button-bg: var(--pill-button-color);
+
+    --pill-before-width: 65px;
+    --pill-before-height: 60px;
+
+    --pill-before-top: -20px;
+    --pill-before-right: 15%;
+
+    --pill-after-width: 100px;
+    --pill-after-height: 50px;
+
+    --pill-after-top: -10px;
+    --pill-after-left: 10%;
+}
+
+
+/* ======== FLOAT DELAYS ======== */
+.pill-item.home .pill-button{
+    animation-delay: 2.5s;
+}
+
+.pill-item.resume .pill-button{
+    animation-delay: 1s;
+}
+
+.pill-item.projects .pill-button{
+    animation-delay: 1.5s;
+}
+
+.pill-item.about .pill-button{
+    animation-delay: 1s;
+}
+
+.pill-item.contact .pill-button{
+    animation-delay: 1.5s;
+}
+
+.pill-item.extras .pill-button{
+    animation-delay: 2.5s;
+}

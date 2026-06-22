@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to my Portfolio!</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/page-outline.css">
+    <link rel="stylesheet" href="/assets/animations/ambient-background/ambient-background.css">
+    <link rel="stylesheet" href="/pages/home/home.css">
+</head>
+<body data-page="home">
+    <div class="ambient-background">
+        <span data-svg data-src="/assets/images/clouds/cloud-two.svg" class="cloud cloud-medium move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-seven.svg" class="cloud cloud-medium move-left"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-eight.svg" class="cloud cloud-medium move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-nine.svg" class="cloud cloud-large move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-one.svg" class="cloud cloud-small move-left"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-thirteen.svg" class="cloud cloud-medium move-left"></span>
+    </div>
+
+    <header class="top-row"> 
+        <logo-button></logo-button>
+        <navbar-component></navbar-component>
+        <search-bar></search-bar>
+        <theme-toggle></theme-toggle>
+    </header>
+
+    <main class="home-main result-layout" data-pagefind-body>  
+        <h3 id="home-count" class="results-count"> 5 Results found for "<i>Allison H. Nguyen's Portfolio</i>"</h3>
+    
+        <section id="top-resultcard" class="result-topcard">
+      
+            <header id="status-row">
+                <p>Top Result</p>
+                <p id="status-pill"> <span>• </span>Full-Time Ready </p>
+            </header>
+            
+
+            <section id="home-detail">
+                <h1> Allison H. Nguyen </h1>
+                <p>Student | Computer Engineer | Designer & Developer</p>
+            </section>
+
+            <aside class="home-widget">
+                <img id="home-image" src="/assets/images/pics/home-page/profile.jpg" alt="Profile Image">
+
+                <section id="home-coltwo">
+                    <h2>
+                        "If I’m not busy, something’s probably off.
+                        I build, design, and figure things out."
+                    </h2>
+
+                    <figure class="overview-one">
+                        <img id="project-image" src="/assets/images/pics/projects-page/dermidew-thumbnail.png" alt="Project Image">
+                        <div class="overlay">The Latest Project</div>
+                    </figure>
+                </section>
+
+                <section id="home-colthree">
+                    <img src="/assets/images/pics/home-page/home-result.png" alt="Personal Image">
+                    
+                </section>
+
+                 <section  id="home-colfour">
+                    <h2> My Stats </h2>
+
+                    <ul class="stats-list">
+                        <li>3+ Projects Built</li>
+                        <li>2 Interactive Web Apps</li>
+                        <li>Reusable Component-Based UI</li>
+                        <li>Responsive, Animation-Driven Design</li>
+                    </ul>
+                </section>
+            </aside>
+        </section>
+
+        <a id="projects-result" class="result-row" href="/pages/projects/projects.html">
+            <section class="result-description">
+                <h2> 
+                    <span class="item-circle-icon">
+                        <img src="/assets/images/icons/home-page/projects-icon.png" alt="Projects Icon"> 
+                    </span>
+                    Project Gallery 
+                    <span class="page-links"> allisonnguyen.dev > projects </span> 
+                </h2>
+                <h3> Check out the works I've done!</h3>
+                <p class="result-caption"> 
+                    A collection of projects showcasing my work in full-stack development, design, and interactive applications. 
+                    These projects reflect my ability to build scalable systems, create intuitive user experiences, and turn 
+                    ideas into real-world solutions. I also collaborate with teams using version control, shared repositories, and 
+                    organized development workflows.
+                </p>
+                <p class="result-tags"> Apps • Full Stack • Design • IoT</p>
+            </section>
+           
+            <img class="thumbnail-pic" src="/assets/images/pics/home-page/projects-gallery-pic.png" alt="Projects Gallery Picture">
+            <span data-svg data-src="/assets/images/icons/open-link-icon.svg" class="open-link-icon"></span>
+        </a>
+
+        <a id="resume-result" class="result-row" href="/pages/resume/resume.html">
+            <section class="result-description">
+                <h2> 
+                    <span class="item-circle-icon"> 
+                        <img src="/assets/images/icons/home-page/resume-icon.png" alt="Resume Icon">
+                    </span>
+                    My Resume 
+                    <span class="page-links"> allisonnguyen.dev > resume </span> 
+                </h2>
+                <h3> A Look at my Technical Background </h3>
+                <p class="result-caption"> 
+                    A summary of my technical background, including education, experience, and core skill sets.
+                </p>
+                <p class="result-tags"> Education • Experience • Work • Skills</p> 
+            </section>
+
+            <span data-svg data-src="/assets/images/icons/open-link-icon.svg" class="open-link-icon"></span>
+        </a>
+
+        <a id="about-result" class="result-row" href="/pages/about-me/about-me.html">
+            <section class="result-description">
+                <h2>
+                    <span class="item-circle-icon">  
+                        <img src="/assets/images/pics/home-page/profile.jpg" alt="My Profile Img">
+                    </span>
+                    Get to Know Me! 
+                    <span class="page-links"> allisonnguyen.dev > about-me </span> 
+                </h2>
+                <h3> Behind the Code & Design </h3>
+                <p class="result-caption"> 
+                    If I’m not busy, something probably feels off.
+                    I am currently a computer engineering student with a minor in design,
+                    curious about how things go from a simple idea to something people 
+                    actually enjoy using . . . 
+                </p>
+                <p class="result-tags"> Bio • Hobbies • Bucket List • Favorites • My Recs</p>
+            </section>
+
+            <span data-svg data-src="/assets/images/icons/open-link-icon.svg" class="open-link-icon"></span>
+        </a>
+
+        <a id="contact-result" class="result-row" href="/pages/contact-me/contact-me.html">
+            <section class="result-description"> 
+                <h2> 
+                    <span class="item-circle-icon"> 💬 </span>
+                    Get in Touch & Connect! 
+                    <span class="page-links"> allisonnguyen.dev > contact-me </span> 
+                </h2>
+                <h3> I’m open to opportunities and conversations! </h3>
+                <p class="result-caption"> 
+                    I’m always open to new opportunities, collaborations, and meaningful conversations. 
+                    Whether you’re a recruiter, developer, or just want to connect, feel free to reach out. 
+                    Let’s build, share ideas, or chat over coffee.
+                </p>
+                <p class="result-tags"> Gmail • LinkedIn • Coffee Chat ☕️ </p>
+            </section>
+
+            <img class="thumbnail-pic" src="/assets/images/pics/home-page/contact-page-pic.png" alt="Contact Page Img">
+            <span data-svg data-src="/assets/images/icons/open-link-icon.svg" class="open-link-icon"></span>
+        </a>
+
+        <section id="extra-searches" class="additional-searches">
+            <h2> Visitors also looked for: </h2>
+            <a href="/pages/progress/progress.html?progress=75"> <img class="search-icon" src="/assets/images/icons/magnifying-glass.png" alt="Magnifying Glass Icon">
+                Process behind creating this portfolio 
+            </a>
+            <a href="https://a-nguy4n.github.io/projects-docs/dermi-dew/index.html" target="_blank" rel="noopener noreferrer"> <img class="search-icon" src="/assets/images/icons/magnifying-glass.png" alt="Magnifying Glass Icon">
+                What's the most recent project? 
+            </a>
+            <a href="mailto:1512alli@email.com?subject=Connection Request&body=Hi Allison, I came across your portfolio..."> 
+                <img class="search-icon" src="/assets/images/icons/magnifying-glass.png" alt="Magnifying Glass Icon">
+                Best way to contact Allison 
+            </a>
+        </section>
+    </main>
+
+    <footer class="end-result">
+        <h3> ── End of Results ── </h3>
+        <logo-button></logo-button>
+        <p> Allison H. Nguyen's Portfolio</p>
+        <i> designed & coded-line-by-line, old school style </i>
+        <p> Thank you for visiting! </p>
+    </footer>
+
+    <script type="module" src="/scripts/init.js"></script>
+</body>
+</html> 

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me Vertical</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/animations/ambient-background/ambient-background.css">
+    <link rel="stylesheet" href="/assets/css/page-outline.css">
+    <link rel="stylesheet" href="/pages/about-me/about-me.css">
+</head>
+<body data-page="about-me">
+    <div class="ambient-background">
+        <span data-svg data-src="/assets/images/clouds/cloud-two.svg" class="cloud cloud-medium move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-seven.svg" class="cloud cloud-medium move-left"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-eight.svg" class="cloud cloud-medium move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-nine.svg" class="cloud cloud-large move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-one.svg" class="cloud cloud-small move-left"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-thirteen.svg" class="cloud cloud-medium move-left"></span>
+    </div>
+
+    <header class="top-row"> 
+        <logo-button></logo-button>
+        <navbar-component></navbar-component>
+        <search-bar></search-bar>
+        <theme-toggle></theme-toggle>
+    </header>
+
+
+    <main class="about-content result-layout" data-pagefind-body>
+        <h3 id="abour-count" class="results-count"> 3 Results found for "<i>Who is Allison Nguyen?</i>"</h3>
+        <section id="about-topresult" class="result-topcard">
+            <header>
+                <article id="hero-text">
+                    <h1 data-svg data-src="/assets/images/pics/about-page/signature-pic.svg"></h1>
+                    <p> Student | Overthinker | Workaholic </p>
+                    <p> Probably in a coffee shop somewhere.</p>
+                </article>
+
+                <nav class="about-pills">
+                    <a class="pill is-active" data-target="bio-block">My Bio</a>
+                    <a class="pill" data-target="hobbies-block">Hobbies</a>
+                    <a class="pill" data-target="bucket-block">Bucket List</a>
+                    <a class="pill" data-target="favs-block">Favorites</a>
+                    <a class="pill" data-target="recs-block">Recommendations</a>
+                </nav>
+            </header>
+
+            <section class="about-herocontent">
+                <img id="hero-image" src="/assets/images/pics/home-page/profile.jpg" alt="Profile Image">
+               
+                <aside class="about-visuals">
+                    <img class="visual-one" src="/assets/images/pics/about-page/dawn-pic.png" alt="Skyline Photo">
+                    <img class="visual-two" src="/assets/images/pics/about-page/day-study.png" alt="Study Coffee Photo">
+                </aside>
+              
+                <section class="about-overview" id="bio-block">
+                    <h2> Bio Overview </h2>
+                    <p> 
+                        If I’m not busy, something probably feels off.
+                        I am currently a computer engineering student with a minor in design,
+                        curious about how things go from a simple idea to something people 
+                        actually enjoy using (or don’t).
+                    </p>
+                    <br>
+                    <p>
+                        Lately, I've been working on projects that let me experiment with both 
+                        development and design, refining my skills and trying new things as I go.
+                        Outside of that, I’m usually out on a trail, trying a new coffee spot, 
+                        or convincing myself I can pick up a new skill, lately pottery.
+                    </p>
+                </section>
+            </section>
+        </section>
+
+        <section class="interest-items result-topcard">
+            <h1>My Interests</h1>
+
+            <details id="hobbies-block">
+                <summary>
+                    My Hobbies
+                    <span class="dropdown-icon" data-svg data-src="/assets/images/icons/caret-icon.svg"></span>
+                </summary>
+                
+                <article class="content">
+                    <section class="content-grid">
+                        <p> I like to keep myself busy with hobbies that let me explore my creative side. 
+                            Like ... 
+                        </p>
+
+                        <span class="hobbies-animation"> 
+                            <pre id="hobby-frame"></pre>
+                            <p id="hobby-caption"></p>
+                        </span>
+                    </section>
+                </article>
+            </details>
+
+            <details id="bucket-block">
+                <summary>
+                    My Bucket List
+                    <span class="dropdown-icon" data-svg data-src="/assets/images/icons/caret-icon.svg"></span>
+                </summary>
+
+                <article class="content">
+                    <section class="content-grid">
+                        <ul class="bucket-simple-list" aria-label="Bucket List status">
+                            <li class="bucket-simple-item status-not-started">
+                                <span class="status-dot" aria-hidden="true"></span>
+                                <span class="item-text"> Travel to Iceland and experience the Northern Lights + Midnight Sun</span>
+                            </li>
+                            <li class="bucket-simple-item status-not-started">
+                                <span class="status-dot" aria-hidden="true"></span>
+                                <span class="item-text"> Go to Point Reyes</span>
+                            </li>
+                            <li class="bucket-simple-item status-complete">
+                                <span class="status-dot" aria-hidden="true"></span>
+                                <span class="item-text"> Learn how to drive a manual</span>
+                            </li>
+                            <li class="bucket-simple-item status-in-progress">
+                                <span class="status-dot" aria-hidden="true"></span>
+                                <span class="item-text">Learn pottery (make a ceramics set)</span>
+                            </li>
+                              <li class="bucket-simple-item status-not-started">
+                                <span class="status-dot" aria-hidden="true"></span>
+                                <span class="item-text"> Throw a themed dinner party</span>
+                            </li>
+                            <li class="bucket-simple-item status-in-progress">
+                                <span class="status-dot" aria-hidden="true"></span>
+                                <span class="item-text"> Perfect my Japanese milkbread garlic rolls</span>
+                            </li>
+                        </ul>
+                    </section>
+                </article>
+            </details>
+
+            <details id="favs-block">
+                <summary>
+                    All-Time Favorites
+                    <span class="dropdown-icon" data-svg data-src="/assets/images/icons/caret-icon.svg"></span>
+                </summary>
+
+                <article class="content">
+                    <section class="content-grid">
+                        <p> Think of this section as a small collection of recommendations, comfort picks, and 
+                            personal favorites that have earned a permanent spot on my list. </p>
+                        
+                        <ul class="favorites-list" aria-label="Favorites List">
+                             <li class="favorite-item">
+                                <span class="favorite-category"> Movies & Shows </span>
+                                <span class="favorite-item-text">When Life Gives You Tangerines</span>
+                                <span class="favorite-item-text"> Despicable Me Movies</span>
+                            </li>
+
+                            <li class="favorite-item">
+                                <span class="favorite-category">Top Songs</span>
+                                <div class="item-group">
+                                    <span class="favorite-item-text">Crazier Things — Chelsea Cutler & Noah Kahan</span>
+                                    <span class="favorite-item-text">Whenever You're Gone — Khalid</span>
+                                    <span class="favorite-item-text">Meet Me in the Woods — Lord Huron</span>
+                                    <span class="favorite-item-text">I Like Me Better — Lauv</span>
+                                </div>
+                            </li>
+
+                            <li class="favorite-item">
+                                <span class="favorite-category"> Destinations Traveled </span>
+                                <span class="favorite-item-text"> Niagara Falls </span>
+                                <span class="favorite-item-text"> Saigon </span>
+                                <span class="favorite-item-text"> New York City </span>
+                            </li>
+                        </ul>
+                    </section>
+                </article>
+            </details>
+        </section> 
+
+        <a id="portfolio-result" class="result-row" href="#">
+            <section class="result-description">
+                <h2> 
+                    <span class="item-circle-icon"> 
+                        <img src="/assets/images/icons/about-page/portfolio-result-icon.png" alt="Portfolio Icon">
+                    </span>
+                    My Portfolio 
+                    <span class="page-links"> allisonnguyen.dev > portfolio </span> 
+                </h2>
+                <h3> An Insight into My Work </h3>
+                <p class="result-caption"> 
+                    Take a look at how this portfolio came together. This documentation highlights my approach, creative 
+                    decisions, and development process. Explore how I built it through iteration and intentional design. 
+                </p>
+                <p class="result-tags"> </p> 
+            </section>
+
+            <span data-svg data-src="/assets/images/icons/open-link-icon.svg" class="open-link-icon"></span>
+        </a>
+
+        <a id="about-contact-result" class="result-row" href="/pages/contact-me/contact-me.html">
+            <section class="result-description"> 
+                <h2> 
+                    <span class="item-circle-icon"> 💬 </span>
+                    Get in Touch & Connect! 
+                    <span class="page-links">https://some-sort-of-link.com </span> 
+                </h2>
+                <h3> I’m open to opportunities and conversations! </h3>
+                <p class="result-caption"> 
+                    I’m always open to new opportunities, collaborations, and meaningful conversations. 
+                    Whether you’re a recruiter, developer, or just want to connect, feel free to reach out. 
+                    Let’s build, share ideas, or chat over coffee.
+                </p>
+                <p class="result-tags"> Gmail • LinkedIn • Coffee Chat ☕️ </p>
+            </section>
+
+            <img class="thumbnail-pic" src="/assets/images/pics/home-page/contact-page-pic.png" alt="Contact Page Img">
+            <span data-svg data-src="/assets/images/icons/open-link-icon.svg" class="open-link-icon"></span>
+        </a>
+
+        <!-- Carousel --->
+        <section class="about-carousel result-topcard" aria-labelledby="carousel-title" id="recs-block">
+            <h1 id="carousel-title"> My Recommendations</h1>
+
+            <div class="carousel-shell">
+                <button class="carousel-btn prev" type="button" aria-label="Previous cards">&#8249;</button>
+
+                <div class="carousel-track" id="about-carousel-track">
+                    <article class="carousel-card">
+                        <img src="/assets/images/pics/about-page/for-recs/pasta.png" alt="Pasta I cooked">
+                        <h2> New Recipe Recommendation</h2>
+                        <p class="carousel-caption"> making alfredo or red sauce from scratch, easier than it sounds</p>
+                    </article>
+
+                    <article class="carousel-card">
+                        <img src="/assets/images/pics/about-page/for-recs/food-spot.png" alt="Coffee decor photo">
+                         <h2> Burger Spot</h2>
+                        <p class="carousel-caption"> Tanner's Prime Burgers in Oceanside</p>
+                    </article>
+
+                    <article class="carousel-card">
+                        <img src="/assets/images/pics/about-page/for-recs/song-cover.png" alt="Album Cover">
+                        <h2> Now Playing</h2>
+                        <p class="carousel-caption"> 
+                            "Sundays" by Emotional Oranges
+                            (for slow mornings with no plans)
+                        </p>
+                    </article>
+
+                    <article class="carousel-card">
+                        <img src="/assets/images/pics/about-page/for-recs/romcom-rec.png" alt="Romcom Movie Poster">
+                        <h2> An Easy Watch</h2>
+                        <p class="carousel-caption"> If you ever need a light and fun watch, 
+                                                    I recommend "He's Just Not That Into You"  
+                        </p>
+                    </article>
+
+                    <article class="carousel-card">
+                        <img src="/assets/images/pics/about-page/for-recs/tacos.png" alt="Tacos">
+                         <h2> Food Spot</h2>
+                        <p class="carousel-caption"> Tacos El Gordo in San Diego</p>
+                    </article>
+                </div>
+
+                <button class="carousel-btn next" type="button" aria-label="Next cards">&#8250;</button>
+            </div>
+        </section>
+         
+    </main>
+
+    <footer class="end-result">
+        <h3> ── End of Results ── </h3>
+        <logo-button></logo-button>
+        <p> Allison H. Nguyen's Portfolio</p>
+        <i> designed & coded-line-by-line, old school style </i>
+        <p> Thank you for visiting! </p>
+    </footer>
+
+    <script type="module" src="/scripts/init.js"></script>
+    <script type="module" src="/pages/about-me/about-me.js"></script>
+</body>
+</html>

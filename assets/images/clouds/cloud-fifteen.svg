@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="30.44067mm"
+   height="9.6023159mm"
+   viewBox="0 0 30.44067 9.6023159"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="cloud-fifteen.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="5.192218"
+     inkscape:cx="48.534172"
+     inkscape:cy="13.096523"
+     inkscape:window-width="1512"
+     inkscape:window-height="945"
+     inkscape:window-x="0"
+     inkscape:window-y="37"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-64.816959,-120.88456)">
+    <path
+       d="m 65.413168,129.55763 c 0.479899,-0.88721 1.605541,-1.76597 2.262118,-1.76597 0.399755,0 0.486055,-0.19218 0.486055,-1.08246 0,-0.72866 0.276825,-1.60271 0.846935,-2.67411 0.71193,-1.33793 1.047014,-1.68839 2.101997,-2.19846 2.108369,-1.01939 4.876506,-0.6996 6.307842,0.7287 l 0.743044,0.74146 0.624625,-0.56037 c 0.519031,-0.46563 0.918353,-0.91688 2.361961,-0.91595 1.420481,9.2e-4 1.958078,0.48168 2.9477,1.03694 0.665708,0.37353 1.235632,1.70305 1.573228,2.08256 0.557384,0.62658 1.0249,-0.3801 2.606685,-0.3801 1.57549,0 2.069856,0.22337 2.798658,0.89093 0.443191,0.40593 0.647133,1.28244 0.759918,1.69866 0.150262,0.55454 0.392713,0.79006 0.907282,0.88135 0.801559,0.14218 2.261625,1.36211 2.261625,1.88965 0,0.29993 -2.23846,0.35259 -14.991021,0.35259 H 65.02079 Z"
+       class="cloud-shape"
+       fill="currentColor" 
+       stroke="currentColor"
+       id="path1"
+       sodipodi:nodetypes="csscccccccsscscsscc" />
+  </g>
+</svg>

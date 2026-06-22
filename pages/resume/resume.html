@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/animations/ambient-background/ambient-background.css">
+    <link rel="stylesheet" href="/assets/css/page-outline.css">
+    <link rel="stylesheet" href="/pages/resume/resume.css">
+</head>
+<body data-page="resume">
+    <div class="ambient-background">
+        <span data-svg data-src="/assets/images/clouds/cloud-two.svg" class="cloud cloud-medium move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-seven.svg" class="cloud cloud-medium move-left"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-eight.svg" class="cloud cloud-medium move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-nine.svg" class="cloud cloud-large move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-one.svg" class="cloud cloud-small move-left"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-thirteen.svg" class="cloud cloud-medium move-left"></span>
+    </div>
+
+    <header class="top-row"> 
+        <logo-button></logo-button>
+        <navbar-component></navbar-component>
+        <search-bar></search-bar>
+        <theme-toggle></theme-toggle>
+    </header>
+
+    <main class="resume-main result-layout" data-pagefind-body> 
+        <h3 id="resume-count" class="results-count"> 3 Results found for "<i>Resume</i>"</h3>
+        
+        <section id="resume-resultcard" class="result-topcard">
+            <h1>People ask for</h1>
+
+            <details id="education">
+                <summary>
+                    Allison's Educational Background
+                    <span class="dropdown-icon" data-svg data-src="/assets/images/icons/caret-icon.svg"></span>
+                </summary>
+                
+                <article class="content">
+                    <section class="content-grid">
+                        <p>
+                            I earned a Bachelor of Science in Computer Engineering and a minor in Design from the University of California, San Diego (UCSD).
+                            My education combined software engineering, computer systems, and user-centered design, 
+                            providing a strong foundation in both technical development and creative problem-solving.
+                        </p>
+                    </section>
+
+                    <section class="inner-card">
+                        <h4> Some Things I Studied: </h4>
+                        <ul class="coursework-list">
+                            <li>Advanced Data Structures</li>
+                            <li>AI: Search & Reasoning</li>
+                            <li>Circuits and Systems</li>
+                            <li>Computer Organization & Systems</li>
+                            <li>Design & Analysis of Algorithms</li>
+                            <li>Design of Everyday Things</li>
+                            <li>Digital Circuits</li>
+                            <li>Human-Computer Interaction Design</li>
+                            <li>Online Database Analytics Applications</li>
+                            <li>Product Engineering</li>
+                            <li>Software Engineering</li>
+                            <li>Software Tools & Techniques Lab</li>
+                            <li>Usability & Information Architecture</li>
+                            <li>Web Client Languages</li>
+                            <li>Web Mining & Recommender Systems</li>
+                        </ul>
+                    </section>
+                </article>
+            </details>
+
+            <!-- <details id="experience">
+                <summary>
+                    What Experience does she have? 
+                    <span class="dropdown-icon" data-svg data-src="/assets/images/icons/caret-icon.svg"></span>
+                </summary>
+
+                <article class="content">
+                    <section class="content-grid">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </section>
+
+                    <section class="inner-card">
+                        <h4>Experiences</h4>
+                        <p> list some experiences </p>
+                    </section>
+                </article>
+            </details> -->
+
+            <details id="works">
+                <summary>
+                    Projects and works Allison has done
+                    <span class="dropdown-icon" data-svg data-src="/assets/images/icons/caret-icon.svg"></span>
+                </summary>
+
+                <article class="content">
+                    <section class="content-grid">
+                        <p>
+                            My projects explore the intersection of software engineering, design, and user experience. 
+                            From full-stack web applications to interactive games and IoT-powered solutions, I enjoy 
+                            building products that solve real-world problems while engaging users and developing my skills.
+                        </p>
+                        <p>
+                            Through both individual and team-based projects, I have gained experience with front-end development, 
+                            API integration, database-driven applications, responsive design, and product development workflows.
+                        </p>
+                    </section>
+
+                    <section class="inner-card">
+                        <h4> Some Projects:</h4>
+                        <ul class="project-list">
+                            <li>
+                                <a href="https://a-nguy4n.github.io/projects-docs/dermi-dew/index.html" target="_blank" rel="noopener noreferrer">
+                                    DermiDew
+                                </a>
+                                <span>— Smart skincare analysis and routine tracking platform</span>
+                            </li>
+
+                            <li>
+                                <a href="https://a-nguy4n.github.io/projects-docs/aura-fit/weather-wardrobe.html" target="_blank" rel="noopener noreferrer">
+                                    Weather Wardrobe
+                                </a>
+                                <span>— Weather-based outfit recommendation assistant</span>
+                            </li>
+
+                            <li>
+                                <a href="https://a-nguy4n.github.io/projects-docs/socal-social/socal-social.html" target="_blank" rel="noopener noreferrer">
+                                    SoCal Social
+                                </a>
+                                <span>— Community event discovery platform for UCSD students</span>
+                            </li>
+                        </ul>
+                    </section>
+                </article>
+            </details>
+
+            <details id="skills">
+                <summary>
+                    Allison's Skills 
+                   <span class="dropdown-icon" data-svg data-src="/assets/images/icons/caret-icon.svg"></span>
+                </summary>
+
+                <article class="content">
+                    <section class="content-grid skill-cloud">
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">HTML</span>
+                        <span class="skill-pill">CSS</span>
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">Java</span>
+                        <span class="skill-pill">C++</span>
+                        <span class="skill-pill">React</span>
+                        <span class="skill-pill">GitHub</span>
+                        <span class="skill-pill">UI/UX Design</span>
+                        <span class="skill-pill">API Integration</span>
+                        <span class="skill-pill">Responsive Design</span>
+                        <span class="skill-pill">Wireframing</span>
+                        <span class="skill-pill">User Research</span>
+                        <span class="skill-pill">Information Architecture</span>
+                        <span class="skill-pill">Problem Solving</span>
+                        <span class="skill-pill">Teamwork</span>
+                        <span class="skill-pill">Project Planning</span>
+                        <span class="skill-pill">Prototyping</span>
+                    </section>
+                </article>
+            </details>
+        </section> 
+
+        <a id="resume-download" class="result-row" 
+            href="https://docs.google.com/document/d/1f9a-OizsOeciGPi7ZzKQ03_fLYCnO4tOBa0tqLLvl9E/export?format=pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+        >
+            <section class="result-description">
+                <h2> 
+                    <span class="item-circle-icon"> ⬇ </span>
+                    Download my Resume 
+                </h2>
+                <h3> Click to download a copy of my resume </h3>
+        
+                <p class="result-caption"> 
+                    View and download my most recent resume, which highlights my education,
+                    technical skills, projects, and relevant experience. This version reflects
+                    my latest work and accomplishments.
+                </p>
+                <p class="result-tags"> Last Updated June 2026  </p>
+            </section>
+            <span data-svg data-src="/assets/images/icons/open-link-icon.svg" class="open-link-icon"></span>
+        </a>
+
+        <a id="resume-preview" class="result-row" href=" https://docs.google.com/document/d/1f9a-OizsOeciGPi7ZzKQ03_fLYCnO4tOBa0tqLLvl9E/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <section class="result-description">
+                <h2> 
+                    <span class="item-circle-icon"> 📑 </span>
+                    Preview my Resume Document
+                    <span class="page-links"> google docs › resume </span> 
+                </h2>
+                <h3> Click to look at my resume on Google Docs </h3>
+        
+                <p class="result-caption"> 
+                    View and download my most recent resume, which highlights my education,
+                    technical skills, projects, and relevant experience. This version reflects
+                    my latest work and accomplishments.
+                </p>
+                <p class="result-tags"> Last Updated June 2026  </p>
+            </section>
+
+            <img class="thumbnail-pic" src="/assets/images/pics/resume-page/resume-pic.png" alt="Resume Doc Pic">
+            <span data-svg data-src="/assets/images/icons/open-link-icon.svg" class="open-link-icon"></span>
+        </a>
+
+        <a id="my-github" class="result-row" href="https://github.com/a-nguy4n" target="_blank" rel="noopener noreferrer">
+            <section class="result-description">
+                <h2> 
+                    <span class="item-circle-icon"> 
+                        <img src="/assets/images/icons/projects-page/git-icon.png" alt="github-logo">
+                    </span>
+                    My GitHub 
+                    <span class="page-links"> github › allison's github </span> 
+                </h2>
+                <h3> Checkout my works on GitHub! </h3>
+        
+                <p class="result-caption"> 
+                    Look into my GitHub to see the projects I've been working on, including 
+                    code samples, project documentation, and contributions. 
+                    It's a great way to get an insight of my technical skills and the
+                    work I've done.
+                </p>
+            </section>
+
+            <span data-svg data-src="/assets/images/icons/open-link-icon.svg" class="open-link-icon"></span>
+        </a>
+    </main>
+
+    <footer class="end-result">
+        <h3> ── End of Results ── </h3>
+        <logo-button></logo-button>
+        <p> Allison H. Nguyen's Portfolio</p>
+        <i> designed & coded-line-by-line, old school style </i>
+        <p> Thank you for visiting! </p>
+    </footer>
+    
+    <script type="module" src="/scripts/init.js"></script>
+    <script type="module" src="/pages/resume/resume.js"></script>
+</body>
+</html>

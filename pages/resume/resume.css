@@ -1,0 +1,225 @@
+body{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  
+  grid-template-rows: auto;
+  grid-template-areas: "top-row"
+                       "resume-main",
+                       "resume-end";
+}
+
+.top-row{
+    grid-area: top-row;
+}
+
+.resume-main{
+    grid-area: resume-main;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-areas: 
+        "resume-count"
+
+        "resume-resultcard"
+        "resume-download"
+        "resume-preview"     
+        "my-github";
+}
+
+#resume-count{
+    grid-area: resume-count;
+}
+
+#resume-resultcard{
+    grid-area: resume-resultcard;
+    
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "title"
+        "education"
+        "experience"
+        "works"
+        "skills";
+
+    background: var(--glass-background);
+}
+
+#resume-resultcard h1{
+    place-self: start;
+    
+    border-bottom: var(--border-value);
+    width: 100%;
+    margin: 0;
+    padding: 2.5% 0;
+}
+
+#resume-resultcard details{
+    place-self: start;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+#resume-resultcard details:hover{
+    transform: scale(1.035);
+}
+
+#resume-resultcard details:last-child{ 
+    border-bottom: none; 
+}
+
+details[open] .dropdown-icon{
+    transform: rotate(-90deg);
+}
+
+summary::-webkit-details-marker{ display:none; }
+
+#resume-resultcard summary{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    list-style: none;
+
+    cursor: pointer;
+    font-weight: 400;
+    font-size: var(--text-medium);
+    padding: 1.05rem 1.15rem;
+}
+
+.dropdown-icon{
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    transition: transform .2s ease;
+
+    margin: 0;
+    padding: 0;
+}
+
+#education{ grid-area: education;}
+#experience{ grid-area: experience;}
+#works{ grid-area: works;}
+#skills{ grid-area: skills;}
+
+
+#resume-download{
+    grid-area: resume-download;
+}
+#resume-download .item-circle-icon{
+    background: rgb(109, 132, 169);
+}
+
+#resume-preview{
+    grid-area: resume-preview;
+}
+#resume-preview .item-circle-icon{
+    background: rgb(198, 51, 34);
+}
+#resume-preview img{
+    width: 60%;
+}
+
+#my-github{
+    grid-area: my-github;
+}
+#my-github .item-circle-icon{
+    background: rgb(255, 255, 255);
+}
+
+.end-result{ 
+    grid-area: resume-end;
+}
+
+.content{
+    padding: 0 1.15rem 1.1rem 1.15rem;
+    display: grid;
+    gap: 0.9rem;
+}
+
+.content-grid{
+    display: grid;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.content p{
+    margin:0;
+    font-size: var(--text-small);
+    line-height: 1.6;
+    color: rgba(255,255,255,.88);
+}
+
+.coursework-list{
+    columns: 2;
+    column-gap: 2rem;
+    font-size: var(--text-small);
+}
+
+.inner-card{
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.07);
+    padding: .9rem;
+    display:grid;
+    gap:.5rem;
+}
+
+.inner-card h4{
+    font-weight: 650;
+    font-size: var(--text-small);
+    opacity:.95;
+    margin-bottom: 1%;
+}
+
+.inner-card p{
+    font-size: 12px;
+    opacity: .75;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+.project-list{
+    font-size: var(--text-small);
+}
+
+.project-list li{
+    margin-bottom: 0.5rem;
+}
+
+.project-links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-links a{
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.project-links a:hover{
+    transform: translateY(-2px);
+}
+
+.skill-cloud{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    padding-top: 1rem;
+}
+
+.skill-pill{
+    padding: .5rem 1rem;
+    border-radius: 999px;
+    background: #ffffff00;
+    border: 1px solid var(--theme-text-color);
+    transition: transform .2s ease;
+    will-change: transform;
+    user-select: none;
+    width: fit-content
+}

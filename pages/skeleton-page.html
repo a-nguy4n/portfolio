@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> General Page Layout </title>
+     
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/page-outline.css">
+    <link rel="stylesheet" href="/assets/animations/ambient-background/ambient-background.css">
+</head>
+<body>
+    <div class="ambient-background">
+        <span data-svg data-src="/assets/images/clouds/cloud-two.svg" class="cloud cloud-medium move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-seven.svg" class="cloud cloud-medium move-left"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-eight.svg" class="cloud cloud-medium move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-nine.svg" class="cloud cloud-large move-right"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-one.svg" class="cloud cloud-small move-left"></span>
+        <span data-svg data-src="/assets/images/clouds/cloud-thirteen.svg" class="cloud cloud-medium move-left"></span>
+    </div>
+
+    <header class="top-row"> 
+        <logo-button></logo-button>
+        <navbar-component></navbar-component>
+        <search-bar></search-bar>
+        <theme-toggle></theme-toggle>
+    </header>
+
+  
+     <footer class="end-result">
+        <h3> ── End of Results ── </h3>
+        <logo-button></logo-button>
+        <p> Allison H. Nguyen's Portfolio</p>
+        <i> designed & coded-line-by-line, old school style </i>
+        <p> Thank you for visiting! </p>
+    </footer>
+    
+    <script type="module" src="/scripts/init.js"></script>
+</body>
+</html>

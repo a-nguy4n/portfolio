@@ -1,0 +1,31 @@
+.progress-section{
+    max-width: 800px;
+    margin: 5%;
+    padding-left: 8.5%;
+    color: var(--theme-text-color);
+}
+
+.progress-section h1{
+    font-size: var(--text-large);
+}
+
+.progress-section p,
+.progress-section i{
+    font-size: var(--text-medium);
+}
+
+.ascii-progress{
+    color: var(--theme-text-color);
+
+    font-family: monospace;
+    font-size: var(--text-large);
+    
+    margin-bottom: 3%;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.ascii-progress-text{
+    display: inline-block;
+    width: 100%;
+}
