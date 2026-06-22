@@ -33,8 +33,17 @@ function formatDateLabel(){
   return `${weekday} · ${month} ${day}`;
 }
 
+// Keeps any number inside the 0–1439 minute range.
+function normalizeMinutes(minutes){
+  const total = Number(minutes);
+  if(!Number.isFinite(total)) return 0;
+
+  return ((Math.round(total) % 1440) + 1440) % 1440;
+}
+
+// Opens/closes the popup safely.
 function setupTimeChipPopover(timeChip, timePop){
-  if (!timeChip || !timePop) return;
+  if(!timeChip || !timePop) return;
 
   timePop.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -64,20 +73,23 @@ function closePopover(timeChip, timePop){
   timePop.setAttribute("aria-hidden", "true");
 }
 
+// Gets the theme currently applied to the page.
+function getCurrentTheme(){
+  return document.documentElement.dataset.theme || getThemeForMinutes(getMinutesSinceMidnight());
+}
+
+// Gets the next theme in your manual toggle cycle.
 function getNextThemeMinutes(){
-  const currentTheme = document.documentElement.dataset.theme || "day";
+  const currentTheme = getCurrentTheme();
   const currentIndex = THEME_ORDER.indexOf(currentTheme);
-  let safeIndex = currentIndex;
-  if(currentIndex === -1){
-    safeIndex = 1;
-  }
+  const safeIndex = currentIndex === -1 ? 1 : currentIndex;
   const nextTheme = THEME_ORDER[(safeIndex + 1) % THEME_ORDER.length];
 
   return THEME_MINUTES[nextTheme];
 }
 
 function cacheTimeChipElements(root){
-  return{
+  return {
     timeRows: Array.from(root.querySelectorAll(".time-row")),
   };
 }
@@ -85,9 +97,10 @@ function cacheTimeChipElements(root){
 const USER_TIME_ZONE = Intl.DateTimeFormat().resolvedOptions().timeZone;
 const ALLISON_TIME_ZONE = "America/Los_Angeles";
 
+// Gets current minutes for a specific timezone.
 function getMinutesForTimeZone(timeZone){
   const parts = new Intl.DateTimeFormat("en-US", {
-    timeZone: timeZone,
+    timeZone,
     hour: "numeric",
     minute: "numeric",
     hour12: false,
@@ -97,22 +110,16 @@ function getMinutesForTimeZone(timeZone){
   let minute = 0;
 
   for(const part of parts){
-    if(part.type === "hour"){
-      hour = Number(part.value);
-    }
-
-    if(part.type === "minute"){
-      minute = Number(part.value);
-    }
+    if(part.type === "hour") hour = Number(part.value);
+    if(part.type === "minute") minute = Number(part.value);
   }
 
-  if(hour === 24){
-    hour = 0;
-  }
+  if(hour === 24) hour = 0;
 
   return hour * 60 + minute;
 }
 
+// Updates the circular slider ring position.
 function updateTimeRowRing(sideEl, minutes){
   if(!sideEl) return;
 
@@ -125,7 +132,7 @@ function updateTimeRowRing(sideEl, minutes){
   const cy = 60;
   const r = 46;
   const CIRC = 2 * Math.PI * r;
-  const safeMinutes = ((Math.round(Number(minutes)) % 1440) + 1440) % 1440;
+  const safeMinutes = normalizeMinutes(minutes);
   const t = safeMinutes / 1440;
   const angle = t * 2 * Math.PI - Math.PI / 2;
 
@@ -136,6 +143,7 @@ function updateTimeRowRing(sideEl, minutes){
   knob.setAttribute("cy", String(cy + r * Math.sin(angle)));
 }
 
+// Hides Allison's row when user is in the same timezone.
 function updateTimePopupTimezoneState(widget){
   const userTimeRow = widget.querySelector("#user-time");
   const anTimeRow = widget.querySelector("#an-time");
@@ -143,12 +151,9 @@ function updateTimePopupTimezoneState(widget){
   const isSameTimezone = USER_TIME_ZONE === ALLISON_TIME_ZONE;
 
   if(userLabel){
-    if(isSameTimezone){
-      userLabel.textContent = "Your Time + Allison's Time";
-    }
-    else{
-      userLabel.textContent = "Your Time";
-    }
+    userLabel.textContent = isSameTimezone
+      ? "Your Time + Allison's Time"
+      : "Your Time";
   }
 
   if(anTimeRow){
@@ -158,32 +163,30 @@ function updateTimePopupTimezoneState(widget){
 
 function getPhraseForTheme(theme){
   const phrases = {
-    "dawn": "First Light",
-    "day": "Peak Productivity",
-    "sunset": "Golden Hour",
-    "night": "After Hours",
+    dawn: "First Light",
+    day: "Peak Productivity",
+    sunset: "Golden Hour",
+    night: "After Hours",
   };
-  return phrases[theme] || "Peak Productivity";
+
+  return phrases[theme] || phrases.day;
 }
 
 function getMessageForTheme(theme){
   const messages = {
-    "dawn": "A fresh start to see my work!",
-    "day": "Take five and look around!",
-    "sunset": "Best light for creative work!",
-    "night": "Late night browsing? See my work!",
+    dawn: "A fresh start to see my work!",
+    day: "Take five and look around!",
+    sunset: "Best light for creative work!",
+    night: "Late night browsing? See my work!",
   };
-  return messages[theme] || "Take five and look around!";
+
+  return messages[theme] || messages.day;
 }
 
+// Gets the live clock time for either row.
 function getSideMinutes(sideId){
-
   if(sideId === "user-time"){
-    if(USER_TIME_ZONE){
-      return getMinutesForTimeZone(USER_TIME_ZONE);
-    }
-
-    return getMinutesSinceMidnight();
+    return USER_TIME_ZONE ? getMinutesForTimeZone(USER_TIME_ZONE) : getMinutesSinceMidnight();
   }
 
   if(sideId === "an-time"){
@@ -193,6 +196,17 @@ function getSideMinutes(sideId){
   return getMinutesSinceMidnight();
 }
 
+// Forces SVG icon replacement when the theme changes.
+function setIconSource(iconEl, theme){
+  if(!iconEl) return;
+
+  const iconSrc = ICON_MAP[theme] || ICON_MAP.day;
+
+  iconEl.setAttribute("data-src", iconSrc);
+  iconEl.replaceChildren();
+}
+
+// Updates one popup time row.
 function updateTimeSideDisplay(sideEl, minutes, formatFn){
   if(!sideEl) return;
 
@@ -217,33 +231,18 @@ function updateTimeSideDisplay(sideEl, minutes, formatFn){
     iconEl = sideEl.querySelector(".circle-icon");
   }
 
-  if(clockEl){
-    clockEl.textContent = formatFn(minutes);
-  }
-
-  if(dateEl){
-    dateEl.textContent = formatDateLabel();
-  }
-
   const theme = getThemeForMinutes(minutes);
-  
-  if(phraseEl){
-    phraseEl.textContent = getPhraseForTheme(theme);
-  }
-  
-  if(messageEl){
-    messageEl.textContent = getMessageForTheme(theme);
-  }
 
-  if(iconEl){
-    const iconSrc = ICON_MAP[theme] || ICON_MAP.day;
-    iconEl.setAttribute("data-src", iconSrc);
-    iconEl.innerHTML = "";
-  }
+  if(clockEl) clockEl.textContent = formatFn(minutes);
+  if(dateEl) dateEl.textContent = formatDateLabel();
+  if(phraseEl) phraseEl.textContent = getPhraseForTheme(theme);
+  if(messageEl) messageEl.textContent = getMessageForTheme(theme);
 
+  setIconSource(iconEl, theme);
   updateTimeRowRing(sideEl, minutes);
 }
 
+// Updates popup rows using live real times.
 function updateAllTimeSideDisplays(widget){
   const sides = Array.from(widget.querySelectorAll(".time-row"));
 
@@ -263,18 +262,6 @@ function setActiveSide(widget, activeSide){
   }
 }
 
-function updateTimeChipDisplay(value, chipElements, formatFn){
-  if(!chipElements) return;
-
-  const minutes = Number(value);
-
-  for(const row of chipElements.timeRows){
-    updateTimeSideDisplay(row, minutes, formatFn);
-  }
-};
-
-/* ==== CONFIG ==== */
-
 export const THEME_SLIDER_CONFIG = {
   behavior: {
     autoSync: true,
@@ -283,13 +270,7 @@ export const THEME_SLIDER_CONFIG = {
 };
 
 export function initThemeSlider(root, cfg){
-  let scope;
-  if(root !== null && root !== undefined){
-    scope = root;
-  }
-  else{
-    scope = document;
-  }
+  const scope = root ?? document;
 
   const widget = scope.matches && scope.matches(".theme-toggle-root")
     ? scope
@@ -299,20 +280,13 @@ export function initThemeSlider(root, cfg){
 
   widget.dataset.initialized = "true";
 
-  let behavior;
-  if(cfg && cfg.behavior){
-    behavior = cfg.behavior;
-  }
-  else{
-    behavior = {};
-  }
+  const behavior = cfg && cfg.behavior ? cfg.behavior : {};
+
   const slider = widget.querySelector("#circleSlider, .circle-slider, .time-slider");
   const svg = widget.querySelector("svg.ring, .arc-slider");
   const progress = widget.querySelector(".ring-progress, .progress");
   const knob = widget.querySelector(".ring-knob, .knob");
-  const timeEl = widget.querySelector("#time-clock");
   const timeLabelEl = widget.querySelector(".time-label");
-  const dateEl = widget.querySelector("#time-date");
   const chipElements = cacheTimeChipElements(widget);
   const centerIconEl = widget.querySelector(".circle-icon");
   const toggleIconEl = widget.querySelector(".time-icon");
@@ -334,7 +308,7 @@ export function initThemeSlider(root, cfg){
   let raf = 0;
   let pendingX = 0;
   let pendingY = 0;
-  let autoMode = true;
+  let autoMode = !hasStoredTheme();
   let dragging = false;
 
   progress.style.strokeDasharray = String(CIRC);
@@ -342,23 +316,48 @@ export function initThemeSlider(root, cfg){
   setupTimeChipPopover(timeChip, timePop);
   updateTimePopupTimezoneState(widget);
 
+  // Updates only the small toggle UI.
+  // IMPORTANT: the label always stays as the user's current real time.
+  async function setToggleUIFromThemeMinutes(themeMinutes){
+    const safeMinutes = normalizeMinutes(themeMinutes);
+    const theme = getThemeForMinutes(safeMinutes);
+    const t = safeMinutes / 1440;
+    const angle = t * 2 * Math.PI - Math.PI / 2;
+
+    knob.setAttribute("cx", String(cx + r * Math.cos(angle)));
+    knob.setAttribute("cy", String(cy + r * Math.sin(angle)));
+    progress.style.strokeDashoffset = String(CIRC * (1 - t));
+
+    if(timeLabelEl){
+      timeLabelEl.textContent = formatMinutesAsTime(getSideMinutes("user-time"));
+    }
+
+    setIconSource(centerIconEl, theme);
+    setIconSource(toggleIconEl, theme);
+
+    await renderSVGAssets(widget, { skipIfFilled: false });
+  }
+
+  // Applies a manual theme and prevents auto-sync from overriding the chosen icon/theme.
+  async function applyManualTheme(minutes){
+    autoMode = false;
+
+    applyThemeForMinutes(minutes, {
+      source: syncSource,
+      mode: "manual",
+    });
+
+    await setToggleUIFromThemeMinutes(minutes);
+    updateAllTimeSideDisplays(widget);
+    await renderSVGAssets(widget, { skipIfFilled: false });
+  }
+
   if(timeChip){
     timeChip.addEventListener("click", async (e) => {
       e.stopPropagation();
 
       const nextMinutes = getNextThemeMinutes();
-      // const currentMinutes = getMinutesSinceMidnight();
-
-      autoMode = false;
-
-      applyThemeForMinutes(nextMinutes, {
-        source: syncSource,
-        mode: "manual",
-      });
-
-      await setUIFromMinutes(nextMinutes);
-      updateAllTimeSideDisplays(widget);
-      await renderSVGAssets(widget, { skipIfFilled: false });
+      await applyManualTheme(nextMinutes);
 
       if(timePop){
         togglePopover(timeChip, timePop);
@@ -367,7 +366,7 @@ export function initThemeSlider(root, cfg){
   }
 
   for(const side of chipElements.timeRows){
-    side.addEventListener("click", (e) => {
+    side.addEventListener("click", async (e) => {
       e.stopPropagation();
 
       setActiveSide(widget, side);
@@ -377,14 +376,7 @@ export function initThemeSlider(root, cfg){
       }
 
       const sideMinutes = getSideMinutes(side.id);
-      updateTimeChipDisplay(sideMinutes, chipElements, formatMinutesAsTime);
-
-      autoMode = false;
-
-      applyThemeForMinutes(sideMinutes, {
-        source: syncSource,
-        mode: "manual",
-      });
+      await applyManualTheme(sideMinutes);
     });
   }
 
@@ -418,82 +410,13 @@ export function initThemeSlider(root, cfg){
     return total;
   }
 
-  async function updateCenterIcon(iconTarget, theme, rootEl){
-    if(!iconTarget) return;
-
-    const iconSrc = ICON_MAP[theme] || ICON_MAP.day;
-
-    if(
-      iconTarget.getAttribute("data-src") === iconSrc &&
-      iconTarget.querySelector("svg")
-    ){
-      return;
-    }
-
-    iconTarget.setAttribute("data-src", iconSrc);
-    iconTarget.innerHTML = "";
-
-    await renderSVGAssets(rootEl, { skipIfFilled: false });
-  }
-
-  async function setUIFromMinutes(totalMinutes){
-    const safeMinutes = ((Math.round(Number(totalMinutes)) % 1440) + 1440) % 1440;
-
-    const t = safeMinutes / 1440;
-    const angle = t * 2 * Math.PI - Math.PI / 2;
-    const activeTheme = getThemeForMinutes(safeMinutes);
-
-    const iconSrc = ICON_MAP[activeTheme] || ICON_MAP.day;
-
-    if(toggleIconEl){
-      toggleIconEl.setAttribute("data-src", iconSrc);
-      toggleIconEl.replaceChildren();
-    }
-
-    if(centerIconEl){
-      centerIconEl.setAttribute("data-src", iconSrc);
-      centerIconEl.replaceChildren();
-    }
-
-await renderSVGAssets(widget, { skipIfFilled: false });
-
-    knob.setAttribute("cx", String(cx + r * Math.cos(angle)));
-    knob.setAttribute("cy", String(cy + r * Math.sin(angle)));
-
-    progress.style.strokeDashoffset = String(CIRC * (1 - t));
-
-    if(dateEl){
-      dateEl.textContent = formatDateLabel();
-    }
-
-    if(timeEl){
-      timeEl.textContent = formatMinutesAsTime(safeMinutes);
-    }
-
-    if(timeLabelEl){
-      timeLabelEl.textContent = formatMinutesAsTime(safeMinutes);
-    }
-
-    updateTimeChipDisplay(safeMinutes, chipElements, formatMinutesAsTime);
-    await updateCenterIcon(centerIconEl, activeTheme, widget);
-    await updateCenterIcon(toggleIconEl, activeTheme, widget);
-  }
-
   async function updateFromDrag(t){
     const minutes = tToMinutes(t);
-    autoMode = false;
-
-    await setUIFromMinutes(minutes);
-
-    applyThemeForMinutes(minutes, {
-      source: syncSource,
-      mode: "manual",
-    });
+    await applyManualTheme(minutes);
   }
 
   function applyPointer(){
     raf = 0;
-    autoMode = false;
     updateFromDrag(pointerToT(pendingX, pendingY));
   }
 
@@ -514,7 +437,6 @@ await renderSVGAssets(widget, { skipIfFilled: false });
     e.preventDefault();
 
     dragging = true;
-    autoMode = false;
 
     if(slider.setPointerCapture){
       slider.setPointerCapture(e.pointerId);
@@ -528,31 +450,35 @@ await renderSVGAssets(widget, { skipIfFilled: false });
 
   function onUp(e){
     dragging = false;
+
     if(slider.releasePointerCapture){
       slider.releasePointerCapture(e.pointerId);
     }
   }
 
+  // Auto mode updates the page theme based on real current time.
+  // Manual mode keeps the selected theme, but still updates displayed real times.
   function syncToCurrentTime(){
-    const minutes = getMinutesSinceMidnight();
-
-    setUIFromMinutes(minutes);
     updateTimePopupTimezoneState(widget);
     updateAllTimeSideDisplays(widget);
-    renderSVGAssets(widget, { skipIfFilled: false });
 
-    if(!autoMode){
+    const userMinutes = getSideMinutes("user-time");
+
+    if(timeLabelEl){
+      timeLabelEl.textContent = formatMinutesAsTime(userMinutes);
+    }
+
+    if(!autoMode || hasStoredTheme()){
+      renderSVGAssets(widget, { skipIfFilled: false });
       return;
     }
 
-    if(hasStoredTheme()){
-      return;
-    }
-
-    applyThemeForMinutes(minutes, {
+    applyThemeForMinutes(userMinutes, {
       source: syncSource,
       mode: "auto",
     });
+
+    setToggleUIFromThemeMinutes(userMinutes);
   }
 
   const ENABLE_THEME_SLIDER = false;
@@ -565,7 +491,7 @@ await renderSVGAssets(widget, { skipIfFilled: false });
     slider.addEventListener("lostpointercapture", onUp);
   }
 
-  document.addEventListener(TIME_THEME_CHANGE_EVENT, function (event){
+  document.addEventListener(TIME_THEME_CHANGE_EVENT, function(event){
     const detail = event.detail ?? {};
 
     if(detail.source === syncSource) return;
@@ -578,11 +504,24 @@ await renderSVGAssets(widget, { skipIfFilled: false });
       return;
     }
 
-    setUIFromMinutes(detail.minutes);
+    setToggleUIFromThemeMinutes(detail.minutes);
   });
 
+  const initialTheme = getCurrentTheme();
+  const initialMinutes = hasStoredTheme()
+    ? THEME_MINUTES[initialTheme] ?? getSideMinutes("user-time")
+    : getSideMinutes("user-time");
+
   if(behavior.autoSync !== false){
-    syncToCurrentTime();
+    if(autoMode){
+      syncToCurrentTime();
+    }
+    else{
+      setToggleUIFromThemeMinutes(initialMinutes);
+      updateTimePopupTimezoneState(widget);
+      updateAllTimeSideDisplays(widget);
+      renderSVGAssets(widget, { skipIfFilled: false });
+    }
   }
 
   if(chipElements.timeRows.length > 0){
