@@ -347,7 +347,7 @@ export function initThemeSlider(root, cfg){
       e.stopPropagation();
 
       const nextMinutes = getNextThemeMinutes();
-      const currentMinutes = getMinutesSinceMidnight();
+      // const currentMinutes = getMinutesSinceMidnight();
 
       autoMode = false;
 
@@ -441,7 +441,7 @@ export function initThemeSlider(root, cfg){
 
     const t = safeMinutes / 1440;
     const angle = t * 2 * Math.PI - Math.PI / 2;
-    const activeTheme = document.documentElement.dataset.theme;
+    const activeTheme = getThemeForMinutes(safeMinutes);
 
     knob.setAttribute("cx", String(cx + r * Math.cos(angle)));
     knob.setAttribute("cy", String(cy + r * Math.sin(angle)));
