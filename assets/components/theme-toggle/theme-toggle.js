@@ -441,7 +441,7 @@ export function initThemeSlider(root, cfg){
 
     const t = safeMinutes / 1440;
     const angle = t * 2 * Math.PI - Math.PI / 2;
-    const activeTheme = document.documentElement.dataset.theme || getThemeForMinutes(safeMinutes);
+    const activeTheme = document.documentElement.dataset.theme;
 
     knob.setAttribute("cx", String(cx + r * Math.cos(angle)));
     knob.setAttribute("cy", String(cy + r * Math.sin(angle)));
