@@ -1,0 +1,263 @@
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Playpen Sans 2";
+  src: url("/assets/fonts/Playpen_Sans-2/PlaypenSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+/* =====================================
+  BASE STYLING SYSTEM TOKENS
+========================================*/
+:root {
+
+  --font-style: "DM Sans", system-ui, sans-serif;
+  --font-headers: "Space Grotesk", system-ui, sans-serif;
+  --font-statement: "Playpen Sans 2", system-ui, sans-serif;
+
+  /* -- Font Sizes  -- */
+  --text-xxsmall: clamp(12px, 0.5vw, 16px);
+  --text-xsmall: clamp(14px, 0.5vw, 18px);
+  --text-small: clamp(18px, 0.9vw, 22px);
+  --text-medium: clamp(22px, 1.1vw, 26px);
+  --text-large: clamp(26px, 1.4vw, 30px);
+  --text-xlarge: clamp(30px, 1.8vw, 34px);
+
+  --footer-text: clamp(14px, 0.8vw, 18px);
+
+  /* -- Icon Sizes  -- */
+  --icon-size-xxsmall: clamp(12px, 1vw, 17px);
+  --icon-size-xsmall: clamp(15px, 1vw, 20px);
+  --icon-size-small: clamp(20px, 1.2vw, 30px);
+  --icon-size-medium: clamp(30px, 1.5vw, 40px);
+  --icon-size-large: clamp(40px, 2vw, 50px);
+  --icon-color-default: rgb(136, 136, 136);
+
+  /* -- Space Size Values  -- */
+
+  --space-0: 0;
+
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-7: 2rem;      /* 32px */
+  --space-8: 2.5rem;    /* 40px */
+  --space-9: 3rem;      /* 48px */
+  --space-10: 4rem;     /* 64px */
+  --space-11: 5rem;     /* 80px */
+  --space-12: 6rem;     /* 96px */
+
+
+  /* -- Font Weight  -- */
+
+  --primary-header-weight: 600;
+  --secondary-header-weight: 500;
+
+  /* -- Z-Index Values  -- */
+
+  --z-ambient: -10;
+  --z-base: 0;
+  --z-raised: 10;
+  --z-popover: 20;
+  --z-sticky: 30;
+  --z-overlay: 40;
+
+  /* -- Styling Vals  -- */
+
+  --box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  --border-value: 1px solid rgba(255, 255, 255, 0.6);
+  --blur-value: blur(7px);
+  --button-radius: 999px;
+  --widget-radius: 15px;
+  --transition-value-results: 0.5s ease;
+
+  --glass-background: rgba(255, 255, 255, 0);
+  --glass-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --glass-backdrop-filter: blur(14.1px);
+  --glass-webkit-backdrop-filter: blur(14.1px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+
+  --theme-card-color: white;
+  --theme-logo-color: #064a68;
+  --theme-hover-color: white;
+
+  --theme-background-color:
+    linear-gradient(to bottom,
+      #50B8E7 0%,
+      #84CDEE 40%,
+      #B9E2F5 70%,
+      #DCF0FA 100%);
+
+  --theme-text-color: #063347;
+  --theme-button-color: #e5f6ff;
+
+  --card-width: clamp(540px, 55vw, 1000px);
+  --hover-glow: drop-shadow(0 0 3px var(--theme-hover-color)) drop-shadow(0 0 3px var(--theme-hover-color));
+  --fade-color: #064b6889;
+  --page-scroll: scroll;
+  --padding-card: 0.5rem 1.25rem;
+}
+
+
+/* =====================================
+    THEME TOKENS
+========================================*/
+
+html[data-theme="dawn"] {
+  --theme-card-color: #fffef8;
+  --theme-logo-color: #b0debd;
+  --theme-hover-color: #FFF8DE;
+
+  --theme-background-color:
+    linear-gradient(to bottom,
+      #015772 0%,
+      #5BBBBA 40%,
+      #e7e7a5 70%,
+      #FFF4E6 100%);
+
+  --theme-text-color: #063e42;
+  --theme-button-color: #e4f3ea;
+  --theme-button-color-two: #04585e;
+
+  --fade-color: #17686f;
+}
+
+html[data-theme="day"] {
+  --theme-card-color: #f8fdff;
+  --theme-logo-color: #064a68;
+  --theme-hover-color: white;
+
+  --theme-background-color:
+    linear-gradient(to bottom,
+      #50B8E7 0%,
+      #84CDEE 40%,
+      #B9E2F5 70%,
+      #DCF0FA 100%);
+
+  --theme-text-color: #063347;
+  --theme-button-color: #e5f6ff;
+  --theme-button-color-two: #064a68;
+
+  --fade-color: #064b6889;
+}
+
+html[data-theme="sunset"] {
+  --theme-card-color: #fffbfb;
+  --theme-logo-color: #3c224f;
+  --theme-hover-color: #FFF8DE;
+
+  --theme-background-color:
+    linear-gradient(to bottom,
+      #9D7FC3 0%,
+      #E3A7A7 40%,
+      #F1E7D3 70%,
+      #FFEBCE 100%);
+
+  --theme-text-color: #3c224f;
+  --theme-button-color: #f7e5dd;
+  --theme-button-color-two: #482d5c;
+
+  --fade-color: #3c224fa9;
+}
+
+html[data-theme="night"] {
+  --theme-card-color: #f7faff;
+  --theme-logo-color: #65afde;
+  --theme-hover-color: #204298;
+
+  --theme-background-color:
+    linear-gradient(to bottom,
+      #0F0631 0%,
+      #1B2B80 40%,
+      #2C77D3 70%,
+      #39B5E5 100%);
+
+  --theme-text-color: white;
+  --theme-alternate-text-color: #130250;
+  --theme-button-color: #a9bfe2;
+  --theme-button-color-two: #210f5f;
+
+  --fade-color: rgba(255, 255, 255, 0.555);
+  --fade-color-alternate: #13025082;
+}
+
+/* =====================================
+  FIDELITY TOKENS
+========================================*/
+
+/* ==== Low Fidelity ==== */
+
+html[data-theme][data-fidelity="low"]{
+
+  --border-value: 1px solid rgba(67, 67, 67, 0.958);
+  --button-radius: 5px;
+  --card-radius: 1px;
+
+  --fade-color: #8f8e8e;
+  
+  --theme-background-color: #F4F4F4;
+  --theme-card-color: white;
+  --theme-hover-color: #E7E7E7;
+  --theme-text-color: black;
+}
+
+html[data-theme="dawn"][data-fidelity="low"]{
+
+  --border-value: 1px solid #98A1AA;
+
+  --fade-color: #737C84;
+  
+  --theme-background-color: #F1F3F5;
+  --theme-card-color: #FAFBFC;
+  --theme-hover-color: #dadbdc;
+  --theme-text-color: #262B30;
+}
+
+
+html[data-theme="sunset"][data-fidelity="low"]{
+  --border-value: 1px solid #A39B92;
+
+  --fade-color: #7D756D;
+  
+  --theme-background-color: #F5F3F0;
+  --theme-card-color: #FCFBF8;
+  --theme-hover-color: #e7e3de;
+  --theme-text-color: #2E2A27;
+}
+
+html[data-theme="night"][data-fidelity="low"]{
+
+  --border-value: 1px solid #7F858D;
+
+  --fade-color: #656B72;
+  
+  --theme-background-color: #ECEEF0;
+  --theme-card-color: #f6f6f8;
+  --theme-hover-color: rgb(197, 200, 205);
+  --theme-text-color: #1D2024;
+}
+
+/* ==== Mid Fidelity ==== */
+
+html[data-theme][data-fidelity="mid"]{
+
+  --border-value: 1px solid #f3f7fbde;
+
+}

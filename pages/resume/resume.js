@@ -1,34 +1,21 @@
-const cloud = document.querySelector("#skills .skill-cloud");
-const pills = document.querySelectorAll("#skills .skill-pill");
+function setupResumeOverviewToggle() {
+    const resumeOverview = document.querySelector(".resume-overview");
+    const resumeToggle = document.querySelector("#resumeOverviewToggle");
+    const toggleText = document.querySelector(".resume-overview__toggle-text");
 
-cloud.addEventListener("mousemove", (e) => {
-    pills.forEach((pill) => {
-        const rect = pill.getBoundingClientRect();
+    resumeToggle.addEventListener("click", function () {
+        resumeOverview.classList.toggle("is-expanded");
 
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
+        const isExpanded = resumeOverview.classList.contains("is-expanded");
 
-        const dx = centerX - e.clientX;
-        const dy = centerY - e.clientY;
+        resumeToggle.setAttribute("aria-expanded", isExpanded);
 
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        const radius = 120;
-
-        if (distance < radius && distance !== 0) {
-            const force = (radius - distance) / radius;
-
-            const moveX = (dx / distance) * force * 40;
-            const moveY = (dy / distance) * force * 40;
-
-            pill.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        if (isExpanded === true) {
+            toggleText.textContent = "Show Less";
         } else {
-            pill.style.transform = "translate(0, 0)";
+            toggleText.textContent = "Show More";
         }
     });
-});
+}
 
-cloud.addEventListener("mouseleave", () => {
-    pills.forEach((pill) => {
-        pill.style.transform = "translate(0, 0)";
-    });
-});
+setupResumeOverviewToggle();

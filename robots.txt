@@ -1,20 +1,72 @@
-User-agent: GPTBot
-Disallow: /
+# ==========================================
+# AN Portfolio
+# robots.txt
+# ==========================================
 
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: Bytespider
-Disallow: /
-
-User-agent: Amazonbot
-Disallow: /
+# ------------------------------------------
+# GENERAL CRAWLERS
+# Allow the site, but do not crawl originals
+# ------------------------------------------
 
 User-agent: *
 Allow: /
+Disallow: /assets/images/originals/
+
+
+# ------------------------------------------
+# IMAGE SEARCH
+# Prevent Google Images from crawling images
+# ------------------------------------------
+
+User-agent: Googlebot-Image
+Disallow: /assets/images/
+
+
+# ------------------------------------------
+# AI / DATA CRAWLERS
+# ------------------------------------------
+
+# OpenAI
+User-agent: GPTBot
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Google AI
+User-agent: Google-Extended
+Disallow: /
+
+# Common Crawl
+User-agent: CCBot
+Disallow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Disallow: /
+
+# ByteDance
+User-agent: Bytespider
+Disallow: /
+
+# Meta
+User-agent: meta-externalagent
+Disallow: /
+
+# Amazon
+User-agent: Amazonbot
+Disallow: /
+
+# Apple
+User-agent: Applebot-Extended
+Disallow: /

@@ -1,90 +1,887 @@
-body{
-  overflow-x: hidden;
-  overflow-y: scroll;
-  
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-areas: "top-row"
-                       "project-main"
-                       "project-end";
+[data-page="projects"] main.page-container {
+    margin-top: var(--space-10);
 }
 
-.top-row{
-    grid-area: top-row;
+[data-page="projects"] header.content-header {
+    display: none !important;
 }
 
-.project-main{
-    grid-area: project-main;
+/* =====================================
+   PROJECT CLOUD CARD
+===================================== */
 
+.cloud-card--project {
+    position: relative;
     display: grid;
+
+    width: clamp(700px, 75vw, 1200px);
+    height: fit-content;
+    padding: var(--space-5) var(--space-6) var(--space-4);
+    margin-bottom: 4.5rem;
+
+    background: var(--theme-card-color);
+    border-radius: 55px 55px var(--widget-radius) var(--widget-radius);
+    box-shadow: var(--box-shadow);
+    color: var(--theme-text-color);
+   
+    overflow: visible;
+    isolation: isolate;
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* ---- LEFT / RIGHT THUMBNAIL LAYOUT ---- */
+
+/* Thumbnail on left */
+.cloud-card--project.cloud-card--left-thumbnail {
+    grid-template-columns: minmax(200px, 0.75fr) minmax(0, 1.1fr);
+    grid-template-areas: "thumbnail project-content";
+    gap: var(--space-0);
+}
+
+/* Thumbnail on right */
+.cloud-card--project.cloud-card--right-thumbnail {
+    grid-template-columns: minmax(0, 1.1fr) minmax(200px, 0.75fr);
+    grid-template-areas: "project-content thumbnail";
+    gap: var(--space-0);
+}
+
+
+/* ---- PROJECT CONTENT ---- */
+
+.cloud-card__project-content {
+    grid-area: project-content;
+
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    align-self: center;
+}
+
+.cloud-card--project.cloud-card--right-thumbnail .cloud-card__project-content {
+    padding-left:  var(--space-6);
+}
+
+/* ---- PROJECT NUMBER ----*/
+
+.cloud-card__project-number-row {
+    display: flex;
+    align-items: center;
+    gap:  var(--space-3);
+    margin-bottom:  var(--space-3);
+}
+
+.cloud-card__project-number {
+    color: var(--fade-color);
+    font-size: var(--text-xsmall);
+    font-weight: 600;
+    line-height: 1;
+}
+
+.cloud-card__project-line {
+    width: 45px;
+    height: 1px;
+
+    background: var(--fade-color);
+    opacity: 0.45;
+}
+
+
+/* ---- PROJECT TITLE ---- */
+
+.cloud-card--project .cloud-card__title {
+    font-size: var(--text-xlarge);
+    font-weight: 600;
+    line-height: 1.05;
+    margin:  var(--space-0);
+}
+
+
+/* ---- PROJECT SUBTITLE ----*/
+
+.cloud-card--project .cloud-card__subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: 500;
+    line-height: 1.3;
+    margin: var(--space-2) 0 0;
+}
+
+/* ---- PROJECT DESCRIPTION ---- */
+
+.cloud-card--project .cloud-card__description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: var(--space-4) 0 0;
+    max-width: 620px;
+}
+
+/* ---- PROJECT TAG ----*/
+
+.cloud-card__project-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+}
+
+.cloud-card__project-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    background: var(--theme-button-color);
+    border-radius: var(--button-radius);
+    color: var(--theme-text-color);
+    font-size: var(--text-xxsmall);
+    font-weight: 500;
+    line-height: 1;
+}
+
+
+/* ---- PROJECT THUMBNAIL ---- */
+
+.cloud-card__project-thumbnail-wrap {
+    grid-area: thumbnail;
+
+    width: 85%;
+    align-self: center;
+    justify-self: center;
+}
+
+
+.cloud-card__project-thumbnail {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+}
+
+
+/* ---- PROJECT ACTIONS ---- */
+
+.cloud-card__project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+.cloud-card--left-thumbnail .cloud-card__project-actions {
+    justify-content: flex-end;
+}
+
+/* ---- PROJECT LINKS ---- */
+
+.cloud-card__project-link {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    grid-template-areas: 
-        "project-count"
 
-        "dermidew"
-        "git-weatherward"
-        "weatherward"
-        "socal"
-        "git-dermidew"
-        "git-socal"
-        "puppypong"
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-5);
+
+    border-radius: var(--button-radius);
+    font-size: var(--text-xsmall);
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease,
+        background 0.2s ease;
+}
+
+.cloud-card__project-link--primary {
+    background: var(--theme-button-color-two);
+    color: white;
+}
+
+.cloud-card__project-link--secondary {
+    background: transparent;
+    border: 1.5px solid var(--theme-button-color-two);
+    color: var(--theme-text-color);
+}
+
+.cloud-card__project-link:hover {
+    transform: translateY(-2px);
+    filter: var(--hover-glow);
+}
+
+.cloud-card__github-icon {
+    display: grid;
+    place-items: center;
+
+    width: 18px;
+    height: 18px;
+
+    font-size: var(--text-small);
+}
+
+
+/* ---- PROJECT CARD HOVER ---- */
+
+.cloud-card--project:hover {
+    transform: scale(1.01);
+    filter: var(--hover-glow);
+}
+
+
+/* ---- BASE PROJECT CLOUD BUMPS ---- */
+
+.cloud-card--project .cloud-card__bump {
+    position: absolute;
+    background: var(--theme-card-color);
+    border-radius: var(--button-radius) var(--button-radius) 0 0;
+    z-index: -1;
+}
+
+
+/* =====================================
+   LEFT THUMBNAIL — STYLE 1
+===================================== */
+
+.cloud-card--left-thumbnail.cloud-card--style-1 .cloud-card__bump--1 {
+    width: clamp(100px, 15%, 180px);
+    height: clamp(65px, 8vw, 110px);
+
+    left: 0;
+    top: -15px;
+}
+
+
+.cloud-card--left-thumbnail.cloud-card--style-1 .cloud-card__bump--2 {
+    width: clamp(160px, 28%, 300px);
+    height: clamp(95px, 11vw, 155px);
+
+    left: 8%;
+    top: -45px;
+}
+
+
+.cloud-card--left-thumbnail.cloud-card--style-1 .cloud-card__bump--3 {
+    width: clamp(135px, 23%, 250px);
+    height: clamp(80px, 9vw, 135px);
+
+    left: 25%;
+    top: -35px;
+
+    right: auto;
+}
+
+
+.cloud-card--left-thumbnail.cloud-card--style-1 .cloud-card__bump--4 {
+    width: clamp(110px, 18%, 190px);
+    height: clamp(65px, 8vw, 105px);
+
+    right: 0;
+    top: -22px;
+
+    left: auto;
+}
+
+/* =====================================
+   LEFT THUMBNAIL — STYLE 2
+===================================== */
+
+.cloud-card--left-thumbnail.cloud-card--style-2 .cloud-card__bump--1 {
+    width: clamp(90px, 14%, 160px);
+    height: clamp(60px, 7vw, 100px);
+
+    left: 0;
+    top: -18px;
+}
+
+
+.cloud-card--left-thumbnail.cloud-card--style-2 .cloud-card__bump--2 {
+    width: clamp(130px, 22%, 240px);
+    height: clamp(85px, 9vw, 135px);
+
+    left: 10%;
+    top: -40px;
+}
+
+
+.cloud-card--left-thumbnail.cloud-card--style-2 .cloud-card__bump--3 {
+    width: clamp(180px, 31%, 330px);
+    height: clamp(105px, 12vw, 165px);
+
+    left: 39%;
+    top: -68px;
+
+    right: auto;
+}
+
+
+.cloud-card--left-thumbnail.cloud-card--style-2 .cloud-card__bump--4 {
+    width: clamp(105px, 17%, 180px);
+    height: clamp(65px, 7vw, 105px);
+
+    right: 0;
+    top: -26px;
+
+    left: auto;
+}
+
+/* =====================================
+   RIGHT THUMBNAIL — STYLE 1
+   top-left cluster + bottom-right cluster
+===================================== */
+
+/* TOP LEFT */
+
+.cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--1 {
+    width: clamp(100px, 16%, 180px);
+    height: clamp(65px, 8vw, 110px);
+
+    left: 0;
+    top: -25px;
+
+    border-radius: 999px 999px 0 0;
+}
+
+.cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--2 {
+    width: clamp(170px, 27%, 290px);
+    height: clamp(100px, 11vw, 155px);
+
+    left: 8%;
+    top: -65px;
+
+    border-radius: 999px 999px 0 0;
+}
+
+.cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--3 {
+    width: clamp(110px, 18%, 195px);
+    height: clamp(70px, 8vw, 115px);
+
+    left: 21%;
+    top: -32px;
+
+    border-radius: 999px 999px 0 0;
+}
+
+
+/* BOTTOM RIGHT */
+
+.cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--4 {
+    width: clamp(170px, 26%, 285px);
+    height: clamp(95px, 10vw, 145px);
+
+    right: 13%;
+    bottom: -55px;
+    top: auto;
+
+    border-radius: 0 0 999px 999px;
+}
+
+.cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--5 {
+    width: clamp(110px, 17%, 185px);
+    height: clamp(70px, 8vw, 110px);
+
+    right: 5%;
+    bottom: -25px;
+    top: auto;
+
+    border-radius: 0 0 999px 999px;
+}
+
+.cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--6 {
+    width: clamp(80px, 12%, 135px);
+    height: clamp(55px, 5vw, 85px);
+
+    right: 0%;
+    bottom: -30px;
+    top: auto;
+
+    border-radius: 0 0 999px 999px;
+}
+
+/* =====================================
+   RIGHT THUMBNAIL — STYLE 2
+   top-left + bottom-left + bottom-right
+===================================== */
+
+/* TOP LEFT */
+
+.cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--1 {
+    width: clamp(85px, 13%, 150px);
+    height: clamp(60px, 7vw, 95px);
+
+    left: 0;
+    top: -18px;
+
+    border-radius: 999px 999px 0 0;
+}
+
+.cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--2 {
+    width: clamp(155px, 25%, 270px);
+    height: clamp(100px, 11vw, 155px);
+
+    left: 9%;
+    top: -60px;
+
+    border-radius: 999px 999px 0 0;
+}
+
+.cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--3 {
+    width: clamp(115px, 19%, 205px);
+    height: clamp(75px, 8vw, 120px);
+
+    left: 23%;
+    top: -30px;
+
+    border-radius: 999px 999px 0 0;
+}
+
+
+/* BOTTOM LEFT */
+
+.cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--4 {
+    width: clamp(100px, 13%, 200px);
+    height: clamp(65px, 5vw, 110px);
+
+    left: 0%;
+    bottom: -40px;
+    top: auto;
+
+    border-radius: 0 0 999px 999px;
+}
+
+
+/* BOTTOM RIGHT */
+
+.cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--5 {
+    width: clamp(175px, 28%, 300px);
+    height: clamp(100px, 11vw, 150px);
+
+    right: 6%;
+    bottom: -52px;
+    top: auto;
+
+    border-radius: 0 0 999px 999px;
+}
+
+.cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--6 {
+    width: clamp(100px, 16%, 175px);
+    height: clamp(65px, 6vw, 105px);
+
+    right: 0%;
+    bottom: -25px;
+    top: auto;
+
+    border-radius: 0 0 999px 999px;
+}
+
+/* =====================================
+    PROJECT EXTRA SEARCHES
+========================================*/
+
+[data-page="projects"] .additional-searches {
+    display: flex;
+    flex-direction: column;
+
+    backdrop-filter: var(--glass-backdrop-filter);
+    -webkit-backdrop-filter: var(--glass-webkit-backdrop-filter);
+    border: var(--glass-border);
+    background: var(--glass-background);
+    border-radius: var(--widget-radius);
+    box-shadow: var(--glass-box-shadow);
+    box-sizing: border-box;
+
+    padding: var(--space-1) var(--space-4) var(--space-4) var(--space-4);
+    margin: 0 0 var(--space-4) 0;
+}
+
+[data-page="projects"] .additional-searches a {
+    background: none;
+    border: none;
+    border-radius: none;
+    border-bottom: 1px solid rgb(235, 234, 234);
+    box-sizing: border-box;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    padding: var(--space-4);
+    gap: var(--space-4);
+    white-space: nowrap;
+    width: 100%;
+}
+
+[data-page="projects"] .additional-searches a:hover {
+    background: var(--theme-hover-color);
+    border: none;
+}
+
+[data-page="projects"] .additional-searches a:last-of-type {
+    border-bottom: none;
+}
+
+[data-page="projects"] .additional-searches h1 {
+    border-bottom: 1px solid rgb(235, 234, 234);
+    margin: var(--space-0);
+    padding: var(--space-4) 0;
+}
+
+/* =====================================
+    THEME STYLING
+========================================*/
+
+html[data-theme="night"] {
+    .cloud-card--project,
+    .cloud-card__project-link--secondary  {
+        color: var(--theme-alternate-text-color);
+    }
+
+    .cloud-card__project-number {
+        color: var(--fade-color-alternate);
+    }
+
+    .cloud-card__project-line {
+        background: var(--fade-color-alternate);
+    }
+
+    .cloud-card__title,
+    .cloud-card__subtitle,
+    .cloud-card__description {
+        color: var(--theme-alternate-text-color);
+    }
+
+    .cloud-card__project-link--primary {
+        background: var(--theme-button-color-two);
+        color: white;
+    }
+}
+
+
+/* =====================================
+    FIDELITY STYLING
+========================================*/
+
+/* ==== Low Fidelity ==== */
+
+html[data-theme][data-fidelity="low"] {
+
+    .cloud-card__project-line {
+        background: var(--fade-color) !important;
+    }
+
+    .cloud-card__title,
+    .cloud-card__subtitle,
+    .cloud-card__description {
+        color: var(--theme-text-color);
+    }
+    
+    .cloud-card__project-link--primary,
+    .cloud-card__project-link--secondary {
+        background: transparent;
+        border: 1.5px solid var(--theme-text-color);
+        color: var(--theme-text-color);
+    }
+
+    .cloud-card__project-link:hover,
+    .cloud-card--project:hover {
+        transform: none;
+        filter: none;
+    }
+
+    .cloud-card__project-thumbnail-wrap {
+        display: grid;
+        place-items: center;
+    }
+
+    .cloud-card__project-thumbnail,
+    .cloud-card__github-icon {
+        display: none;
+    }
+
+    .cloud-card__project-thumbnail-wrap::before {
+        content: "IMG";
+
+        display: grid;
+        place-items: center;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+
+        background:
+            repeating-linear-gradient(135deg,
+                #E7E7E7 0px,
+                #E7E7E7 28px,
+                #D6D6D6 28px,
+                #D6D6D6 56px) !important;
+
+        border-radius: var(--card-radius);
+        color: #888;
+        font-size: var(--text-xsmall);
+        font-weight: 600;
+    }
+}
+
+/* ==== Mid Fidelity ==== */
+
+html[data-theme][data-fidelity="mid"] {
+
+    .cloud-card__project-thumbnail{
+        display: none;
+    }
+
+    .cloud-card__project-thumbnail-wrap::before {
+        content: "PROJECT IMG";
+
+        display: grid;
+        place-items: center;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+
+        background:
+            repeating-linear-gradient(135deg,
+                #E7E7E7 0px,
+                #E7E7E7 28px,
+                #D6D6D6 28px,
+                #D6D6D6 56px) !important;
+
+        border-radius: var(--card-radius);
+        color: #888;
+        font-size: var(--text-xsmall);
+        font-weight: 600;
+    }
+}
+
+/* =====================================
+    RESPONSIVE
+========================================*/
+
+/* ---  Mobile (vertical) --- */
+@media (max-width: 500px) {
+
+    body[data-page="projects"] .page-container {
+        --layout-width: 93%;
+    }
+
+    .cloud-card--project{
+        display: flex;
+        flex-direction: column;
+
+        box-sizing: border-box;
+        width: var(--layout-width);
+        max-width: var(--layout-width);
+        min-width: 0;
+    }
+
+    .cloud-card__project-content {
+        display: contents;
+    }
+
+    /* 1. Number */
+    .cloud-card__project-number-row {
+        order: 1;
+    }
+
+    /* 2. Title */
+    .cloud-card__title {
+        order: 2;
+    }
+
+    /* 3. Subtitle */
+    .cloud-card__subtitle {
+        order: 3;
+        margin-bottom: var(--space-2);
+    }
+
+    /* 4. Thumbnail */
+    .cloud-card__project-thumbnail-wrap {
+        order: 4;
         
-        "project-extra";
+        width: 100%;
+        max-width: 100%;
+        margin-top: var(--space-4);
+    }
+
+    /* 5. Tags */
+    .cloud-card__project-tags {
+        order: 5;
+    }
+
+    /* 6. Description */
+    .cloud-card__description {
+        order: 6;
+    }
+    
+    /* 7. Buttons / Links */
+    .cloud-card__project-actions {
+        order: 7;
+    }
+
+    .cloud-card--left-thumbnail .cloud-card__project-actions,
+    .cloud-card--right-thumbnail .cloud-card__project-actions {
+        justify-content: flex-end;
+    } 
+
+    /* Left Style 1 */
+
+    .cloud-card--left-thumbnail.cloud-card--style-1 .cloud-card__bump--4 {
+        top: -15px;
+    }
+
+    /* Right Style 1 */
+
+    .cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--1 {
+        top: -15px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--2 {
+        left: 13%;
+        top: -55px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--3 {
+        left: 47%;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--4 {
+        right: 25%;
+        bottom: -35px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--5 {
+        right: 13%;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--6 {
+        bottom: -20px;
+    }
+
+    /* Right Style 2 */
+
+    .cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--1 {
+        left: 0;
+        top: -10px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--2 {
+        left: 15%;
+        top: -45px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--3 {
+        left: 45%;
+        top: -30px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--4 {
+        bottom: -35px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--5 {
+        width: clamp(250px, 35%, 300px);
+        height: clamp(120px, 11vw, 150px);
+
+        right: 25%;
+        bottom: -45px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--6 {
+        width: clamp(150px, 20%, 220px);
+        height: clamp(75px, 7vw, 115px);
+
+        right: 0%;
+        bottom: -45px;
+    }
 }
 
-#project-count{
-    grid-area: project-count;
-}
 
-#dermidew{ 
-    grid-area: dermidew;
-}
+/* --- TABLET --- */
 
-#weatherward{ 
-    grid-area: weatherward;
-}
-#weatherward .item-circle-icon{
-    background: #F1D4FF;
-}
+/* -- Vertical -- */
+@media (min-width: 501px) and (max-width: 850px) {
+    
+    body[data-page="projects"] .page-container {
+        --layout-width: 95%;
+    }
 
-#socal{ 
-    grid-area: socal;
-}
-#socal .item-circle-icon{
-    background: rgba(255, 255, 255, 0);
-}
- 
-#git-dermidew{ 
-    grid-area: git-dermidew;
-}
+    .cloud-card--project{
+        box-sizing: border-box;
+        margin-inline: auto;
 
-#git-weatherward{ 
-    grid-area: git-weatherward;
+        width: var(--layout-width);
+        max-width: var(--layout-width);
+        min-width: 0;
+    }
 
-}
-#git-socal{ 
-    grid-area: git-socal;
-}
+  
+    /* Right Style 1 */
 
-#git-dermidew .item-circle-icon,
-#git-weatherward .item-circle-icon,
-#git-socal .item-circle-icon{
-    background: rgb(255, 255, 255);
-}
+    .cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--1 {
+        top: -10px;
+    }
 
-#puppypong{ 
-    grid-area: puppypong;
-}
-#puppypong .item-circle-icon{ 
-    background: orange;
-}
+    .cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--2 {
+        left: 10%;
+        top: -55px;
+    }
 
-#project-extra.additional-searches{ 
-    grid-area: project-extra;
-}
+    .cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--3 {
+        left: 47%;
+    }
 
-.end-result{ 
-    grid-area: project-end;
-}
+    .cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--4 {
+        right: 25%;
+        bottom: -35px;
+    }
 
+    .cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--5 {
+        width: clamp(110px, 21%, 180px);
+        height: clamp(65px, 10vw, 105px);
+        
+        right: 9%;
+        bottom: -7%;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-1 .cloud-card__bump--6 {
+        bottom: -20px;
+    }
+
+    /* Right Style 2 */
+
+    .cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--1 {
+        left: 0;
+        top: -10px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--2 {
+        left: 8%;
+        top: -45px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--3 {
+        left: 25%;
+        top: -30px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--4 {
+        bottom: -35px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--5 {
+        left: 8%;
+        bottom: -45px;
+    }
+
+    .cloud-card--right-thumbnail.cloud-card--style-2 .cloud-card__bump--6 {
+        width: clamp(120px, 15%, 200px);
+        height: clamp(75px, 7vw, 115px);
+
+        right: 0%;
+        bottom: -40px;
+    }
+}

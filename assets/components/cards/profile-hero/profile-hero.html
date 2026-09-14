@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Card</title>
+    <link rel="stylesheet" href="/assets/components/cards/profile-hero/profile-hero.css">
+    <link rel="stylesheet" href="/assets/css/global-tokens.css">
+    <link rel="stylesheet" href="/assets/css/global.css">
+</head>
+
+<body>
+    <article class="hero-card">
+        <header class="hero-card__header">
+            <p class="hero-card__label">Top Result</p>
+
+            <p class="status-pill">
+                <span aria-hidden="true">•</span>
+                Full-Time Ready
+            </p>
+        </header>
+
+        <figure class="hero-card__visual">
+            <!-- Replace with image or SVG later -->
+            <div class="hero-card__visual-placeholder" aria-hidden="true">
+                IMAGE / SVG
+            </div>
+        </figure>
+
+        <section class="hero-card__content" aria-labelledby="hero-name">
+            <!-- <div class="hero-card__profile-placeholder" aria-hidden="true">
+                IMG
+            </div> -->
+
+            <img class="hero-card__profile-placeholder" aria-hidden="true" 
+                src="/assets/images/general/profile-3.jpeg" alt="Profile Avatar">
+
+            <div class="hero-card__identity">
+                <p class="hero-card__eyebrow">Hi, I am . . . </p>
+
+                <h1 class="hero-card__name" id="hero-name">ALLISON NGUYEN</h1>
+
+                <p class="hero-card__description">
+                    I design and build thoughtful digital experiences that balance usability, personality, and clean
+                    interaction.
+                </p>
+            </div>
+
+            <a class="hero-card__cta" href="#projects">
+                View My Work
+                <span aria-hidden="true">→</span>
+            </a>
+        </section>
+    </article>
+    <script type="module" src="/scripts/init.js"></script>
+</body>
+
+</html>

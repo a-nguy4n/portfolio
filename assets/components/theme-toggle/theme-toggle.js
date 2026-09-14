@@ -1,548 +1,96 @@
-import { renderSVGAssets } from "/scripts/utils/svg-loader.js";
-import {
-  TIME_THEME_CHANGE_EVENT,
-  applyThemeForMinutes,
-  formatMinutesAsTime,
-  hasStoredTheme,
-  getMinutesSinceMidnight,
-  getThemeForMinutes,
-} from "/scripts/utils/time-theme.js";
 
-const ICON_MAP = {
-  dawn: "/assets/images/icons/for-components/sunrise-icon.svg",
-  day: "/assets/images/icons/for-components/sun-icon.svg",
-  sunset: "/assets/images/icons/for-components/sunset-icon.svg",
-  night: "/assets/images/icons/for-components/moon-icon.svg",
-};
-
-const THEME_ORDER = ["dawn", "day", "sunset", "night"];
-
-const THEME_MINUTES = {
-  dawn: 360,
-  day: 720,
-  sunset: 1080,
-  night: 1260,
-};
-
-function formatDateLabel(){
-  const now = new Date();
-  const weekday = now.toLocaleDateString("en-US", { weekday: "short" });
-  const month = now.toLocaleDateString("en-US", { month: "short" });
-  const day = now.getDate();
-
-  return `${weekday} · ${month} ${day}`;
-}
-
-// Keeps any number inside the 0–1439 minute range.
-function normalizeMinutes(minutes){
-  const total = Number(minutes);
-  if(!Number.isFinite(total)) return 0;
-
-  return ((Math.round(total) % 1440) + 1440) % 1440;
-}
-
-// Opens/closes the popup safely.
-function setupTimeChipPopover(timeChip, timePop){
-  if(!timeChip || !timePop) return;
-
-  timePop.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-
-  document.addEventListener("click", () => {
-    closePopover(timeChip, timePop);
-  });
-}
-
-function togglePopover(timeChip, timePop){
-  const isOpen = timePop.classList.toggle("is-open");
-
-  timeChip.setAttribute("aria-expanded", String(isOpen));
-  timePop.setAttribute("aria-hidden", String(!isOpen));
-}
-
-function openPopover(timeChip, timePop){
-  timePop.classList.add("is-open");
-  timeChip.setAttribute("aria-expanded", "true");
-  timePop.setAttribute("aria-hidden", "false");
-}
-
-function closePopover(timeChip, timePop){
-  timePop.classList.remove("is-open");
-  timeChip.setAttribute("aria-expanded", "false");
-  timePop.setAttribute("aria-hidden", "true");
-}
-
-// Gets the theme currently applied to the page.
-function getCurrentTheme(){
-  return document.documentElement.dataset.theme || getThemeForMinutes(getMinutesSinceMidnight());
-}
-
-// Gets the next theme in your manual toggle cycle.
-function getNextThemeMinutes(){
-  const currentTheme = getCurrentTheme();
-  const currentIndex = THEME_ORDER.indexOf(currentTheme);
-  const safeIndex = currentIndex === -1 ? 1 : currentIndex;
-  const nextTheme = THEME_ORDER[(safeIndex + 1) % THEME_ORDER.length];
-
-  return THEME_MINUTES[nextTheme];
-}
-
-function cacheTimeChipElements(root){
-  return {
-    timeRows: Array.from(root.querySelectorAll(".time-row")),
-  };
-}
-
-const USER_TIME_ZONE = Intl.DateTimeFormat().resolvedOptions().timeZone;
-const ALLISON_TIME_ZONE = "America/Los_Angeles";
-
-// Gets current minutes for a specific timezone.
-function getMinutesForTimeZone(timeZone){
-  const parts = new Intl.DateTimeFormat("en-US", {
-    timeZone,
-    hour: "numeric",
-    minute: "numeric",
-    hour12: false,
-  }).formatToParts(new Date());
-
-  let hour = 0;
-  let minute = 0;
-
-  for(const part of parts){
-    if(part.type === "hour") hour = Number(part.value);
-    if(part.type === "minute") minute = Number(part.value);
-  }
-
-  if(hour === 24) hour = 0;
-
-  return hour * 60 + minute;
-}
-
-// Updates the circular slider ring position.
-function updateTimeRowRing(sideEl, minutes){
-  if(!sideEl) return;
-
-  const progress = sideEl.querySelector(".ring-progress, .progress");
-  const knob = sideEl.querySelector(".ring-knob, .knob");
-
-  if(!progress || !knob) return;
-
-  const cx = 60;
-  const cy = 60;
-  const r = 46;
-  const CIRC = 2 * Math.PI * r;
-  const safeMinutes = normalizeMinutes(minutes);
-  const t = safeMinutes / 1440;
-  const angle = t * 2 * Math.PI - Math.PI / 2;
-
-  progress.style.strokeDasharray = String(CIRC);
-  progress.style.strokeDashoffset = String(CIRC * (1 - t));
-
-  knob.setAttribute("cx", String(cx + r * Math.cos(angle)));
-  knob.setAttribute("cy", String(cy + r * Math.sin(angle)));
-}
-
-// Hides Allison's row when user is in the same timezone.
-function updateTimePopupTimezoneState(widget){
-  const userTimeRow = widget.querySelector("#user-time");
-  const anTimeRow = widget.querySelector("#an-time");
-  const userLabel = userTimeRow?.querySelector(".time-loc");
-  const isSameTimezone = USER_TIME_ZONE === ALLISON_TIME_ZONE;
-
-  if(userLabel){
-    userLabel.textContent = isSameTimezone
-      ? "Your Time + Allison's Time"
-      : "Your Time";
-  }
-
-  if(anTimeRow){
-    anTimeRow.hidden = isSameTimezone;
-  }
-}
-
-function getPhraseForTheme(theme){
-  const phrases = {
-    dawn: "First Light",
-    day: "Peak Productivity",
-    sunset: "Golden Hour",
-    night: "After Hours",
-  };
-
-  return phrases[theme] || phrases.day;
-}
-
-function getMessageForTheme(theme){
-  const messages = {
-    dawn: "A fresh start to see my work!",
-    day: "Take five and look around!",
-    sunset: "Best light for creative work!",
-    night: "Late night browsing? See my work!",
-  };
-
-  return messages[theme] || messages.day;
-}
-
-// Gets the live clock time for either row.
-function getSideMinutes(sideId){
-  if(sideId === "user-time"){
-    return USER_TIME_ZONE ? getMinutesForTimeZone(USER_TIME_ZONE) : getMinutesSinceMidnight();
-  }
-
-  if(sideId === "an-time"){
-    return getMinutesForTimeZone(ALLISON_TIME_ZONE);
-  }
-
-  return getMinutesSinceMidnight();
-}
-
-// Forces SVG icon replacement when the theme changes.
-function setIconSource(iconEl, theme){
-  if(!iconEl) return;
-
-  const iconSrc = ICON_MAP[theme] || ICON_MAP.day;
-
-  iconEl.setAttribute("data-src", iconSrc);
-  iconEl.replaceChildren();
-}
-
-// Updates one popup time row.
-function updateTimeSideDisplay(sideEl, minutes, formatFn){
-  if(!sideEl) return;
-
-  let clockEl = null;
-  let dateEl = null;
-  let phraseEl = null;
-  let messageEl = null;
-  let iconEl = null;
-
-  if(sideEl.id === "user-time"){
-    clockEl = sideEl.querySelector("#time-clock-user");
-    dateEl = sideEl.querySelector("#time-date-user");
-    phraseEl = sideEl.querySelector("#time-phrase-user");
-    messageEl = sideEl.querySelector("#time-message-user");
-    iconEl = sideEl.querySelector(".circle-icon");
-  }
-
-  if(sideEl.id === "an-time"){
-    clockEl = sideEl.querySelector("#time-clock-an");
-    dateEl = sideEl.querySelector("#time-date-an");
-    phraseEl = sideEl.querySelector("#time-phrase-an");
-    iconEl = sideEl.querySelector(".circle-icon");
-  }
-
-  const theme = getThemeForMinutes(minutes);
-
-  if(clockEl) clockEl.textContent = formatFn(minutes);
-  if(dateEl) dateEl.textContent = formatDateLabel();
-  if(phraseEl) phraseEl.textContent = getPhraseForTheme(theme);
-  if(messageEl) messageEl.textContent = getMessageForTheme(theme);
-
-  setIconSource(iconEl, theme);
-  updateTimeRowRing(sideEl, minutes);
-}
-
-// Updates popup rows using live real times.
-function updateAllTimeSideDisplays(widget){
-  const sides = Array.from(widget.querySelectorAll(".time-row"));
-
-  for(const side of sides){
-    const sideMinutes = getSideMinutes(side.id);
-    updateTimeSideDisplay(side, sideMinutes, formatMinutesAsTime);
-  }
-}
-
-function setActiveSide(widget, activeSide){
-  const sides = Array.from(widget.querySelectorAll(".time-row"));
-
-  for(const side of sides){
-    const isActive = side === activeSide;
-    side.classList.toggle("time-active", isActive);
-    side.setAttribute("aria-pressed", String(isActive));
-  }
-}
-
-export const THEME_SLIDER_CONFIG = {
-  behavior: {
-    autoSync: true,
-    autoSyncInterval: 60000,
-  },
-};
-
-export function initThemeSlider(root, cfg){
-  const scope = root ?? document;
-
-  const widget = scope.matches && scope.matches(".theme-toggle-root")
-    ? scope
-    : scope.querySelector(".theme-toggle-root");
-
-  if(!widget || widget.dataset.initialized === "true") return;
-
-  widget.dataset.initialized = "true";
-
-  const behavior = cfg && cfg.behavior ? cfg.behavior : {};
-
-  const slider = widget.querySelector("#circleSlider, .circle-slider, .time-slider");
-  const svg = widget.querySelector("svg.ring, .arc-slider");
-  const progress = widget.querySelector(".ring-progress, .progress");
-  const knob = widget.querySelector(".ring-knob, .knob");
-  const timeLabelEl = widget.querySelector(".time-label");
-  const chipElements = cacheTimeChipElements(widget);
-  const centerIconEl = widget.querySelector(".circle-icon");
-  const toggleIconEl = widget.querySelector(".time-icon");
-  const timeChip = widget.querySelector(".time-chip");
-  const timePop = widget.querySelector(".time-popup");
-
-  if(!slider || !svg || !progress || !knob){
-    console.error("Arc slider: missing required elements.");
-    return;
-  }
-
-  const cx = 60;
-  const cy = 60;
-  const r = 46;
-  const CIRC = 2 * Math.PI * r;
-  const MINUTE_STEP = 1;
-  const syncSource = widget;
-
-  let raf = 0;
-  let pendingX = 0;
-  let pendingY = 0;
-  let autoMode = !hasStoredTheme();
-  let dragging = false;
-
-  progress.style.strokeDasharray = String(CIRC);
-
-  setupTimeChipPopover(timeChip, timePop);
-  updateTimePopupTimezoneState(widget);
-
-  // Updates only the small toggle UI.
-  // IMPORTANT: the label always stays as the user's current real time.
-  async function setToggleUIFromThemeMinutes(themeMinutes){
-    const safeMinutes = normalizeMinutes(themeMinutes);
-    const theme = getThemeForMinutes(safeMinutes);
-    const t = safeMinutes / 1440;
-    const angle = t * 2 * Math.PI - Math.PI / 2;
-
-    knob.setAttribute("cx", String(cx + r * Math.cos(angle)));
-    knob.setAttribute("cy", String(cy + r * Math.sin(angle)));
-    progress.style.strokeDashoffset = String(CIRC * (1 - t));
-
-    if(timeLabelEl){
-      timeLabelEl.textContent = formatMinutesAsTime(getSideMinutes("user-time"));
+import { setManualTheme, THEMES } from "/scripts/utils/theme-manager.js";
+
+export class ThemeToggle extends HTMLElement {
+    connectedCallback(){
+        this.innerHTML = `
+            <div class="theme-toggle-container">
+                    <button class="theme-toggle time-chip" type="button" 
+                            aria-label="Change theme"
+                            aria-expanded="false">
+
+                        <span class="cloud-layer cloud-layer-back" aria-hidden="true"></span>
+                        <span class="cloud-layer cloud-layer-middle" aria-hidden="true"></span>
+                        <span class="cloud-layer cloud-layer-front" aria-hidden="true"></span>
+
+                        <span class="bird bird-one" aria-hidden="true"></span>
+                        <span class="bird bird-two" aria-hidden="true"></span>
+
+                        <span class="shooting-star" aria-hidden="true"></span>
+                        <span class="shooting-star" aria-hidden="true"></span>
+                        <span class="shooting-star" aria-hidden="true"></span>
+
+                        <svg class="toggle-icon sun-icon" viewBox="0 0 33.037964 30.502981">
+                            <g transform="translate(-1.9761876,-2.0866065)">
+                                <path
+                                    d="m 12.722179,31.965457 c -0.168124,-0.210968 -0.46731,-1.197111 -0.664845,-2.191436 -0.197543,-0.994326 -0.51848,-1.995462 -0.713205,-2.224768 -0.249294,-0.293537 -1.172259,-0.4169 -3.1191843,-0.4169 -2.095086,0 -2.8846993,-0.116849 -3.2585556,-0.48222 C 4.3342743,26.0324 4.3300321,26.056235 5.4273463,24.063715 6.9315896,21.332272 6.6921357,20.551608 3.9204321,19.151002 1.4185054,17.886716 1.5970083,16.687444 4.5131993,15.168458 5.5272619,14.640245 6.3569594,14.026402 6.3569594,13.80436 c 0,-0.222051 -0.2119488,-0.990802 -0.4710028,-1.708338 -0.63619,-1.762178 -0.6230415,-3.8665526 0.025728,-4.1098339 0.2731747,-0.1024488 1.4523265,-0.1862634 2.6203427,-0.1862634 2.5489327,0 2.9770727,-0.3389988 3.5037427,-2.7743086 0.501729,-2.3199614 0.78657,-2.7492394 1.82418,-2.7492394 0.704565,0 1.139215,0.3311128 2.114795,1.6110316 1.673328,2.1953448 2.206166,2.2072478 4.34814,0.09712 2.751387,-2.7104213 4.246164,-2.2904505 4.246164,1.193005 0,0.80672 0.215416,1.5866827 0.549503,1.9895394 0.524628,0.6326458 0.653178,0.6469076 2.84048,0.3150348 3.351814,-0.5085525 3.671101,-0.1406351 2.604936,3.0016205 -1.153483,3.399581 -1.173073,3.284756 0.714669,4.187351 1.80073,0.860994 3.338439,2.08494 3.338439,2.657252 0,0.577226 -1.944579,2.177608 -3.375508,2.778049 -1.459102,0.612265 -1.542384,0.765217 -0.906154,1.66425 0.235594,0.332919 0.651254,1.354387 0.923692,2.269931 0.741084,2.490483 0.492586,2.74162 -2.81982,2.849724 l -2.714702,0.08864 -0.697798,2.023995 c -0.383784,1.113188 -0.860708,2.32147 -1.059813,2.685056 -0.556778,1.0167 -1.689492,0.815218 -3.359894,-0.597648 -1.289565,-1.090742 -1.632156,-1.235878 -2.567199,-1.087594 -0.593465,0.09416 -1.721838,0.660538 -2.507475,1.258717 -1.500217,1.142245 -2.301044,1.342869 -2.810177,0.704016 z"
+                                    style="fill:#ff9d00;fill-opacity:1;stroke-width:0.984474"
+                                />
+                                <path
+                                    d="M 15.143461,26.560922 C 10.847129,25.187398 8.3451045,21.842446 8.3444663,17.471358 8.3440538,14.65301 9.3619166,12.291319 11.323366,10.55954 c 2.064291,-1.8225712 3.781111,-2.444686 6.701318,-2.4283415 2.096235,0.011745 2.783115,0.1509786 4.15001,0.841284 2.070075,1.0454215 3.560187,2.4961765 4.519044,4.3996905 1.05882,2.101976 1.075927,6.062954 0.03515,8.127474 -2.091865,4.149324 -7.308875,6.428463 -11.585391,5.061275 z"
+                                    style="fill:#ffd800;fill-opacity:1;stroke-width:0.984474"
+                                />
+                            </g>
+                        </svg>
+
+                    <svg class="toggle-icon sunrise-icon" viewBox="0 0 37.682602 24.128826">
+                        <g transform="translate(-5.0234265,-4.085769)">
+                            <path
+                                d="m 24.439767,4.2172246 c -0.41551,0.2584 -0.86618,4.05633 -0.5703,4.80603 0.42452,1.0756404 1.0125,0.54553 1.21524,-1.09561 0.39394,-3.18891 0.21079,-4.24261 -0.64494,-3.71042 z m -6.82223,3.17631 c 0,0.67606 0.94401,2.4773 1.29833,2.4773 0.349,0 0.17848,-1.92466 -0.22705,-2.56265 -0.22364,-0.35183 -1.07128,-0.2843 -1.07128,0.0853 z m 12.98728,1.37817 c -0.62679,0.93011 -0.64101,1.09913 -0.0925,1.09913 0.54887,0 1.88679,-1.38058 1.6042,-1.65535 -0.42359,-0.41186 -1.00296,-0.19868 -1.51168,0.55622 z m -19.06283,1.13584 c 0,0.7099004 2.03505,3.6882604 2.64971,3.8779404 1.01459,0.31311 0.93449,-0.0309 -0.48157,-2.06792 -1.3349,-1.9202804 -2.16814,-2.6158904 -2.16814,-1.8100204 z m 23.08466,2.1405704 c -0.75757,0.85533 -1.29315,1.68769 -1.19017,1.84969 0.40114,0.63109 4.00652,-2.17481 4.00652,-3.11809 0,-0.15788 -0.32376,-0.28699 -0.71947,-0.2869 -0.46653,9e-5 -1.20372,0.54689 -2.09688,1.5553 z m -16.3164,-0.52957 c -0.18969,0.22224 -0.44288,1.02672 -0.56264,1.78774 -0.23561,1.49713 -0.66068,2.49445 -1.21718,2.85574 -0.19351,0.12563 -1.52869,0.23057 -2.96706,0.23319 -1.94616,0.003 -2.74378,0.12975 -3.11772,0.49333 -0.6379799,0.62032 -0.6664599,0.45696 0.45681,2.62054 1.50758,2.903791 1.30606,3.563741 -1.5081899,4.939371 -2.14657,1.04925 -2.47041,2.26437 -0.87445,3.28112 0.66191,0.42169 2.6848999,0.48502 15.4930299,0.48502 13.02259,0 14.82316,-0.0583 15.51988,-0.50212 1.62872,-1.03763 0.5502,-2.97716 -2.32955,-4.18926 -0.74745,-0.3146 -1.35901,-0.65251 -1.35901,-0.7509 0,-0.0984 0.30624,-0.76254 0.68053,-1.47589 0.39838,-0.759261 0.69667,-1.946501 0.71947,-2.863551 L 37.0817,17.309341 c -1.303436,-0.814612 -1.708586,-0.506366 -2.56288,-0.759549 l -2.965613,0.0056 -0.68439,-1.86547 c -1.25585,-3.42309 -1.34928,-3.57547 -2.19206,-3.57547 -0.45971,0 -1.40343,0.518 -2.26572,1.24364 -0.97609,0.82141 -1.78603,1.24365 -2.38558,1.24365 -0.56214,0 -1.55584,-0.47349 -2.61001,-1.24365 -1.78871,-1.30679 -2.53437,-1.5084 -3.10525,-0.83958 z m -10.6054399,2.63587 c 0,0.49587 1.0121,1.62373 1.45707,1.62373 0.54427,0 0.58881,-0.43144 0.1305,-1.26408 -0.31657,-0.57515 -1.58757,-0.86308 -1.58757,-0.35965 z m 31.5045199,1.19438 c -0.28475,0.27686 -0.43492,0.58388 -0.33373,0.68228 0.1012,0.0984 0.49976,-0.12813 0.8857,-0.50338 0.38594,-0.37525 0.53612,-0.68228 0.33373,-0.68228 -0.20239,0 -0.60096,0.22652 -0.8857,0.50338 z m -34.1629399,5.2096 c -0.12214,0.30949 0.2338,0.481131 1.28948,0.621821 2.22591,0.29665 2.96777,0.23836 2.96777,-0.23317 0,-0.794751 -3.9545,-1.155761 -4.25725,-0.388651 z m 33.2402699,0.660701 c -0.15344,0.38879 0.21156,0.46637 2.19412,0.46637 1.98255,0 2.34755,-0.0776 2.19411,-0.46637 -0.1366,-0.346111 -0.70238,-0.466371 -2.19411,-0.466371 -1.49174,0 -2.05752,0.12026 -2.19412,0.466371 z"
+                                style="fill:#ffb549;fill-opacity:1"
+                            />
+                            <path
+                                d="m 21.44704,14.807149 c -2.65317,0.66257 -5.39217,2.98725 -6.61179,5.61164 -0.74498,1.60305 -0.89414,5.45837 -0.26826,6.933571 l 0.36275,0.855 h 8.96926 8.969266 l 0.3756,-0.855 c 0.20658,-0.47026 0.37509,-1.974291 0.37446,-3.342301 -9.4e-4,-2.07514 -0.13939,-2.74488 -0.83553,-4.04184 -1.07367,-2.00034 -2.87577,-3.67886 -4.867146,-4.53339 -1.70786,-0.73286 -4.83308,-1.03612 -6.46861,-0.62768 z"
+                                style="fill:#fff289;fill-opacity:1"
+                            />
+                        </g>
+                    </svg>
+
+                    <svg class="toggle-icon sunset-icon" viewBox="0 0 32.963348 17.411251">
+                        <g transform="translate(-10.318752,-12.964583)">
+                            <path
+                                d="m 11.692354,29.773298 c -1.8794645,-1.09576 -1.229993,-2.473051 1.777753,-3.769968 1.455474,-0.627587 1.518115,-0.855051 0.831504,-3.019281 -1.047456,-3.301648 -0.497775,-4.208553 2.469673,-4.074718 2.817365,0.127075 3.377396,-0.326966 3.891988,-3.155395 0.114686,-0.630352 0.461834,-1.445226 0.771447,-1.81083 0.771744,-0.911337 1.832125,-0.487274 3.229136,1.291395 1.517402,1.931955 2.129635,1.914111 4.367876,-0.127329 1.018873,-0.929278 2.140014,-1.689608 2.491431,-1.689608 0.945833,0 1.624907,1.153128 1.624907,2.759237 0,0.92356 0.2029,1.652772 0.585612,2.10471 0.563468,0.665386 0.667042,0.678623 2.73972,0.350215 3.427915,-0.543152 3.837141,-0.06983 2.691775,3.113455 -0.853757,2.372838 -0.831761,3.385381 0.07913,3.64376 1.433427,0.406579 4.037792,2.278089 4.037792,2.901565 0,0.121942 -0.09676,0.885 -0.637251,1.305381 l -1.002503,0.779732 -14.460389,-9.74e-4 c -13.85699,-9.74e-4 -14.503312,-0.0261 -15.489603,-0.601152 z"
+                                style="fill:#ffe166;fill-opacity:1;stroke-width:0.982148"
+                            />
+                            <path
+                                d="m 17.311923,29.240258 c 0.004,-1.520212 1.235539,-3.96531 2.704293,-5.369755 3.524527,-3.370184 9.534464,-3.553488 13.27526,-0.404885 1.68447,1.417798 2.944996,3.585876 3.226453,5.549387 l 0.195065,1.36083 h -9.702076 -9.702085 z"
+                                style="fill:#ea91b3;fill-opacity:1;stroke-width:0.982148"
+                            />
+                        </g>
+                    </svg>
+
+                    <svg class="toggle-icon moon-icon" viewBox="0 0 24.142303 24.155109">
+                        <g transform="translate(-6.3111724,-4.9631167)">
+                        <path
+                            style="fill:#ffeb9c;fill-opacity:1;stroke-width:0.983468"
+                            d="M 15.728289,28.67506 C 12.205074,27.816137 9.1067442,25.319202 7.4975094,22.041884 6.59055,20.194792 6.495356,19.72607 6.495356,17.107324 c 0,-2.618747 0.095174,-3.087459 1.0021534,-4.934561 C 9.465178,8.1654755 13.264549,5.6396109 17.751976,5.355488 L 20.070446,5.2086948 18.445,5.9491366 c -3.563476,1.6232781 -5.508072,4.4442874 -5.728049,8.3096394 -0.123746,2.174351 -0.04324,2.688235 0.649654,4.148516 1.522541,3.208633 3.994465,5.079219 7.550063,5.713376 3.009501,0.53676 5.77456,-0.256839 8.170079,-2.344881 0.684168,-0.596352 1.243939,-0.995233 1.243939,-0.886412 0,0.108822 -0.363854,0.890625 -0.808567,1.737331 -1.900602,3.618673 -5.830726,6.026106 -10.162241,6.224968 -1.345531,0.06182 -2.979754,-0.01773 -3.631589,-0.176614 z"
+                        />
+                        <path
+                            style="fill:#ffd500;fill-opacity:1;stroke-width:0.874772"
+                            d="m 21.244549,17.471106 c 0,-0.888616 -0.156357,-1.167341 -1.006011,-1.793301 -1.115921,-0.822135 -1.018798,-1.144114 0.494997,-1.641062 0.624795,-0.205102 0.955018,-0.545442 1.180386,-1.216549 0.409766,-1.220238 1.106802,-1.330034 1.751485,-0.275882 0.439598,0.718808 0.665765,0.828439 1.70905,0.828439 1.359633,0 1.455176,0.218668 0.647237,1.481358 -0.455027,0.711153 -0.505651,1.034421 -0.280643,1.792211 0.150985,0.508518 0.274517,1.016862 0.274517,1.129666 0,0.304489 -0.997883,0.248357 -1.791138,-0.100746 -0.582483,-0.256351 -0.817856,-0.212478 -1.454298,0.271078 -1.141338,0.867168 -1.525582,0.747475 -1.525582,-0.475212 z"
+                            />
+                        </g>
+                    </svg>
+                </button>
+
+                <time class="time-label">--:--</time>
+            </div>
+        `;
+
+        this.querySelector(".theme-toggle").addEventListener("click", () => {
+            this.cycleTheme();
+        });
     }
 
-    setIconSource(centerIconEl, theme);
-    setIconSource(toggleIconEl, theme);
+    cycleTheme(){
+        const html = document.documentElement;
+        const currentTheme = html.dataset.theme || "day";
 
-    await renderSVGAssets(widget, { skipIfFilled: false });
-  }
+        const currentIndex = THEMES.indexOf(currentTheme);
+        const nextTheme = THEMES[(currentIndex + 1) % THEMES.length];
 
-  // Applies a manual theme and prevents auto-sync from overriding the chosen icon/theme.
-  async function applyManualTheme(minutes){
-    autoMode = false;
-
-    applyThemeForMinutes(minutes, {
-      source: syncSource,
-      mode: "manual",
-    });
-
-    await setToggleUIFromThemeMinutes(minutes);
-    updateAllTimeSideDisplays(widget);
-    await renderSVGAssets(widget, { skipIfFilled: false });
-  }
-
-  if(timeChip){
-    timeChip.addEventListener("click", async (e) => {
-      e.stopPropagation();
-
-      const nextMinutes = getNextThemeMinutes();
-      await applyManualTheme(nextMinutes);
-
-      if(timePop){
-        togglePopover(timeChip, timePop);
-      }
-    });
-  }
-
-  for(const side of chipElements.timeRows){
-    side.addEventListener("click", async (e) => {
-      e.stopPropagation();
-
-      setActiveSide(widget, side);
-
-      if(timeChip && timePop){
-        openPopover(timeChip, timePop);
-      }
-
-      const sideMinutes = getSideMinutes(side.id);
-      await applyManualTheme(sideMinutes);
-    });
-  }
-
-  function pointerToT(clientX, clientY){
-    const pt = svg.createSVGPoint();
-    pt.x = clientX;
-    pt.y = clientY;
-
-    const ctm = svg.getScreenCTM();
-    if(!ctm) return 0;
-
-    const loc = pt.matrixTransform(ctm.inverse());
-    const dx = loc.x - cx;
-    const dy = loc.y - cy;
-
-    let angle = Math.atan2(dy, dx);
-    angle += Math.PI / 2;
-
-    if(angle < 0) angle += 2 * Math.PI;
-
-    return angle / (2 * Math.PI);
-  }
-
-  function tToMinutes(t){
-    let total = t * 1440;
-    total = Math.round(total / MINUTE_STEP) * MINUTE_STEP;
-
-    if(total >= 1440) total = 0;
-    if(total < 0) total = 0;
-
-    return total;
-  }
-
-  async function updateFromDrag(t){
-    const minutes = tToMinutes(t);
-    await applyManualTheme(minutes);
-  }
-
-  function applyPointer(){
-    raf = 0;
-    updateFromDrag(pointerToT(pendingX, pendingY));
-  }
-
-  function onMove(e){
-    e.preventDefault();
-
-    if(!dragging) return;
-
-    pendingX = e.clientX;
-    pendingY = e.clientY;
-
-    if(!raf){
-      raf = requestAnimationFrame(applyPointer);
+        setManualTheme(nextTheme);
     }
-  }
-
-  function onDown(e){
-    e.preventDefault();
-
-    dragging = true;
-
-    if(slider.setPointerCapture){
-      slider.setPointerCapture(e.pointerId);
-    }
-
-    pendingX = e.clientX;
-    pendingY = e.clientY;
-
-    applyPointer();
-  }
-
-  function onUp(e){
-    dragging = false;
-
-    if(slider.releasePointerCapture){
-      slider.releasePointerCapture(e.pointerId);
-    }
-  }
-
-  // Auto mode updates the page theme based on real current time.
-  // Manual mode keeps the selected theme, but still updates displayed real times.
-  function syncToCurrentTime(){
-    updateTimePopupTimezoneState(widget);
-    updateAllTimeSideDisplays(widget);
-
-    const userMinutes = getSideMinutes("user-time");
-
-    if(timeLabelEl){
-      timeLabelEl.textContent = formatMinutesAsTime(userMinutes);
-    }
-
-    if(!autoMode || hasStoredTheme()){
-      renderSVGAssets(widget, { skipIfFilled: false });
-      return;
-    }
-
-    applyThemeForMinutes(userMinutes, {
-      source: syncSource,
-      mode: "auto",
-    });
-
-    setToggleUIFromThemeMinutes(userMinutes);
-  }
-
-  const ENABLE_THEME_SLIDER = false;
-
-  if(ENABLE_THEME_SLIDER){
-    slider.addEventListener("pointerdown", onDown);
-    slider.addEventListener("pointermove", onMove);
-    slider.addEventListener("pointerup", onUp);
-    slider.addEventListener("pointercancel", onUp);
-    slider.addEventListener("lostpointercapture", onUp);
-  }
-
-  document.addEventListener(TIME_THEME_CHANGE_EVENT, function(event){
-    const detail = event.detail ?? {};
-
-    if(detail.source === syncSource) return;
-    if(typeof detail.minutes !== "number") return;
-
-    if(detail.mode === "manual"){
-      autoMode = false;
-    }
-    else if(detail.mode === "auto" && !autoMode){
-      return;
-    }
-
-    setToggleUIFromThemeMinutes(detail.minutes);
-  });
-
-  const initialTheme = getCurrentTheme();
-  const initialMinutes = hasStoredTheme()
-    ? THEME_MINUTES[initialTheme] ?? getSideMinutes("user-time")
-    : getSideMinutes("user-time");
-
-  if(behavior.autoSync !== false){
-    if(autoMode){
-      syncToCurrentTime();
-    }
-    else{
-      setToggleUIFromThemeMinutes(initialMinutes);
-      updateTimePopupTimezoneState(widget);
-      updateAllTimeSideDisplays(widget);
-      renderSVGAssets(widget, { skipIfFilled: false });
-    }
-  }
-
-  if(chipElements.timeRows.length > 0){
-    const initialActiveSide =
-      chipElements.timeRows.find((side) =>
-        side.classList.contains("time-active")
-      ) ?? chipElements.timeRows[0];
-
-    setActiveSide(widget, initialActiveSide);
-  }
-
-  updateAllTimeSideDisplays(widget);
-  renderSVGAssets(widget, { skipIfFilled: false });
-
-  if(behavior.autoSync !== false){
-    const interval = typeof behavior.autoSyncInterval === "number"
-      ? behavior.autoSyncInterval
-      : 60000;
-
-    setInterval(function(){
-      syncToCurrentTime();
-    }, interval);
-  }
 }
+
+customElements.define("theme-toggle", ThemeToggle);

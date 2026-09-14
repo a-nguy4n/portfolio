@@ -1,0 +1,570 @@
+body[data-page="about"] .feature-card__item:hover {
+    background: none;
+    filter: none;
+}
+
+#hobbies.feature-card a.feature-card__item:last-of-type {
+    border-bottom: none;
+}
+
+/* ==============================================
+    CUSTOM HOME ICONS COLORS & THUMBNAIL SIZES
+================================================= */
+
+#about-me .item-circle-icon {
+    background: #e6f542;
+}
+
+#about-current .item-circle-icon {
+    background: #b7dfff;
+}
+
+#about-interest .item-circle-icon {
+    background: #6CD64A;
+}
+
+
+/* =====================================
+    PROFILE CARD STYLING
+========================================*/
+
+.profile {
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    padding: var(--space-6);
+
+    background: var(--theme-card-color);
+    color: var(--theme-text-color);
+
+    border-radius: var(--widget-radius);
+    box-shadow: var(--glass-box-shadow);
+    backdrop-filter: var(--glass-backdrop-filter);
+    -webkit-backdrop-filter: var(--glass-webkit-backdrop-filter);
+}
+
+.profile-gallery {
+    width: 100%;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: var(--space-2);
+    overflow: hidden;
+
+    border-radius: var(--widget-radius);
+}
+
+.profile-gallery img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #ddd;
+}
+
+.profile-gallery-main {
+    grid-row: 1 / 3;
+}
+
+.profile-header {
+    padding: var(--space-4) var(--space-0);
+    border-bottom: 1px solid color-mix(in srgb, var(--fade-color) 50%, transparent);
+}
+
+.profile-header h1 {
+    margin: 0 0 var(--space-1);
+    color: var(--theme-text-color);
+
+    font-size: var(--text-medium);
+    font-weight: var(--primary-header-weight);
+    line-height: 1.2;
+}
+
+.profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin: var(--space-0);
+
+    color: var(--fade-color);
+    font-size: var(--text-xsmall);
+}
+
+.profile-tags span:not(:last-child)::after {
+    content: " · ";
+    margin: 0 var(--space-1);
+}
+
+.profile-about {
+    padding: var(--space-4) var(--space-0);
+}
+
+.profile-about p {
+    margin: var(--space-0);
+
+    color: var(--theme-text-color);
+    font-size: var(--text-xsmall);
+    line-height: 1.7;
+}
+
+.profile-info {
+    display: grid;
+    grid-template-columns: 35% 1fr;
+
+    gap: var(--space-4);
+    margin: 0.5% 0 0;
+}
+
+.profile-info dt {
+    color: var(--theme-text-color);
+    font-size: var(--text-xsmall);
+    font-weight: 600;
+}
+
+.profile-info dd {
+    margin: var(--space-0);
+    color: var(--theme-text-color);
+    font-size: var(--text-xsmall);
+}
+
+#about-contact-result .item-circle-icon {
+    background: #6CD64A;
+}
+
+/* =====================================
+   ADDITIONAL SEARCHES CLOUD CARD BUMPS
+========================================*/
+
+#about-extra-searches .cloud-card__bump--1 {
+    width: clamp(60px, 25%, 110px);
+    height: clamp(60px, 5vw, 92px);
+
+    left: 0;
+    top: -30px;
+}
+
+#about-extra-searches .cloud-card__bump--2 {
+    width: clamp(125px, 40%, 225px);
+    height: clamp(70px, 8vw, 120px);
+
+    left: 45%;
+    top: -55px;
+}
+
+#about-extra-searches .cloud-card__bump--3 {
+    width: clamp(110px, 37%, 185px);
+    height: clamp(75px, 9vw, 122px);
+
+    right: 12%;
+    top: -40px;
+}
+
+/* =====================================
+    THEMEING 
+========================================*/
+
+html[data-theme="night"] {
+    .profile {
+        color: var(--theme-alternate-text-color);
+    }
+
+    .profile-header h1,
+    .profile-about p,
+    .profile-info dt,
+    .profile-info dd {
+        color: var(--theme-alternate-text-color);
+    }
+
+    .profile-tags {
+        color: color-mix(in srgb,
+                var(--theme-alternate-text-color) 60%,
+                transparent);
+    }
+
+    .profile-header {
+        border-bottom-color: color-mix(in srgb,
+                var(--theme-alternate-text-color) 25%,
+                transparent);
+    }
+}
+
+
+/* =====================================
+    FIDELITY STYLING
+======================================== */
+
+/* ==== Low Fidelity ==== */
+
+html[data-theme][data-fidelity="low"] {
+
+    .profile {
+        background: var(--theme-card-color) !important;
+        border: var(--border-value);
+        border-radius: var(--card-radius);
+        box-shadow: none;
+        color: var(--theme-text-color) !important;
+
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .profile header svg {
+        color: var(--theme-text-color) !important;
+    }
+
+    .profile-gallery {
+        position: relative;
+
+        background:
+            repeating-linear-gradient(135deg,
+                #E7E7E7 0px,
+                #E7E7E7 28px,
+                #D6D6D6 28px,
+                #D6D6D6 56px) left / calc((100% - 0.5rem) * 0.5833) 100% no-repeat,
+
+            repeating-linear-gradient(135deg,
+                #E7E7E7 0px,
+                #E7E7E7 28px,
+                #D6D6D6 28px,
+                #D6D6D6 56px) right top / calc((100% - 0.5rem) * 0.4167) calc(50% - 0.25rem) no-repeat,
+
+            repeating-linear-gradient(135deg,
+                #E7E7E7 0px,
+                #E7E7E7 28px,
+                #D6D6D6 28px,
+                #D6D6D6 56px) right bottom / calc((100% - 0.5rem) * 0.4167) calc(50% - 0.25rem) no-repeat !important;
+    }
+
+    .profile-gallery img {
+        visibility: hidden;
+    }
+
+    .profile-gallery::before {
+        content: "IMG";
+
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        z-index: 2;
+
+        color: #888;
+        font-size: var(--text-xsmall);
+        font-weight: 600;
+    }
+
+    .profile p,
+    .profile-info dt,
+    .profile-info dd {
+        color: var(--theme-text-color) !important;
+    }
+}
+
+
+/* ==== Mid Fidelity ==== */
+
+html[data-theme][data-fidelity="mid"] {
+
+    .profile-gallery {
+        position: relative;
+
+        background:
+            repeating-linear-gradient(135deg,
+                #E7E7E7 0px,
+                #E7E7E7 28px,
+                #D6D6D6 28px,
+                #D6D6D6 56px) left / calc((100% - 0.5rem) * 0.5833) 100% no-repeat,
+
+            repeating-linear-gradient(135deg,
+                #E7E7E7 0px,
+                #E7E7E7 28px,
+                #D6D6D6 28px,
+                #D6D6D6 56px) right top / calc((100% - 0.5rem) * 0.4167) calc(50% - 0.25rem) no-repeat,
+
+            repeating-linear-gradient(135deg,
+                #E7E7E7 0px,
+                #E7E7E7 28px,
+                #D6D6D6 28px,
+                #D6D6D6 56px) right bottom / calc((100% - 0.5rem) * 0.4167) calc(50% - 0.25rem) no-repeat !important;
+    }
+
+    .profile-gallery img {
+        visibility: hidden;
+    }
+
+    .profile-gallery::before {
+        content: "IMG";
+
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        z-index: 2;
+
+        color: #888;
+        font-size: var(--text-xsmall);
+        font-weight: 600;
+    }
+}
+
+/* =====================================
+    RESPONSIVE
+========================================*/
+
+/* ---  Mobile (vertical) --- */
+@media (max-width: 500px) {
+
+    body[data-page="about"] .page-container {
+        --layout-width: 93%;
+    }
+
+    body[data-page="about"] .content-sidebar-layout {
+        display: flex;
+        flex-direction: column;
+        gap: var(--layout-row-gap);
+    }
+
+    body[data-page="about"] .content-sidebar-layout__sidebar {
+        order: 1;
+        width: var(--layout-width);
+    }
+
+    body[data-page="about"] .content-sidebar-layout__main {
+        order: 2;
+        width: var(--layout-width);
+    }
+
+    #about-name svg {
+        width: 65%;
+    }
+
+    .profile {
+        padding: var(--space-6);
+    }
+
+    .profile-gallery {
+        height: 280px;
+    }
+
+    .profile-about p {
+        font-size: var(--text-small) !important;
+    }
+
+    .profile-info {
+        grid-template-columns: 110px 1fr;
+        gap: var(--space-3) var(--space-5);
+    }
+
+    #about-extra-searches {
+        width: var(--layout-width);
+        max-width:  var(--layout-width);
+        box-sizing: border-box;
+        margin-top: var(--space-10);
+    }
+
+    #about-extra-searches .additional-searches {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    #about-extra-searches .additional-searches h1 {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    #about-extra-searches .additional-searches a {
+        width: 100%;
+        max-width: 100%;
+        padding-right: var(--space-4);
+        overflow-wrap: anywhere;
+        white-space: normal;
+    }
+
+    #about-extra-searches .cloud-card__bump--1 {
+        left: 0%;
+        top: -20px;
+    }
+
+    #about-extra-searches .cloud-card__bump--2 {
+        width: clamp(110px, 35%, 215px);
+        height: clamp(70px, 8vw, 120px);
+
+        left: 20%;
+        top: -55px;
+    }
+
+    #about-extra-searches .cloud-card__bump--3 {
+        right: 15%;
+    }
+
+    #about-extra-searches .cloud-card__bump--4 {
+        right: 1%;
+    }
+}
+
+
+/* --- TABLET --- */
+
+/* -- Vertical -- */
+@media (min-width: 501px) and (max-width: 850px) {
+
+    body[data-page="about"] .page-container {
+        --layout-width: 93%;
+    }
+
+    body[data-page="about"] .content-sidebar-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--layout-row-gap);
+
+        width: 100%;
+        min-width: 0;
+    }
+
+    body[data-page="about"] .content-sidebar-layout__sidebar,
+    body[data-page="about"] .content-sidebar-layout__main {
+        width: var(--layout-width);
+        max-width: var(--layout-width);
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    body[data-page="about"] .content-sidebar-layout__sidebar {
+        order: 1;
+    }
+
+    body[data-page="about"] .content-sidebar-layout__main {
+        order: 2;
+    }
+
+    /* Children are relative to their parent */
+    body[data-page="about"] .card-row,
+    body[data-page="about"] .feature-card,
+    body[data-page="about"] .additional-searches {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .profile {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: auto auto auto;
+        column-gap: var(--space-6);
+        row-gap: var(--space-4);
+
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+
+        align-items: start;
+    }
+
+    /* LEFT: H1 + TAGS */
+    .profile-header {
+        grid-column:  1 / 3;
+        grid-row: 1;
+        min-width: 0;
+    }
+
+    .profile-header svg{
+        width: 35%;
+    }
+
+    /* LEFT: DESCRIPTION */
+    .profile-about {
+        grid-column: 1 / 3;
+        grid-row: 3;
+        min-width: 0;
+    }
+
+    .profile-about p{
+        font-size: var(--text-small);
+    } 
+
+    /* RIGHT: GALLERY */
+    .profile-gallery {
+        grid-column: 1;
+        grid-row: 2;
+
+        width: 85%;
+        place-self: center;
+    }
+
+    /* RIGHT: INFO */
+    .profile-info {
+        grid-column: 2;
+        grid-row: 2;
+
+        min-width: 0;
+        place-self: center;
+    }
+
+    .profile-info dt,
+    .profile-info dd {
+        font-size: 16px;
+    }
+
+    .feature-card__content p{
+        font-size: var(--text-small);
+    }
+
+    #about-extra-searches {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        margin-inline: auto;
+        margin-top: var(--space-10);
+    }
+
+    #about-extra-searches .additional-searches {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #about-extra-searches .additional-searches a {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        grid-template-columns: auto minmax(0, 1fr);
+
+        padding: clamp(15px, 2vw, 25px) var(--space-4);
+        box-sizing: border-box;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    #about-extra-searches .cloud-card__bump--1 {
+        left: 0%;
+        top: -20px;
+    }
+
+    #about-extra-searches .cloud-card__bump--2 {
+        width: clamp(110px, 35%, 215px);
+        height: clamp(100px, 10vw, 150px);
+
+        left: 10%;
+        top: -46px;
+    }
+
+    #about-extra-searches .cloud-card__bump--3 {
+        height: clamp(100px, 10vw, 150px);
+        
+        right: 13%;
+    }
+
+    #about-extra-searches .cloud-card__bump--4 {
+        height: clamp(70px, 8vw, 100px);
+
+        right: 0%;
+    }
+}
+
+

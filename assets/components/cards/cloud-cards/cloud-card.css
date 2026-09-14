@@ -1,0 +1,460 @@
+
+/* ==================================
+   CLOUD CARD
+===================================== */
+
+.cloud-card {
+    --cloud-card-height: fit-content;
+
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "content thumbnail"
+        "content arrow";
+    gap: var(--space-6) var(--space-7);
+
+    width: 100%;
+    height: var(--cloud-card-height);
+    min-height: var(--cloud-card-height);
+    padding: var(--space-9) 1.75rem var(--space-7);
+
+    background: var(--theme-button-color);
+    border-radius: 45px 45px var(--widget-radius) var(--widget-radius);
+    box-shadow: var(--box-shadow);
+    color: var(--theme-text-color);
+
+    text-decoration: none;
+    overflow: visible;
+    isolation: isolate;
+}
+
+.cloud-card--compact {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "path path"
+        "title title"
+        "subtitle subtitle"
+        "thumbnail thumbnail"
+        "description description"
+        "tags arrow";
+    gap: var(--space-1);
+
+    height: auto;
+    min-height: 0;
+    margin-bottom: var(--space-3);
+    padding: var(--space-7) 1.75rem var(--space-4);
+}
+
+/* ----  CLOUD SHAPE ---- */
+
+.cloud-card__bump {
+    position: absolute;
+    background: var(--theme-button-color);
+    border-radius: 999px 999px 0 0;
+    z-index: -1;
+}
+
+.cloud-card__bump--1 {
+    width: 150px;
+    height: 92px;
+
+    left: 0;
+    top: -25px;
+}
+
+.cloud-card__bump--2 {
+    width: 220px;
+    height: 132px;
+
+    left: 85px;
+    top: -53px;
+}
+
+.cloud-card__bump--3 {
+    width: 230px;
+    height: 122px;
+
+    right: 92px;
+    top: -63px;
+}
+
+.cloud-card__bump--4 {
+    width: 155px;
+    height: 90px;
+
+    right: 0;
+    top: -30px;
+}
+
+/* left bump */
+.cloud-card--compact .cloud-card__bump--1 {
+    width: clamp(80px, 28%, 120px);
+    height: clamp(60px, 8vw, 92px);
+
+    left: 0;
+    top: -25px;
+}
+
+/* middle-left bump */
+.cloud-card--compact .cloud-card__bump--2 {
+    width: clamp(120px, 42%, 220px);
+    height: clamp(80px, 10vw, 132px);
+
+    left: 22%;
+    top: -43px;
+}
+
+/* middle/right bump */
+.cloud-card--compact .cloud-card__bump--3 {
+    width: clamp(100px, 34%, 175px);
+    height: clamp(75px, 9vw, 122px);
+
+    right: 18%;
+    left: auto;
+    top: -55px;
+}
+
+/* right bump */
+.cloud-card--compact .cloud-card__bump--4 {
+    width: clamp(80px, 26%, 135px);
+    height: clamp(60px, 7vw, 90px);
+
+    right: 0;
+    left: auto;
+    top: -15px;
+}
+
+.cloud-card--compact.cloud-card--style-2 .cloud-card__bump--1 {
+    width: clamp(40px, 20%, 90px);
+    height: clamp(90px, 7vw, 145px);
+
+    left: 65%;
+    top: -35px;
+}
+
+.cloud-card--compact.cloud-card--style-2 .cloud-card__bump--2 {
+    width: clamp(120px, 40%, 205px);
+    height: clamp(90px, 11vw, 145px);
+
+    left: 34%;
+    top: -50px;
+}
+
+.cloud-card--compact.cloud-card--style-2 .cloud-card__bump--3 {
+    width: clamp(75px, 25%, 115px);
+    height: clamp(50px, 7vw, 135px);
+
+    left: 17%;
+    top: -35px;
+}
+
+.cloud-card--compact.cloud-card--style-2 .cloud-card__bump--4 {
+    width: clamp(95px, 32%, 170px);
+    height: clamp(65px, 8vw, 100px);
+
+    right: 0;
+    left: auto;
+    top: -15px;
+}
+
+
+/* ----  CONTENT ---- */
+
+.cloud-card__content {
+    grid-area: content;
+
+    min-width: 0;
+}
+
+.cloud-card--compact .cloud-card__content {
+    display: contents;
+}
+
+
+/* ----  ICON + PAGE PATH ---- */
+
+.cloud-card__path-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.cloud-card--compact .cloud-card__path-row {
+    grid-area: path;
+
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+    white-space: nowrap;
+}
+
+.cloud-card__path {
+    color: var(--fade-color);
+    font-size: var(--text-xsmall);
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+/* ---- TITLE  ---- */
+
+.cloud-card__title {
+    color: var(--theme-text-color);
+    font-family: var(--font-headers);
+    font-size: var(--text-medium);
+    font-weight: 500;
+    line-height: 1.2;
+    margin: var(--space-0);
+}
+
+.cloud-card--compact .cloud-card__title {
+    grid-area: title;
+
+    margin: var(--space-0);
+}
+
+/* ---- SUBTITLE ---- */
+
+.cloud-card__subtitle {
+    color: var(--theme-text-color);
+    font-size: var(--text-small);
+    font-weight: 500;
+    line-height: 1.3;
+    margin: var(--space-3) 0 var(--space-4);
+}
+
+.cloud-card--compact .cloud-card__subtitle {
+    grid-area: subtitle;
+}
+
+
+/* ---- DESCRIPTION ---- */
+
+.cloud-card__description {
+    color: var(--theme-text-color);
+    font-size: var(--text-small);
+    line-height: 1.5;
+    margin: var(--space-0);
+    max-width: 650px;
+}
+
+.cloud-card--compact .cloud-card__description {
+    grid-area: description;
+
+    margin: var(--space-3) 0 var(--space-1);
+    max-width: none;
+}
+
+
+/* ---- TAGS ---- */
+
+.cloud-card__tags {
+    color: var(--fade-color);
+    font-size: var(--text-xsmall);
+    line-height: 1.4;
+    margin: var(--space-5) 0 0;
+}
+
+.cloud-card--compact .cloud-card__tags {
+    grid-area: tags;
+
+    align-self: center;
+    margin: var(--space-0);
+    min-width: 0;
+}
+
+
+/* ----THUMBNAIL ---- */
+
+.cloud-card__thumbnail {
+    grid-area: thumbnail;
+
+    width: 85%;
+    max-width: 320px;
+    height: 160px;
+
+    align-self: center;
+    justify-self: end;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cloud-card--compact .cloud-card__thumbnail {
+    grid-area: thumbnail;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin-bottom: var(--space-1);
+    justify-self: stretch;
+    object-fit: cover;
+}
+
+/* ---- ARROW ---- */
+
+.cloud-card__arrow {
+    grid-area: arrow;
+
+    display: grid;
+    align-self: end;
+    justify-self: end;
+    place-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    background: var(--theme-button-color-two);
+    border-radius: var(--button-radius);
+    color: white;
+    font-size: var(--text-small);
+    line-height: 1;
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.cloud-card--compact .cloud-card__arrow {
+    grid-area: arrow;
+
+    align-self: center;
+    justify-self: end;
+    margin-left: var(--space-4);
+    opacity: 0;
+}
+
+.cloud-card:hover .cloud-card__arrow {
+    transform: translateX(4px);
+    filter: var(--hover-glow);
+}
+
+.cloud-card--compact:hover .cloud-card__arrow {
+    opacity: 1;
+}
+
+/* ---- HOVER ---- */
+
+.cloud-card {
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.cloud-card:hover {
+    transform: scale(1.015);
+    filter: var(--hover-glow);
+}
+
+
+/* ==================================
+   RESPONSIVE
+===================================== */
+
+
+/* ---  Mobile (vertical) --- */
+
+@media (max-width: 500px) {
+
+    .cloud-card {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "content"
+            "thumbnail"
+            "arrow";
+
+        gap: var(--space-6);
+        min-height: unset;
+        padding: var(--space-9) var(--space-6) var(--space-6);
+    }
+
+    .cloud-card--compact {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+        margin-bottom: var(--space-9);
+    }
+
+    .cloud-card--compact:nth-last-of-type(1){
+        margin-bottom: var(--space-0);
+    }
+
+     /* Cloud bumps */
+
+    .cloud-card__bump--1 {
+        width: 105px;
+        height: 72px;
+
+        top: -15px;
+    }
+
+    .cloud-card__bump--2 {
+        width: 145px;
+        height: 100px;
+
+        left: 45px;
+        top: -50px;
+    }
+
+    .cloud-card__bump--3 {
+        width: 145px;
+        height: 95px;
+
+        right: 40px;
+        top: -60px;
+    }
+
+    .cloud-card__bump--4 {
+        width: 100px;
+        height: 68px;
+
+        top: -20px;
+    }
+
+    .cloud-card--compact .cloud-card__content {
+        display: contents;
+    }
+
+    /* Path */
+
+    .cloud-card__path-row {
+        gap: var(--space-3);
+        margin-bottom: var(--space-4);
+    }
+
+    .cloud-card__path {
+        font-size: var(--text-xxsmall);
+    }
+
+    /* Title */
+    .cloud-card--compact .cloud-card__title {
+        order: 0;
+    }
+
+    /* Subtitle */
+    .cloud-card--compact .cloud-card__subtitle {
+        order: 0;
+    }
+
+    /* Description */
+    .cloud-card__description {
+        order: 1;
+    }
+
+    /* Thumbnail */
+    .cloud-card__thumbnail {
+        width: 130px;
+        height: fit-content;
+        justify-self: start;
+    }
+
+    /* Arrow */
+    .cloud-card--compact .cloud-card__arrow {
+        order: 1;
+
+        align-self: flex-end;
+        justify-self: flex-end;
+        opacity: 1;
+    }
+}

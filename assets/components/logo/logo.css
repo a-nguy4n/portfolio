@@ -1,24 +1,60 @@
-.logo-button,
+
+/* ==== Logo Defaults ==== */
+
 logo-button{
+  --logo-size-default: clamp(110px, 2vw, 270px);
+  --logo-button-size: var(--logo-size-default);
+  --logo-button-color: var(--theme-logo-color);
+  --logo-button-hover-color: var(--theme-hover-color);
+
   display: inline-block;
 }
 
-.logo{
+logo-button .logo{
   display: inline-block;
-  width: 100%; 
-  max-width: 100%;
+  width: auto;
   height: auto;
   cursor: pointer;
-  color: var(--logo-color);
+  color: var(--logo-button-color);
 }
 
-.logo svg{
-  width: 100%;
+logo-button .logo svg{
+  width: var(--logo-button-size);
   height: auto;
   display: block;
-  stroke-width: 1;
+  stroke-width: 0;
 }
 
-.logo:hover{
-  color: var(--logo-hover);
+logo-button.footer-logo svg{
+  --logo-size-default: clamp(75px, 2vw, 1250px);
+  width: var(--logo-size-default);
+}
+
+
+logo-button .logo:hover{
+  color: var(--logo-button-hover-color);
+}
+
+/* =====================================
+  FIDELITY
+========================================*/
+
+/* ==== Low Fidelity ==== */
+
+html[data-fidelity="low"] {
+
+  logo-button{
+    --logo-button-color: var(--theme-text-color);
+    --logo-button-hover-color: var(--theme-text-color);
+  }
+  
+  logo-button .logo:hover{
+    color: var(--logo-button-hover-color) !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1215px){
+  logo-button{
+    --logo-button-size: clamp(90px, 2vw, 150px);
+  }
 }
