@@ -1,0 +1,552 @@
+#contact-content-header .fidelity-toggle {
+    display: none;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 0fr;
+
+    column-gap: 0;
+    align-items: start;
+    width: 100%;
+    transition:
+        grid-template-columns 500ms ease,
+        column-gap 500ms ease;
+    margin: 0;
+}
+
+.contact-layout.is-compose-open {
+    grid-template-columns: minmax(0, 40%) minmax(0, 55%);
+    column-gap: var(--space-6);
+}
+
+/* =====================================
+    MESSAGE LIST
+========================================*/
+
+.contact-list {
+    width: 95%;
+    min-width: 0;
+    overflow: hidden;
+
+    background: var(--glass-background);
+    border: var(--glass-border);
+    border-radius: var(--widget-radius);
+    box-shadow: var(--glass-box-shadow);
+
+    backdrop-filter: var(--glass-backdrop-filter);
+    -webkit-backdrop-filter: var(--glass-webkit-backdrop-filter);
+
+    transition:
+        width 500ms ease,
+        transform 500ms ease;
+}
+
+.message-row {
+    display: grid;
+    grid-template-columns: 2% 5% minmax(0, 1fr) auto 3%;
+    grid-template-areas: "notif icon description date caret";
+    
+    align-items: center;
+    text-align: left;
+    text-decoration: none;
+    gap: var(--space-4);
+    margin: 0;
+    padding: var(--space-5) var(--space-6);
+    width: 100%;
+
+    color: var(--theme-text-color);
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 0;
+    box-sizing: border-box;
+    font: inherit;
+    transition:
+        background 200ms ease,
+        opacity 200ms ease;
+}
+
+.message-row:last-child {
+    border-bottom: none;
+}
+
+.message-row:hover {
+    transform: scale(1.025);
+    border-radius: var(--widget-radius);
+    transition: var(--transition-value-results);
+    filter: var(--hover-glow);
+}
+
+.message-row.is-active {
+    background: color-mix(in srgb, var(--theme-text-color) 8%, transparent);
+}
+
+
+/* =====================================
+    NOTIFICATION DOT
+========================================*/
+
+.message-notif {
+    grid-area: notif;
+
+    place-self: center;
+    width: 12px;
+    height: 12px;
+
+    background: #2a6df4;
+    border-radius: 50%;
+}
+
+.message-notif.is-hidden {
+    visibility: hidden;
+}
+
+
+/* =====================================
+    MESSAGE DESCRIPTION
+========================================*/
+
+.message-description {
+    grid-area: description;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: var(--space-0);
+    width: 90%;
+    min-width: 0;
+}
+
+.message-title {
+    color: var(--theme-text-color);
+    font-family: var(--font-headers);
+    font-size: var(--text-medium);
+    font-weight: 500;
+    margin: var(--space-0);
+}
+
+.message-caption {
+    color: var(--theme-text-color);
+    font-size: var(--text-small);
+    line-height: 1.4;
+    margin: var(--space-0);
+}
+
+
+/* =====================================
+    OCCURRENCE
+========================================*/
+
+.message-occurrence {
+    grid-area: date;
+    
+    place-self: start center;
+    margin: var(--space-0);
+    color: var(--fade-color);
+    font-size: var(--text-xsmall);
+    white-space: nowrap;
+}
+
+
+/* =====================================
+    CARET
+========================================*/
+
+.right-caret-icon {
+    grid-area: caret;
+
+    font-size: var(--icon-size-small);
+    place-self: center;
+    transition: transform 250ms ease;
+    width: var(--icon-size-small);
+}
+
+.message-row.is-active .right-caret-icon {
+    transform: rotate(90deg);
+}
+
+
+/* =====================================
+    COLLAPSED MESSAGE LIST
+========================================*/
+
+.contact-layout.is-compose-open .message-row {
+    grid-template-columns: 12px clamp(38px, 3vw, 48px) minmax(0, 1fr) 18px;
+    grid-template-areas: "notif icon description caret";
+
+    gap: var(--space-3);
+    padding: var(--space-4);
+}
+
+.contact-layout.is-compose-open .message-caption {
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    font-size: var(--text-xsmall);
+}
+
+.contact-layout.is-compose-open .message-title {
+    font-size: var(--text-small);
+}
+
+.contact-layout.is-compose-open .message-occurrence {
+    display: none;
+}
+
+
+/* =====================================
+    COMPOSE PANEL
+========================================*/
+
+.contact-compose {
+    min-width: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(3rem);
+    overflow: hidden;
+
+    background: var(--chat-bg, #ffffff);
+    border: var(--glass-border);
+    border-radius: var(--widget-radius);
+    box-shadow: var(--glass-box-shadow);
+
+    transition:
+        opacity 350ms ease 150ms,
+        transform 500ms ease;
+}
+
+.contact-layout.is-compose-open .contact-compose {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+
+/* =====================================
+    COMPOSE HEADER
+========================================*/
+
+.compose-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-5);
+    border-bottom: var(--border-value);
+}
+
+.compose-header h2 {
+    color: var(--theme-text-color);
+    font-family: var(--font-headers);
+    font-size: var(--text-small);
+    font-weight: var(--secondary-header-weight);
+    margin: var(--space-0);
+}
+
+.compose-close {
+    display: inline-grid;
+    place-items: center;
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    color: rgb(169, 9, 9);
+    cursor: pointer;
+    background: transparent;
+    font: inherit;
+    font-size: var(--icon-size-medium);
+}
+
+.compose-close:hover {
+    transform: scale(1.1);
+}
+
+
+/* =====================================
+    COMPOSE FORM
+========================================*/
+
+.compose-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--space-5) var(--space-4);
+}
+
+.compose-field {
+    display: grid;
+    grid-template-columns: var(--space-11) minmax(0, 1fr);
+    align-items: center;
+    border-bottom: 1px solid color-mix(in srgb, var(--fade-color) 20%, transparent);
+}
+
+.compose-field span {
+    color: var(--fade-color);
+    font-size: var(--text-xsmall);
+}
+
+.compose-field input {
+    min-width: 0;
+    padding: var(--space-4) 0;
+
+    color: var(--theme-text-color);
+    background: transparent;
+    border: 0;
+    outline: none;
+
+    font: inherit;
+    font-size: var(--text-small);
+}
+
+.compose-field input::placeholder,
+#compose-message::placeholder {
+    color: var(--fade-color);
+}
+
+#compose-message {
+    width: 100%;
+    min-height: 250px;
+    padding: var(--space-5)  0;
+
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    color: var(--theme-text-color);
+    outline: none;
+    font: inherit;
+    font-size: var(--text-small);
+    resize: vertical;
+}
+
+
+/* =====================================
+    COMPOSE FOOTER
+========================================*/
+
+.compose-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: var(--space-4);
+    border-top: var(--border-value);
+}
+
+.compose-send {
+    color: white;
+    cursor: pointer;
+    background: #2a6df4;
+    border: none;
+    border-radius: var(--button-radius);
+    box-shadow: var(--box-shadow);
+    font: inherit;
+    font-size: var(--text-xsmall);
+    padding: var(--space-3) var(--space-6);
+}
+
+.compose-send:hover {
+    background: rgb(27, 83, 195)
+}
+
+/* =====================================
+    THEME
+========================================*/
+
+html[data-theme="night"] {
+
+    .compose-header h2,
+    .compose-field input,
+    #compose-message {
+        color: var(--theme-alternative-text-color);
+    }
+
+    .compose-field span,
+    .compose-field input::placeholder,
+    #compose-message::placeholder {
+        color: #888fac;
+    }
+
+    .compose-field{
+        border-bottom: 1px solid color-mix(in srgb, var(--fade-color-alternate) 20%, transparent);
+    }
+}
+
+
+/* =====================================
+    FIDELITY STYLING
+========================================*/
+
+/* ==== Low Fidelity ==== */
+
+html[data-theme][data-fidelity="low"] {
+
+    .contact-list,
+    .contact-compose {
+        background: var(--theme-card-color) !important;
+        border: var(--border-value);
+        border-radius: var(--card-radius);
+        box-shadow: none;
+
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .message-row {
+        background: var(--theme-card-color) !important;
+        border-bottom: var(--border-value);
+        box-shadow: none;
+
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .message-row:hover {
+        transform: none;
+        filter: none;
+        border-radius: var(--button-radius);
+
+    }
+
+    .message-notif {
+        background: var(--fade-color) !important;
+    }
+
+    .compose-close {
+        color: var(--theme-text-color);
+    }
+
+    .compose-close:hover {
+        color: var(--theme-text-color);
+        transform: none;
+    }
+
+    .compose-send {
+        color: var(--theme-text-color);
+        border: var(--border-value);
+        border-radius: var(--button-radius);
+    }
+}
+
+/* =====================================
+    RESPONSIVE
+========================================*/
+
+/* ---  Mobile (vertical) --- */
+@media (max-width: 500px) {
+
+    .contact-layout {
+        --layout-width: 92%;
+        position: relative;
+    }
+
+    #contact-content-header{
+        margin-top: var(--space-4);
+    }
+
+    #contact-count {
+        display: block;
+    }
+
+    .contact-list {
+        width: var(--layout-width);
+    }
+
+    .message-title {
+        font-size: var(--text-small);
+    }
+
+    .message-row,
+    .contact-layout.is-compose-open .message-row {
+        grid-template-columns: 10px 40px minmax(0, 1fr) auto;
+        grid-template-areas: "notif icon description date";
+        gap: var(--space-3);
+        padding: var(--space-4);
+    }
+
+    .message-caption,
+    .contact-layout.is-compose-open .message-caption {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        white-space: normal;
+
+        font-size: var(--text-xsmall);
+    }
+
+    .message-occurrence {
+        display: block;
+        justify-self: end;
+        font-size: var(--text-xxsmall);
+    }
+
+    .right-caret-icon {
+        display: none;
+    }
+
+    .contact-layout,
+    .contact-layout.is-compose-open {
+        grid-template-columns: 1fr;
+        row-gap: var(--space-7);
+    }
+
+    .contact-compose {
+        position: absolute;
+        padding-bottom: var(--space-5);
+        top: 0;
+        left: 0;
+        z-index: var(--z-popover);
+        width: var(--layout-width);
+    }
+
+    .contact-layout.is-compose-open .contact-compose {
+        display: block;
+        transform: translateY(0);
+    }
+
+    .contact-layout.is-compose-open .message-row {
+        grid-template-columns: 12px clamp(40px, 2.5vw, 50px) minmax(0, 1fr) auto 20px;
+        grid-template-areas: "notif icon description date caret";
+    }
+
+    .contact-layout.is-compose-open .message-caption {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
+
+    .contact-layout.is-compose-open .message-title {
+        font-size: var(--text-medium);
+    }
+
+    .contact-layout.is-compose-open .message-occurrence {
+        display: block;
+    }
+
+    .compose-field {
+        grid-template-columns: var(--space-10) minmax(0, 1fr);
+    }
+}
+
+/* -- Vertical -- */
+@media (min-width: 501px) and (max-width: 850px)  {
+    
+    .contact-layout {
+        --layout-width: 97%;
+        position: relative;
+    }
+
+    .contact-list,
+    .contact-compose {
+        width: var(--layout-width);
+
+        margin-inline: auto;
+        box-sizing: border-box;
+    }
+}

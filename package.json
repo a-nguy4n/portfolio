@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "index": "pagefind --site . --glob 'pages/**/*.html'",
+    "search:serve": "pagefind --site . --glob 'pages/**/*.html' --serve"
+  },
+  "devDependencies": {
+    "pagefind": "^1.3.0"
+  }
+}

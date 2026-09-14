@@ -1,3 +1,7 @@
+.content-header {
+    display: none;
+}
+
 .progress-section{
     max-width: 800px;
     margin: 5%;
@@ -28,4 +32,46 @@
 .ascii-progress-text{
     display: inline-block;
     width: 100%;
+}
+
+/* =====================================
+    RESPONSIVE
+========================================*/
+
+/* ---  Mobile (vertical) --- */
+
+@media (max-width: 500px) {
+
+    body[data-page="extras"] .ambient-background {
+        display: none;
+    }
+
+    .progress-section {
+        max-width: none;
+        margin: 10% 5%;
+        padding-left: var(--space-0);
+    }
+
+    .ascii-progress {
+        font-size: var(--text-medium);
+        width: 100%;
+        white-space: nowrap;
+    }
+
+    .ascii-progress-text {
+        display: block;
+        width: 100%;
+    }
+}
+
+
+/* --- TABLET --- */
+
+/* -- Vertical -- */
+@media (min-width: 501px) and (max-width: 850px) {
+
+    .progress-section{
+        margin: var(--space-7);
+        padding-left: 0;
+    }
 }
