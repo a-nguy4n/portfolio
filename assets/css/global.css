@@ -1,3 +1,7 @@
+html {
+    overflow-x: clip;
+}
+
 body {
     font-family: var(--font-style);
     margin: 0;
@@ -8,6 +12,7 @@ body {
     background-attachment: fixed;
     transition: background 1s ease-in-out;
 
+    overflow-x: clip;
     overflow-y: var(--page-scroll);
 }
 
