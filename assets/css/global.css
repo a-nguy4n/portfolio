@@ -1793,6 +1793,27 @@ html[data-theme][data-fidelity="mid"] {
 
 /* ---  Mobile (vertical) --- */
 @media (max-width: 500px) {
+
+    html {
+        background: var(--theme-background-color);
+    }
+
+    body {
+        /* Don't let mobile Safari/Chrome handle the fixed background */
+        background: transparent;
+        position: relative;
+        isolation: isolate;
+    }
+
+    body::before {
+        height: 100dvh;
+
+        background: var(--theme-background-color);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+        z-index: -1;
+    }
     
     main.page-container {
         width: 100%;
