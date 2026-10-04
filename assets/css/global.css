@@ -30,6 +30,7 @@ body::before {
 
 [data-page="home"],
 [data-page="projects"],
+[data-page^="project-"],
 [data-page="resume"],
 [data-page="about"],
 [data-page="contact"],
@@ -2275,4 +2276,3 @@ html[data-theme][data-fidelity="mid"] {
         padding: 0.25% 15px;
     }
 }  */
-

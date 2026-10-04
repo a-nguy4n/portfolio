@@ -1,0 +1,72 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body[data-project] {
+    overflow-y: visible;
+}
+
+body[data-project] logo-button {
+    grid-area: logo;
+}
+
+body[data-project] search-bar {
+    grid-area: search-bar;
+}
+
+body[data-project] .project-site-header {
+    display: grid;
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    grid-template-columns: 10% 1fr 8%;
+    grid-template-areas: "logo nav search-bar";
+    margin: var(--space-0);
+    padding: var(--space-4) var(--space-0);
+    border-bottom: 1px solid gray;
+}
+
+body[data-project] .project-specific-sections {
+    grid-area: nav;
+}
+
+/* ============================
+    NAV
+=============================== */
+
+.project-specific-nav,
+.project-specific-breadcrumb {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.project-specific-nav {
+    gap: var(--space-10);
+}
+
+.project-specific-breadcrumb {
+    gap: var(--space-4);
+}
+
+.project-specific-nav h1 {
+    color: var(--color-three);
+    font-size: var(--text-medium);
+}
+
+.project-specific-sections {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-8);
+    text-decoration: none;
+}
+
+.project-specific-sections a,
+.project-specific-breadcrumb a {
+    text-decoration: none;
+}
+
+.project-specific-sections a:hover,
+.project-specific-breadcrumb a:hover {
+    text-decoration: underline;
+}
