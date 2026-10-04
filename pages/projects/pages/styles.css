@@ -58,7 +58,7 @@ body[data-project] .project-specific-sections {
     display: flex;
     flex-direction: row;
     gap: var(--space-8);
-    text-decoration: none;
+    color: var(--theme-text-color);
 }
 
 .project-specific-sections a,
