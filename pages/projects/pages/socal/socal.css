@@ -1,3 +1,17 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body[data-project] .project-site-header {
+    grid-area: site-header;
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background: white;
+    border-bottom: 1px solid var(--color-two);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 body[data-page="project-socal"] {
     --color-one: #442AB8;
     --color-two: #5A2FAA;
@@ -9,7 +23,7 @@ body[data-page="project-socal"] {
     --secondary-text-color-light: #5b2a7c;
     --line-height-body-text: 1.75;
 
-    .site-header {
+    .project-site-header {
         background: white;
         border-bottom: 1px solid var(--color-two);
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -23,9 +37,14 @@ body[data-page="project-socal"] {
         color: rgb(60, 45, 161);
         margin-top: var(--space-4);
     }
+
+    .project-content_section {
+        scroll-margin-top: 120px;
+    }
 }
 
 body[data-project] {
+    overflow-y: visible;
 
     --glass-border: 1px solid rgba(216, 216, 216, 0.452);
     --hover-glow: drop-shadow(0 0 3px var(--theme-hover-color)) drop-shadow(0 0 3px var(--theme-hover-color));
