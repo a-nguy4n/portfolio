@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socal Social</title>
+
+    <link rel="stylesheet" href="/assets/css/global-tokens.css">
+    <link rel="stylesheet" href="/assets/css/global.css">
+
+    <link rel="stylesheet" href="/pages/projects/pages/socal/socal.css">
+
+    <link rel="stylesheet" href="/assets/components/logo/logo.css">
+    <link rel="stylesheet" href="/assets/components/searchbar/searchbar.css">
+    <link rel="stylesheet" href="/assets/components/navbar/navbar.css">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=location_city,school" />
+
+    <script type="module" src="/scripts/init.js" defer></script>
+</head>
+
+<body data-project="socal" data-page="project-socal">
+    <!-- <header class="site-header">
+        <logo-button></logo-button>
+        <primary-navbar></primary-navbar>
+        <search-bar></search-bar>
+    </header> -->
+
+    <header class="site-header">
+        <logo-button></logo-button>
+
+        <nav class="project-specific-nav">
+            <header class="project-specific-breadcrumb">
+                <p class="breadcrumb-separator">/</p>
+                <a href="/pages/projects/projects.html">PROJECTS</a>
+                <p class="breadcrumb-separator">/</p>
+                <h1>SoCalSocial</h1>
+            </header>
+
+            <span class="project-specific-sections">
+                <a>Overview</a>
+                <a>Problem</a>
+                <a>Research</a>
+                <a>Strategy</a>
+                <a>Design</a>
+                <a>Takeaway</a>
+            </span>
+        </nav>
+
+        <search-bar></search-bar>
+    </header>
+
+    <main>
+        <!-- ===== Hero Content ===== -->
+        <section class="motion-section">
+            <div class="motion-content">
+                <h2 class="motion-title">SoCalSocial</h2>
+
+                <figure class="motion-media">
+                    <div class="media-half">
+                        <video id="left-media" class="project-video" autoplay muted loop playsinline preload="metadata">
+                            <source src="/pages/projects/pages/socal/media/socal-student_hero.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="media-half">
+                        <video id="right-media" class="project-video" autoplay muted loop playsinline
+                            preload="metadata">
+                            <source src="/pages/projects/pages/socal/media/socal-club_hero.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </figure>
+
+                <p class="motion-tagline">
+                    Campus events, all in one place.
+                </p>
+            </div>
+
+            <p class="motion-label motion-label--left">for Students</p>
+            <p class="motion-label motion-label--right">for Organizations</p>
+        </section>
+
+        <!-- ===== Overview ===== -->
+        <section data-project-section="overview" class="overview-content project-content_section">
+            <h1>Overview</h1>
+
+            <div class="overview-layout">
+                <article class="overview-description">
+                    <p>
+                        SoCalSocial is a campus event discovery and organization platform designed for UC
+                        San Diego students. The platform brings events from student organizations into one
+                        centralized space, making it easier for students to discover activities, save events
+                        they’re interested in, and keep track of what’s happening on campus.
+                    </p>
+
+                    <p>
+                        Our team designed and developed SoCalSocial with both students and organizations in
+                        mind, creating an experience that simplifies event discovery for students while giving
+                        organizations a dedicated space to publish and manage their events.
+                    </p>
+                </article>
+
+                <dl class="project-details">
+                    <div class="project-detail">
+                        <dt>My Role</dt>
+                        <dd>
+                            <span>Lead Product Designer</span>
+                            <span>Full-Stack Developer</span>
+                        </dd>
+                    </div>
+
+                    <div class="project-detail">
+                        <dt>Timeframe</dt>
+                        <dd>
+                            <span>3 months</span>
+                        </dd>
+                    </div>
+
+                    <div class="project-detail">
+                        <dt>Team</dt>
+                        <dd>
+                            <span>Front-End Developer</span>
+                            <span>Full-Stack Developer</span>
+                            <span>Backend Developer</span>
+                            <span>QA Lead</span>
+                            <span>UX Designer</span>
+                        </dd>
+                    </div>
+
+                    <div class="project-detail">
+                        <dt>Skills</dt>
+                        <dd>
+                            <span>Interactive Prototyping</span>
+                            <span>UX/UI Design</span>
+                            <span>REST API Integration</span>
+                            <span>Front-End Implementation</span>
+                            <span>Feature Prioritization</span>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- ===== Problem Statement ===== -->
+        <section data-project-section="problem" class="problem-content project-content_section">
+
+            <h1 class="problem-heading">Problem</h1>
+
+            <article class="problem-copy">
+                <span class="section-label">THE CURRENT EXPERIENCE</span>
+
+                <h2>
+                    Campus events are everywhere.<br>
+                    Finding them shouldn't be.
+                </h2>
+
+                <p class="problem-description">
+                    Campus events are shared across social media, flyers, club tabling,
+                    and word of mouth, making it difficult for students to discover
+                    what's happening and keep track of events they're interested in.
+                </p>
+            </article>
+
+            <article class="challenge-card">
+                <span class="challenge-label">THE CHALLENGE</span>
+
+                <p class="challenge-question">
+                    How might we create one centralized space for students to easily
+                    <strong>discover and organize campus events</strong> while giving
+                    student organizations a reliable way to
+                    <strong>publish and manage them?</strong>
+                </p>
+            </article>
+
+        </section>
+
+        <!-- ===== Research ===== -->
+        <section data-project-section="research" class="research-content project-content_section" id="research">
+
+            <h1>Research</h1>
+
+            <article class="research-overview">
+
+                <p class="research-summary">
+                    We used two research methods to understand both sides of the campus
+                    event landscape: how students discover and keep track of events and
+                    how student organizations promote events and reach their audiences.
+                </p>
+
+                <section class="research-method">
+                    <span>01</span>
+
+                    <h3>User Interviews</h3>
+
+                    <p>
+                        We spoke with both students and members of student organizations
+                        to understand their experiences firsthand.
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>Students:</strong> How they discover events, keep track
+                            of them, and which platforms they already rely on.
+                        </li>
+
+                        <li>
+                            <strong>Organizations:</strong> How they promote events, reach
+                            students, and manage information across different channels.
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="research-method">
+                    <span>02</span>
+
+                    <h3>Desk Research</h3>
+
+                    <p>
+                        We examined the existing campus event landscape to understand
+                        where and how event information was being shared.
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>Students:</strong> Looked at the platforms and channels students
+                            encounter when searching for campus activities.
+                        </li>
+
+                        <li>
+                            <strong>Organizations:</strong> Investigated how organizations use social
+                            media, messaging platforms, and other campus channels to promote their events.
+                        </li>
+                    </ul>
+                </section>
+
+            </article>
+
+            <article class="persona-row">
+                <figure class="persona-figure">
+                    <img src="/pages/projects/pages/socal/media/socal_persona_student.png"
+                        alt="Student persona based on SoCalSocial research">
+                </figure>
+
+                <div class="persona-insights">
+                    <p class="insight-type">STUDENT</p>
+                    <h2>Key Insights</h2>
+
+                    <ul>
+                        <li>
+                            Students discover campus events across multiple platforms
+                            and channels.
+                        </li>
+
+                        <li>
+                            Finding the most relevant event details is not always quick
+                            or straightforward.
+                        </li>
+
+                        <li>
+                            Students need an easier way to keep track of events they're
+                            interested in.
+                        </li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="persona-row persona-row--organization">
+                <div class="persona-insights">
+                    <p class="insight-type">ORGANIZATION</p>
+                    <h2>Key Insights</h2>
+
+                    <ul>
+                        <li>
+                            Organizations often promote the same event across multiple
+                            platforms.
+                        </li>
+
+                        <li>
+                            Organizations can struggle to reach students outside their
+                            existing audience.
+                        </li>
+
+                        <li>
+                            Organizations need a central place to publish and maintain
+                            event information.
+                        </li>
+                    </ul>
+                </div>
+
+                <figure class="persona-figure">
+                    <img src="/pages/projects/pages/socal/media/socal_persona_org.png"
+                        alt="Organization persona based on SoCalSocial research">
+                </figure>
+            </article>
+
+            <article class="research-finding">
+                <span class="section-label">OUR DIRECTION</span>
+
+                <h2>One shared space for both sides.</h2>
+
+                <p>
+                    Our findings led us to create a shared platform where students could find
+                    and organize events, and organizations could post and manage them. With
+                    that direction established, we began defining the core experience needed
+                    to support both sides.
+                </p>
+            </article>
+
+            <hr class="section-divider">
+        </section>
+
+        <!-- ===== Strategy ===== -->
+        <section data-project-section="strategy" class="strategy-content project-content_section" id="strategy">
+            <h1>Strategy</h1>
+
+            <article class="strategy-intro">
+
+                <h2>
+                    Turning Research into Priorities
+                </h2>
+
+                <p class="strategy-description">
+                    From there, we focused on the core interaction between organizations
+                    publishing and managing events and students discovering and organizing
+                    them. This helped us determine which features to prioritize before
+                    introducing more complex social features.
+                </p>
+
+            </article>
+
+            <article class="core-interaction">
+
+                <p class="section-label">
+                    CORE INTERACTION
+                </p>
+
+                <div class="interaction-flow">
+
+                    <div class="interaction-side">
+
+                        <div class="interaction-icon">
+                            <span class="material-symbols-outlined">
+                                location_city
+                            </span>
+                        </div>
+
+                        <div class="interaction-text">
+                            <strong>Organizations</strong>
+                            <span>Publish + manage</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="interaction-connector" aria-hidden="true">
+
+                        <span class="connector-line"></span>
+
+                        <span class="connector-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                    <div class="interaction-side">
+
+                        <div class="interaction-icon">
+                            <span class="material-symbols-outlined">
+                                school
+                            </span>
+                        </div>
+
+                        <div class="interaction-text">
+                            <strong>Students</strong>
+                            <span>Discover + organize</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <p class="interaction-description">
+                    This became the interaction we prioritized before expanding into
+                    more complex social features.
+                </p>
+
+            </article>
+
+            <article class="strategy-mvp">
+
+                <header class="mvp-heading">
+                    <h2>DEFINING THE MVP</h2>
+
+                    <p>
+                        With many potential features to consider, we narrowed our focus to four core
+                        features that addressed the key needs of students and organizations.
+                    </p>
+                </header>
+
+                <section class="mvp-bento">
+                    <article class="mvp-card mvp-card--discovery">
+                        <span class="mvp-number">01</span>
+
+                        <h3>Event Discovery</h3>
+
+                        <p>
+                            Bring events into one browsable experience where students
+                            can discover what’s happening across campus while giving
+                            organizations a centralized space to share their events
+                            and reach new audiences.
+                        </p>
+
+                        <div class="mvp-tags">
+                            <span>Browse</span>
+                            <span>Search</span>
+                            <span>Organizations</span>
+                        </div>
+                    </article>
+
+                    <article class="mvp-card mvp-card--accounts">
+                        <span class="mvp-number">02</span>
+
+                        <h3>Accounts</h3>
+
+                        <p>
+                            Give students and organizations their own accounts so students
+                            can save and manage events, while organizations can publish and
+                            manage the events they host.
+                        </p>
+
+                        <div class="mvp-tags">
+                            <span>Identity</span>
+                            <span>Activity</span>
+                            <span>Authentication</span>
+                        </div>
+                    </article>
+
+                    <article class="mvp-card mvp-card--management">
+                        <span class="mvp-number">03</span>
+
+                        <h3>Event Management</h3>
+
+                        <p>
+                            Let organizations create, update, and manage their events, while
+                            giving students an easy way to save and keep track of events
+                            they want to attend.
+                        </p>
+
+                        <div class="mvp-tags">
+                            <span>Create</span>
+                            <span>Update</span>
+                            <span>Save</span>
+                            <span>Manage</span>
+                        </div>
+                    </article>
+
+                    <article class="mvp-card mvp-card--details">
+                        <span class="mvp-number">04</span>
+
+                        <h3>Event Details</h3>
+
+                        <p>
+                            Give students the specific information they need to
+                            understand an event and decide if they want to attend,
+                            while giving organizations a clear place to share
+                            important details like time, location, and contact
+                            information.
+                        </p>
+
+                        <div class="mvp-tags">
+                            <span>Time</span>
+                            <span>Location</span>
+                            <span>Media</span>
+                            <span>Contact</span>
+                        </div>
+                    </article>
+                </section>
+
+            </article>
+        </section>
+
+        <!-- ===== Design ===== -->
+        <section data-project-section="design" class="design-content project-content_section" id="design">
+            <h1> Design </h1>
+
+            <header class="design-intro">
+
+                <h2>
+                    Designing with Purpose
+                </h2>
+
+                <p class="design-intro-description">
+                    We explored how to bring SoCalSocial to life, from early wireframes to planning development. Along
+                    the way, we identified potential risks, worked through technical challenges, and made design
+                    decisions based on user needs and what we could realistically build.
+                </p>
+
+                <figure class="design-intro-visual">
+                    <img src="/pages/projects/pages/socal/media/design-progress.gif" alt="Design process">
+                </figure>
+
+            </header>
+
+            <article class="design-stage design-stage--first">
+
+                <header class="design-stage-heading">
+                    <span class="design-stage-number">01</span>
+                    <p class="design-stage-label">FIRST DRAFT</p>
+                </header>
+
+
+                <div class="design-stage-grid">
+
+                    <!-- Wireframes -->
+                    <section class="design-visual design-visual--wireframes">
+
+                        <div class="wireframe-grid">
+
+                            <figure class="wireframe-placeholder">
+                                <img src="/pages/projects/pages/socal/media/beforeOne_explore.png"
+                                    alt="Lofi sketch of Explore Events Page">
+                                <figcaption>Before: Lofi sketch of Explore Events Page</figcaption>
+                            </figure>
+
+                            <figure class="wireframe-placeholder">
+                                <img src="/pages/projects/pages/socal/media/afterOne_explore.png"
+                                    alt="Detailed View: Explore Events Page">
+                                <figcaption>After: Detailed View of Explore Events Page</figcaption>
+                            </figure>
+
+                            <figure class="wireframe-placeholder">
+                                <img src="/pages/projects/pages/socal/media/beforeTwo_clubsExplore.png"
+                                    alt="Lofi sketch of Student explore a club's profile">
+                                <figcaption>Before: Lofi sketch of exploring a club's profile on the student side
+                                </figcaption>
+                            </figure>
+
+                            <figure class="wireframe-placeholder">
+                                <img src="/pages/projects/pages/socal/media/afterTwo_clubsExplore.png"
+                                    alt="Detailed View: Student explore a club's profile">
+                                <figcaption>After: A detailed view of exploring a club's profile on the student side
+                                </figcaption>
+                            </figure>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Explanation -->
+                    <section class="design-stage-note">
+
+                        <h3>Turning Requirements into Wireframes</h3>
+
+                        <p>
+                            We began by translating our MVP features into the screens
+                            students and organizations would need to complete their
+                            core tasks.
+                        </p>
+
+                        <p>
+                            We started with low-fidelity sketches to explore how students would discover events and
+                            organizations, and how information would be organized across the platform. This allowed us
+                            to quickly visualize our ideas and discuss how the experience would differ between students
+                            and organizations before moving to more detailed wireframes.
+                        </p>
+
+
+                        <div class="design-takeaway">
+
+                            <span class="design-takeaway-label">
+                                WHAT WE LEARNED
+                            </span>
+
+                            <p>
+                                We realized that events should be the central focus of the platform, connecting
+                                organizations that publish events with students who discover and manage them.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </article>
+
+            <article class="design-stage design-stage--refine">
+
+                <header class="design-stage-heading">
+                    <span class="design-stage-number">02</span>
+                    <p class="design-stage-label">REFINING THE EXPERIENCE</p>
+                </header>
+
+                <section class="design-stage-grid design-stage-grid--reverse">
+
+                    <!-- Explanation -->
+                    <section class="design-stage-note">
+
+                        <h3>Balancing Ideas with Feasibility</h3>
+
+                        <p>
+                            As we refined our designs, we considered the technical challenges of bringing our ideas to
+                            life. Features like calendars, social interactions, and account permissions added
+                            complexity, so we explored simpler alternatives that still addressed our users' needs.
+                        </p>
+
+                        <!-- Design decisions -->
+                        <ul class="design-shifts">
+                            <h4>Design Decisions and Shifts</h4>
+                            <li class="design-shift">
+                                <span>Full calendar</span>
+                                <span aria-hidden="true">→</span>
+                                <strong>Organized event list</strong>
+                            </li>
+
+                            <li class="design-shift">
+                                <span>Broad social features</span>
+                                <span aria-hidden="true">→</span>
+                                <strong>Event discovery</strong>
+                            </li>
+
+                            <li class="design-shift">
+                                <span>Complex permissions</span>
+                                <span aria-hidden="true">→</span>
+                                <strong>Simpler accounts</strong>
+                            </li>
+
+                            <li class="design-shift">
+                                <span>Multiple interactions</span>
+                                <span aria-hidden="true">→</span>
+                                <strong>Essential event actions</strong>
+                            </li>
+
+                        </ul>
+
+                        <p>These decisions helped us keep the experience focused while reducing potential development
+                            challenges.</p>
+
+                    </section>
+
+                    <!-- Second Iteration -->
+                    <figure class="design-visual design-visual--iteration">
+
+                        <img src="/pages/projects/pages/socal/media/socal-iteration-two.gif"
+                            alt="Second iteration showing refined wireframes">
+
+                        <figcaption class="iteration-placeholder">
+                            Second Iteration
+                            <small>Refined wireframes</small>
+                        </figcaption>
+
+                    </figure>
+
+                </section>
+
+            </article>
+
+            <article class="design-stage design-stage--build">
+
+                <div class="design-stage-heading">
+                    <span class="design-stage-number">03</span>
+                    <p class="design-stage-label">BUILDING IT</p>
+                </div>
+
+
+                <section class="design-build-intro">
+
+                    <h3>Planning Around Technical Challenges</h3>
+
+                    <p>
+                        Before development, we identified potential risks involving authentication, scalability, and
+                        code
+                        complexity. We considered how these challenges could affect both the user experience and our
+                        ability to build the platform within our timeline. Rather than attempting to implement every
+                        feature, we developed backup plans, such as simplifying account permissions and replacing the
+                        calendar with an organized event list if implementation proved too complex.
+                    </p>
+
+                    <p>
+                        We also planned our technology stack around our team's existing experience, choosing React,
+                        TypeScript, Flask, and SQL. By dividing responsibilities based on our strengths, keeping the
+                        initial scope manageable, and considering limits on early users, we aimed to reduce development
+                        risks while leaving room for future improvements.
+                    </p>
+
+
+                </section>
+
+                <div class="product-demo-video">
+                    <iframe src="https://www.youtube-nocookie.com/embed/m3Xlao0JmpI?rel=0&modestbranding=1"
+                        title="SoCalSocial Working Product Demo" loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="design-tech">
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>HTML / CSS</span>
+                    <span>Python</span>
+                    <span>Flask</span>
+                    <span>SQL</span>
+                </div>
+
+            </article>
+
+            <article class="design-stage design-stage--reflection">
+
+                <header class="design-stage-heading">
+                    <span class="design-stage-number">04</span>
+                    <p class="design-stage-label">REFLECTING & REDESIGNING</p>
+                </header>
+
+                <section class="design-reflection-layout">
+
+                    <!-- Left: Reflection -->
+                    <section class="design-reflection-intro">
+
+                        <h3>Revisiting the Experience</h3>
+
+                        <p>
+                            After building SoCalSocial, I revisited the original designs to explore how I could improve
+                            the overall experience. I focused on making navigation more detailed and smooth, improving
+                            how event
+                            and organization information was presented, and adapting the interface for mobile devices.
+                        </p>
+
+                        <p>
+                            For the Explore page, I redesigned the navigation and introduced filters to let students
+                            browse events and organizations in one place. I also improved the visual hierarchy by using
+                            clearer layouts, organization logos, and more readable descriptions to help students quickly
+                            find relevant information.
+                        </p>
+
+                        <p>
+                            Beyond the desktop experience, I explored mobile layouts to make SoCalSocial more accessible
+                            across different screen sizes. I rethought how navigation, content, and key interactions
+                            would translate to smaller screens, focusing on making it easy for students to discover
+                            events, browse organizations, and manage their activities without overwhelming the
+                            interface.
+                        </p>
+
+                        <p>
+                            Revisiting SoCalSocial taught me to think beyond individual screens and consider how
+                            different users interact with the same platform. I learned to balance the needs of students
+                            and organizations while improving navigation, visual hierarchy, and responsiveness across
+                            devices. It also showed me the value of revisiting earlier design decisions with a fresh
+                            perspective.
+                        </p>
+
+                    </section>
+
+                    <!-- Right: Improved Designs -->
+                    <section class="design-evolved" aria-label="Improved designs">
+
+                        <!-- Desktop -->
+                        <figure class="design-evolved-desktop">
+
+                            <h4 class="design-visual-label">
+                                DESKTOP
+                            </h4>
+
+                            <video id="desktop-future" autoplay muted loop playsinline preload="metadata">
+                                <source src="/pages/projects/pages/socal/media/desktop-student_explorePage.mp4"
+                                    type="video/mp4">
+                            </video>
+
+                            <figcaption class="improved-caption">
+                                Improved Student Explore page, where students can search for events and organizations,
+                                view event details, explore organization profiles, and follow organizations to stay
+                                updated on upcoming events.
+                            </figcaption>
+
+                        </figure>
+
+                        <!-- Mobile -->
+                        <section class="design-evolved-mobile">
+
+                            <h4 class="design-visual-label">
+                                MOBILE
+                            </h4>
+
+                            <div class="mobile-placeholder-group">
+
+                                <figure>
+                                    <video class="design-mobile-video" autoplay muted loop playsinline
+                                        preload="metadata">
+                                        <source src="/pages/projects/pages/socal/media/mobile-student_allPages.mp4"
+                                            type="video/mp4">
+                                    </video>
+
+                                    <figcaption class="improved-caption improved-caption--mobile">
+                                        Student Mobile Experience: Main Pages
+                                    </figcaption>
+                                </figure>
+
+                                <figure>
+                                    <video class="design-mobile-video" autoplay muted loop playsinline
+                                        preload="metadata">
+                                        <source src="/pages/projects/pages/socal/media/mobile-student-signup.mp4"
+                                            type="video/mp4">
+                                    </video>
+
+
+                                    <figcaption class="improved-caption improved-caption--mobile">
+                                        Login and Signup
+                                    </figcaption>
+                                </figure>
+
+                                <figure>
+
+                                    <video class="design-mobile-video" autoplay muted loop playsinline
+                                        preload="metadata">
+                                        <source src="/pages/projects/pages/socal/media/mobile-club_allPages.mp4"
+                                            type="video/mp4">
+                                    </video>
+
+                                    <figcaption class="improved-caption improved-caption--mobile">
+                                        Organization Mobile Experience: Main Pages
+                                    </figcaption>
+                                </figure>
+
+                            </div>
+
+                        </section>
+
+                    </section>
+
+                </section>
+
+            </article>
+
+        </section>
+
+        <!-- ===== TAKEAWAY ===== -->
+        <section data-project-section="takeaway" class="project-content_section takeaway-content" id="takeaway"
+            aria-labelledby="takeaway-heading">
+
+            <h2 class="takeaway-heading" id="takeaway-heading">
+                Takeaway
+            </h2>
+
+            <!-- Team Reflection -->
+            <article class="takeaway-note" aria-labelledby="team-takeaway-heading">
+
+                <span class="section-label">TEAM'S KEY INSIGHT</span>
+
+                <h3 id="team-takeaway-heading">
+                    The problem isn't a lack of events.<br>
+                    It's a lack of connection.
+                </h3>
+
+                <p>
+                    Building SoCalSocial taught us that creating a product
+                    involves more than designing interfaces and implementing
+                    features. We had to consider the needs of both students
+                    and organizations while working within our technical
+                    abilities and project timeline.
+
+                    Throughout the process, we learned to prioritize essential
+                    features, recognize potential risks early, and adapt
+                    when our initial ideas became too complex. Communication
+                    and collaboration helped us turn different ideas into
+                    one cohesive product.
+                </p>
+
+            </article>
+
+            <!-- Personal Reflection -->
+            <article class="takeaway-note" aria-labelledby="personal-takeaway-heading">
+
+                <h3 class="section-label" id="personal-takeaway-heading">
+                    MY LESSONS LEARNED
+                </h3>
+
+                <p>
+                    This project strengthened my skills in team management,
+                    collaboration, and problem-solving. I learned to
+                    coordinate responsibilities based on individual strengths,
+                    communicate design decisions, and keep the team aligned
+                    on a shared vision.
+
+                    Working across design and development challenged me
+                    to consider how design decisions affect implementation
+                    and the overall user experience.
+                </p>
+
+                <p>
+                    Revisiting SoCalSocial independently gave me a new
+                    perspective on my original work. I became more intentional
+                    about information hierarchy, responsive design, and
+                    designing for different types of users.
+
+                    Above all, I learned the importance of continuous
+                    evaluation, clear communication, and being willing
+                    to revisit earlier decisions.
+                </p>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer class="end-result">
+        <h3> ── Thanks for exploring SoCalSocial ── </h3>
+        <logo-button class="footer-logo"></logo-button>
+        <p> Allison H. Nguyen's Portfolio</p>
+        <i> designed & coded-line-by-line, old school style </i>
+        <a href="/pages/projects/projects.html" class="footer-catchphrase--project">
+            One project down, more to discover . . . →
+        </a>
+    </footer>
+
+</body>
+
+</html>
