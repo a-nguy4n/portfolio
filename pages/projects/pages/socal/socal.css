@@ -1,16 +1,3 @@
-html {
-    scroll-behavior: smooth;
-}
-
-body[data-project] .project-site-header {
-    grid-area: site-header;
-    position: sticky;
-    top: 0;
-    z-index: var(--z-sticky);
-    background: white;
-    border-bottom: 1px solid var(--color-two);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-}
 
 body[data-page="project-socal"] {
     --color-one: #442AB8;
@@ -23,10 +10,20 @@ body[data-page="project-socal"] {
     --secondary-text-color-light: #5b2a7c;
     --line-height-body-text: 1.75;
 
+    --glass-border: 1px solid rgba(216, 216, 216, 0.452);
+    --hover-glow: drop-shadow(0 0 3px var(--theme-hover-color)) drop-shadow(0 0 3px var(--theme-hover-color));
+    --theme-background-color: #ffffff;
+    --theme-hover-color: #451d64;
+    --theme-text-color: #441364;
+
     .project-site-header {
         background: white;
-        border-bottom: 1px solid var(--color-two);
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-bottom: 1px solid var(--color-two) !important;
+    }
+
+    logo-button {
+        --logo-button-color: #451d64;
+        --logo-button-hover-color: #895bab;
     }
 
     .end-result {
@@ -41,58 +38,6 @@ body[data-page="project-socal"] {
     .project-content_section {
         scroll-margin-top: 120px;
     }
-}
-
-body[data-project] {
-    overflow-y: visible;
-
-    --glass-border: 1px solid rgba(216, 216, 216, 0.452);
-    --hover-glow: drop-shadow(0 0 3px var(--theme-hover-color)) drop-shadow(0 0 3px var(--theme-hover-color));
-    --theme-background-color: #ffffff;
-    --theme-hover-color: #451d64;
-    --theme-text-color: #441364;
-
-    logo-button {
-        --logo-button-color: #451d64;
-        --logo-button-hover-color: #895bab;
-    }
-
-    primary-navbar {
-        --nav-shape-color: var(--color-three);
-        --nav-shape-hover-color: #451d64;
-        --nav-text-color: white;
-        --nav-projects-color: #451d64;
-    }
-}
-
-/* ============================
-    NAV
-=============================== */
-
-.project-specific-nav,
-.project-specific-breadcrumb {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.project-specific-nav {
-    gap: var(--space-10);
-}
-
-.project-specific-breadcrumb {
-    gap: var(--space-4);
-}
-
-.project-specific-nav h1 {
-    color: var(--color-three);
-    font-size: var(--text-medium);
-}
-
-.project-specific-sections {
-    display: flex;
-    flex-direction: row;
-    gap: var(--space-8);
 }
 
 /* ============================
