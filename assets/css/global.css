@@ -64,6 +64,10 @@ body::before {
     grid-area: footer;
 }
 
+body[data-page] {
+    overflow-y: visible !important;
+}
+
 
 /* =====================================
     SITE HEADER LAYOUT
@@ -90,6 +94,7 @@ body::before {
 
     position: sticky;
     top: 0;
+    align-self: start;
     z-index: var(--z-sticky);
 }
 
