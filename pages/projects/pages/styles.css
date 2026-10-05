@@ -18,7 +18,10 @@ body[data-project] .project-site-header {
     display: grid;
     position: sticky;
     top: 0;
+    align-self: start;
     z-index: var(--z-sticky);
+    width: 100%;
+    box-sizing: border-box;
     grid-template-columns: 10% 1fr 8%;
     grid-template-areas: "logo nav search-bar";
     margin: var(--space-0);
@@ -46,7 +49,7 @@ body[data-project] .project-specific-sections {
 }
 
 .project-specific-breadcrumb {
-    gap: var(--space-4);
+    gap: var(--space-3);
 }
 
 .project-specific-breadcrumb a{
