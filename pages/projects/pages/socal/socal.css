@@ -1386,7 +1386,6 @@ body[data-page="project-socal"] {
 
     margin-bottom: var(--space-2);
     color: var(--design-accent);
-
     font-family: var(--font-headers);
     font-size: var(--text-small);
     font-weight: 700;
@@ -1398,7 +1397,6 @@ body[data-page="project-socal"] {
     margin: 0 !important;
 
     color: var(--theme-text-color);
-
     font-family: var(--font-style);
     font-size: var(--text-small) !important;
     line-height: var(--line-height-body-text);
@@ -1734,6 +1732,8 @@ body[data-page="project-socal"] {
 /* ==== SMALL MOBILE  ==== */
 @media (max-width: 600px) {
 
+   
+
     /* ----- General Project Sections ----- */
 
     .project-content_section {
@@ -2002,7 +2002,7 @@ body[data-page="project-socal"] {
     .design-build-intro p,
     .design-reflection-intro p,
     #team-takeaway-heading p,
-    .takeaway-note p  {
+    .takeaway-note p {
         font-size: var(--text-small) !important;
     }
 
@@ -2026,7 +2026,7 @@ body[data-page="project-socal"] {
     }
 
     /* ----- Takeaway ----- */
-    .takeaway-content.project-content_section  {
+    .takeaway-content.project-content_section {
         padding: var(--space-8) var(--space-5) var(--space-9);
     }
 

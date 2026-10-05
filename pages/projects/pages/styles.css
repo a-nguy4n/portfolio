@@ -49,9 +49,14 @@ body[data-project] .project-specific-sections {
     gap: var(--space-4);
 }
 
+.project-specific-breadcrumb a{
+    color: var(--theme-text-color);
+    text-decoration: none;
+}
+
 .project-specific-nav h1 {
     color: var(--color-three);
-    font-size: var(--text-medium);
+    font-size: var(--text-small);
 }
 
 .project-specific-sections {
@@ -64,6 +69,7 @@ body[data-project] .project-specific-sections {
 .project-specific-sections a,
 .project-specific-breadcrumb a {
     text-decoration: none;
+    color: var(--theme-text-color);
 }
 
 .project-specific-sections a:hover,
@@ -193,6 +199,7 @@ body[data-project] .project-specific-sections {
         display: block;
         flex: 0 0 auto;
         white-space: nowrap;
+        text-decoration: none;
     }
 
     body[data-project] .project-specific-sections::-webkit-scrollbar {
