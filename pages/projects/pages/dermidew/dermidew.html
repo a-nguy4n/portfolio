@@ -15,10 +15,1246 @@
     <link rel="stylesheet" href="/assets/components/searchbar/searchbar.css">
     <link rel="stylesheet" href="/pages/projects/pages/styles.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Slackside+One&display=swap"
+        rel="stylesheet">
+
     <script type="module" src="/scripts/init.js" defer></script>
 </head>
 
-<body>
+<body data-project="dermidew" data-page="project-dermidew">
+    <header class="project-site-header">
+        <logo-button></logo-button>
+
+        <nav class="project-specific-nav">
+            <header class="project-specific-breadcrumb">
+                <p class="breadcrumb-separator">/</p>
+                <a href="/pages/projects/projects.html">PROJECTS</a>
+                <p class="breadcrumb-separator">/</p>
+                <h1>DermiDew</h1>
+            </header>
+
+            <span class="project-specific-sections">
+                <a href="#overview-dermidew">Overview</a>
+                <a href="#research-dermidew">Research & Discovery</a>
+                <a href="#strategy-dermidew">Product Strategy</a>
+                <a href="#design-dermidew">Design</a>
+                <a href="#dev-dermidew">Development</a>
+                <a href="#reflection-dermidew">Reflection</a>
+            </span>
+        </nav>
+
+        <search-bar></search-bar>
+    </header>
+
+    <main class="project-content">
+
+        <!-- ===== Overview ===== -->
+        <section class="project-section project-overview" id="overview-dermidew" aria-labelledby="overview-title">
+            <header class="project-section-header">
+                <p class="project-section-number">01 / Overview</p>
+                <h2 id="overview-title">DermiDew</h2>
+            </header>
+
+            <section class="overview-bento" aria-label="DermiDew project overview">
+
+                <!-- Hero -->
+                <figure class="overview-card overview-card--hero">
+                    <img src="" alt="DermiDew smart mirror and web application">
+                </figure>
+
+                <!-- Overview Summary -->
+                <article class="overview-card overview-card--summary">
+                    <p class="overview-card-label subtitle-two">Overview Summary</p>
+
+                    <h3 class="subtitle-one">
+                        Personalized skincare, without the guesswork.
+                    </h3>
+
+                    <p>
+                        DermiDew combines a camera-equipped vanity mirror
+                        with a personalized web experience to help users
+                        better understand and care for their skin.
+                    </p>
+                </article>
+
+                <!-- Problem -->
+                <article class="overview-card overview-card--problem">
+                    <p class="overview-card-label subtitle-two">Problem</p>
+
+                    <h3 class="subtitle-one">
+                        Skincare shouldn't be trial and error.
+                    </h3>
+
+                    <p>
+                        Finding the right products and routines can be
+                        confusing, expensive, and time-consuming, while
+                        accessible skin-analysis tools provide limited
+                        personalized guidance.
+                    </p>
+                </article>
+
+                <!-- Solution -->
+                <article class="overview-card overview-card--solution">
+                    <p class="overview-card-label subtitle-two">Solution</p>
+
+                    <h3 class="subtitle-one">
+                        Analysis that turns into action.
+                    </h3>
+
+                    <p>
+                        DermiDew transforms skin analysis into personalized
+                        concerns, routines, ingredient guidance, and product
+                        recommendations.
+                    </p>
+
+                    <p class="overview-process">
+                        <span>Scan</span>
+                        <span aria-hidden="true">→</span>
+                        <span>Analyze</span>
+                        <span aria-hidden="true">→</span>
+                        <span>Recommend</span>
+                        <span aria-hidden="true">→</span>
+                        <span>Track</span>
+                    </p>
+                </article>
+
+                <!-- My Role -->
+                <article class="overview-card overview-card--role">
+                    <p class="overview-card-label subtitle-two">My Role</p>
+
+                    <h3 class="subtitle-one">Product Designer & Developer</h3>
+
+                    <dl class="overview-role-list">
+                        <dt>Product Design</dt>
+                        <dd>Research · UX · Interface Design</dd>
+
+                        <dt>Engineering</dt>
+                        <dd>Hardware · Web Development · Integration</dd>
+
+                        <dt>Business</dt>
+                        <dd>Market Validation · Pricing · Strategy</dd>
+                    </dl>
+                </article>
+
+                <!-- Details -->
+                <article class="overview-card overview-card--details">
+                    <p class="overview-card-label subtitle-two">Details</p>
+
+                    <dl class="overview-details">
+                        <dt>Product</dt>
+                        <dd>Smart Mirror + Web App</dd>
+
+                        <dt>Team</dt>
+                        <dd>4 Members</dd>
+
+                        <dt>Timeline</dt>
+                        <dd>Jan–May 2024</dd>
+
+                        <dt>Research</dt>
+                        <dd>32 User Interviews</dd>
+
+                        <dt>Prototypes</dt>
+                        <dd>2 Mirror Prototypes</dd>
+
+                        <dt>Technology</dt>
+                        <dd>ESP32-CAM · Wi-Fi · LLM API · Web</dd>
+                    </dl>
+                </article>
+            </section>
+        </section>
+
+
+        <!-- ===== Research & Development ===== -->
+        <section class="project-section project-research" id="research-dermidew" aria-labelledby="research-title">
+            <header class="project-section-header">
+                <p class="project-section-number">02 / Research &amp; Discovery</p>
+                <h2 id="research-title">Understanding the User</h2>
+            </header>
+
+            <section class="research-content" aria-label="DermiDew research and discovery">
+
+                <!-- Introduction -->
+                <header class="research-intro">
+                    <h3>
+                        We started by understanding how people navigate skincare.
+                    </h3>
+
+                    <p>
+                        Before deciding what to build, we spoke directly with
+                        potential users about their routines, frustrations,
+                        product decisions, and what they wished skincare tools
+                        did better.
+                    </p>
+                </header>
+
+
+                <!-- Research Findings -->
+                <section class="research-findings" aria-labelledby="findings-title">
+                    <article class="research-stat">
+                        <p class="research-label">Research at a Glance</p>
+
+                        <p class="research-stat-number">32</p>
+
+                        <h3 id="findings-title">User Interviews</h3>
+
+                        <p class="research-stat-description">
+                            We explored routines, ingredient knowledge,
+                            purchasing behavior, pain points, and responses
+                            to the DermiDew concept.
+                        </p>
+                    </article>
+
+                    <article class="research-insights">
+                        <p class="research-label">What Kept Coming Up</p>
+
+                        <dl class="research-insight-list">
+
+                            <div class="research-insight">
+                                <dt>01</dt>
+                                <dd>
+                                    <h3>“Tell me why.”</h3>
+                                    <p>
+                                        People wanted to understand why specific
+                                        products and ingredients were being
+                                        recommended.
+                                    </p>
+                                </dd>
+                            </div>
+
+                            <div class="research-insight">
+                                <dt>02</dt>
+                                <dd>
+                                    <h3>“What comes first?”</h3>
+                                    <p>
+                                        Users wanted more structure around the
+                                        order and composition of their routines.
+                                    </p>
+                                </dd>
+                            </div>
+
+                            <div class="research-insight">
+                                <dt>03</dt>
+                                <dd>
+                                    <h3>“Help me stick with it.”</h3>
+                                    <p>
+                                        Consistency features gave users another
+                                        reason to keep engaging with their routine.
+                                    </p>
+                                </dd>
+                            </div>
+
+                        </dl>
+                    </article>
+                </section>
+
+
+                <!-- Primary Persona -->
+                <section class="research-persona" aria-labelledby="persona-title">
+                    <header class="research-persona-header">
+                        <div>
+                            <p class="research-label">
+                                From Patterns to a Person
+                            </p>
+
+                            <h3 id="persona-title">
+                                Meet Our Primary User
+                            </h3>
+                        </div>
+
+                        <p class="research-persona-note">
+                            Synthesized from user research
+                        </p>
+                    </header>
+
+                    <article class="research-persona-card">
+
+                        <section class="research-persona-identity">
+                            <figure class="research-persona-image">
+                                <img src="" alt="Representative image of the primary DermiDew user">
+                            </figure>
+
+                            <p class="research-label">Primary Persona</p>
+
+                            <h4>
+                                The Overwhelmed Skincare User
+                            </h4>
+
+                            <blockquote>
+                                “I don't need more options. I need to know
+                                what actually works for me.”
+                            </blockquote>
+                        </section>
+
+
+                        <section class="research-persona-profile">
+
+                            <p class="research-persona-tension">
+                                Interested enough to care about skincare,
+                                but overwhelmed by the work required to
+                                get it right.
+                            </p>
+
+                            <dl class="research-persona-details">
+
+                                <div>
+                                    <dt>Wants</dt>
+                                    <dd>
+                                        A routine that feels personalized
+                                        and easy to follow.
+                                    </dd>
+                                </div>
+
+                                <div>
+                                    <dt>Struggles With</dt>
+                                    <dd>
+                                        Too many choices, trial and error,
+                                        and unclear product claims.
+                                    </dd>
+                                </div>
+
+                                <div>
+                                    <dt>Needs</dt>
+                                    <dd>
+                                        Clear reasoning, routine structure,
+                                        and consistency support.
+                                    </dd>
+                                </div>
+
+                            </dl>
+                        </section>
+
+                    </article>
+                </section>
+
+
+                <!-- Opportunity -->
+                <article class="research-opportunity">
+                    <p class="research-label">The Opportunity</p>
+
+                    <h3>
+                        How might we turn skincare confusion into clear,
+                        personalized guidance?
+                    </h3>
+
+                    <ul class="research-opportunity-tags" aria-label="Product opportunities">
+                        <li>Personalized</li>
+                        <li>Educational</li>
+                        <li>Actionable</li>
+                    </ul>
+                </article>
+
+            </section>
+        </section>
+
+
+        <!-- ===== Product Strategy ===== -->
+        <section class="project-section project-strategy" id="strategy-dermidew" aria-labelledby="strategy-title">
+            <header class="project-section-header">
+                <p class="project-section-number">03 / Product Strategy</p>
+                <h2 id="strategy-title">Shaping the Product</h2>
+            </header>
+
+            <section class="strategy-content" aria-label="DermiDew product strategy">
+
+                <!-- Introduction -->
+                <header class="strategy-intro">
+                    <h3>
+                        The product we ended with wasn't the product
+                        we started with.
+                    </h3>
+
+                    <p>
+                        Research clarified what users needed, while testing
+                        helped us determine how DermiDew could deliver it.
+                        Each iteration brought us closer to a product that
+                        was both practical and easy to integrate into an
+                        existing skincare routine.
+                    </p>
+                </header>
+
+
+                <!-- Product Evolution -->
+                <section class="strategy-evolution" aria-labelledby="evolution-title">
+                    <header class="strategy-subsection-header">
+                        <p class="strategy-label">01 / Product Evolution</p>
+                        <h3 id="evolution-title">
+                            Finding the right form.
+                        </h3>
+                    </header>
+
+                    <ol class="strategy-evolution-list">
+
+                        <!-- Face Mask -->
+                        <li class="strategy-evolution-step">
+                            <figure class="strategy-evolution-image">
+                                <img src="" alt="Early DermiDew face mask concept">
+                            </figure>
+
+                            <p class="strategy-step-label">
+                                Original Concept
+                            </p>
+
+                            <h4>Face Mask</h4>
+
+                            <p class="strategy-step-description">
+                                A hands-free wearable designed to analyze
+                                the user's skin while fitting into their routine.
+                            </p>
+
+                            <ul class="strategy-step-points">
+                                <li>Poor image quality up close</li>
+                                <li>Camera sat too close to the skin</li>
+                            </ul>
+                        </li>
+
+
+                        <!-- Wand -->
+                        <li class="strategy-evolution-step">
+                            <figure class="strategy-evolution-image">
+                                <img src="" alt="DermiDew handheld wand concept">
+                            </figure>
+
+                            <p class="strategy-step-label">
+                                First Pivot
+                            </p>
+
+                            <h4>Wand</h4>
+
+                            <p class="strategy-step-description">
+                                A handheld direction that gave users more
+                                control over where images were captured.
+                            </p>
+
+                            <ul class="strategy-step-points">
+                                <li>Similar image-quality limitations</li>
+                                <li>Required stitching facial images together</li>
+                            </ul>
+                        </li>
+
+
+                        <!-- Vanity Mirror -->
+                        <li class="strategy-evolution-step strategy-evolution-step--final">
+                            <figure class="strategy-evolution-image">
+                                <img src="" alt="Final DermiDew vanity mirror prototype">
+                            </figure>
+
+                            <p class="strategy-step-label">
+                                Final Direction
+                            </p>
+
+                            <h4>Vanity Mirror</h4>
+
+                            <p class="strategy-step-description">
+                                A familiar form factor that improved image
+                                capture while naturally fitting into a
+                                getting-ready routine.
+                            </p>
+
+                            <ul class="strategy-step-points">
+                                <li>Better camera distance</li>
+                                <li>Natural routine integration</li>
+                            </ul>
+                        </li>
+
+                    </ol>
+
+                    <blockquote class="strategy-evolution-takeaway">
+                        The best form factor wasn't the most novel one—it was
+                        the one that fit naturally into an existing behavior.
+                    </blockquote>
+                </section>
+
+
+                <!-- Why the Mirror -->
+                <section class="strategy-reasoning" aria-labelledby="reasoning-title">
+                    <header class="strategy-subsection-header">
+                        <p class="strategy-label">Why the Mirror?</p>
+                        <h3 id="reasoning-title">
+                            Three signals pointed us in the same direction.
+                        </h3>
+                    </header>
+
+                    <ul class="strategy-reasoning-list">
+
+                        <li>
+                            <p class="strategy-reasoning-number">01</p>
+
+                            <h4>Better Capture</h4>
+
+                            <p>
+                                Moving the camera farther from the face
+                                produced more usable images for analysis.
+                            </p>
+                        </li>
+
+                        <li>
+                            <p class="strategy-reasoning-number">02</p>
+
+                            <h4>Natural Integration</h4>
+
+                            <p>
+                                A mirror already belongs in the routines
+                                where users typically interact with skincare.
+                            </p>
+                        </li>
+
+                        <li>
+                            <p class="strategy-reasoning-number">24 / 32</p>
+
+                            <h4>User Validated</h4>
+
+                            <p>
+                                Most interviewees supported keeping a
+                                physical hardware component in DermiDew.
+                            </p>
+                        </li>
+
+                    </ul>
+                </section>
+
+
+                <!-- MVP Definition -->
+                <section class="strategy-mvp" aria-labelledby="mvp-title">
+                    <header class="strategy-subsection-header">
+                        <p class="strategy-label">02 / Defining the MVP</p>
+
+                        <h3 id="mvp-title">
+                            What did DermiDew actually need to prove?
+                        </h3>
+
+                        <p class="strategy-subsection-description">
+                            Instead of treating every idea as equally important,
+                            we organized the experience around one core value:
+                            personalized skincare guidance.
+                        </p>
+                    </header>
+
+                    <p class="strategy-core-value">
+                        Personalized Skincare Guidance
+                    </p>
+
+                    <dl class="strategy-mvp-pillars">
+
+                        <div>
+                            <dt>Understand My Skin</dt>
+
+                            <dd>
+                                <ul>
+                                    <li>Skin analysis</li>
+                                    <li>Skin concerns</li>
+                                </ul>
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Know What to Use</dt>
+
+                            <dd>
+                                <ul>
+                                    <li>Morning &amp; night routines</li>
+                                    <li>Ingredient explanations</li>
+                                    <li>Product recommendations</li>
+                                </ul>
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Stay Consistent</dt>
+
+                            <dd>
+                                <ul>
+                                    <li>Goals</li>
+                                    <li>Streaks</li>
+                                    <li>Product tracking</li>
+                                    <li>Review history</li>
+                                </ul>
+                            </dd>
+                        </div>
+
+                    </dl>
+                </section>
+
+
+                <!-- Business Validation -->
+                <section class="strategy-validation" aria-labelledby="validation-title">
+                    <header class="strategy-validation-copy">
+                        <p class="strategy-label">
+                            03 / Business Validation
+                        </p>
+
+                        <h3 id="validation-title">
+                            Users valued quality more than we expected.
+                        </h3>
+
+                        <p>
+                            We initially designed around a lower entry price.
+                            Interviews challenged that assumption: users were
+                            willing to spend more if DermiDew could provide
+                            accurate, useful guidance for their skin.
+                        </p>
+                    </header>
+
+                    <article class="strategy-validation-stat">
+                        <p class="strategy-validation-number">
+                            22<span>/32</span>
+                        </p>
+
+                        <h4>were willing to pay $75</h4>
+
+                        <p>
+                            Some interviewees were willing to spend even more
+                            for a product they believed could improve their skin.
+                        </p>
+                    </article>
+                </section>
+
+
+                <!-- Product Direction -->
+                <section class="strategy-direction" aria-labelledby="direction-title">
+                    <header class="strategy-subsection-header">
+                        <p class="strategy-label">04 / Product Direction</p>
+
+                        <h3 id="direction-title">
+                            One need. Two ways to access it.
+                        </h3>
+
+                        <p class="strategy-subsection-description">
+                            Research also revealed interest in accessing the
+                            experience without dedicated hardware, creating
+                            two potential paths for DermiDew.
+                        </p>
+                    </header>
+
+                    <section class="strategy-direction-options" aria-label="DermiDew product directions">
+                        <article>
+                            <p class="strategy-step-label">
+                                Physical Experience
+                            </p>
+
+                            <h4>Device + App</h4>
+
+                            <p>
+                                A camera-equipped vanity mirror paired with
+                                the complete personalized digital experience.
+                            </p>
+
+                            <ul>
+                                <li>Vanity mirror</li>
+                                <li>Integrated camera</li>
+                                <li>Full web experience</li>
+                            </ul>
+                        </article>
+
+                        <article>
+                            <p class="strategy-step-label">
+                                Digital Experience
+                            </p>
+
+                            <h4>App Only</h4>
+
+                            <p>
+                                A more accessible path using photos captured
+                                from the user's own device.
+                            </p>
+
+                            <ul>
+                                <li>Phone image capture</li>
+                                <li>No dedicated hardware</li>
+                                <li>Personalized guidance</li>
+                            </ul>
+                        </article>
+                    </section>
+
+                    <p class="strategy-direction-takeaway">
+                        Different access points. The same core promise:
+                        personalized skincare guidance.
+                    </p>
+                </section>
+
+            </section>
+        </section>
+
+
+        <!-- ===== Design ===== -->
+        <section class="project-section project-design" id="design-dermidew" aria-labelledby="design-title">
+            <header class="project-section-header">
+                <p class="project-section-number">04 / Design</p>
+                <h2 id="design-title">Designing the Experience</h2>
+            </header>
+
+            <section class="design-content" aria-label="DermiDew product design">
+
+                <!-- Introduction -->
+                <header class="design-intro">
+                    <h3>
+                        One product, designed across two touchpoints.
+                    </h3>
+
+                    <p>
+                        DermiDew brings the physical and digital experience
+                        together—from capturing the skin to understanding
+                        what to do next.
+                    </p>
+                </header>
+
+
+                <!-- Web App -->
+                <section class="design-web" aria-labelledby="web-design-title">
+                    <header class="design-subsection-header">
+                        <p class="design-label">01 / Web App</p>
+
+                        <h3 id="web-design-title">
+                            Turning analysis into action.
+                        </h3>
+
+                        <p>
+                            The web app translates skin analysis into
+                            personalized guidance, routines, and product
+                            recommendations.
+                        </p>
+                    </header>
+
+
+                    <!-- Working MVP -->
+                    <section class="design-feature" aria-labelledby="mvp-demo-title">
+                        <header class="design-feature-header">
+                            <p class="design-label">Working MVP</p>
+
+                            <h4 id="mvp-demo-title">
+                                From scan to recommendation.
+                            </h4>
+                        </header>
+
+                        <figure class="design-demo">
+                            <video controls preload="metadata" poster="">
+                                <source src="" type="video/mp4">
+                                Your browser does not support the video element.
+                            </video>
+
+                            <figcaption>
+                                A functional prototype connecting skin analysis,
+                                recommendations, routines, and tracking.
+                            </figcaption>
+                        </figure>
+                    </section>
+
+
+                    <!-- Interface Evolution -->
+                    <section class="design-feature" aria-labelledby="interface-evolution-title">
+                        <header class="design-feature-header">
+                            <p class="design-label">Interface Evolution</p>
+
+                            <h4 id="interface-evolution-title">
+                                Refining the experience.
+                            </h4>
+
+                            <p>
+                                A clearer visual hierarchy and stronger product
+                                identity help communicate DermiDew's value
+                                more immediately.
+                            </p>
+                        </header>
+
+                        <section class="design-comparison" aria-label="Original and refined DermiDew interfaces">
+                            <figure>
+                                <img src="" alt="Original DermiDew web app interface">
+
+                                <figcaption>
+                                    <strong>Original MVP</strong>
+                                    Functional first iteration
+                                </figcaption>
+                            </figure>
+
+                            <figure>
+                                <img src="" alt="Refined DermiDew web app interface">
+
+                                <figcaption>
+                                    <strong>Refined Interface</strong>
+                                    Clearer hierarchy and product identity
+                                </figcaption>
+                            </figure>
+                        </section>
+                    </section>
+
+
+                    <!-- Key Interfaces -->
+                    <section class="design-feature" aria-labelledby="key-interfaces-title">
+                        <header class="design-feature-header">
+                            <p class="design-label">Key Interfaces</p>
+
+                            <h4 id="key-interfaces-title">
+                                The core experience.
+                            </h4>
+                        </header>
+
+                        <ul class="design-interface-list">
+                            <li>
+                                <figure>
+                                    <img src="" alt="DermiDew skin analysis interface">
+
+                                    <figcaption>
+                                        <strong>Analysis</strong>
+                                        Understand your skin
+                                    </figcaption>
+                                </figure>
+                            </li>
+
+                            <li>
+                                <figure>
+                                    <img src="" alt="DermiDew skincare routine interface">
+
+                                    <figcaption>
+                                        <strong>Routine</strong>
+                                        Know what to do next
+                                    </figcaption>
+                                </figure>
+                            </li>
+
+                            <li>
+                                <figure>
+                                    <img src="" alt="DermiDew product exploration interface">
+
+                                    <figcaption>
+                                        <strong>Explore</strong>
+                                        Find products for your skin
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+
+
+                <!-- Physical Product -->
+                <section class="design-physical" aria-labelledby="physical-design-title">
+                    <header class="design-subsection-header">
+                        <p class="design-label">02 / Physical Product</p>
+
+                        <h3 id="physical-design-title">
+                            Designing for the routine.
+                        </h3>
+
+                        <p>
+                            The mirror brings skin capture into an object
+                            users already interact with while getting ready.
+                        </p>
+                    </header>
+
+
+                    <!-- The Mirror -->
+                    <section class="design-feature" aria-labelledby="mirror-title">
+                        <header class="design-feature-header">
+                            <p class="design-label">The Mirror</p>
+
+                            <h4 id="mirror-title">
+                                Technology within a familiar object.
+                            </h4>
+                        </header>
+
+                        <article class="design-mirror">
+                            <figure>
+                                <img src="" alt="DermiDew vanity mirror prototype">
+                            </figure>
+
+                            <dl>
+                                <dt>Embedded Camera</dt>
+                                <dd>
+                                    Positioned within the mirror frame
+                                    for facial capture.
+                                </dd>
+
+                                <dt>Familiar Form</dt>
+                                <dd>
+                                    Designed around an object already used
+                                    while getting ready.
+                                </dd>
+
+                                <dt>Hands-Free</dt>
+                                <dd>
+                                    Capture without needing to hold
+                                    another device.
+                                </dd>
+                            </dl>
+                        </article>
+                    </section>
+
+
+                    <!-- Two Prototypes -->
+                    <section class="design-feature" aria-labelledby="mirror-prototypes-title">
+                        <header class="design-feature-header">
+                            <p class="design-label">Two Prototypes</p>
+
+                            <h4 id="mirror-prototypes-title">
+                                Exploring the mirror at two scales.
+                            </h4>
+                        </header>
+
+                        <ul class="design-prototype-list">
+                            <li>
+                                <figure>
+                                    <img src="" alt="DermiDew standing vanity mirror prototype">
+
+                                    <figcaption>
+                                        <strong>Standing Vanity Mirror</strong>
+                                        Dedicated skincare setup
+                                    </figcaption>
+                                </figure>
+                            </li>
+
+                            <li>
+                                <figure>
+                                    <img src="" alt="DermiDew handheld mirror prototype">
+
+                                    <figcaption>
+                                        <strong>Handheld Mirror</strong>
+                                        Smaller, portable option
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+
+
+                <!-- Closing -->
+                <footer class="design-takeaway">
+                    <p class="design-label">One Product, Two Touchpoints</p>
+
+                    <h3>
+                        The mirror makes skin capture feel natural.
+                        <span>The web app makes the results useful.</span>
+                    </h3>
+                </footer>
+
+            </section>
+        </section>
+
+
+        <!-- ===== Development ===== -->
+        <section class="project-section project-development" id="development-dermidew"
+            aria-labelledby="development-title">
+            <header class="project-section-header">
+                <p class="project-section-number">05 / Development</p>
+                <h2 id="development-title">Making It Work</h2>
+            </header>
+
+            <section class="development-content" aria-label="DermiDew development">
+
+                <!-- Introduction -->
+                <header class="development-intro">
+                    <h3>
+                        Connecting the pieces into one working experience.
+                    </h3>
+
+                    <p>
+                        Building DermiDew meant connecting hardware,
+                        software, and AI analysis into one working experience.
+                    </p>
+                </header>
+
+
+                <!-- How It Works -->
+                <section class="development-system" aria-labelledby="system-title">
+                    <header class="development-subsection-header">
+                        <p class="development-label">01 / How It Works</p>
+
+                        <h3 id="system-title">
+                            From capture to recommendation.
+                        </h3>
+                    </header>
+
+                    <ol class="development-flow">
+                        <li>
+                            <span>01</span>
+                            <strong>Mirror</strong>
+                            <p>Capture</p>
+                        </li>
+
+                        <li>
+                            <span>02</span>
+                            <strong>ESP32-CAM</strong>
+                            <p>Transfer</p>
+                        </li>
+
+                        <li>
+                            <span>03</span>
+                            <strong>API</strong>
+                            <p>Analyze</p>
+                        </li>
+
+                        <li>
+                            <span>04</span>
+                            <strong>Web App</strong>
+                            <p>Results</p>
+                        </li>
+                    </ol>
+
+                    <p class="development-flow-description">
+                        The mirror captures the user's face through the
+                        ESP32-CAM, then sends the image for analysis before
+                        returning personalized results to the web app.
+                    </p>
+
+
+                    <!-- Tech Stack -->
+                    <section class="development-stack" aria-labelledby="stack-title">
+                        <h4 id="stack-title">Tech Stack</h4>
+
+                        <dl>
+                            <div>
+                                <dt>Frontend</dt>
+                                <dd>HTML / CSS</dd>
+                                <dd>JavaScript</dd>
+                            </div>
+
+                            <div>
+                                <dt>Backend</dt>
+                                <dd>Python / FastAPI</dd>
+                                <dd>MySQL</dd>
+                            </div>
+
+                            <div>
+                                <dt>Hardware</dt>
+                                <dd>ESP32-CAM</dd>
+                                <dd>C++ / Arduino</dd>
+                            </div>
+
+                            <div>
+                                <dt>Infrastructure</dt>
+                                <dd>Docker</dd>
+                                <dd>Local Hosting</dd>
+                            </div>
+                        </dl>
+                    </section>
+                </section>
+
+
+                <!-- Technical Challenges -->
+                <section class="development-challenges" aria-labelledby="challenges-title">
+                    <header class="development-subsection-header">
+                        <p class="development-label">
+                            02 / Technical Challenges
+                        </p>
+
+                        <h3 id="challenges-title">
+                            Solving for a working end-to-end experience.
+                        </h3>
+                    </header>
+
+                    <ol class="development-challenge-list">
+                        <li>
+                            <header>
+                                <span>01</span>
+                                <h4>API Integration</h4>
+                            </header>
+
+                            <p class="development-challenge-summary">
+                                Keeping API credentials secure while working
+                                with an external analysis service.
+                            </p>
+
+                            <dl>
+                                <dt>Solution</dt>
+                                <dd>
+                                    Environment variables kept sensitive
+                                    credentials outside the codebase.
+                                </dd>
+
+                                <dt>Learned</dt>
+                                <dd>
+                                    External services require secure credential
+                                    management and thoughtful handling of latency.
+                                </dd>
+                            </dl>
+                        </li>
+
+                        <li>
+                            <header>
+                                <span>02</span>
+                                <h4>Dynamic UI</h4>
+                            </header>
+
+                            <p class="development-challenge-summary">
+                                Creating a responsive web experience without
+                                relying on a frontend framework.
+                            </p>
+
+                            <dl>
+                                <dt>Solution</dt>
+                                <dd>
+                                    JavaScript fetch() loaded modular HTML content
+                                    and updated the interface dynamically.
+                                </dd>
+
+                                <dt>Learned</dt>
+                                <dd>
+                                    Vanilla JavaScript can create SPA-like behavior
+                                    while keeping the project lightweight.
+                                </dd>
+                            </dl>
+                        </li>
+                    </ol>
+                </section>
+
+
+                <!-- Iteration -->
+                <section class="development-iteration" aria-labelledby="iteration-title">
+                    <header class="development-subsection-header">
+                        <p class="development-label">03 / Iteration</p>
+
+                        <h3 id="iteration-title">
+                            Build. Measure. Learn.
+                        </h3>
+                    </header>
+
+                    <ol class="development-iteration-list">
+                        <li>
+                            <span>01</span>
+                            <h4>Mask</h4>
+                            <p>Wearable scan</p>
+                            <strong>
+                                Uncomfortable for regular use
+                            </strong>
+                        </li>
+
+                        <li>
+                            <span>02</span>
+                            <h4>Wand</h4>
+                            <p>Localized scan</p>
+                            <strong>
+                                Too much manual interaction
+                            </strong>
+                        </li>
+
+                        <li>
+                            <span>03</span>
+                            <h4>Mirror</h4>
+                            <p>Hands-free scan</p>
+                            <strong>
+                                Natural full-face experience
+                            </strong>
+                        </li>
+                    </ol>
+
+                    <p class="development-iteration-summary">
+                        Each iteration reduced friction and brought DermiDew
+                        closer to a hands-free, integrated experience.
+                    </p>
+                </section>
+
+
+                <!-- Closing -->
+                <footer class="development-takeaway">
+                    <p class="development-label">The Result</p>
+
+                    <h3>
+                        A working prototype connecting physical capture,
+                        <span>
+                            AI-powered analysis, and personalized guidance.
+                        </span>
+                    </h3>
+                </footer>
+
+            </section>
+        </section>
+
+
+        <!-- ===== Reflection ===== -->
+        <section class="project-section project-reflection" id="reflection-dermidew" aria-labelledby="reflection-title">
+            <header class="project-section-header">
+                <p class="project-section-number">06 / Reflection</p>
+                <h2 id="reflection-title">Looking Back</h2>
+            </header>
+
+            <section class="reflection-content" aria-label="DermiDew reflection">
+
+                <!-- What I Learned -->
+                <article class="reflection-block">
+                    <header>
+                        <p class="reflection-label">What This Project Taught Me</p>
+
+                        <h3>
+                            The best solution wasn't the most complex one.
+                        </h3>
+                    </header>
+
+                    <section class="reflection-copy">
+                        <p>
+                            DermiDew began as a wearable mask, moved to a handheld
+                            scanner, and ultimately became a mirror. Each prototype
+                            showed us that adding more interaction wasn't necessarily
+                            creating a better experience.
+                        </p>
+
+                        <p>
+                            The biggest shift was realizing that the technology should
+                            fit into an existing skincare routine rather than ask users
+                            to create a new one. That idea shaped both sides of the
+                            final product: a hands-free mirror for capture and a web
+                            experience that turns the analysis into something actionable.
+                        </p>
+                    </section>
+                </article>
+
+
+                <!-- Looking Forward -->
+                <article class="reflection-block">
+                    <header>
+                        <p class="reflection-label">If I Kept Building...</p>
+
+                        <h3>
+                            I'd focus on validating the experience beyond the MVP.
+                        </h3>
+                    </header>
+
+                    <section class="reflection-copy">
+                        <p>
+                            The next step would be testing DermiDew over a longer period
+                            of time—looking at whether users actually follow their
+                            recommended routines, return to track their skin, and find
+                            the recommendations useful as their skin changes.
+                        </p>
+
+                        <p>
+                            I'd also continue refining the connection between the mirror
+                            and web app so the experience feels less like two separate
+                            tools and more like one product.
+                        </p>
+                    </section>
+                </article>
+
+
+                <!-- Final Takeaway -->
+                <footer class="reflection-takeaway">
+                    <p class="reflection-label">Final Takeaway</p>
+
+                    <h3>
+                        DermiDew changed the way I think about product development:
+                        <span>
+                            the goal isn't to protect the first idea—it's to keep
+                            learning until the product fits the people you're designing for.
+                        </span>
+                    </h3>
+                </footer>
+
+            </section>
+        </section>
+    </main>
+
+
+
+    <footer class="end-result">
+        <h3> ── Thanks for checking out DermiDew! ── </h3>
+        <logo-button class="footer-logo"></logo-button>
+        <p class="body-text"> Allison H. Nguyen's Portfolio</p>
+        <i class="body-text"> designed & coded-line-by-line, old school style </i>
+        <a href="/pages/projects/projects.html" class="footer-catchphrase--project">
+            One project down, more to discover . . . →
+        </a>
+    </footer>
 
 </body>
 
