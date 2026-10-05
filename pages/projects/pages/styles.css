@@ -70,3 +70,132 @@ body[data-project] .project-specific-sections {
 .project-specific-breadcrumb a:hover {
     text-decoration: underline;
 }
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+/* ==== Mobile Horizontal ==== */
+@media (max-width: 900px) {
+
+    body[data-project] {
+        grid-template-columns: minmax(0, 1fr);
+        min-width: 0;
+    }
+
+    body[data-project] .project-site-header {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "logo nav search-bar"
+            "sections sections sections";
+
+        align-items: center;
+        column-gap: var(--space-4);
+        row-gap: var(--space-6);
+
+        padding: var(--space-4);
+    }
+
+    body[data-project] logo-button {
+        grid-area: logo;
+        min-width: 0;
+
+    }
+
+    body[data-project] logo-button svg {
+        width: 75px;
+    }
+
+    .project-specific-nav {
+        display: contents;
+    }
+
+    .project-specific-breadcrumb {
+        grid-area: nav;
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        min-width: 0;
+        white-space: nowrap;
+    }
+
+    body[data-project] search-bar {
+        grid-area: search-bar;
+        justify-self: end;
+    }
+
+    body[data-project] .project-specific-sections {
+        grid-area: sections;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+        gap: var(--space-4);
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+    }
+
+    .project-specific-sections::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* ==== Mobile Vertical ==== */
+@media (max-width: 400px) {
+
+    body[data-project] .project-site-header {
+        grid-template-columns: auto minmax(0, 1fr);
+        grid-template-areas:
+            "logo nav"
+            "sections sections";
+
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    /* Hide search */
+    body[data-project] search-bar {
+        display: none;
+    }
+
+    /* Constrain the scrollable navigation */
+    body[data-project] .project-specific-sections {
+        grid-area: sections;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+
+        gap: var(--space-5);
+        overflow-x: scroll;
+        overflow-y: hidden;
+
+        white-space: nowrap;
+        touch-action: pan-x;
+        -webkit-overflow-scrolling: touch;
+
+        scrollbar-width: none;
+    }
+
+    body[data-project] .project-specific-sections a {
+        display: block;
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    body[data-project] .project-specific-sections::-webkit-scrollbar {
+        display: none;
+    }
+}
