@@ -1,7 +1,7 @@
 const projectInformationMap = {
     'dermidew-card': {
         'project-preview-page-link': {
-            href: 'https://a-nguy4n.github.io/projects-docs/dermi-dew/index.html',
+            href: '/pages/projects/pages/dermidew/dermidew.html',
             text: 'allison.dev > project > dermidew',
         },
         'project-preview-thumbnail': {
