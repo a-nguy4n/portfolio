@@ -107,7 +107,7 @@ body[data-page="project-dermidew"] {
     color: var(--dark-yellow);
 
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-medium);
     font-weight: 700;
 
     text-transform: uppercase;
@@ -856,11 +856,11 @@ body[data-page="project-dermidew"] {
     margin: 0 0 var(--space-2);
 
     color: var(--dark-blue);
-
     font-family: var(--font-main);
     font-size: var(--text-small);
     font-weight: 800;
 
+    width: fit-content;
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
@@ -1050,40 +1050,121 @@ body[data-page="project-dermidew"] {
     max-width: 100%;
 }
 
-/* ==== MVP Rows ==== */
-
-.strategy-mvp-rows {
+.strategy-mvp-files {
     margin: 48px 0 0;
     padding: 0;
 
-    border-top: 1px solid var(--medium-blue);
+    overflow: hidden;
+
+    border: 1px solid rgb(227, 178, 0);
+    border-radius: 16px;
 
     list-style: none;
 }
 
-.strategy-mvp-rows li {
+
+/* Individual File  */
+
+.strategy-mvp-file {
+    border-bottom: 1px solid rgb(227, 178, 0);
+
+    transition: background-color 0.4s ease;
+}
+
+.strategy-mvp-file:last-child {
+    border-bottom: none;
+}
+
+
+/* File colors */
+
+.strategy-mvp-file:nth-child(1) {
+    background-color: #fcc201;
+}
+
+.strategy-mvp-file:nth-child(2) {
+    background-color: #ffd802;
+
+}
+
+.strategy-mvp-file:nth-child(3) {
+    background-color: #ffe285;
+}
+
+
+/* Open file */
+
+.strategy-mvp-file:has(details[open]) {
+    background-color: #fff;
+}
+
+
+/*  Details */
+
+.strategy-mvp-file details {
+    width: 100%;
+    interpolate-size: allow-keywords;
+}
+
+
+/* File Header */
+
+.strategy-mvp-file-header {
     display: grid;
-    grid-template-columns: 48px 0.8fr 1.2fr;
+    grid-template-columns: 40px 1fr 32px;
     align-items: center;
     gap: 24px;
 
-    padding: 28px 0;
+    min-height: 100px;
+    padding: 20px 32px;
 
-    border-bottom: 1px solid var(--medium-blue);
+    cursor: pointer;
+    list-style: none;
 }
 
+
+/* Remove default disclosure triangle */
+
+.strategy-mvp-file-header::-webkit-details-marker {
+    display: none;
+}
+
+.strategy-mvp-file-header::marker {
+    content: "";
+}
+
+
+/* Number */
+
 .strategy-mvp-number {
-    color: var(--dark-yellow);
+    color: rgb(65, 54, 1);
 
     font-family: var(--font-main);
     font-size: var(--text-small);
     font-weight: 800;
 }
 
-.strategy-mvp-rows h4 {
-    margin: 0;
 
-    color: var(--theme-text-color);
+/* Heading */
+
+.strategy-mvp-heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.strategy-mvp-label {
+    color: rgb(54, 44, 7);
+
+    font-family: var(--font-main);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.strategy-mvp-title {
+    color: rgb(54, 44, 7);
 
     font-family: var(--font-main);
     font-size: var(--text-large);
@@ -1091,22 +1172,130 @@ body[data-page="project-dermidew"] {
     line-height: 1.2;
 }
 
-.strategy-mvp-rows p {
-    width: 100%;
+
+/* Toggle Icon */
+
+.strategy-mvp-toggle {
+    position: relative;
+
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid rgb(65, 54, 1);
+    border-radius: 50%;
+}
+
+.strategy-mvp-toggle::before,
+.strategy-mvp-toggle::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 12px;
+    height: 2px;
+
+    background-color: rgb(65, 54, 1);
+    border-radius: 10px;
+
+    transform: translate(-50%, -50%);
+}
+
+.strategy-mvp-toggle::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+    transition: transform 0.25s ease;
+}
+
+
+/* Turn + into − when open */
+
+.strategy-mvp-file details[open] .strategy-mvp-toggle::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+
+/* Expanded Content */
+
+.strategy-mvp-file-content {
+    overflow: hidden;
+
+    height: 0;
+    opacity: 0;
+    padding: 0 var(--space-7) 0 var(--space-12);
+
+    transition:
+        height 0.4s ease,
+        opacity 0.3s ease,
+        padding 0.4s ease;
+}
+
+.strategy-mvp-file details[open] .strategy-mvp-file-content {
+    height: auto;
+    opacity: 1;
+    padding: 0 32px 36px 96px;
+}
+
+.strategy-mvp-file-content p {
+    max-width: 650px;
     margin: 0;
 
-    color: var(--secondary-text-color-light);
+    color: rgb(65, 54, 1);
 
     font-family: var(--font-main);
     font-size: var(--text-small);
     line-height: 1.6;
 }
 
-.strategy-mvp-rows p span {
-    margin-inline: 6px;
+.strategy-mvp-toggle::after {
+    transform: translate(-50%, -50%) rotate(90deg);
 
-    color: var(--dark-yellow);
+    transition: transform 0.4s ease;
 }
+
+
+/* Tags  */
+
+.strategy-mvp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: 18px 0 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.strategy-mvp-tags li {
+    padding: 7px 12px;
+
+    color: rgb(65, 54, 1);
+    background-color: var(--yellow);
+
+    border-radius: 100px;
+
+    font-family: var(--font-main);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+
+/* Interaction */
+
+.strategy-mvp-file-header:focus-visible {
+    outline: 2px solid var(--dark-blue);
+    outline-offset: -4px;
+}
+
+@media (hover: hover) {
+
+    .strategy-mvp-file-header:hover .strategy-mvp-title {
+        transform: scale(1.05);
+    }
+
+}
+
 
 /* ==== Business Validation ==== */
 
@@ -1275,24 +1464,22 @@ body[data-page="project-dermidew"] {
 /* ==== Introduction ==== */
 
 .design-intro {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    align-items: end;
-    gap: 48px;
-
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: var(--space-9);
     padding-bottom: 40px;
-    border-bottom: 1px solid var(--light-blue);
+    width: 100%;
 }
 
 .design-intro h3 {
-    max-width: 650px;
     margin: 0;
 
     color: var(--theme-text-color);
 
     font-family: var(--font-main);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 800;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
     line-height: 1.15;
 }
 
@@ -1306,7 +1493,7 @@ body[data-page="project-dermidew"] {
     line-height: var(--line-height-body-text);
 }
 
-/* ==== Section Labels ==== */
+/* Section Labels */
 
 .design-label {
     margin: 0 0 var(--space-2);
@@ -1321,7 +1508,8 @@ body[data-page="project-dermidew"] {
     letter-spacing: 0.06em;
 }
 
-/* ==== Subsection Headers ==== */
+
+/* Subsection Headers */
 
 .design-subsection-header {
     margin-bottom: 48px;
@@ -1339,7 +1527,7 @@ body[data-page="project-dermidew"] {
     line-height: 1.2;
 }
 
-.design-subsection-header>p:last-child {
+.design-subsection-header > p:last-child {
     max-width: 620px;
     margin: var(--space-2) 0 0;
 
@@ -1351,29 +1539,19 @@ body[data-page="project-dermidew"] {
 }
 
 
-/* ==== Web + Physical Sections ==== */
+/* Feature Sections */
 
-.design-web,
-.design-physical {
+.design-feature {
     display: grid;
-    gap: 64px;
+    gap: 32px;
 }
-
-.design-physical {
-    padding-top: 72px;
-    border-top: 1px solid var(--light-blue);
-}
-
-
-/* ==== Feature Headers ==== */
 
 .design-feature-header {
-    margin-bottom: 24px;
+    max-width: 720px;
 }
 
 .design-feature-header h4 {
-    max-width: 700px;
-    margin: 0;
+    margin: var(--space-1) 0 0;
 
     color: var(--theme-text-color);
 
@@ -1383,7 +1561,7 @@ body[data-page="project-dermidew"] {
     line-height: 1.25;
 }
 
-.design-feature-header>p:last-child:not(.design-label) {
+.design-feature-header > p:last-child:not(.design-label) {
     max-width: 620px;
     margin: var(--space-2) 0 0;
 
@@ -1395,9 +1573,153 @@ body[data-page="project-dermidew"] {
 }
 
 
-/* ==== Working MVP ==== */
+/* Web App */
+
+.design-web {
+    display: grid;
+    gap: 96px;
+}
+
+
+/* Web App Introduction */
+
+.design-web-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: 64px;
+}
+
+.design-web-intro-copy {
+    max-width: 520px;
+}
+
+.design-web-intro-copy h4 {
+    width: fit-content;
+
+    margin: var(--space-2) 0 var(--space-3);
+    padding: var(--space-2);
+
+    color: var(--theme-text-color);
+    background-color: #ffe681;
+
+    font-family: var(--font-main);
+    font-size: var(--text-heading);
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.design-web-intro-copy > p:last-child {
+    margin: 0;
+
+    color: var(--secondary-text-color-light);
+
+    font-family: var(--font-main);
+    font-size: var(--text-medium);
+    line-height: var(--line-height-body-text);
+}
+
+
+/* Web App Hero */
+
+.design-web-hero {
+    margin: 0;
+}
+
+.design-web-hero img {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 16 / 10;
+
+    object-fit: cover;
+
+    background-color: var(--light-blue);
+    border: var(--glass-border);
+    border-radius: 5px;
+}
+
+
+/* Key Interfaces */
+
+.design-interface-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.design-interface-grid li {
+    min-width: 0;
+}
+
+.design-interface-grid figure {
+    margin: 0;
+}
+
+.design-interface-image {
+    overflow: hidden;
+
+    background-color: var(--light-blue);
+
+    border: var(--glass-border);
+    border-radius: 14px;
+}
+
+.design-interface-image img {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+}
+
+
+/* Key Interface Captions */
+
+.design-interface-grid figcaption {
+    display: grid;
+    gap: 4px;
+
+    margin-top: var(--space-2);
+
+    font-family: var(--font-main);
+}
+
+.design-interface-grid figcaption strong {
+    color: var(--theme-text-color);
+
+    font-size: var(--text-medium);
+    font-weight: 800;
+}
+
+.design-interface-grid figcaption span {
+    color: var(--secondary-text-color-light);
+
+    font-size: var(--text-small);
+    line-height: 1.5;
+}
+
+
+/* Working MVP */
+
+.design-mvp {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.7fr);
+    align-items: center;
+    gap: 48px;
+}
+
+
+/* Working MVP Video */
 
 .design-demo {
+    min-width: 0;
     margin: 0;
 }
 
@@ -1408,6 +1730,7 @@ body[data-page="project-dermidew"] {
     aspect-ratio: 16 / 9;
 
     background-color: var(--light-blue);
+
     border: var(--glass-border);
     border-radius: 14px;
 }
@@ -1423,141 +1746,245 @@ body[data-page="project-dermidew"] {
 }
 
 
-/* ==== Interface Evolution ==== */
+/* Working MVP Copy */
 
-.design-comparison {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+.design-mvp-copy {
+    min-width: 0;
 }
 
-.design-comparison figure {
+.design-mvp-copy .design-feature-header {
+    margin: 0;
+}
+
+.design-mvp-copy > p {
+    margin: var(--space-3) 0 0;
+
+    color: var(--secondary-text-color-light);
+
+    font-family: var(--font-main);
+    font-size: var(--text-small);
+    line-height: var(--line-height-body-text);
+}
+
+
+/* Working MVP Tags */
+
+.design-feature-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: 24px 0 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.design-feature-tags li {
+    padding: 7px 12px;
+
+    color: var(--dark-blue);
+    background-color: var(--light-blue);
+
+    border-radius: 100px;
+
+    font-family: var(--font-main);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+
+/* Interface Evolution */
+
+.design-evolution {
+    padding-top: 72px;
+
+    border-top: 1px solid var(--light-blue);
+}
+
+.design-evolution-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.design-evolution-comparison figure {
     min-width: 0;
     margin: 0;
 }
 
-.design-comparison img {
+.design-evolution-image {
+    overflow: hidden;
+
+    background-color: var(--light-blue);
+
+    border: var(--glass-border);
+    border-radius: 14px;
+}
+
+.design-evolution-image img {
     display: block;
 
     width: 100%;
     aspect-ratio: 16 / 10;
 
     object-fit: cover;
-
-    background-color: var(--light-blue);
-    border: var(--glass-border);
-    border-radius: 14px;
 }
 
-.design-comparison figcaption {
+
+/* Interface Evolution Captions */
+
+.design-evolution-comparison figcaption {
     display: grid;
-    gap: 2px;
+    gap: 4px;
 
     margin-top: var(--space-2);
 
-    color: var(--secondary-text-color-light);
-
     font-family: var(--font-main);
-    font-size: var(--text-small);
 }
 
-.design-comparison figcaption strong {
+.design-evolution-comparison figcaption strong {
     color: var(--theme-text-color);
 
     font-size: var(--text-medium);
     font-weight: 800;
 }
 
+.design-evolution-comparison figcaption span {
+    color: var(--secondary-text-color-light);
 
-/* ==== Key Interfaces ==== */
+    font-size: var(--text-small);
+    line-height: 1.5;
+}
 
-.design-interface-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
 
-    margin: 0;
+/* Interface Evolution Changes */
+
+.design-evolution-changes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: 8px 0 0;
     padding: 0;
 
     list-style: none;
 }
 
-.design-interface-list figure {
-    margin: 0;
-}
+.design-evolution-changes li {
+    padding: 7px 12px;
 
-.design-interface-list img {
-    display: block;
-
-    width: 100%;
-    aspect-ratio: 4 / 3;
-
-    object-fit: cover;
-
+    color: var(--dark-blue);
     background-color: var(--light-blue);
-    border: var(--glass-border);
-    border-radius: 14px;
-}
 
-.design-interface-list figcaption {
-    display: grid;
-    gap: 2px;
-
-    margin-top: var(--space-2);
-
-    color: var(--secondary-text-color-light);
+    border-radius: 100px;
 
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: 0.75rem;
+    font-weight: 700;
 }
 
-.design-interface-list figcaption strong {
+
+/* Physical Product */
+
+.design-physical {
+    display: grid;
+    gap: 96px;
+
+    padding-top: 72px;
+
+    border-top: 1px solid var(--light-blue);
+}
+
+.design-physical > .design-subsection-header {
+    margin-bottom: 0;
+}
+
+.design-physical-title {
+    width: fit-content;
+
+    margin: 0;
+    padding: var(--space-2);
+
     color: var(--theme-text-color);
+    background-color: #ffe681;
 
-    font-size: var(--text-medium);
+    font-family: var(--font-main);
+    font-size: var(--text-heading);
     font-weight: 800;
+    line-height: 1.15;
 }
 
 
-/* ==== Mirror ==== */
+/* Physical Product Mirror */
+
+.design-mirror-feature {
+    gap: 32px;
+}
 
 .design-mirror {
     display: grid;
-    grid-template-columns: 1.35fr 0.65fr;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+    align-items: center;
+    gap: 56px;
+}
 
-    overflow: hidden;
+.design-mirror figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    height: 360px;
+    margin: 0;
+    padding: 28px;
 
     background-color: var(--light-blue);
+
     border: var(--glass-border);
     border-radius: 14px;
 }
 
-.design-mirror figure {
-    min-width: 0;
-    margin: 0;
-}
-
-.design-mirror img {
+.design-mirror figure img {
     display: block;
 
-    width: 100%;
-    height: 100%;
-    min-height: 460px;
+    width: auto;
+    height: auto;
 
-    object-fit: cover;
+    max-width: 60%;
+    max-height: 290px;
+
+    object-fit: contain;
 }
 
+
+/* Physical Product Mirror Details */
+
 .design-mirror dl {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    align-content: center;
 
     margin: 0;
-    padding: 40px;
+}
+
+.design-mirror dl > div {
+    padding: 22px 0;
+
+    border-bottom: 1px solid var(--light-blue);
+}
+
+.design-mirror dl > div:first-child {
+    padding-top: 0;
+}
+
+.design-mirror dl > div:last-child {
+    padding-bottom: 0;
+
+    border-bottom: none;
 }
 
 .design-mirror dt {
-    margin: 0 0 var(--space-1);
+    margin: 0 0 6px;
 
     color: var(--theme-text-color);
 
@@ -1567,33 +1994,31 @@ body[data-page="project-dermidew"] {
 }
 
 .design-mirror dd {
+    max-width: 340px;
     margin: 0;
-    padding-bottom: 24px;
 
     color: var(--secondary-text-color-light);
-    border-bottom: 1px solid var(--medium-blue);
 
     font-family: var(--font-main);
     font-size: var(--text-small);
-    line-height: 1.6;
-}
-
-.design-mirror dd:not(:last-child) {
-    margin-bottom: 24px;
-}
-
-.design-mirror dd:last-child {
-    padding-bottom: 0;
-    border-bottom: 0;
+    line-height: var(--line-height-body-text);
 }
 
 
-/* ==== Mirror Prototypes ==== */
+/* Physical Product Prototypes */
+
+.design-prototypes {
+    gap: 32px;
+
+    padding-top: 72px;
+
+    border-top: 1px solid var(--light-blue);
+}
 
 .design-prototype-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
 
     margin: 0;
     padding: 0;
@@ -1601,33 +2026,53 @@ body[data-page="project-dermidew"] {
     list-style: none;
 }
 
+.design-prototype-list li {
+    min-width: 0;
+}
+
 .design-prototype-list figure {
     margin: 0;
 }
 
-.design-prototype-list img {
-    display: block;
+.design-prototype-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     width: 100%;
-    aspect-ratio: 4 / 3;
+    height: 300px;
+    padding: 24px;
 
-    object-fit: cover;
+    overflow: hidden;
 
     background-color: var(--light-blue);
+
     border: var(--glass-border);
     border-radius: 14px;
 }
 
+.design-prototype-image img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 58%;
+    max-height: 245px;
+
+    object-fit: contain;
+}
+
+
+/* Physical Product Prototype Captions */
+
 .design-prototype-list figcaption {
     display: grid;
-    gap: 2px;
+    gap: 4px;
 
     margin-top: var(--space-2);
 
-    color: var(--secondary-text-color-light);
-
     font-family: var(--font-main);
-    font-size: var(--text-small);
 }
 
 .design-prototype-list figcaption strong {
@@ -1637,8 +2082,15 @@ body[data-page="project-dermidew"] {
     font-weight: 800;
 }
 
+.design-prototype-list figcaption span {
+    color: var(--secondary-text-color-light);
 
-/* ==== Design Takeaway ==== */
+    font-size: var(--text-small);
+    line-height: 1.5;
+}
+
+
+/* Design Takeaway */
 
 .design-takeaway {
     padding: 48px 0;
@@ -1664,7 +2116,6 @@ body[data-page="project-dermidew"] {
 
     color: var(--secondary-text-color-light);
 }
-
 
 
 /* ============================
@@ -2181,15 +2632,17 @@ body[data-page="project-dermidew"] {
 
 @media (max-width: 800px) {
 
-    /* ---- Overview Section ---- */
+    /* ---- General ---- */
 
     .project-content {
         width: min(100% - 32px, 1100px);
     }
 
+
+    /* ---- Overview Section ---- */
+
     .overview-bento {
         grid-template-columns: 1fr 1fr;
-
         grid-template-areas:
             "hero hero"
             "summary summary"
@@ -2294,6 +2747,7 @@ body[data-page="project-dermidew"] {
         top: auto;
         right: 50%;
         bottom: -20px;
+
         transform: translateX(50%);
     }
 
@@ -2320,6 +2774,7 @@ body[data-page="project-dermidew"] {
         grid-template-columns: 1fr;
         align-items: start;
         gap: var(--space-3);
+
         padding-bottom: 32px;
     }
 
@@ -2342,8 +2797,51 @@ body[data-page="project-dermidew"] {
         grid-template-columns: 1fr;
     }
 
+
+    /* Web Design */
+
+    .design-web {
+        gap: 80px;
+    }
+
+    .design-web-intro {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .design-web-intro-copy {
+        max-width: 650px;
+    }
+
+
+    /* Interfaces */
+
+    .design-interface-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* MVP */
+
+    .design-mvp {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .design-mvp-copy {
+        max-width: 620px;
+    }
+
+
+    /* Physical Product */
+
     .design-mirror {
         grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .design-mirror figure {
+        min-height: 420px;
     }
 
     .design-mirror img {
@@ -2352,7 +2850,16 @@ body[data-page="project-dermidew"] {
     }
 
     .design-mirror dl {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+
         padding: 32px;
+    }
+
+    .design-mirror dl>div {
+        padding: 0;
+
+        border-bottom: none;
     }
 
     .design-takeaway {
@@ -2370,6 +2877,7 @@ body[data-page="project-dermidew"] {
         grid-template-columns: 1fr;
         align-items: start;
         gap: var(--space-3);
+
         padding-bottom: 32px;
     }
 
@@ -2404,6 +2912,7 @@ body[data-page="project-dermidew"] {
         padding: 40px 0;
     }
 
+
     /* ---- Reflection Section ---- */
 
     .reflection-content {
@@ -2425,10 +2934,13 @@ body[data-page="project-dermidew"] {
     .reflection-takeaway {
         padding-bottom: 40px;
     }
+
 }
 
 
-/* ==== Mobile ==== */
+/* ==================================================
+   MOBILE
+   ================================================== */
 
 @media (max-width: 600px) {
 
@@ -2443,7 +2955,6 @@ body[data-page="project-dermidew"] {
 
     .overview-bento {
         grid-template-columns: 1fr;
-
         grid-template-areas:
             "hero"
             "summary"
@@ -2486,6 +2997,7 @@ body[data-page="project-dermidew"] {
     .research-intro {
         align-items: start;
         gap: var(--space-3);
+
         padding-bottom: 32px;
     }
 
@@ -2519,6 +3031,26 @@ body[data-page="project-dermidew"] {
         padding: 28px;
     }
 
+    .strategy-mvp-files {
+        margin-top: 36px;
+    }
+
+    .strategy-mvp-file-header {
+        grid-template-columns: 24px 1fr 30px;
+        gap: 14px;
+
+        min-height: 90px;
+        padding: 18px 20px;
+    }
+
+    .strategy-mvp-title {
+        font-size: var(--text-body);
+    }
+
+    .strategy-mvp-file-content {
+        padding: 0 20px 28px 58px;
+    }
+
 
     /* ---- Design Section ---- */
 
@@ -2532,7 +3064,81 @@ body[data-page="project-dermidew"] {
     }
 
     .design-physical {
-        padding-top: 52px;
+        padding-top: 48px;
+    }
+
+
+    /* Web Design */
+
+    .design-web {
+        gap: 64px;
+    }
+
+    .design-feature {
+        gap: 24px;
+    }
+
+
+    /* Interfaces */
+
+    .design-interface-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+
+    /* Evolution */
+
+    .design-evolution {
+        padding-top: 48px;
+    }
+
+    .design-evolution-comparison {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+
+    /* Physical Product */
+
+    .design-mirror figure {
+        min-height: 320px;
+        padding: 24px;
+    }
+
+    .design-mirror dl {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .design-mirror dl>div {
+        padding: 20px 0;
+
+        border-bottom: 1px solid var(--light-blue);
+    }
+
+    .design-mirror dl>div:first-child {
+        padding-top: 0;
+    }
+
+    .design-mirror dl>div:last-child {
+        padding-bottom: 0;
+
+        border-bottom: none;
+    }
+
+    .design-prototypes {
+        padding-top: 48px;
+    }
+
+    .design-prototype-list {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .design-prototype-image {
+        aspect-ratio: 4 / 3;
+        padding: 24px;
     }
 
 
@@ -2552,6 +3158,7 @@ body[data-page="project-dermidew"] {
         padding-top: 52px;
     }
 
+
     /* ---- Reflection Section ---- */
 
     .reflection-content {
@@ -2560,12 +3167,16 @@ body[data-page="project-dermidew"] {
 
     .reflection-block {
         gap: 20px;
+
         padding-bottom: 48px;
     }
+
 }
 
 
-/* ==== Small Mobile ==== */
+/* ==================================================
+   SMALL MOBILE
+   ================================================== */
 
 @media (max-width: 480px) {
 
@@ -2593,6 +3204,7 @@ body[data-page="project-dermidew"] {
 
     .research-insight {
         grid-template-columns: 32px 1fr;
+
         padding: 20px 0;
     }
 
@@ -2603,6 +3215,7 @@ body[data-page="project-dermidew"] {
 
     .research-persona-image {
         width: 88px;
+
         margin-bottom: 32px;
     }
 
@@ -2681,6 +3294,7 @@ body[data-page="project-dermidew"] {
         padding-top: 48px;
     }
 
+
     /* ---- Reflection Section ---- */
 
     .reflection-content {
@@ -2698,4 +3312,5 @@ body[data-page="project-dermidew"] {
     .reflection-takeaway {
         padding: 8px 0 32px;
     }
+
 }
