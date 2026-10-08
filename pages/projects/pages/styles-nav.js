@@ -14,27 +14,49 @@ navigationBars.forEach((navigationBar) => {
         navigationLinks.forEach((link) => {
             link.classList.toggle("is-active", link.hash === `#${sectionId}`);
         });
+
+        const activeLink = navigationLinks.find(
+            (link) => link.hash === `#${sectionId}`,
+        );
+
+        activeLink?.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "nearest",
+        });
     };
 
     const header = navigationBar.closest(".project-site-header");
-    const headerHeight = header?.offsetHeight ?? 0;
-    const sectionObserver = new IntersectionObserver(
-        (entries) => {
-            const visibleSections = entries
-                .filter((entry) => entry.isIntersecting)
-                .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    let activeSectionId;
+    let scrollFrame;
 
-            if (visibleSections[0]) {
-                setActiveLink(visibleSections[0].target.id);
-            }
-        },
-        {
-            rootMargin: `-${headerHeight}px 0px -55%`,
-            threshold: 0,
-        },
-    );
+    const updateActiveSection = () => {
+        const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
+        const passedSections = sections.filter(
+            (section) => section.getBoundingClientRect().top <= headerBottom + 16,
+        );
+        const currentSection = passedSections.at(-1) ?? sections[0];
 
-    sections.forEach((section) => sectionObserver.observe(section));
+        if (currentSection.id !== activeSectionId) {
+            activeSectionId = currentSection.id;
+            setActiveLink(activeSectionId);
+        }
+    };
+
+    const handleScroll = () => {
+        if (scrollFrame) {
+            return;
+        }
+
+        scrollFrame = requestAnimationFrame(() => {
+            scrollFrame = undefined;
+            updateActiveSection();
+        });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    updateActiveSection();
 
     navigationLinks.forEach((link) => {
         link.addEventListener("click", () => setActiveLink(link.hash.slice(1)));
@@ -42,6 +64,7 @@ navigationBars.forEach((navigationBar) => {
 
     const initialSection = window.location.hash.slice(1);
     if (initialSection) {
+        activeSectionId = initialSection;
         setActiveLink(initialSection);
     }
 });
