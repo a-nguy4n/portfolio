@@ -81,6 +81,7 @@ body[data-project] .project-specific-sections {
 }
 
 body[data-project] .project-specific-sections a.is-active {
+    text-decoration: underline !important;
     text-decoration-line: underline !important;
     text-underline-offset: 0.2em;
     text-decoration-thickness: 2px;
