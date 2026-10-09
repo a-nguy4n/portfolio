@@ -1853,7 +1853,7 @@ body[data-page="project-dermidew"] {
 }
 
 .design-evolution-comparison figcaption strong,
-.design-prototype-list figcaption strong  {
+.design-prototype-list figcaption strong {
     color: var(--theme-text-color);
     font-size: var(--text-medium);
     font-weight: 600;
@@ -1895,7 +1895,7 @@ body[data-page="project-dermidew"] {
     line-height: 1.15;
 }
 
-.design-subsection-header p{
+.design-subsection-header p {
     width: 100%;
 }
 
@@ -1944,57 +1944,33 @@ body[data-page="project-dermidew"] {
 
 
 /* ============================
-    DEVELOPMENT
+   DEVELOPMENT
 =============================== */
 
 .development-content {
     display: grid;
-    gap: 88px;
+    gap: 80px;
 }
 
-
-/* ==== Introduction ==== */
+.development-content>section {
+    min-width: 0;
+}
 
 .development-intro {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    align-items: end;
-    gap: 48px;
-
-    padding-bottom: 40px;
-    border-bottom: 1px solid var(--light-blue);
-}
-
-.development-intro h3 {
-    max-width: 650px;
-    margin: 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.15;
-}
-
-.development-intro p {
-    margin: 0;
-
     color: var(--secondary-text-color-light);
-
     font-family: var(--font-main);
     font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
 
-
-/* ==== Labels ==== */
+.development-subsection-header {
+    margin-bottom: 28px;
+}
 
 .development-label {
     margin: 0 0 var(--space-2);
 
     color: var(--dark-blue);
-
     font-family: var(--font-main);
     font-size: var(--text-small);
     font-weight: 800;
@@ -2003,47 +1979,34 @@ body[data-page="project-dermidew"] {
     letter-spacing: 0.06em;
 }
 
-
-/* ==== Subsection Headers ==== */
-
-.development-subsection-header {
-    margin-bottom: 40px;
-}
-
 .development-subsection-header h3 {
-    max-width: 720px;
     margin: 0;
 
     color: var(--theme-text-color);
-
     font-family: var(--font-main);
     font-size: var(--text-xlarge);
     font-weight: 800;
     line-height: 1.2;
 }
 
-
-/* ==== How It Works ==== */
+/* System Architecture */
 
 .development-flow {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-6);
 
-    margin: 0;
+    margin: 0 0 var(--space-5);
     padding: 0;
-
     list-style: none;
 }
 
 .development-flow li {
     position: relative;
-
-    padding: 28px;
-
-    background-color: var(--light-blue);
-    border: var(--glass-border);
-    border-radius: 12px;
+    min-width: 0;
+    padding: var(--space-5);
+    border: 1px solid var(--dark-blue);
+    border-radius: 10px;
 }
 
 .development-flow li:not(:last-child)::after {
@@ -2051,13 +2014,12 @@ body[data-page="project-dermidew"] {
 
     position: absolute;
     top: 50%;
-    right: -18px;
-    z-index: 2;
+    right: -25px;
+    z-index: 1;
 
     transform: translateY(-50%);
 
     color: var(--dark-yellow);
-
     font-family: var(--font-main);
     font-size: var(--text-large);
     font-weight: 800;
@@ -2065,11 +2027,9 @@ body[data-page="project-dermidew"] {
 
 .development-flow span {
     display: block;
-
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 
     color: var(--dark-yellow);
-
     font-family: var(--font-main);
     font-size: var(--text-small);
     font-weight: 800;
@@ -2079,251 +2039,195 @@ body[data-page="project-dermidew"] {
     display: block;
 
     color: var(--theme-text-color);
-
     font-family: var(--font-main);
-    font-size: var(--text-large);
+    font-size: var(--text-medium);
     font-weight: 800;
 }
 
-.development-flow p {
-    margin: var(--space-1) 0 0;
+.development-flow li p {
+    margin: 4px 0 0;
 
     color: var(--secondary-text-color-light);
-
     font-family: var(--font-main);
     font-size: var(--text-small);
 }
 
 .development-flow-description {
-    max-width: 720px;
-    margin: 24px 0 0;
+    margin: 0;
 
     color: var(--secondary-text-color-light);
-
     font-family: var(--font-main);
     font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
 
+/* Tech Stack */
 
-/* ==== Tech Stack ==== */
-
-.development-stack {
-    margin-top: 48px;
-    padding-top: 32px;
-
-    border-top: 1px solid var(--light-blue);
+.development-stack-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
 }
 
-.development-stack h4 {
-    margin: 0 0 24px;
+.development-stack-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    min-width: 0;
+    padding: var(--space-5);
+
+    background: var(--light-blue);
+    border-radius: 15px;
+}
+
+.development-stack-card h4 {
+    margin: 0;
 
     color: var(--theme-text-color);
-
     font-family: var(--font-main);
-    font-size: var(--text-large);
+    font-size: var(--text-medium);
     font-weight: 800;
 }
 
-.development-stack dl {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
+.development-stack-card ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 
     margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.development-stack dt {
-    margin-bottom: var(--space-2);
+.development-stack-card li {
+    padding: 6px 10px;
 
-    color: var(--dark-blue);
+    color: var(--theme-text-color);
+    background: #fff;
+    border-radius: 6px;
 
     font-family: var(--font-main);
     font-size: var(--text-small);
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-weight: 600;
 }
 
-.development-stack dd {
-    margin: 0 0 var(--space-1);
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    line-height: 1.6;
+.development-stack-card:nth-of-type(1) {
+    background: var(--light-blue);
 }
 
+.development-stack-card:nth-of-type(2) {
+    background: #FFE49A;
+}
 
-/* ==== Technical Challenges ==== */
+.development-stack-card:nth-of-type(3) {
+    background: #E5E8FA;
+}
+
+.development-stack-card:nth-of-type(4) {
+    background: #D8F0E8;
+}
+
+/* Technical Challenges */
 
 .development-challenges {
-    padding-top: 72px;
-    border-top: 1px solid var(--light-blue);
+    padding: var(--space-8) 0 0;
 }
 
 .development-challenge-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
 }
 
-.development-challenge-list>li {
-    padding: 32px;
-
-    background-color: var(--light-blue);
-    border: var(--glass-border);
+.development-challenge-list article {
+    min-width: 0;
+    padding: var(--space-6);
+    border: 1px solid var(--yellow);
     border-radius: 12px;
 }
 
-.development-challenge-list header {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-
-    margin-bottom: 16px;
-}
-
-.development-challenge-list header span {
+.development-challenge-number {
     color: var(--dark-yellow);
-
     font-family: var(--font-main);
     font-size: var(--text-small);
     font-weight: 800;
 }
 
 .development-challenge-list h4 {
-    margin: 0;
+    margin: var(--space-4) 0;
 
     color: var(--theme-text-color);
-
     font-family: var(--font-main);
     font-size: var(--text-large);
     font-weight: 800;
 }
 
-.development-challenge-summary {
+.development-challenge-list article p {
+    margin: 0;
+    color: var(--secondary-text-color-light);
+    font-family: var(--font-main);
+    font-size: var(--text-small);
+    line-height: var(--line-height-body-text);
+}
+
+.development-challenge-solution {
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
+}
+
+.development-challenge-solution strong {
+    display: block;
+    margin-bottom: 8px;
+
+    color: var(--dark-blue);
+    font-family: var(--font-main);
+    font-size: var(--text-small);
+    font-weight: 800;
+}
+
+/* Iteration */
+
+.development-iteration {
+    padding: var(--space-6) 0 0;
+}
+
+.development-iteration>p {
     margin: 0 0 28px;
 
     color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    line-height: 1.6;
-}
-
-.development-challenge-list dl {
-    margin: 0;
-}
-
-.development-challenge-list dt {
-    margin: 20px 0 var(--space-1);
-
-    color: var(--dark-blue);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.development-challenge-list dd {
-    margin: 0;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    line-height: 1.6;
-}
-
-
-/* ==== Iteration ==== */
-
-.development-iteration {
-    padding-top: 72px;
-    border-top: 1px solid var(--light-blue);
-}
-
-.development-iteration-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    margin: 0;
-    padding: 0;
-
-    border-top: 1px solid var(--medium-blue);
-    border-bottom: 1px solid var(--medium-blue);
-
-    list-style: none;
-}
-
-.development-iteration-list li {
-    padding: 32px;
-}
-
-.development-iteration-list li:not(:last-child) {
-    border-right: 1px solid var(--medium-blue);
-}
-
-.development-iteration-list span {
-    color: var(--dark-yellow);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    font-weight: 800;
-}
-
-.development-iteration-list h4 {
-    margin: 16px 0 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: var(--text-large);
-    font-weight: 800;
-}
-
-.development-iteration-list p {
-    margin: var(--space-1) 0 24px;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-}
-
-.development-iteration-list strong {
-    display: block;
-
-    max-width: 220px;
-
-    color: var(--dark-blue);
-
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    font-weight: 700;
-    line-height: 1.4;
-}
-
-.development-iteration-summary {
-    max-width: 680px;
-    margin: 24px 0 0;
-
-    color: var(--secondary-text-color-light);
-
     font-family: var(--font-main);
     font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
+}
+
+.development-iteration-flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.development-iteration-flow li {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+
+    color: var(--theme-text-color);
+    font-family: var(--font-main);
+    font-size: var(--text-medium);
+    font-weight: 800;
+}
+
+.development-iteration-flow li:not(:last-child)::after {
+    content: "→";
+
+    color: var(--dark-yellow);
+    font-weight: 800;
 }
 
 
@@ -2646,50 +2550,33 @@ body[data-page="project-dermidew"] {
 
 
     /* ---- Development Section ---- */
-
     .development-content {
-        gap: 64px;
+        gap: 56px;
     }
 
     .development-intro {
         grid-template-columns: 1fr;
-        align-items: start;
-        gap: var(--space-3);
-
+        gap: 20px;
         padding-bottom: 32px;
     }
 
     .development-flow {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .development-flow li::after {
         display: none;
     }
 
-    .development-stack dl {
-        grid-template-columns: repeat(2, 1fr);
+    .development-stack-grid,
+    .development-challenge-list {
+        grid-template-columns: 1fr;
     }
 
     .development-challenges,
     .development-iteration {
-        padding-top: 56px;
+        padding-top: 40px;
     }
-
-    .development-challenge-list,
-    .development-iteration-list {
-        grid-template-columns: 1fr;
-    }
-
-    .development-iteration-list li:not(:last-child) {
-        border-right: 0;
-        border-bottom: 1px solid var(--medium-blue);
-    }
-
-    .development-takeaway {
-        padding: 40px 0;
-    }
-
 
     /* ---- Reflection Section ---- */
     .reflection-content {

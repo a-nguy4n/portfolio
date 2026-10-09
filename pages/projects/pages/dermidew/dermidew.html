@@ -968,216 +968,193 @@
         <!-- ===== Development ===== -->
         <section class="project-section project-development" id="development-dermidew"
             aria-labelledby="development-title">
+
             <header class="project-section-header">
                 <p class="project-section-number">Development</p>
                 <h2 id="development-title">Technicalities of DermiDew</h2>
             </header>
 
-            <section class="development-content" aria-label="DermiDew development">
+            <div class="development-content">
 
                 <!-- Introduction -->
-                <header class="development-intro">
-                    <h3>
-                        Connecting the pieces into one working experience.
-                    </h3>
-
-                    <p>
-                        Building DermiDew meant connecting hardware,
-                        software, and AI analysis into one working experience.
-                    </p>
-                </header>
+                <p class="development-intro">
+                    Building DermiDew required combining hardware engineering, software development, and AI into one
+                    functional system. We explored different approaches and adapted to the needs of the project,
+                    tackling technical challenges.
+                </p>
 
 
-                <!-- How It Works -->
+                <!-- System Architecture -->
                 <section class="development-system" aria-labelledby="system-title">
-                    <header class="development-subsection-header">
-                        <p class="development-label">01 / How It Works</p>
 
-                        <h3 id="system-title">
-                            From capture to recommendation.
-                        </h3>
+                    <header class="development-subsection-header">
+                        <p class="development-label">System Architecture</p>
+                        <h3 id="system-title">How DermiDew Works</h3>
                     </header>
 
                     <ol class="development-flow">
                         <li>
                             <span>01</span>
-                            <strong>Mirror</strong>
-                            <p>Capture</p>
+                            <strong>Web App</strong>
+                            <p>Requests a scan</p>
                         </li>
 
                         <li>
                             <span>02</span>
                             <strong>ESP32-CAM</strong>
-                            <p>Transfer</p>
+                            <p>Captures the image</p>
                         </li>
 
                         <li>
                             <span>03</span>
-                            <strong>API</strong>
-                            <p>Analyze</p>
+                            <strong>AI API</strong>
+                            <p>Analyzes the image</p>
                         </li>
 
                         <li>
                             <span>04</span>
                             <strong>Web App</strong>
-                            <p>Results</p>
+                            <p>Displays skin insights</p>
                         </li>
                     </ol>
 
                     <p class="development-flow-description">
-                        The mirror captures the user's face through the
-                        ESP32-CAM, then sends the image for analysis before
-                        returning personalized results to the web app.
+                        The web app triggers a scan through the mirror's
+                        ESP32-CAM. The captured image is sent for AI analysis,
+                        and the results are returned to the website.
                     </p>
 
-
-                    <!-- Tech Stack -->
-                    <section class="development-stack" aria-labelledby="stack-title">
-                        <h4 id="stack-title">Tech Stack</h4>
-
-                        <dl>
-                            <div>
-                                <dt>Frontend</dt>
-                                <dd>HTML / CSS</dd>
-                                <dd>JavaScript</dd>
-                            </div>
-
-                            <div>
-                                <dt>Backend</dt>
-                                <dd>Python / FastAPI</dd>
-                                <dd>MySQL</dd>
-                            </div>
-
-                            <div>
-                                <dt>Hardware</dt>
-                                <dd>ESP32-CAM</dd>
-                                <dd>C++ / Arduino</dd>
-                            </div>
-
-                            <div>
-                                <dt>Infrastructure</dt>
-                                <dd>Docker</dd>
-                                <dd>Local Hosting</dd>
-                            </div>
-                        </dl>
-                    </section>
                 </section>
 
+                <!-- Tech Stack -->
+                <section class="development-stack" aria-labelledby="stack-title">
+
+                    <header class="development-subsection-header">
+                        <p class="development-label">Technology</p>
+                        <h3 id="stack-title">Tech Stack</h3>
+                    </header>
+
+                    <div class="development-stack-grid">
+
+                        <article class="development-stack-card">
+                            <h4>Frontend</h4>
+
+                            <ul>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </article>
+
+                        <article class="development-stack-card">
+                            <h4>Backend</h4>
+
+                            <ul>
+                                <li>Python</li>
+                                <li>FastAPI</li>
+                                <li>MySQL</li>
+                            </ul>
+                        </article>
+
+                        <article class="development-stack-card">
+                            <h4>Hardware</h4>
+
+                            <ul>
+                                <li>ESP32-CAM</li>
+                                <li>C++</li>
+                                <li>Arduino</li>
+                            </ul>
+                        </article>
+
+                        <article class="development-stack-card">
+                            <h4>Infrastructure</h4>
+
+                            <ul>
+                                <li>Docker</li>
+                                <li>Local Hosting</li>
+                            </ul>
+                        </article>
+
+                    </div>
+                </section>
 
                 <!-- Technical Challenges -->
                 <section class="development-challenges" aria-labelledby="challenges-title">
-                    <header class="development-subsection-header">
-                        <p class="development-label">
-                            02 / Technical Challenges
-                        </p>
 
-                        <h3 id="challenges-title">
-                            Solving for a working end-to-end experience.
-                        </h3>
+                    <header class="development-subsection-header">
+                        <p class="development-label">Technical Challenges</p>
+                        <h3 id="challenges-title">What We Had to Work Through</h3>
                     </header>
 
-                    <ol class="development-challenge-list">
-                        <li>
-                            <header>
-                                <span>01</span>
-                                <h4>API Integration</h4>
-                            </header>
+                    <div class="development-challenge-list">
 
-                            <p class="development-challenge-summary">
-                                Keeping API credentials secure while working
-                                with an external analysis service.
+                        <article>
+                            <span class="development-challenge-number">01</span>
+                            <h4>API Integration</h4>
+
+                            <p>
+                                Connecting to an external AI service required
+                                secure credential management and reliable
+                                communication between the backend and API.
                             </p>
 
-                            <dl>
-                                <dt>Solution</dt>
-                                <dd>
-                                    Environment variables kept sensitive
-                                    credentials outside the codebase.
-                                </dd>
+                            <div class="development-challenge-solution">
+                                <strong>Our Approach</strong>
+                                <p>
+                                    We used environment variables to keep
+                                    sensitive API credentials outside the codebase.
+                                </p>
+                            </div>
+                        </article>
 
-                                <dt>Learned</dt>
-                                <dd>
-                                    External services require secure credential
-                                    management and thoughtful handling of latency.
-                                </dd>
-                            </dl>
-                        </li>
+                        <article>
+                            <span class="development-challenge-number">02</span>
+                            <h4>Dynamic Interface</h4>
 
-                        <li>
-                            <header>
-                                <span>02</span>
-                                <h4>Dynamic UI</h4>
-                            </header>
-
-                            <p class="development-challenge-summary">
-                                Creating a responsive web experience without
-                                relying on a frontend framework.
+                            <p>
+                                We needed the website to update dynamically
+                                without relying on a frontend framework.
                             </p>
 
-                            <dl>
-                                <dt>Solution</dt>
-                                <dd>
-                                    JavaScript fetch() loaded modular HTML content
-                                    and updated the interface dynamically.
-                                </dd>
+                            <div class="development-challenge-solution">
+                                <strong>Our Approach</strong>
+                                <p>
+                                    We used JavaScript fetch() to load modular
+                                    HTML components and update the interface
+                                    without reloading the entire page.
+                                </p>
+                            </div>
+                        </article>
 
-                                <dt>Learned</dt>
-                                <dd>
-                                    Vanilla JavaScript can create SPA-like behavior
-                                    while keeping the project lightweight.
-                                </dd>
-                            </dl>
-                        </li>
-                    </ol>
+                    </div>
                 </section>
-
 
                 <!-- Iteration -->
                 <section class="development-iteration" aria-labelledby="iteration-title">
-                    <header class="development-subsection-header">
-                        <p class="development-label">03 / Iteration</p>
 
-                        <h3 id="iteration-title">
-                            Build. Measure. Learn.
-                        </h3>
+                    <header class="development-subsection-header">
+                        <p class="development-label">Iteration</p>
+                        <h3 id="iteration-title">Adapting to Technical Constraints</h3>
                     </header>
 
-                    <ol class="development-iteration-list">
-                        <li>
-                            <span>01</span>
-                            <h4>Mask</h4>
-                            <p>Wearable scan</p>
-                            <strong>
-                                Uncomfortable for regular use
-                            </strong>
-                        </li>
+                    <p>
+                        Our early prototypes faced challenges with camera distance, image quality, and capturing the
+                        full face. The face mask required complicated image stitching, while the wand still produced
+                        inconsistent results and required too much manual positioning.
 
-                        <li>
-                            <span>02</span>
-                            <h4>Wand</h4>
-                            <p>Localized scan</p>
-                            <strong>
-                                Too much manual interaction
-                            </strong>
-                        </li>
+                        We chose the mirror because it allowed for better image capture, a simpler setup, and a more
+                        natural fit into users' daily routines.
+                    </p>
 
-                        <li>
-                            <span>03</span>
-                            <h4>Mirror</h4>
-                            <p>Hands-free scan</p>
-                            <strong>
-                                Natural full-face experience
-                            </strong>
-                        </li>
+                    <ol class="development-iteration-flow">
+                        <li>Face Mask</li>
+                        <li>Wand</li>
+                        <li>Mirror</li>
                     </ol>
 
-                    <p class="development-iteration-summary">
-                        Each iteration reduced friction and brought DermiDew
-                        closer to a hands-free, integrated experience.
-                    </p>
                 </section>
-                
-            </section>
+
+            </div>
         </section>
 
 
@@ -1188,7 +1165,6 @@
                 <p class="project-section-number">Reflection</p>
                 <h2 id="reflection-title">Lessons & Next Steps</h2>
             </header>
-
 
 
             <!-- What I Learned -->
@@ -1232,8 +1208,6 @@
                 </p>
 
             </article>
-
-
 
         </section>
 
