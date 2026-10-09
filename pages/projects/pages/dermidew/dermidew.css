@@ -1468,7 +1468,6 @@ body[data-page="project-dermidew"] {
     flex-direction: column;
     align-items: start;
     gap: var(--space-9);
-    padding-bottom: 40px;
     width: 100%;
 }
 
@@ -1527,8 +1526,8 @@ body[data-page="project-dermidew"] {
     line-height: 1.2;
 }
 
-.design-subsection-header > p:last-child {
-    max-width: 620px;
+.design-subsection-header>p:last-child {
+    max-width: 100%;
     margin: var(--space-2) 0 0;
 
     color: var(--secondary-text-color-light);
@@ -1547,7 +1546,7 @@ body[data-page="project-dermidew"] {
 }
 
 .design-feature-header {
-    max-width: 720px;
+    width: 100%;
 }
 
 .design-feature-header h4 {
@@ -1561,14 +1560,14 @@ body[data-page="project-dermidew"] {
     line-height: 1.25;
 }
 
-.design-feature-header > p:last-child:not(.design-label) {
-    max-width: 620px;
+.design-feature-header>p:last-child:not(.design-label) {
+
     margin: var(--space-2) 0 0;
 
     color: var(--secondary-text-color-light);
 
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
 
@@ -1585,9 +1584,9 @@ body[data-page="project-dermidew"] {
 
 .design-web-intro {
     display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
     align-items: start;
-    gap: 64px;
+    gap: var(--space-5);
 }
 
 .design-web-intro-copy {
@@ -1609,7 +1608,7 @@ body[data-page="project-dermidew"] {
     line-height: 1.15;
 }
 
-.design-web-intro-copy > p:last-child {
+.design-web-intro-copy>p:last-child {
     margin: 0;
 
     color: var(--secondary-text-color-light);
@@ -1679,6 +1678,14 @@ body[data-page="project-dermidew"] {
     object-fit: cover;
 }
 
+.design-feature-header .interface-title {
+    color: var(--dark-blue);
+    font-family: var(--font-main);
+    font-size: var(--text-small);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
 
 /* Key Interface Captions */
 
@@ -1695,7 +1702,7 @@ body[data-page="project-dermidew"] {
     color: var(--theme-text-color);
 
     font-size: var(--text-medium);
-    font-weight: 800;
+    font-weight: 600;
 }
 
 .design-interface-grid figcaption span {
@@ -1736,13 +1743,14 @@ body[data-page="project-dermidew"] {
 }
 
 .design-demo figcaption {
-    margin-top: var(--space-2);
+    margin-top: var(--space-4);
 
-    color: var(--secondary-text-color-light);
+    color: var(--dark-blue);
 
     font-family: var(--font-main);
     font-size: var(--text-small);
     line-height: 1.6;
+    text-align: center;
 }
 
 
@@ -1756,7 +1764,7 @@ body[data-page="project-dermidew"] {
     margin: 0;
 }
 
-.design-mvp-copy > p {
+.design-mvp-copy>p {
     margin: var(--space-3) 0 0;
 
     color: var(--secondary-text-color-light);
@@ -1797,9 +1805,7 @@ body[data-page="project-dermidew"] {
 /* Interface Evolution */
 
 .design-evolution {
-    padding-top: 72px;
-
-    border-top: 1px solid var(--light-blue);
+    padding-top: var(--space-6);
 }
 
 .design-evolution-comparison {
@@ -1831,6 +1837,9 @@ body[data-page="project-dermidew"] {
     object-fit: cover;
 }
 
+#interface-evolution-title {
+    margin-bottom: var(--space-4);
+}
 
 /* Interface Evolution Captions */
 
@@ -1843,11 +1852,13 @@ body[data-page="project-dermidew"] {
     font-family: var(--font-main);
 }
 
-.design-evolution-comparison figcaption strong {
+.design-evolution-comparison figcaption strong,
+.design-prototype-list figcaption strong {
     color: var(--theme-text-color);
-
     font-size: var(--text-medium);
-    font-weight: 800;
+    font-weight: 600;
+    text-align: center;
+    margin: var(--space-2) 0;
 }
 
 .design-evolution-comparison figcaption span {
@@ -1858,56 +1869,25 @@ body[data-page="project-dermidew"] {
 }
 
 
-/* Interface Evolution Changes */
-
-.design-evolution-changes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-
-    margin: 8px 0 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-.design-evolution-changes li {
-    padding: 7px 12px;
-
-    color: var(--dark-blue);
-    background-color: var(--light-blue);
-
-    border-radius: 100px;
-
-    font-family: var(--font-main);
-    font-size: 0.75rem;
-    font-weight: 700;
-}
-
-
 /* Physical Product */
 
 .design-physical {
     display: grid;
-    gap: 96px;
-
-    padding-top: 72px;
-
-    border-top: 1px solid var(--light-blue);
+    gap: var(--space-6);
+    padding-top: var(--space-6);
 }
 
-.design-physical > .design-subsection-header {
+.design-physical .design-subsection-header {
     margin-bottom: 0;
 }
 
 .design-physical-title {
     width: fit-content;
-
-    margin: 0;
+    margin: 0 0 var(--space-3);
     padding: var(--space-2);
 
     color: var(--theme-text-color);
-    background-color: #ffe681;
+    background: #ffe681;
 
     font-family: var(--font-main);
     font-size: var(--text-heading);
@@ -1915,261 +1895,82 @@ body[data-page="project-dermidew"] {
     line-height: 1.15;
 }
 
-
-/* Physical Product Mirror */
-
-.design-mirror-feature {
-    gap: 32px;
+.design-subsection-header p {
+    width: 100%;
 }
 
-.design-mirror {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
-    align-items: center;
-    gap: 56px;
-}
-
-.design-mirror figure {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    min-width: 0;
-    height: 360px;
-    margin: 0;
-    padding: 28px;
-
-    background-color: var(--light-blue);
-
-    border: var(--glass-border);
-    border-radius: 14px;
-}
-
-.design-mirror figure img {
-    display: block;
-
-    width: auto;
-    height: auto;
-
-    max-width: 60%;
-    max-height: 290px;
-
-    object-fit: contain;
-}
-
-
-/* Physical Product Mirror Details */
-
-.design-mirror dl {
-    display: grid;
-    align-content: center;
-
-    margin: 0;
-}
-
-.design-mirror dl > div {
-    padding: 22px 0;
-
-    border-bottom: 1px solid var(--light-blue);
-}
-
-.design-mirror dl > div:first-child {
-    padding-top: 0;
-}
-
-.design-mirror dl > div:last-child {
-    padding-bottom: 0;
-
-    border-bottom: none;
-}
-
-.design-mirror dt {
-    margin: 0 0 6px;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    font-weight: 800;
-}
-
-.design-mirror dd {
-    max-width: 340px;
-    margin: 0;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    line-height: var(--line-height-body-text);
-}
-
-
-/* Physical Product Prototypes */
-
-.design-prototypes {
-    gap: 32px;
-
-    padding-top: 72px;
-
-    border-top: 1px solid var(--light-blue);
-}
+/* ==== Mirror Prototypes ==== */
 
 .design-prototype-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-.design-prototype-list li {
-    min-width: 0;
 }
 
 .design-prototype-list figure {
+    display: grid;
+    gap: var(--space-2);
+    min-width: 0;
     margin: 0;
 }
 
-.design-prototype-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.design-prototype-list img {
+    display: block;
+    box-sizing: border-box;
 
     width: 100%;
     height: 300px;
     padding: 24px;
 
-    overflow: hidden;
-
-    background-color: var(--light-blue);
-
+    object-fit: contain;
+    background: white;
     border: var(--glass-border);
     border-radius: 14px;
 }
 
-.design-prototype-image img {
-    display: block;
-
-    width: auto;
-    height: auto;
-
-    max-width: 58%;
-    max-height: 245px;
-
-    object-fit: contain;
-}
-
-
-/* Physical Product Prototype Captions */
+/* ==== Captions ==== */
 
 .design-prototype-list figcaption {
     display: grid;
     gap: 4px;
-
-    margin-top: var(--space-2);
-
     font-family: var(--font-main);
-}
-
-.design-prototype-list figcaption strong {
-    color: var(--theme-text-color);
-
-    font-size: var(--text-medium);
-    font-weight: 800;
 }
 
 .design-prototype-list figcaption span {
     color: var(--secondary-text-color-light);
-
     font-size: var(--text-small);
-    line-height: 1.5;
-}
-
-
-/* Design Takeaway */
-
-.design-takeaway {
-    padding: 48px 0;
-
-    border-top: 1px solid var(--light-blue);
-    border-bottom: 1px solid var(--light-blue);
-}
-
-.design-takeaway h3 {
-    max-width: 850px;
-    margin: 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.2;
-}
-
-.design-takeaway h3 span {
-    display: block;
-
-    color: var(--secondary-text-color-light);
+    line-height: var(--line-height-body-text);
 }
 
 
 /* ============================
-    DEVELOPMENT
+   DEVELOPMENT
 =============================== */
 
 .development-content {
     display: grid;
-    gap: 88px;
+    gap: 80px;
 }
 
-
-/* ==== Introduction ==== */
+.development-content>section {
+    min-width: 0;
+}
 
 .development-intro {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    align-items: end;
-    gap: 48px;
-
-    padding-bottom: 40px;
-    border-bottom: 1px solid var(--light-blue);
-}
-
-.development-intro h3 {
-    max-width: 650px;
-    margin: 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.15;
-}
-
-.development-intro p {
-    margin: 0;
-
     color: var(--secondary-text-color-light);
-
     font-family: var(--font-main);
     font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
 
-
-/* ==== Labels ==== */
+.development-subsection-header {
+    margin-bottom: 28px;
+}
 
 .development-label {
     margin: 0 0 var(--space-2);
 
     color: var(--dark-blue);
-
     font-family: var(--font-main);
     font-size: var(--text-small);
     font-weight: 800;
@@ -2178,47 +1979,34 @@ body[data-page="project-dermidew"] {
     letter-spacing: 0.06em;
 }
 
-
-/* ==== Subsection Headers ==== */
-
-.development-subsection-header {
-    margin-bottom: 40px;
-}
-
 .development-subsection-header h3 {
-    max-width: 720px;
     margin: 0;
 
     color: var(--theme-text-color);
-
     font-family: var(--font-main);
     font-size: var(--text-xlarge);
     font-weight: 800;
     line-height: 1.2;
 }
 
-
-/* ==== How It Works ==== */
+/* System Architecture */
 
 .development-flow {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-6);
 
-    margin: 0;
+    margin: 0 0 var(--space-5);
     padding: 0;
-
     list-style: none;
 }
 
 .development-flow li {
     position: relative;
-
-    padding: 28px;
-
-    background-color: var(--light-blue);
-    border: var(--glass-border);
-    border-radius: 12px;
+    min-width: 0;
+    padding: var(--space-5);
+    border: 1px solid var(--dark-blue);
+    border-radius: 10px;
 }
 
 .development-flow li:not(:last-child)::after {
@@ -2226,13 +2014,12 @@ body[data-page="project-dermidew"] {
 
     position: absolute;
     top: 50%;
-    right: -18px;
-    z-index: 2;
+    right: -25px;
+    z-index: 1;
 
     transform: translateY(-50%);
 
     color: var(--dark-yellow);
-
     font-family: var(--font-main);
     font-size: var(--text-large);
     font-weight: 800;
@@ -2240,11 +2027,9 @@ body[data-page="project-dermidew"] {
 
 .development-flow span {
     display: block;
-
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 
     color: var(--dark-yellow);
-
     font-family: var(--font-main);
     font-size: var(--text-small);
     font-weight: 800;
@@ -2254,311 +2039,222 @@ body[data-page="project-dermidew"] {
     display: block;
 
     color: var(--theme-text-color);
-
     font-family: var(--font-main);
-    font-size: var(--text-large);
+    font-size: var(--text-medium);
     font-weight: 800;
 }
 
-.development-flow p {
-    margin: var(--space-1) 0 0;
+.development-flow li p {
+    margin: 4px 0 0;
 
     color: var(--secondary-text-color-light);
-
     font-family: var(--font-main);
     font-size: var(--text-small);
 }
 
 .development-flow-description {
-    max-width: 720px;
-    margin: 24px 0 0;
+    margin: 0;
 
     color: var(--secondary-text-color-light);
-
     font-family: var(--font-main);
     font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
 
+/* Tech Stack */
 
-/* ==== Tech Stack ==== */
-
-.development-stack {
-    margin-top: 48px;
-    padding-top: 32px;
-
-    border-top: 1px solid var(--light-blue);
+.development-stack-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
 }
 
-.development-stack h4 {
-    margin: 0 0 24px;
+.development-stack-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    min-width: 0;
+    padding: var(--space-5);
+
+    background: var(--light-blue);
+    border-radius: 15px;
+}
+
+.development-stack-card h4 {
+    margin: 0;
 
     color: var(--theme-text-color);
-
     font-family: var(--font-main);
-    font-size: var(--text-large);
+    font-size: var(--text-medium);
     font-weight: 800;
 }
 
-.development-stack dl {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
+.development-stack-card ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 
     margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.development-stack dt {
-    margin-bottom: var(--space-2);
+.development-stack-card li {
+    padding: 6px 10px;
 
-    color: var(--dark-blue);
+    color: var(--theme-text-color);
+    background: #fff;
+    border-radius: 6px;
 
     font-family: var(--font-main);
     font-size: var(--text-small);
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-weight: 600;
 }
 
-.development-stack dd {
-    margin: 0 0 var(--space-1);
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    line-height: 1.6;
+.development-stack-card:nth-of-type(1) {
+    background: var(--light-blue);
 }
 
+.development-stack-card:nth-of-type(2) {
+    background: #FFE49A;
+}
 
-/* ==== Technical Challenges ==== */
+.development-stack-card:nth-of-type(3) {
+    background: #E5E8FA;
+}
+
+.development-stack-card:nth-of-type(4) {
+    background: #D8F0E8;
+}
+
+/* Technical Challenges */
 
 .development-challenges {
-    padding-top: 72px;
-    border-top: 1px solid var(--light-blue);
+    padding: var(--space-8) 0 0;
 }
 
 .development-challenge-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
 }
 
-.development-challenge-list>li {
-    padding: 32px;
-
-    background-color: var(--light-blue);
-    border: var(--glass-border);
+.development-challenge-list article {
+    min-width: 0;
+    padding: var(--space-6);
+    border: 1px solid var(--yellow);
     border-radius: 12px;
 }
 
-.development-challenge-list header {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-
-    margin-bottom: 16px;
-}
-
-.development-challenge-list header span {
+.development-challenge-number {
     color: var(--dark-yellow);
-
     font-family: var(--font-main);
     font-size: var(--text-small);
     font-weight: 800;
 }
 
 .development-challenge-list h4 {
-    margin: 0;
+    margin: var(--space-4) 0;
 
     color: var(--theme-text-color);
-
     font-family: var(--font-main);
     font-size: var(--text-large);
     font-weight: 800;
 }
 
-.development-challenge-summary {
+.development-challenge-list article p {
+    margin: 0;
+    color: var(--secondary-text-color-light);
+    font-family: var(--font-main);
+    font-size: var(--text-small);
+    line-height: var(--line-height-body-text);
+}
+
+.development-challenge-solution {
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
+}
+
+.development-challenge-solution strong {
+    display: block;
+    margin-bottom: 8px;
+
+    color: var(--dark-blue);
+    font-family: var(--font-main);
+    font-size: var(--text-small);
+    font-weight: 800;
+}
+
+/* Iteration */
+
+.development-iteration {
+    padding: var(--space-6) 0 0;
+}
+
+.development-iteration>p {
     margin: 0 0 28px;
 
     color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    line-height: 1.6;
-}
-
-.development-challenge-list dl {
-    margin: 0;
-}
-
-.development-challenge-list dt {
-    margin: 20px 0 var(--space-1);
-
-    color: var(--dark-blue);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.development-challenge-list dd {
-    margin: 0;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    line-height: 1.6;
-}
-
-
-/* ==== Iteration ==== */
-
-.development-iteration {
-    padding-top: 72px;
-    border-top: 1px solid var(--light-blue);
-}
-
-.development-iteration-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    margin: 0;
-    padding: 0;
-
-    border-top: 1px solid var(--medium-blue);
-    border-bottom: 1px solid var(--medium-blue);
-
-    list-style: none;
-}
-
-.development-iteration-list li {
-    padding: 32px;
-}
-
-.development-iteration-list li:not(:last-child) {
-    border-right: 1px solid var(--medium-blue);
-}
-
-.development-iteration-list span {
-    color: var(--dark-yellow);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    font-weight: 800;
-}
-
-.development-iteration-list h4 {
-    margin: 16px 0 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: var(--text-large);
-    font-weight: 800;
-}
-
-.development-iteration-list p {
-    margin: var(--space-1) 0 24px;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-}
-
-.development-iteration-list strong {
-    display: block;
-
-    max-width: 220px;
-
-    color: var(--dark-blue);
-
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    font-weight: 700;
-    line-height: 1.4;
-}
-
-.development-iteration-summary {
-    max-width: 680px;
-    margin: 24px 0 0;
-
-    color: var(--secondary-text-color-light);
-
     font-family: var(--font-main);
     font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
 
+.development-iteration-flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
 
-/* ==== Development Takeaway ==== */
-
-.development-takeaway {
-    padding: 48px 0;
-
-    border-top: 1px solid var(--light-blue);
-    border-bottom: 1px solid var(--light-blue);
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.development-takeaway h3 {
-    max-width: 850px;
-    margin: 0;
+.development-iteration-flow li {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
 
     color: var(--theme-text-color);
-
     font-family: var(--font-main);
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: var(--text-medium);
     font-weight: 800;
-    line-height: 1.2;
 }
 
-.development-takeaway h3 span {
-    display: block;
+.development-iteration-flow li:not(:last-child)::after {
+    content: "→";
 
-    color: var(--secondary-text-color-light);
+    color: var(--dark-yellow);
+    font-weight: 800;
 }
 
 
 /* ============================
     REFLECTION
 =============================== */
-.reflection-content {
-    display: grid;
-    gap: 64px;
-}
 
-
-/* ==== Reflection Blocks ==== */
 
 .reflection-block {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
     gap: 64px;
-
-    padding-bottom: 64px;
-    border-bottom: 1px solid var(--light-blue);
+    padding: var(--space-3) 0;
 }
 
-.reflection-block header {
-    max-width: 500px;
+.reflection-block p {
+    margin: 0;
+
+    color: var(--secondary-text-color-light);
+    font-family: var(--font-main);
+    font-size: var(--text-medium);
+    line-height: var(--line-height-body-text);
 }
 
 .reflection-label {
     margin: 0 0 var(--space-2);
 
     color: var(--dark-blue);
-
     font-family: var(--font-main);
     font-size: var(--text-small);
     font-weight: 800;
@@ -2567,61 +2263,47 @@ body[data-page="project-dermidew"] {
     letter-spacing: 0.06em;
 }
 
-.reflection-block h3 {
-    margin: 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: var(--text-xlarge);
-    font-weight: 800;
-    line-height: 1.2;
+.lessons-article {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: var(--space-7);
+    align-items: center;
+    justify-content: center;
 }
 
-
-/* ==== Reflection Copy ==== */
-
-.reflection-copy {
-    max-width: 620px;
+.lessons-article header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
 }
 
-.reflection-copy p {
-    margin: 0;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    line-height: var(--line-height-body-text);
+#reflection-sun {
+    display: block;
+    width: 150px;
+    height: auto;
+    color: var(--yellow);
+    align-self: center;
 }
 
-.reflection-copy p+p {
-    margin-top: var(--space-3);
+.lessons-article h3 {
+    color: var(--medium-blue);
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.5;
+    white-space: wrap;
+    margin-top: var(--space-1);
+    text-align: center;
 }
 
-
-/* ==== Final Takeaway ==== */
-
-.reflection-takeaway {
-    padding: 16px 0 48px;
+.lessons-article p {
+    width: 90%;
 }
 
-.reflection-takeaway h3 {
-    max-width: 900px;
-    margin: 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.2;
+.forwards-article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
 }
-
-.reflection-takeaway h3 span {
-    color: var(--secondary-text-color-light);
-}
-
 
 
 /* ============================
@@ -2868,73 +2550,44 @@ body[data-page="project-dermidew"] {
 
 
     /* ---- Development Section ---- */
-
     .development-content {
-        gap: 64px;
+        gap: 56px;
     }
 
     .development-intro {
         grid-template-columns: 1fr;
-        align-items: start;
-        gap: var(--space-3);
-
+        gap: 20px;
         padding-bottom: 32px;
     }
 
     .development-flow {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .development-flow li::after {
         display: none;
     }
 
-    .development-stack dl {
-        grid-template-columns: repeat(2, 1fr);
+    .development-stack-grid,
+    .development-challenge-list {
+        grid-template-columns: 1fr;
     }
 
     .development-challenges,
     .development-iteration {
-        padding-top: 56px;
+        padding-top: 40px;
     }
-
-    .development-challenge-list,
-    .development-iteration-list {
-        grid-template-columns: 1fr;
-    }
-
-    .development-iteration-list li:not(:last-child) {
-        border-right: 0;
-        border-bottom: 1px solid var(--medium-blue);
-    }
-
-    .development-takeaway {
-        padding: 40px 0;
-    }
-
 
     /* ---- Reflection Section ---- */
-
     .reflection-content {
-        gap: 56px;
+        margin-top: 32px;
     }
 
     .reflection-block {
         grid-template-columns: 1fr;
-        gap: 24px;
-
-        padding-bottom: 56px;
+        gap: 20px;
+        padding: 36px 0;
     }
-
-    .reflection-block header,
-    .reflection-copy {
-        max-width: 100%;
-    }
-
-    .reflection-takeaway {
-        padding-bottom: 40px;
-    }
-
 }
 
 
@@ -3308,9 +2961,4 @@ body[data-page="project-dermidew"] {
     .reflection-copy p+p {
         margin-top: var(--space-2);
     }
-
-    .reflection-takeaway {
-        padding: 8px 0 32px;
-    }
-
 }

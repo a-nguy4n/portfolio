@@ -80,9 +80,12 @@ body[data-project] .project-specific-sections {
     text-decoration: underline;
 }
 
-.project-specific-sections a.is-active {
-    text-decoration: underline;
+body[data-project] .project-specific-sections a.is-active {
+    text-decoration: underline !important;
+    text-decoration-line: underline !important;
     text-underline-offset: 0.2em;
+    text-decoration-thickness: 2px;
+    text-decoration-color: currentColor;
 }
 
 
