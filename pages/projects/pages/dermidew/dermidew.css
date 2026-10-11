@@ -181,25 +181,42 @@ body[data-page="project-dermidew"] {
     line-height: var(--line-height-body-text);
 }
 
+
+
 .overview-card--hero {
     grid-area: hero;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 
     min-height: 520px;
     padding: 0;
 
     overflow: hidden;
-    background-color: var(--light-blue);
 }
 
-.overview-card--hero img {
+.overview-card--hero video {
     display: block;
 
-    width: 100%;
-    height: 100%;
-    min-height: 520px;
+    flex: 0 1 auto;
+    max-width: 100%;
+    height: auto;
 
-    object-fit: cover;
+    object-fit: contain;
 }
+
+/* Individual video sizing */
+.hero-video--top {
+    width: 75%;
+}
+
+.hero-video--bottom {
+    width: 95%;
+}
+
 
 .overview-card--summary {
     grid-area: summary;
@@ -1457,7 +1474,7 @@ body[data-page="project-dermidew"] {
 
 .design-content {
     display: grid;
-    gap: 88px;
+    gap: var(--space-8);
 }
 
 
@@ -1576,24 +1593,22 @@ body[data-page="project-dermidew"] {
 
 .design-web {
     display: grid;
-    gap: 96px;
+    gap: var(--space-8);
 }
 
 
 /* Web App Introduction */
 
 .design-web-intro {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    display: flex;
+    flex-direction: column;
     align-items: start;
     gap: var(--space-5);
 }
 
-.design-web-intro-copy {
-    max-width: 520px;
-}
 
-.design-web-intro-copy h4 {
+
+.design-web-intro h4 {
     width: fit-content;
 
     margin: var(--space-2) 0 var(--space-3);
@@ -1608,7 +1623,7 @@ body[data-page="project-dermidew"] {
     line-height: 1.15;
 }
 
-.design-web-intro-copy>p:last-child {
+.design-web-intro>p:last-child {
     margin: 0;
 
     color: var(--secondary-text-color-light);
@@ -1937,7 +1952,7 @@ body[data-page="project-dermidew"] {
 
 .development-content {
     display: grid;
-    gap: 80px;
+    gap: var(--space-8);
 }
 
 .development-content>section {
@@ -2478,11 +2493,6 @@ body[data-page="project-dermidew"] {
         grid-template-columns: 1fr;
         gap: 32px;
     }
-
-    .design-web-intro-copy {
-        max-width: 650px;
-    }
-
 
     /* Interfaces */
 
