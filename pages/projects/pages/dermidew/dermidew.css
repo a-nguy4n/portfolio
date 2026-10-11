@@ -1811,7 +1811,7 @@ body[data-page="project-dermidew"] {
 .design-evolution-comparison {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: var(--space-4);
 }
 
 .design-evolution-comparison figure {
@@ -1819,22 +1819,17 @@ body[data-page="project-dermidew"] {
     margin: 0;
 }
 
-.design-evolution-image {
-    overflow: hidden;
-
-    background-color: var(--light-blue);
-
-    border: var(--glass-border);
-    border-radius: 14px;
-}
-
-.design-evolution-image img {
+.design-evolution-media {
     display: block;
 
     width: 100%;
     aspect-ratio: 16 / 10;
 
-    object-fit: cover;
+    object-fit: contain;
+    overflow: hidden;
+
+    background-color: white;
+    box-sizing: border-box;
 }
 
 #interface-evolution-title {
@@ -1863,9 +1858,9 @@ body[data-page="project-dermidew"] {
 
 .design-evolution-comparison figcaption span {
     color: var(--secondary-text-color-light);
-
     font-size: var(--text-small);
     line-height: 1.5;
+    text-align: center;
 }
 
 
