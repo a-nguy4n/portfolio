@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Wardrobe Write-Up</title>
+
+    <link rel="stylesheet" href="/assets/css/global-tokens.css">
+    <link rel="stylesheet" href="/assets/css/global.css">
+
+    <link rel="stylesheet" href="/pages/projects/pages/weather-wardrobe/weather-wardrobe.css">
+
+    <link rel="stylesheet" href="/assets/components/logo/logo.css">
+    <link rel="stylesheet" href="/assets/components/searchbar/searchbar.css">
+    <link rel="stylesheet" href="/pages/projects/pages/styles.css">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=location_city,school" />
+
+    <script type="module" src="/scripts/init.js"></script>
+    <script type="module" src="/pages/projects/pages/styles-nav.js"></script>
+</head>
+
+<body data-project="weather-wardrobe" data-page="project-weather-wardrobe">
+
+    <header class="project-site-header">
+        <logo-button></logo-button>
+
+        <nav class="project-specific-nav">
+            <header class="project-specific-breadcrumb">
+                <p class="breadcrumb-separator">/</p>
+                <a href="/pages/projects/projects.html">PROJECTS</a>
+                <p class="breadcrumb-separator">/</p>
+                <h1>Weather Wardrobe</h1>
+            </header>
+
+            <span class="project-specific-sections">
+                <a href="#overview-socal">Overview</a>
+                <a href="#problem-socal">Problem</a>
+                <a href="#research-socal">Research</a>
+                <a href="#strategy-socal">Strategy</a>
+                <a href="#design-socal">Design</a>
+                <a href="#takeaway-socal">Takeaway</a>
+            </span>
+        </nav>
+
+        <search-bar></search-bar>
+    </header>
+
+    <main class="project-content">
+        <!-- 01 / HERO -->
+        <section class="motion-section" aria-labelledby="weather-title">
+            <div class="motion-content">
+                <p class="eyebrow hero-eyebrow">FULL-STACK · IOT · AI INTEGRATION</p>
+                <h1 class="motion-title" id="weather-title">Weather Wardrobe</h1>
+                <p class="motion-tagline">Your wardrobe, powered by the weather.</p>
+                <figure class="motion-media">
+                    <div class="media-placeholder hero-media" role="img"
+                        aria-label="Placeholder for Weather Wardrobe dashboard demo">
+                        <span class="placeholder-icon" aria-hidden="true">☀</span>
+                        <span>Dashboard demo / hero screenshot</span>
+                        <small>Replace with a screenshot, GIF, or looping video</small>
+                    </div>
+                </figure>
+                <a class="hero-scroll" href="#overview-weather">Explore the project <span
+                        aria-hidden="true">↓</span></a>
+            </div>
+        </section>
+
+        <!-- 02 / OVERVIEW -->
+        <section id="overview-weather" class="overview-content project-content_section"
+            aria-labelledby="overview-title">
+            <h2 id="overview-title" class="section-heading">Overview</h2>
+            <div class="overview-layout">
+                <article class="overview-description">
+                    <p>Weather Wardrobe is an IoT-powered wardrobe assistant that combines real-time temperature
+                        readings, weather forecasts, and AI to help users make everyday outfit decisions.</p>
+                    <p>Built as a full-stack class project, the application connects physical sensors to a personalized
+                        web dashboard. Users can register ESP32 devices, view live temperature data, and ask an AI
+                        assistant for weather-informed clothing recommendations.</p>
+                    <div class="overview-objective">
+                        <span class="section-label">THE OBJECTIVE</span>
+                        <h3>Connecting physical sensors to everyday decisions.</h3>
+                        <p>The goal was to collect environmental data from hardware, transmit it to a web application,
+                            and turn it into useful information through an interactive interface.</p>
+                    </div>
+                </article>
+                <dl class="project-details">
+                    <div class="project-detail">
+                        <dt>Project Type</dt>
+                        <dd>Academic assignment</dd>
+                    </div>
+                    <div class="project-detail">
+                        <dt>Focus</dt>
+                        <dd>Full-stack development<br>IoT integration<br>AI-assisted experiences</dd>
+                    </div>
+                    <div class="project-detail">
+                        <dt>Hardware</dt>
+                        <dd>ESP32 temperature sensor</dd>
+                    </div>
+                    <div class="project-detail">
+                        <dt>Technologies</dt>
+                        <dd>MQTT messaging<br>Web application<br>Weather &amp; AI integrations</dd>
+                    </div>
+                    <div class="project-detail">
+                        <dt>My Role</dt>
+                        <dd>[Add your contributions]</dd>
+                    </div>
+                    <div class="project-detail">
+                        <dt>Timeline</dt>
+                        <dd>[Add timeframe]</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- 03 / TECHNICAL IMPLEMENTATION -->
+        <section id="technical-weather" class="technical-content project-content_section"
+            aria-labelledby="technical-title">
+            <h2 id="technical-title" class="section-heading">Technical Implementation</h2>
+            <header class="technical-intro">
+                <span class="section-label">SYSTEM ARCHITECTURE</span>
+                <h3>From sensor readings to smart recommendations.</h3>
+                <p>The system brings together sensor hardware, real-time messaging, application logic, and external
+                    services to make weather information accessible and actionable.</p>
+            </header>
+            <figure class="architecture-figure">
+                <div class="architecture-flow"
+                    aria-label="Simplified conceptual flow from ESP32 sensor through MQTT and application layer to dashboard and AI assistant">
+                    <div class="flow-node"><span class="flow-icon">01</span><strong>ESP32 Sensor</strong><small>Capture
+                            temperature readings</small></div>
+                    <span class="flow-arrow" aria-hidden="true">→</span>
+                    <div class="flow-node"><span class="flow-icon">02</span><strong>MQTT
+                            Messaging</strong><small>Transmit sensor data</small></div>
+                    <span class="flow-arrow" aria-hidden="true">→</span>
+                    <div class="flow-node"><span class="flow-icon">03</span><strong>Application
+                            Layer</strong><small>Process &amp; manage data</small></div>
+                    <span class="flow-arrow" aria-hidden="true">→</span>
+                    <div class="flow-node flow-node--outcomes"><strong>Dashboard + AI</strong><small>Visualize readings
+                            &amp; provide recommendations</small></div>
+                </div>
+                <figcaption>Simplified conceptual flow. Replace or supplement with your actual component diagram for the
+                    precise architecture.</figcaption>
+            </figure>
+            <div class="technical-grid">
+                <article class="technical-card"><span class="card-number">01 / IOT</span>
+                    <h4>Real-Time Sensor Data</h4>
+                    <p>An ESP32 device collects temperature readings and publishes them through MQTT, connecting the
+                        physical environment to the web application.</p>
+                </article>
+                <article class="technical-card"><span class="card-number">02 / APPLICATION</span>
+                    <h4>Full-Stack Data Flow</h4>
+                    <p>The application manages registered devices and their readings, providing a personalized dashboard
+                        where users can access environmental information.</p>
+                </article>
+                <article class="technical-card"><span class="card-number">03 / INTELLIGENCE</span>
+                    <h4>AI + Weather Context</h4>
+                    <p>Weather information and sensor data support an AI-powered assistant that helps translate
+                        environmental conditions into outfit suggestions.</p>
+                </article>
+            </div>
+
+            <!-- Architecture diagrams: replace placeholder panels with your diagram images. -->
+            <section class="architecture-diagrams" aria-labelledby="diagrams-title">
+                <header class="diagrams-intro">
+                    <span class="section-label">ARCHITECTURE DIAGRAMS</span>
+                    <h3 id="diagrams-title">How the system is structured.</h3>
+                    <p>Three views of the application's data, interactions, and connected components.</p>
+                </header>
+
+                <article class="diagram-section">
+                    <div class="diagram-description">
+                        <span class="card-number">01 / DATA MODEL</span>
+                        <h4>Entity-Relationship Diagram</h4>
+                        <p>A look at the entities and relationships that organize the application's data.</p>
+                    </div>
+                    <figure class="diagram-media media-placeholder">
+                        <span>Entity-relationship diagram</span>
+                        <small>Replace with your ERD image</small>
+                    </figure>
+                </article>
+
+                <article class="diagram-section">
+                    <div class="diagram-description">
+                        <span class="card-number">02 / INTERACTIONS</span>
+                        <h4>Sequence Diagram</h4>
+                        <p>Follow the interactions between system components through key application workflows.</p>
+                    </div>
+                    <div class="diagram-carousel" aria-label="Sequence diagrams" tabindex="0">
+                        <div class="diagram-carousel-track" id="sequence-carousel">
+                            <figure class="diagram-slide media-placeholder" id="sequence-slide-1">
+                                <span>Sequence diagram 1</span>
+                                <small>Replace with your first sequence diagram</small>
+                            </figure>
+                            <figure class="diagram-slide media-placeholder" id="sequence-slide-2">
+                                <span>Sequence diagram 2</span>
+                                <small>Replace with your second sequence diagram</small>
+                            </figure>
+                            <figure class="diagram-slide media-placeholder" id="sequence-slide-3">
+                                <span>Sequence diagram 3</span>
+                                <small>Replace with your third sequence diagram; add or remove slides as needed</small>
+                            </figure>
+                        </div>
+                        <div class="diagram-carousel-controls">
+                            <button type="button" class="carousel-arrow" data-carousel-prev
+                                aria-label="Previous sequence diagram">←</button>
+                            <span class="carousel-status" aria-live="polite">1 / 3</span>
+                            <button type="button" class="carousel-arrow" data-carousel-next
+                                aria-label="Next sequence diagram">→</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="diagram-section">
+                    <div class="diagram-description">
+                        <span class="card-number">03 / SYSTEM OVERVIEW</span>
+                        <h4>Component Diagram</h4>
+                        <p>An overview of how the hardware, application, and external services connect.</p>
+                    </div>
+                    <figure class="diagram-media media-placeholder">
+                        <span>Component diagram</span>
+                        <small>Replace with your component diagram image</small>
+                    </figure>
+                </article>
+            </section>
+        </section>
+
+        <!-- 04 / FINAL PRODUCT -->
+        <section id="product-weather" class="product-content project-content_section" aria-labelledby="product-title">
+            <h2 id="product-title" class="section-heading">Final Product</h2>
+            <header class="product-intro">
+                <span class="section-label">THE EXPERIENCE</span>
+                <h3>Making weather data useful.</h3>
+                <p>Two core experiences bring the connected system to life.</p>
+            </header>
+            <div class="feature-list">
+                <article class="feature-row">
+                    <div class="feature-media media-placeholder video-placeholder">
+                        <!-- Replace the placeholder below with your data-collection video:
+          <video controls playsinline preload="metadata" poster="media/data-collection-poster.jpg">
+            <source src="media/data-collection.mp4" type="video/mp4">
+            Your browser does not support HTML video.
+          </video>
+          -->
+                        <span>Data collection video</span>
+                        <small>ESP32 sensor readings + live dashboard demo</small>
+                    </div>
+                    <div class="feature-copy">
+                        <span class="card-number">01 / COLLECT + MONITOR</span>
+                        <h4>Real-Time Data Collection</h4>
+                        <p>See how the ESP32 captures temperature readings and sends them through the system for display
+                            in the application dashboard.</p>
+                    </div>
+                </article>
+                <article class="feature-row feature-row--reverse">
+                    <div class="feature-media media-placeholder"><span>AI assistant screenshot or demo</span></div>
+                    <div class="feature-copy">
+                        <span class="card-number">02 / RECOMMEND</span>
+                        <h4>AI Wardrobe Assistant</h4>
+                        <p>Users can ask what to wear and receive clothing suggestions informed by weather conditions.
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <footer class="project-takeaway"><span class="section-label">TAKEAWAY</span>
+                <h3>Bringing hardware, software, and AI together.</h3>
+                <p>Weather Wardrobe was an opportunity to connect multiple technologies into a cohesive application—from
+                    collecting physical sensor data to presenting it through a dashboard and AI-assisted interactions.
+                </p>
+            </footer>
+        </section>
+    </main>
+
+    <footer class="end-result">
+        <h3> ── Thanks for exploring SoCalSocial ── </h3>
+        <logo-button class="footer-logo"></logo-button>
+        <p> Allison H. Nguyen's Portfolio</p>
+        <i> designed & coded-line-by-line, old school style </i>
+        <a href="/pages/projects/projects.html" class="footer-catchphrase--project">
+            One project down, more to discover . . . →
+        </a>
+    </footer>
+<!-- 
+    <script>
+        (() => {
+            const carousel = document.querySelector('.diagram-carousel');
+            if (!carousel) return;
+            const track = carousel.querySelector('.diagram-carousel-track');
+            const slides = [...track.querySelectorAll('.diagram-slide')];
+            const status = carousel.querySelector('.carousel-status');
+            const previous = carousel.querySelector('[data-carousel-prev]');
+            const next = carousel.querySelector('[data-carousel-next]');
+            let index = 0;
+            function showSlide(i) {
+                index = (i + slides.length) % slides.length;
+                track.style.transform = `translateX(-${index * 100}%)`;
+                status.textContent = `${index + 1} / ${slides.length}`;
+            }
+            previous.addEventListener('click', () => showSlide(index - 1));
+            next.addEventListener('click', () => showSlide(index + 1));
+            carousel.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowLeft') { event.preventDefault(); showSlide(index - 1); }
+                if (event.key === 'ArrowRight') { event.preventDefault(); showSlide(index + 1); }
+            });
+            showSlide(0);
+        })();
+    </script> -->
+</body>
+
+</html>
