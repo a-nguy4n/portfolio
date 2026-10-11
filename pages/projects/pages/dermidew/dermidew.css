@@ -1583,17 +1583,15 @@ body[data-page="project-dermidew"] {
 /* Web App Introduction */
 
 .design-web-intro {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    display: flex;
+    flex-direction: column;
     align-items: start;
     gap: var(--space-5);
 }
 
-.design-web-intro-copy {
-    max-width: 520px;
-}
 
-.design-web-intro-copy h4 {
+
+.design-web-intro h4 {
     width: fit-content;
 
     margin: var(--space-2) 0 var(--space-3);
@@ -1608,7 +1606,7 @@ body[data-page="project-dermidew"] {
     line-height: 1.15;
 }
 
-.design-web-intro-copy>p:last-child {
+.design-web-intro>p:last-child {
     margin: 0;
 
     color: var(--secondary-text-color-light);
@@ -2478,11 +2476,6 @@ body[data-page="project-dermidew"] {
         grid-template-columns: 1fr;
         gap: 32px;
     }
-
-    .design-web-intro-copy {
-        max-width: 650px;
-    }
-
 
     /* Interfaces */
 
