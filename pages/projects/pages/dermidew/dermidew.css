@@ -1457,7 +1457,7 @@ body[data-page="project-dermidew"] {
 
 .design-content {
     display: grid;
-    gap: 88px;
+    gap: var(--space-8);
 }
 
 
@@ -1576,7 +1576,7 @@ body[data-page="project-dermidew"] {
 
 .design-web {
     display: grid;
-    gap: 96px;
+    gap: var(--space-8);
 }
 
 
@@ -1935,7 +1935,7 @@ body[data-page="project-dermidew"] {
 
 .development-content {
     display: grid;
-    gap: 80px;
+    gap: var(--space-8);
 }
 
 .development-content>section {
