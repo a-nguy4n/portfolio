@@ -25,6 +25,10 @@ body[data-page="project-socal"] {
         --logo-button-hover-color: #895bab;
     }
 
+    footer logo-button {
+        --logo-button-hover-color: #6f5cc4 !important; 
+    }
+
     .end-result {
         color: var(--color-two);
     }
