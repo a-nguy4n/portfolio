@@ -181,8 +181,6 @@ body[data-page="project-dermidew"] {
     line-height: var(--line-height-body-text);
 }
 
-
-
 .overview-card--hero {
     grid-area: hero;
 
@@ -557,21 +555,16 @@ body[data-page="project-dermidew"] {
 /* Small secondary reflection */
 .research-bubble::after {
     content: "";
-
     position: absolute;
 
     right: 16%;
     bottom: 17%;
-
     width: 18%;
     height: 10%;
 
     border-bottom: 2px solid var(--medium-blue);
-
     border-radius: 50%;
-
     transform: rotate(-35deg);
-
     opacity: 0.7;
 }
 
@@ -2313,294 +2306,22 @@ body[data-page="project-dermidew"] {
     RESPONSIVE
 =============================== */
 
-/* ==== Tablet ==== */
 
-@media (max-width: 800px) {
-
-    /* ---- General ---- */
-
-    .project-content {
-        width: min(100% - 32px, 1100px);
-    }
-
-
-    /* ---- Overview Section ---- */
-
-    .overview-bento {
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-            "hero hero"
-            "summary summary"
-            "problem solution"
-            "role details";
-    }
-
-    .overview-card--hero,
-    .overview-card--hero img {
-        min-height: 380px;
-    }
-
-    .overview-details {
-        grid-template-columns: 1fr 1fr;
-    }
-
-
-    /* ---- Research Section ---- */
-
-    .research-content {
-        gap: 48px;
-    }
-
-    .research-intro,
-    .research-findings,
-    .research-persona-card {
-        grid-template-columns: 1fr;
-    }
-
-    .research-intro {
-        align-items: start;
-        gap: var(--space-3);
-        padding-bottom: 32px;
-    }
-
-    .research-stat {
-        min-height: 460px;
-    }
-
-    .research-bubbles {
-        top: 16%;
-        right: 4%;
-
-        width: 140px;
-        height: 150px;
-
-        transform: scale(0.8);
-        transform-origin: top right;
-    }
-
-    .research-stat-number {
-        font-size: clamp(6rem, 27vw, 8rem);
-    }
-
-    .research-stat-content::before {
-        left: -20%;
-
-        width: 95%;
-        height: 45%;
-    }
-
-    .research-personas-header {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-    }
-
-    .research-personas-note {
-        line-height: var(--line-height-body-text);
-    }
-
-    .research-opportunity {
-        padding: 40px 0;
-    }
-
-
-    /* ---- Product Strategy Section ---- */
-
-    .strategy-content {
-        gap: var(--space-4);
-    }
-
-    .strategy-intro,
-    .strategy-validation {
-        grid-template-columns: 1fr;
-    }
-
-    .strategy-intro {
-        align-items: start;
-        gap: var(--space-3);
-        padding-bottom: 32px;
-    }
-
-    .strategy-evolution-list,
-    .strategy-reasoning-list,
-    .strategy-mvp-pillars {
-        grid-template-columns: 1fr;
-    }
-
-    .strategy-evolution-step:not(:last-child)::after {
-        content: "↓";
-        top: auto;
-        right: 50%;
-        bottom: -20px;
-
-        transform: translateX(50%);
-    }
-
-    .strategy-mvp {
-        padding: 32px;
-    }
-
-    .strategy-core-value {
-        margin: 32px auto;
-    }
-
-    .strategy-direction-options {
-        grid-template-columns: 1fr;
-    }
-
-
-    /* ---- Design Section ---- */
-
-    .design-content {
-        gap: 64px;
-    }
-
-    .design-intro {
-        grid-template-columns: 1fr;
-        align-items: start;
-        gap: var(--space-3);
-
-        padding-bottom: 32px;
-    }
-
-    .design-web,
-    .design-physical {
-        gap: 48px;
-    }
-
-    .design-physical {
-        padding-top: 56px;
-    }
-
-    .design-subsection-header {
-        margin-bottom: 32px;
-    }
-
-    .design-comparison,
-    .design-interface-list,
-    .design-prototype-list {
-        grid-template-columns: 1fr;
-    }
-
-
-    /* Web Design */
-
-    .design-web {
-        gap: 80px;
-    }
-
-    .design-web-intro {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-
-    /* Interfaces */
-
-    .design-interface-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-
-    /* MVP */
-
-    .design-mvp {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-
-    .design-mvp-copy {
-        max-width: 620px;
-    }
-
-
-    /* Physical Product */
-
-    .design-mirror {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-
-    .design-mirror figure {
-        min-height: 420px;
-    }
-
-    .design-mirror img {
-        min-height: 0;
-        aspect-ratio: 4 / 3;
-    }
-
-    .design-mirror dl {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-
-        padding: 32px;
-    }
-
-    .design-mirror dl>div {
-        padding: 0;
-
-        border-bottom: none;
-    }
-
-    .design-takeaway {
-        padding: 40px 0;
-    }
-
-
-    /* ---- Development Section ---- */
-    .development-content {
-        gap: 56px;
-    }
-
-    .development-intro {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding-bottom: 32px;
-    }
-
-    .development-flow {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .development-flow li::after {
-        display: none;
-    }
-
-    .development-stack-grid,
-    .development-challenge-list {
-        grid-template-columns: 1fr;
-    }
-
-    .development-challenges,
-    .development-iteration {
-        padding-top: 40px;
-    }
-
-    /* ---- Reflection Section ---- */
-    .reflection-content {
-        margin-top: 32px;
-    }
-
-    .reflection-block {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 36px 0;
-    }
-}
-
-
-/* ==================================================
-   MOBILE
-   ================================================== */
-
+/* ==== SMALL MOBILE  ==== */
 @media (max-width: 600px) {
 
-    /* ---- General ---- */
-
     .project-section {
-        padding-block: 60px;
+        padding-top: var(--space-7);
+        padding-bottom: var(--space-5);
     }
 
+    .project-section-number {
+        font-size: var(--text-small);
+    }
+
+    .project-section h2 {
+        font-size: 2.25rem;
+    }
 
     /* ---- Overview Section ---- */
 
@@ -2615,28 +2336,25 @@ body[data-page="project-dermidew"] {
             "details";
     }
 
-    .overview-card {
-        padding: 22px;
+    #overview-title {
+        margin-bottom: 0;
     }
 
-    .overview-card--hero {
-        padding: 0;
+    .overview-card.overview-card--hero {
+        box-shadow: none;
+        border: none;
+        height: 300px;
     }
 
-    .overview-card--hero,
-    .overview-card--hero img {
-        min-height: 300px;
+    .overview-details-item {
+        border-bottom: none;
+        gap: var(--space-7);
     }
-
-    .overview-details {
-        grid-template-columns: 1fr 1fr;
-    }
-
 
     /* ---- Research Section ---- */
 
     .research-content {
-        gap: 48px;
+        gap: var(--space-9);
     }
 
     .research-intro,
@@ -2648,85 +2366,244 @@ body[data-page="project-dermidew"] {
     .research-intro {
         align-items: start;
         gap: var(--space-3);
+        padding-bottom: var(--space-7);
+    }
 
-        padding-bottom: 32px;
+    .research-intro h3,
+    #personas-title {
+        font-size: var(--text-medium);
+        line-height: 1.3;
+    }
+
+    .research-intro p,
+    .research-personas-note {
+        font-size: var(--text-small);
     }
 
     .research-stat {
         min-height: 280px;
     }
 
+    .research-stat-number {
+        font-size: 4rem;
+        margin: var(--space-2) 0 0;
+    }
+
+    .bubble-3,
+    .bubble-4,
+    .bubble-5 {
+        display: none;
+    }
+
+    .research-insight {
+        grid-template-columns: 30px 1fr;
+    }
+
+    .research-insight h3 {
+        font-size: 1.15rem;
+        padding-bottom: var(--space-2);
+    }
+
     .research-personas {
-        gap: 20px;
+        gap: var(--space-5);
     }
 
     .research-personas-image span {
         right: 10px;
         bottom: 10px;
 
-        padding: 6px 10px;
+        padding: var(--space-2) var(--space-3);
     }
 
     .research-opportunity {
-        padding: 40px 0;
+        padding: var(--space-5) var(--space-3) var(--space-2);
+    }
+
+    .research-opportunity-content h3 {
+        font-size: 2rem;
+        line-height: 1.25;
     }
 
 
     /* ---- Product Strategy Section ---- */
 
+
+    /* ---- Product Strategy Section ---- */
+
     .strategy-content {
-        gap: 56px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        gap: var(--space-4);
     }
 
+    .strategy-content,
+    .strategy-content * {
+        box-sizing: border-box;
+    }
+
+    /* Prevent child elements from expanding the section */
+    .strategy-content>*,
+    .strategy-intro>*,
+    .strategy-validation>*,
+    .strategy-evolution>*,
+    .strategy-mvp>* {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Mobile grid layouts */
+    .strategy-intro,
+    .strategy-validation,
+    .strategy-evolution-list,
+    .strategy-reasoning-list,
+    .strategy-mvp-pillars,
+    .strategy-direction-options {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Introduction */
+    .strategy-intro {
+        align-items: start;
+        gap: var(--space-3);
+        padding-bottom: 32px;
+    }
+
+    .strategy-intro h3,
+    #evolution-title,
+    .strategy-evolution-takeaway h3,
+    #mvp-title {
+        margin-top: var(--space-3);
+        font-size: var(--text-medium);
+    }
+
+    /* Paragraph sizing */
+    .strategy-intro p,
+    .strategy-evolution-takeaway>p:last-child,
+    .strategy-mvp p.strategy-subsection-description {
+        font-size: var(--text-small);
+    }
+
+    /* Prevent text from forcing horizontal overflow */
+    .strategy-content h3,
+    .strategy-content p,
+    .strategy-content li {
+        min-width: 0;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    /* Product evolution */
+    .strategy-evolution {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .strategy-evolution-image {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .strategy-evolution-image img {
+        display: block;
+        width: 90%;
+        max-width: 100%;
+        height: auto;
+        margin-inline: auto;
+    }
+
+    .strategy-evolution-step {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .strategy-evolution-step:not(:last-child)::after {
+        content: "↓";
+        top: auto;
+        right: 50%;
+        bottom: -20px;
+        transform: translateX(50%);
+    }
+
+    /* MVP section */
     .strategy-mvp {
-        padding: 28px;
-    }
-
-    .strategy-mvp-files {
-        margin-top: 36px;
-    }
-
-    .strategy-mvp-file-header {
-        grid-template-columns: 24px 1fr 30px;
-        gap: 14px;
-
-        min-height: 90px;
-        padding: 18px 20px;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        padding: var(--space-5);
     }
 
     .strategy-mvp-title {
-        font-size: var(--text-body);
+        font-size: var(--text-medium);
     }
 
-    .strategy-mvp-file-content {
-        padding: 0 20px 28px 58px;
+    .strategy-core-value {
+        max-width: 100%;
+        margin: var(--space-7) auto;
     }
 
+    .strategy-mvp-file details[open] .strategy-mvp-file-content {
+        padding: 0 var(--space-7) 36px;
+    }
+
+    /* Cards and direction options */
+    .strategy-direction-options>*,
+    .strategy-reasoning-list>*,
+    .strategy-mvp-pillars>*,
+    .strategy-evolution-list>* {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Ensure media stays inside containers */
+    .strategy-content video,
+    .strategy-content svg {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .strategy-content img {
+        width: 75%;
+    }
 
     /* ---- Design Section ---- */
 
+    #design-dermidew h3 {
+        font-size: var(--text-medium);
+        margin-top: var(--space-4);
+    }
+
+    #design-dermidew p {
+        font-size: var(--text-small);
+    }
+
     .design-content {
-        gap: 56px;
+        gap: var(--space-7);
     }
 
     .design-web,
     .design-physical {
-        gap: 44px;
+        gap: var(--space-8);
     }
 
     .design-physical {
-        padding-top: 48px;
+        padding-top: var(--space-9);
     }
 
 
     /* Web Design */
 
     .design-web {
-        gap: 64px;
+        gap: var(--space-5);
     }
 
     .design-feature {
-        gap: 24px;
+        gap: var(--space-6);
     }
 
 
@@ -2734,19 +2611,18 @@ body[data-page="project-dermidew"] {
 
     .design-interface-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: var(--space-7);
     }
-
 
     /* Evolution */
 
     .design-evolution {
-        padding-top: 48px;
+        padding-top: var(--space-9);
     }
 
     .design-evolution-comparison {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: var(--space-7);
     }
 
 
@@ -2754,7 +2630,7 @@ body[data-page="project-dermidew"] {
 
     .design-mirror figure {
         min-height: 320px;
-        padding: 24px;
+        padding: var(--space-6);
     }
 
     .design-mirror dl {
@@ -2763,8 +2639,7 @@ body[data-page="project-dermidew"] {
     }
 
     .design-mirror dl>div {
-        padding: 20px 0;
-
+        padding: var(--space-5) 0;
         border-bottom: 1px solid var(--light-blue);
     }
 
@@ -2774,189 +2649,77 @@ body[data-page="project-dermidew"] {
 
     .design-mirror dl>div:last-child {
         padding-bottom: 0;
-
         border-bottom: none;
     }
 
     .design-prototypes {
-        padding-top: 48px;
+        padding-top: var(--space-9);
     }
 
     .design-prototype-list {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: var(--space-7);
     }
 
     .design-prototype-image {
         aspect-ratio: 4 / 3;
-        padding: 24px;
+        padding: var(--space-6);
     }
-
 
     /* ---- Development Section ---- */
 
-    .development-content {
-        gap: 56px;
+    #development-dermidew h3 {
+        font-size: var(--text-medium);
+        margin-top: var(--space-4);
     }
 
-    .development-flow,
-    .development-stack dl {
+    #development-dermidew p {
+        font-size: var(--text-small);
+    }
+
+    .development-content {
+        gap: var(--space-7);
+    }
+
+    .development-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .development-flow li:not(:last-child)::after {
+        display: none;
+    }
+
+    .development-stack dl,
+    .development-stack-grid,
+    .development-challenge-list {
         grid-template-columns: 1fr;
     }
 
     .development-challenges,
     .development-iteration {
-        padding-top: 52px;
+        padding-top: var(--space-9);
     }
 
 
     /* ---- Reflection Section ---- */
+
+    #reflection-dermidew p {
+        font-size: var(--text-small);
+    }
 
     .reflection-content {
         gap: 48px;
     }
 
     .reflection-block {
+        display: flex;
+        flex-direction: column;
         gap: 20px;
-
         padding-bottom: 48px;
     }
 
-}
-
-
-/* ==================================================
-   SMALL MOBILE
-   ================================================== */
-
-@media (max-width: 480px) {
-
-    /* ---- Overview Section ---- */
-
-    .overview-details {
-        grid-template-columns: 1fr;
+    .lessons-article h3 {
+        margin-bottom: 0;
     }
 
-
-    /* ---- Research Section ---- */
-
-    .research-content {
-        gap: 40px;
-    }
-
-    .research-stat,
-    .research-insights {
-        padding: 24px;
-    }
-
-    .research-stat {
-        min-height: 250px;
-    }
-
-    .research-insight {
-        grid-template-columns: 32px 1fr;
-
-        padding: 20px 0;
-    }
-
-    .research-persona-identity,
-    .research-persona-profile {
-        padding: 24px;
-    }
-
-    .research-persona-image {
-        width: 88px;
-
-        margin-bottom: 32px;
-    }
-
-
-    /* ---- Product Strategy Section ---- */
-
-    .strategy-content {
-        gap: 48px;
-    }
-
-    .strategy-evolution-step,
-    .strategy-reasoning-list li,
-    .strategy-mvp-pillars>div,
-    .strategy-validation-copy,
-    .strategy-validation-stat,
-    .strategy-direction-options article {
-        padding: 24px;
-    }
-
-    .strategy-mvp {
-        padding: 24px;
-    }
-
-    .strategy-validation-stat {
-        min-height: 280px;
-    }
-
-
-    /* ---- Design Section ---- */
-
-    .design-content {
-        gap: 48px;
-    }
-
-    .design-web,
-    .design-physical {
-        gap: 40px;
-    }
-
-    .design-physical {
-        padding-top: 48px;
-    }
-
-    .design-mirror dl {
-        padding: 24px;
-    }
-
-    .design-mirror dd {
-        padding-bottom: 20px;
-    }
-
-    .design-mirror dd:not(:last-child) {
-        margin-bottom: 20px;
-    }
-
-
-    /* ---- Development Section ---- */
-
-    .development-content {
-        gap: 48px;
-    }
-
-    .development-flow,
-    .development-stack dl {
-        grid-template-columns: 1fr;
-    }
-
-    .development-flow li,
-    .development-challenge-list>li,
-    .development-iteration-list li {
-        padding: 24px;
-    }
-
-    .development-challenges,
-    .development-iteration {
-        padding-top: 48px;
-    }
-
-
-    /* ---- Reflection Section ---- */
-
-    .reflection-content {
-        gap: 40px;
-    }
-
-    .reflection-block {
-        padding-bottom: 40px;
-    }
-
-    .reflection-copy p+p {
-        margin-top: var(--space-2);
-    }
 }
