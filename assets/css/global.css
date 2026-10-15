@@ -1863,6 +1863,10 @@ html[data-theme][data-fidelity="mid"] {
         margin: 0 var(--space-4) 0;
     }
 
+    logo-button {
+        min-height: 40px;
+    }
+
     /* --- Content Header: RESULT COUNT + FIDELITY DROPDOWN --- */
 
     .content-header {
