@@ -128,7 +128,7 @@ body[data-page="project-dermidew"] {
     color: var(--dark-blue);
     font-family: var(--font-main);
     font-size: var(--text-xlarge);
-    font-weight: 100;
+    font-weight: 500;
     line-height: 1.2;
     margin: 0 0 var(--space-3);
 }
@@ -1909,4 +1909,207 @@ p.development-label {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
+}
+
+/* ============================
+    RESPONSIVE
+=============================== */
+
+/* ==== SMALL MOBILE  ==== */
+@media (max-width: 600px) {
+
+    /* ----- General Project Sections ----- */
+
+    .project-content_section {
+        margin-inline: 0;
+        padding: var(--space-5) var(--space-5) var(--space-5);
+    }
+
+    /* ----- Hero Motion Section ----- */
+
+    .motion-content {
+        margin-bottom: var(--space-8);
+    }
+
+    .motion-title {
+        font-size: 4rem;
+    }
+
+    #swirl-sun {
+        top: 35px;
+        width: 100px;
+    }
+
+    .motion-tagline {
+        font-size: var(--text-medium);
+    }
+
+    .motion-media {
+        flex-direction: column;
+    }
+
+    #bottom-media {
+        width: 97%;
+    }
+
+    /* ----- Overview ----- */
+
+    .overview-content h1 {
+        margin-bottom: var(--space-6);
+    }
+
+    .overview-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+    }
+
+    .overview-description p {
+        margin-bottom: var(--space-5);
+    }
+
+    .project-details {
+        grid-template-columns:
+            max-content minmax(0, 1fr);
+
+        grid-template-areas:
+            "role-title role-item"
+            "timeframe-title timeframe-item"
+            "team-title team-item"
+            "skills-title skills-item";
+
+        column-gap: var(--space-5);
+        row-gap: var(--space-6);
+    }
+
+
+    /* ----- Problem ----- */
+
+    .problem-content.project-content_section {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .problem-heading {
+        text-align: left;
+        align-self: flex-start;
+        justify-self: start;
+    }
+
+    .problem-copy h2,
+    #team-takeaway-heading {
+        font-size: var(--text-xlarge);
+    }
+
+    .problem-description {
+        font-size: var(--text-small) !important;
+        line-height: 1.65;
+    }
+
+    .challenge-card {
+        padding: 2rem;
+        border-radius: 18px;
+    }
+
+    .challenge-question {
+        font-size: 1.25rem !important;
+    }
+
+
+    /* ----- Research & Discovery ----- */
+
+    .research-findings {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .research-overview {
+        padding-bottom: var(--space-2);
+    }
+
+    .research-bubbles {
+        width: 130px;
+        height: 130px;
+        top: 15%;
+        right: 5%;
+    }
+
+
+    /* ----- Product Strategy ----- */
+    .strategy-evolution-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-6);
+    }
+
+    .strategy-evolution-step:not(:last-child)::after {
+        content: "↓";
+
+        top: auto;
+        bottom: -25px;
+        left: 50%;
+        right: auto;
+
+        transform: translateX(-50%);
+    }
+
+    .strategy-mvp-file-content p {
+        font-size: var(--text-xsmall);
+    }
+
+    .strategy-evolution-takeaway {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+
+        padding: var(--space-5);
+        margin: var(--space-5) auto 0;
+
+        min-width: 0;
+    }
+
+    .strategy-evolution-takeaway>* {
+        max-width: 100%;
+    }
+
+    .strategy-evolution-takeaway>p:last-child {
+        margin: 0;
+    }
+
+    /* ----- Design ----- */
+    .design-interface-grid,
+    .design-prototype-list,
+    .development-flow,
+    .development-challenge-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ----- Development  ----- */
+
+    .development-flow {
+        gap: var(--space-7);
+    }
+
+    .development-flow li:not(:last-child)::after {
+        content: "↓";
+
+        top: auto;
+        bottom: -35px;
+        left: 50%;
+        right: auto;`
+
+        transform: translateX(-50%);
+    }
+
+
+    /* ----- Takeaway ----- */
+    .lessons-article {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .lessons-article p {
+        width: 100%
+    }
 }
