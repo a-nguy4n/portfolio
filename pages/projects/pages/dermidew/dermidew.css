@@ -8,11 +8,15 @@ body[data-page="project-dermidew"] {
     --medium-blue: #87C1FB;
     --light-blue: #E0EFFF;
 
+    --section-background-blue: #f4f9ff;
+    --section-background-yellow: #fff7df;
+
     --theme-background-color: #ffffff;
     --theme-hover-color: var(--medium-blue);
-    --theme-text-color: #125aa2;
+    --theme-text-color: #0c539a;
 
     --secondary-text-color-light: #2264a6;
+    --dark-yellow-text: #392b00;
     --line-height-body-text: 1.75;
 
     --glass-border: 1px solid rgba(156, 214, 255, 0.452);
@@ -66,140 +70,120 @@ body[data-page="project-dermidew"] {
     }
 }
 
-
 /* ============================
-    General Styling
+    HERO MOTION SECTION
 =============================== */
-.subtitle-one {
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    font-weight: 700;
-}
+.hero-section {
+    --content-width: 30%;
+    --media-width: 70%;
 
-.subtitle-two {
-    font-family: var(--font-main);
-    font-size: var(--text-xsmall);
-    font-weight: 700;
-}
+    display: flex;
+    flex-direction: column;
 
-.body-text {
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    font-weight: 400;
-}
+    position: relative;
 
-.project-content {
-    width: min(1100px, calc(100% - 48px));
-    margin-inline: auto;
-}
-
-.project-section {
-    padding-block: var(--space-10);
-}
-
-.project-section-header {
-    margin-bottom: var(--space-4);
-}
-
-.project-section-number {
-    margin: 0 0 var(--space-1);
-
-    color: var(--dark-yellow);
-
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    font-weight: 700;
-
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-}
-
-.project-section-header h2 {
-    margin: 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-header);
-    font-size: 3rem;
-    font-weight: 400;
-    line-height: 1;
-}
-
-
-/* ============================
-    OVERVIEW 
-=============================== */
-#overview-title {
-    margin: var(--space-3) 0 var(--space-7);
-}
-
-.overview-bento {
-    display: grid;
-    grid-template-columns: 1.15fr 0.9fr;
-
-    grid-template-areas:
-        "hero summary"
-        "hero problem"
-        "hero solution"
-        "role details";
-
-    gap: var(--space-5);
-}
-
-.overview-card {
-    margin: 0;
-    padding: var(--space-5);
-
-    background-color: white;
-    border: var(--glass-border);
-    border-radius: 15px;
-    box-shadow: var(--medium-blue) 0px 0px 0px 3px;
+    width: 100%;
+    min-height: 85vh;
+    height: auto;
+    overflow: visible;
 
     font-family: var(--font-main);
 }
 
-.overview-card-label {
-    margin: 0 0 var(--space-2);
-    color: var(--dark-blue);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-}
-
-.overview-card h3 {
-    margin: 0 0 var(--space-2);
-    color: var(--theme-text-color);
-    font-family: var(--font-main);
-    line-height: 1.25;
-}
-
-.overview-card>p:not(.overview-card-label) {
-    margin: 0;
-
-    color: var(--secondary-text-color-light);
-
-    font-size: var(--text-small);
-    line-height: var(--line-height-body-text);
-}
-
-.overview-card--hero {
-    grid-area: hero;
+.motion-content {
+    position: relative;
+    flex: 0 0 auto;
+    min-width: 0;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: var(--space-2);
 
-    min-height: 520px;
-    padding: 0;
-
-    overflow: hidden;
+    padding: var(--space-5) var(--space-7) 0;
+    box-sizing: border-box;
 }
 
-.overview-card--hero video {
+#swirl-sun {
+    display: block;
+    position: relative;
+    top: 50px;
+    width: 150px;
+    height: auto;
+    color: var(--yellow);
+    align-self: center;
+}
+
+.motion-title {
+    color: var(--dark-blue);
+    font-family: var(--font-header);
+    font-size: 7rem;
+    font-weight: 100;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.motion-tagline {
+    color: var(--dark-blue);
+    font-family: var(--font-main);
+    font-size: var(--text-xlarge);
+    font-weight: 100;
+    line-height: 1.2;
+    margin: 0 0 var(--space-3);
+}
+
+#content-cta {
+    color: var(--dark-blue);
+    font-family: var(--font-main);
+    font-size: var(--text-xsmall);
+    font-weight: 500;
+
+    padding: var(--space-2) var(--space-4);
+    background: var(--dark-yellow);
+    border-radius: var(--button-radius);
+
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#content-cta:hover {
+    font-style: italic;
+}
+
+.motion-media {
+    flex: 0 0 auto;
+    min-width: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    margin: -2rem 0 0;
+    padding: var(--space-8) var(--space-7) var(--space-7);
+
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+.media-half {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: visible;
+}
+
+.media-half img,
+.media-half video {
     display: block;
 
-    flex: 0 1 auto;
     max-width: 100%;
     height: auto;
 
@@ -207,177 +191,354 @@ body[data-page="project-dermidew"] {
 }
 
 /* Individual video sizing */
-.hero-video--top {
-    width: 75%;
+#top-media {
+    width: 80%;
 }
 
-.hero-video--bottom {
+#bottom-media {
     width: 95%;
 }
 
 
-.overview-card--summary {
-    grid-area: summary;
-    box-shadow: var(--dark-blue) 0px 0px 0px 3px;
-}
+/* ============================
+    GENERAL
+=============================== */
 
-.overview-card--problem {
-    grid-area: problem;
-}
+.project-content_section {
+    width: 100%;
+    max-width: 100%;
 
-.overview-card--solution {
-    grid-area: solution;
-    box-shadow: var(--yellow) 0px 0px 0px 3px;
-}
-
-.overview-card--problem,
-.overview-card--solution {
-    box-shadow: var(--yellow) 0px 0px 0px 3px;
-}
-
-
-/* ==== Role ==== */
-
-.overview-card--role {
-    grid-area: role;
-}
-
-.overview-role-list {
-    margin: var(--space-3) 0 0;
-}
-
-.overview-role-list dt {
-    margin-top: var(--space-6);
-
+    margin: var(--space-5) 0;
+    padding: var(--space-8) var(--space-9) var(--space-9);
+    box-sizing: border-box;
     color: var(--theme-text-color);
-    font-size: var(--text-small);
+}
+
+.project-content_section h1 {
+    font-family: var(--font-main);
+    font-size: var(--text-xlarge);
     font-weight: 700;
 }
 
-.overview-role-list dt:first-child {
-    margin-top: 0;
-}
-
-.overview-role-list dd {
-    margin: var(--space-2) 0 0;
-
-    color: var(--secondary-text-color-light);
+.project-content_section p {
+    margin: var(--space-4);
+    font-family: var(--font-main);
     font-size: var(--text-small);
-    line-height: 1.5;
+    line-height: var(--line-height-body-text);
 }
 
-/* ==== Details ==== */
 
-.overview-card--details {
-    grid-area: details;
+/* ============================
+    OVERVIEW CONTENT
+=============================== */
+
+.overview-content.project-content_section {
+    border-top: 1px solid var(--dark-blue)
 }
 
-.overview-details {
-    margin: var(--space-3) 0 0;
+.overview-content h1 {
+    margin: var(--space-0) var(--space-0) var(--space-8);
+    line-height: 1.2;
+    color: var(--dark-blue);
 }
 
-.overview-details-item {
+.overview-layout {
+    width: 100%;
+    min-width: 0;
+
     display: grid;
-    grid-template-columns: 25% 1fr;
-    align-items: start;
-    gap: var(--space-3);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-10);
 
-    padding: var(--space-2) 0;
-
-    border-bottom: 1px solid var(--light-blue);
+    box-sizing: border-box;
 }
 
-.overview-details-item:first-child {
-    padding-top: 0;
+.overview-description {
+    min-width: 0;
 }
 
-.overview-details-item:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.overview-details dt {
-    color: var(--secondary-text-color-light);
-
+.overview-description p {
+    margin: var(--space-0) var(--space-0) var(--space-6);
     font-size: var(--text-small);
-    font-weight: 600;
-    line-height: 1.4;
+    line-height: var(--line-height-body-text);
 }
 
-.overview-details dd {
-    margin: 0;
+.overview-description p:last-child {
+    margin-bottom: var(--space-0);
+}
 
-    color: var(--theme-text-color);
+.project-details {
+    min-width: 0;
 
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr) max-content minmax(0, 1fr);
+
+    grid-template-areas:
+        "role-title role-item timeframe-title timeframe-item"
+        "team-title team-item skills-title skills-item";
+
+    column-gap: var(--space-3);
+    row-gap: var(--space-8);
+    margin: var(--space-0);
+}
+
+/* Allows dt and dd to participate
+   directly in the parent grid */
+
+.project-detail {
+    display: contents;
+}
+
+.project-detail:nth-child(1) dt {
+    grid-area: role-title;
+}
+
+.project-detail:nth-child(1) dd {
+    grid-area: role-item;
+}
+
+.project-detail:nth-child(2) dt {
+    grid-area: timeframe-title;
+}
+
+.project-detail:nth-child(2) dd {
+    grid-area: timeframe-item;
+}
+
+.project-detail:nth-child(3) dt {
+    grid-area: team-title;
+}
+
+.project-detail:nth-child(3) dd {
+    grid-area: team-item;
+}
+
+.project-detail:nth-child(4) dt {
+    grid-area: skills-title;
+}
+
+.project-detail:nth-child(4) dd {
+    grid-area: skills-item;
+}
+
+.project-detail dt {
+    margin: var(--space-0);
+
+    font-family: var(--font-main);
     font-size: var(--text-small);
     font-weight: 700;
-    line-height: 1.4;
+    line-height: var(--line-height-body-text);
 }
 
-.overview-team {
+.project-detail dd {
+    min-width: 0;
+
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-1);
+
+    margin: var(--space-0);
+
+    font-family: var(--font-style);
+    font-size: var(--text-small);
+    font-weight: 400;
+    line-height: var(--line-height-body-text);
+}
+
+.project-detail dd span {
+    display: block;
+}
+
+/* ============================
+    PROBLEM STATEMENT
+=============================== */
+
+.problem-content.project-content_section {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+        "heading heading"
+        "problem challenge";
+
+    align-items: center;
+
+    column-gap: clamp(4rem, 7vw, 8rem);
+    row-gap: var(--space-4);
+
+    margin-left: 0;
+    margin-right: 0;
+
+    background: var(--section-background-yellow);
+}
+
+.problem-heading {
+    grid-area: heading;
+
+    margin: 0;
+    line-height: 1.2;
+}
+
+.problem-statement {
+    grid-area: problem;
+
+    width: 100%;
+    max-width: 700px;
+}
+
+.problem-heading {
+    color: var(--dark-yellow-text);
+}
+
+.problem-statement h2 {
+    margin: 0 0 1.75rem;
+
+    color: var(--dark-yellow);
+
+    font-family: var(--font-header);
+    font-size: clamp(2.5rem, 3.4vw, 4rem);
+    font-weight: 100;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.problem-description {
+    width: 100%;
+
+    margin: 0 !important;
+    color: var(--dark-yellow-text);
+    font-family: var(--font-style);
+    font-size: 1.1rem !important;
+    line-height: var(--line-height-body-text);
+}
+
+/* ==== Opportunity Card ==== */
+
+.opportunity-card {
+    grid-area: challenge;
+
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    padding: clamp(2.5rem, 4vw, 4rem);
+    box-sizing: border-box;
+    background: white;
+    border: 2px dashed var(--yellow);
+    border-radius: 5px;
+}
+
+.opportunity-label {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+
+    margin-bottom: var(--space-4);
+
+    color: var(--dark-yellow);
+
+    font-family: var(--font-headers);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+.opportunity-question {
+    position: relative;
+    z-index: 1;
+
+    max-width: 650px;
+
+    /*
+     * Override generic
+     * .project-content_section p styles
+     */
+    margin: 0 !important;
+
+    color: var(--dark-yellow-text);
+
+    font-family: var(--font-style);
+    font-size: var(--text-medium) !important;
+    font-weight: 700;
+
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+}
+
+.opportunity-question strong {
+    color: white;
+    font-weight: 700;
+}
+
+.research-opportunity-sun {
+    position: absolute;
+    right: -150px;
+    bottom: -190px;
+
+    width: 300px;
+    height: auto;
+
+    fill: var(--yellow);
+    pointer-events: none;
+    z-index: -1;
 }
 
 
 /* ============================
     RESEARCH & DISCOVERY
 =============================== */
+
 .research-content {
-    display: grid;
-    gap: 72px;
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-4);
 }
 
-#research-dermidew .project-section-header {
-    background: var(--light-yellow);
-    margin-bottom: 0;
-    padding: var(--space-3) var(--space-2) 0;
-}
+.research-content>h1 {
+    margin: 0 0 var(--space-8);
 
-#research-dermidew .project-section-number {
-    color: var(--dark-yellow);
-}
+    color: var(--dark-blue);
 
-#research-dermidew #research-title {
-    margin-top: var(--space-3);
+    font-family: var(--font-headers);
+    font-size: var(--text-xlarge);
+    font-weight: var(--primary-header-weight);
+    line-height: 1.2;
 }
 
 
-/* ==== Introduction ==== */
+/* ==== Research Overview ==== */
 
-.research-intro {
+.research-overview {
+    max-width: 1200px;
+
     display: flex;
     flex-direction: column;
-    align-items: end;
-    gap: var(--space-9);
-
-    padding: var(--space-8);
-    background: var(--light-yellow);
+    gap: var(--space-4);
+    padding-bottom: var(--space-10);
 }
 
-.research-intro h3 {
-    width: 100%;
+.research-overview h2 {
     margin: 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 700;
-    line-height: 1.15;
 }
 
-.research-intro p {
+.research-overview h3 {
+    font-family: var(--font-header);
+    font-size: clamp(2.25rem, 3.25vw, 3.5rem);
     margin: 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    line-height: var(--line-height-body-text);
+    line-height: 1.0;
 }
 
+.research-summary {
+    max-width: 95%;
+
+    grid-column: 1 / -1;
+    margin: 0 !important;
+    color: var(--theme-text-color);
+    font-family: var(--font-style);
+    line-height: 1.75;
+}
 
 /* ==== Research Findings ==== */
 
@@ -393,10 +554,15 @@ body[data-page="project-dermidew"] {
 }
 
 
-.research-label {
+.research-label,
+.strategy-content .section-label,
+.design-content .section-label,
+.design-feature-header .interface-title,
+.development-label,
+.reflection-content .section-label {
     margin: 0 0 var(--space-2);
 
-    color: var(--dark-blue);
+    color: var(--dark-yellow);
 
     font-family: var(--font-main);
     font-size: var(--text-small);
@@ -420,8 +586,8 @@ body[data-page="project-dermidew"] {
     padding: var(--space-5);
 
     background: #fff;
-    border: var(--glass-border);
-    border-radius: 24px;
+    border: 1px solid var(--medium-blue);
+    border-radius: var(--widget-radius);
 }
 
 
@@ -429,6 +595,12 @@ body[data-page="project-dermidew"] {
 .research-stat>* {
     position: relative;
     z-index: 2;
+}
+
+#research-stat-card-eyebrow {
+    font-family: var(--font-header);
+    font-size: var(--text-large);
+
 }
 
 .research-stat-content {
@@ -440,35 +612,12 @@ body[data-page="project-dermidew"] {
     position: relative;
 }
 
-
-/* Organic Blue Background Shape */
-.research-stat-content::before {
-    content: "";
-
-    position: absolute;
-    z-index: -1;
-
-    left: -12%;
-    bottom: 40%;
-
-    width: 78%;
-    height: 48%;
-
-    background: var(--light-blue);
-
-    border-radius:
-        45% 55% 52% 48% / 55% 42% 58% 45%;
-
-    transform: rotate(5deg);
-}
-
 /* Number */
 .research-stat-number {
     position: relative;
-
     width: fit-content;
 
-    color: var(--theme-text-color);
+    color: var(--yellow);
 
     font-family: var(--font-main);
     font-size: clamp(7rem, 13vw, 10rem);
@@ -485,10 +634,10 @@ body[data-page="project-dermidew"] {
     width: fit-content;
     margin: var(--space-3) 0 var(--space-5);
 
-    color: var(--theme-text-color);
+    color: var(--yellow);
     font-family: var(--font-main);
     font-size: var(--text-large);
-    font-weight: 800;
+    font-weight: 600;
     line-height: 1.1;
 }
 
@@ -496,8 +645,6 @@ body[data-page="project-dermidew"] {
 .research-stat-description {
     max-width: 360px;
     margin: 0;
-
-    color: var(--secondary-text-color-light);
 
     font-family: var(--font-main);
     font-size: var(--text-small);
@@ -510,105 +657,14 @@ body[data-page="project-dermidew"] {
     z-index: 1 !important;
 
     top: 15%;
-    right: 7%;
+    right: 15%;
 
     width: 180px;
-    height: 190px;
+    height: 180px;
 
     pointer-events: none;
 }
 
-/* Base Bubble */
-.research-bubble {
-    position: absolute;
-
-    display: block;
-
-    aspect-ratio: 1;
-
-    background: rgba(255, 255, 255, 0.35);
-
-    border: 2px solid var(--medium-blue);
-    border-radius: 50%;
-}
-
-/* Inner curved highlight */
-.research-bubble::before {
-    content: "";
-
-    position: absolute;
-
-    top: 17%;
-    left: 20%;
-
-    width: 30%;
-    height: 18%;
-
-    border-top: 2px solid var(--medium-blue);
-    border-left: 2px solid var(--medium-blue);
-
-    border-radius: 50%;
-
-    transform: rotate(-28deg);
-}
-
-/* Small secondary reflection */
-.research-bubble::after {
-    content: "";
-    position: absolute;
-
-    right: 16%;
-    bottom: 17%;
-    width: 18%;
-    height: 10%;
-
-    border-bottom: 2px solid var(--medium-blue);
-    border-radius: 50%;
-    transform: rotate(-35deg);
-    opacity: 0.7;
-}
-
-/* Large main bubble */
-.bubble-1 {
-    top: 35px;
-    right: 10px;
-
-    width: 90px;
-
-    border-width: 3px;
-}
-
-/* Upper small bubble */
-.bubble-2 {
-    top: 3px;
-    right: 72px;
-
-    width: 32px;
-}
-
-/* Left medium bubble */
-.bubble-3 {
-    top: 72px;
-    left: 0;
-
-    width: 48px;
-}
-
-/* Bottom medium bubble */
-.bubble-4 {
-    right: 78px;
-    bottom: 0;
-
-    width: 42px;
-}
-
-/* Bottom-right small bubble */
-.bubble-5 {
-    right: 4px;
-    bottom: 20px;
-
-    width: 30px;
-}
 
 /* ==== Key Insights ==== */
 
@@ -618,21 +674,21 @@ body[data-page="project-dermidew"] {
 }
 
 .research-insight-list {
-    margin: 0;
+    margin: var(--space-0);
 }
 
 .research-insight {
     display: grid;
-    grid-template-columns: 48px 1fr;
+    grid-template-columns: var(--space-9) 1fr;
     gap: var(--space-2);
 
-    padding: 24px 0;
+    padding: var(--space-6) 0;
 
-    border-bottom: 1px solid var(--medium-blue);
+    border-bottom: 1px solid var(--light-blue);
 }
 
 .research-insight:first-child {
-    padding-top: 8px;
+    padding-top: var(--space-2);
 }
 
 .research-insight:last-child {
@@ -641,7 +697,7 @@ body[data-page="project-dermidew"] {
 }
 
 .research-insight dt {
-    color: var(--dark-yellow);
+    color: var(--medium-blue);
 
     font-family: var(--font-main);
     font-size: var(--text-small);
@@ -653,13 +709,14 @@ body[data-page="project-dermidew"] {
 }
 
 .research-insight h3 {
-    margin: 0 0 var(--space-1);
+    margin: 0 0 var(--space-3);
 
-    color: var(--theme-text-color);
+    color: var(--medium-blue);
 
     font-family: var(--font-main);
-    font-size: var(--text-large);
-    font-weight: 800;
+    font-size: var(--text-medium);
+    font-style: italic;
+    font-weight: 600;
     line-height: 1.25;
 }
 
@@ -667,50 +724,21 @@ body[data-page="project-dermidew"] {
     max-width: 95%;
     margin: 0 0 0 var(--space-3);
 
-    color: var(--secondary-text-color-light);
-
     font-family: var(--font-main);
     font-size: var(--text-small);
     line-height: var(--line-height-body-text);
 }
 
 
-/* ==== User Personas ==== */
+/* ==== Persona Image ==== */
 
 .research-personas {
-    display: grid;
-    gap: var(--space-6);
+    margin-top: var(--space-10);
 }
 
-.research-personas-header {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    gap: var(--space-3);
+#personas-title {
+    margin-left: var(--space-4);
 }
-
-.research-personas-header h3 {
-    margin: 0;
-
-    color: var(--theme-text-color);
-    font-family: var(--font-main);
-    font-size: var(--text-xlarge);
-    font-weight: 800;
-    line-height: 1.2;
-}
-
-.research-personas-note {
-    margin: var(--space-3) 0 0;
-    color: var(--secondary-text-color-light);
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    line-height: var(--line-height-body-text);
-    text-align: left;
-}
-
-
-/* ==== Persona Image ==== */
 
 .research-personas-image {
     margin: 0;
@@ -769,145 +797,115 @@ body[data-page="project-dermidew"] {
 }
 
 
-/* ==== Opportunity ==== */
+/* ==== Research Conclusion ==== */
 
-.research-opportunity {
-    position: relative;
+.research-conclusion {
+    max-width: 1200px;
 
-    background: #fffefc;
-    border-radius: 5px;
-    box-shadow: var(--dark-yellow) 0px 0px 0px 3px;
+    margin: var(--space-10) auto 0;
+    padding: var(--space-8) var(--space-9);
 
-    min-height: 300px;
-    padding: var(--space-9) var(--space-8);
-    overflow: hidden;
+    box-sizing: border-box;
+
+    background: var(--section-background-blue);
+    border-left: 8px solid var(--dark-blue);
+    border-radius: 0 5px 5px 0;
+
+    text-align: left;
 }
 
-.research-opportunity-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-}
+.research-conclusion .section-label {
+    display: block;
 
-.research-opportunity-content h3 {
-    margin: 0;
+    margin: 0 0 var(--space-3);
 
     color: var(--theme-text-color);
 
     font-family: var(--font-main);
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: var(--space-small);
     font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.research-conclusion h2 {
+    max-width: 850px;
+
+    margin: 0 0 var(--space-4);
+
+    color: var(--dark-blue);
+
+    font-family: var(--font-header);
+    font-size: clamp(2rem, 3vw, 3.25rem);
+    font-weight: var(--primary-header-weight);
     line-height: 1.1;
+    letter-spacing: -0.03em;
 }
 
-.research-opportunity-sun {
-    position: absolute;
-    right: -100px;
-    bottom: -190px;
+.research-conclusion p {
+    margin: 0 !important;
 
-    width: 420px;
-    height: auto;
-
-    fill: var(--yellow);
-    pointer-events: none;
+    color: var(--theme-text-color);
+    font-family: var(--font-main);
+    font-size: var(--text-small) !important;
+    line-height: var(--line-height-body-text);
 }
+
 
 /* ============================
-    PRODUCT STRATEGY
+    STRATEGY
 =============================== */
+
 .strategy-content {
-    display: grid;
-    gap: var(--space-5);
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-10);
 }
 
+.strategy-content>h1 {
+    margin: 0 0 var(--space-8);
+}
 
-/* ==== Introduction ==== */
+/* ==== Strategy Intro ==== */
 
 .strategy-intro {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    align-items: end;
-    gap: 48px;
+    max-width: 100%;
+    margin: 0 0 var(--space-9);
+}
 
-    padding-bottom: 40px;
+.strategy-intro h2 {
+    color: var(--dark-yellow);
+    font-weight: 700;
+    font-size: var(--text-medium);
+    text-transform: uppercase;
 }
 
 .strategy-intro h3 {
-    max-width: 650px;
-    margin: var(--space-8) 0 0;
+    margin: 0 0 var(--space-6);
 
     color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 700;
-    line-height: 1.35;
-    place-self: start;
+    font-family: var(--font-header);
+    font-size: clamp(2.25rem, 3.25vw, 3.5rem);
+    line-height: 1.0;
 }
 
-.strategy-intro p {
-    margin: 0;
+.strategy-description {
+    max-width: 100%;
+    margin: 0 !important;
 
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
+    color: var(--theme-text-color);
+    font-family: var(--font-style);
     font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
-
-
-/* ==== Subsection Headers ==== */
-
-.strategy-subsection-header {
-    margin-bottom: 32px;
-}
-
-.strategy-label {
-    margin: 0 0 var(--space-2);
-
-    color: var(--dark-blue);
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    font-weight: 800;
-
-    width: fit-content;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-}
-
-.strategy-subsection-header h3,
-.strategy-validation-copy h3 {
-    max-width: 720px;
-    margin: 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: var(--text-xlarge);
-    font-weight: 800;
-    line-height: 1.2;
-}
-
-.strategy-subsection-description {
-    max-width: 680px;
-    margin: var(--space-2) 0 0;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    line-height: var(--line-height-body-text);
-}
-
 
 /* ==== Product Evolution ==== */
 
 .strategy-evolution-list {
+    width: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-3);
 
-    margin: 0;
+    margin: 0 0 0 10%;
     padding: 0;
 }
 
@@ -972,14 +970,14 @@ body[data-page="project-dermidew"] {
     object-fit: cover;
 }
 
-.strategy-step-label {
-    margin: 0 0 var(--space-1);
+.project-content_section p.strategy-step-label {
+    margin: 0;
 
     color: white;
 
     font-family: var(--font-main);
     font-size: var(--text-small);
-    font-weight: 800;
+    font-weight: 700;
 
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -990,19 +988,18 @@ body[data-page="project-dermidew"] {
 
     color: var(--theme-text-color);
 
-    font-family: var(--font-main);
+    font-family: var(--font-header);
     font-size: var(--text-large);
-    font-weight: 800;
 }
 
-.strategy-step-description {
+.project-content_section p.strategy-step-description {
     margin: 0;
 
     color: white;
 
     font-family: var(--font-main);
     font-size: var(--text-small);
-    line-height: var(--line-height-body-text);
+    line-height: 1.4;
 }
 
 .strategy-step-points {
@@ -1030,24 +1027,8 @@ body[data-page="project-dermidew"] {
     margin-top: var(--space-5);
 }
 
-.strategy-evolution-takeaway h3 {
-    width: 100%;
-    margin: 0 0 var(--space-3);
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: var(--text-large);
-    font-weight: 800;
-    line-height: 1.2;
-}
-
 .strategy-evolution-takeaway>p:last-child {
     margin: 0;
-    color: var(--secondary-text-color-light);
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    line-height: var(--line-height-body-text);
 }
 
 /* ==== MVP Definition ==== */
@@ -1057,7 +1038,7 @@ body[data-page="project-dermidew"] {
 }
 
 .strategy-mvp p.strategy-subsection-description {
-    max-width: 100%;
+    margin: 0;
 }
 
 .strategy-mvp-files {
@@ -1123,10 +1104,10 @@ body[data-page="project-dermidew"] {
     display: grid;
     grid-template-columns: 40px 1fr 32px;
     align-items: center;
-    gap: 24px;
+    gap: var(--space-6);
 
     min-height: 100px;
-    padding: 20px 32px;
+    padding: var(--space-5) var(--space-7);
 
     cursor: pointer;
     list-style: none;
@@ -1147,7 +1128,7 @@ body[data-page="project-dermidew"] {
 /* Number */
 
 .strategy-mvp-number {
-    color: rgb(65, 54, 1);
+    color: var(--dark-yellow-text);
 
     font-family: var(--font-main);
     font-size: var(--text-small);
@@ -1164,7 +1145,7 @@ body[data-page="project-dermidew"] {
 }
 
 .strategy-mvp-label {
-    color: rgb(54, 44, 7);
+    color: var(--dark-yellow-text);
 
     font-family: var(--font-main);
     font-size: 0.75rem;
@@ -1174,9 +1155,9 @@ body[data-page="project-dermidew"] {
 }
 
 .strategy-mvp-title {
-    color: rgb(54, 44, 7);
+    color: var(--dark-yellow-text);
 
-    font-family: var(--font-main);
+    font-family: var(--font-header);
     font-size: var(--text-large);
     font-weight: 800;
     line-height: 1.2;
@@ -1191,7 +1172,7 @@ body[data-page="project-dermidew"] {
     width: 30px;
     height: 30px;
 
-    border: 1px solid rgb(65, 54, 1);
+    border: 1px solid var(--dark-yellow-text);
     border-radius: 50%;
 }
 
@@ -1307,244 +1288,32 @@ body[data-page="project-dermidew"] {
 }
 
 
-/* ==== Business Validation ==== */
-
-.strategy-validation {
-    display: grid;
-    grid-template-columns: 1fr 0.8fr;
-    gap: 10px;
-}
-
-.strategy-validation-copy,
-.strategy-validation-stat {
-    padding: 40px;
-
-    border-radius: 14px;
-}
-
-.strategy-validation-copy {
-    border: 1px solid var(--light-blue);
-}
-
-.strategy-validation-copy>p:last-child {
-    max-width: 600px;
-    margin: var(--space-3) 0 0;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    line-height: var(--line-height-body-text);
-}
-
-.strategy-validation-stat {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-
-    min-height: 330px;
-
-    background-color: var(--light-blue);
-    border: var(--glass-border);
-}
-
-.strategy-validation-number {
-    margin: 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: clamp(4.5rem, 8vw, 7rem);
-    font-weight: 800;
-    line-height: 0.9;
-}
-
-.strategy-validation-number span {
-    color: var(--dark-yellow);
-
-    font-size: 0.45em;
-}
-
-.strategy-validation-stat h4 {
-    margin: var(--space-3) 0 var(--space-2);
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: var(--text-large);
-    font-weight: 800;
-}
-
-.strategy-validation-stat>p:last-child {
-    margin: 0;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    line-height: var(--line-height-body-text);
-}
-
-
-/* ==== Product Direction ==== */
-
-.strategy-direction-options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
-.strategy-direction-options article {
-    padding: 36px;
-
-    background-color: var(--light-blue);
-    border: var(--glass-border);
-    border-radius: 14px;
-}
-
-.strategy-direction-options h4 {
-    margin: 0 0 var(--space-2);
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: var(--text-xlarge);
-    font-weight: 800;
-}
-
-.strategy-direction-options article>p:not(.strategy-step-label) {
-    max-width: 430px;
-    margin: 0;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    line-height: var(--line-height-body-text);
-}
-
-.strategy-direction-options ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-
-    margin: 32px 0 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-.strategy-direction-options li {
-    padding: 7px 12px;
-
-    color: var(--dark-blue);
-    background-color: white;
-    border: 1px solid var(--medium-blue);
-    border-radius: 100px;
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    font-weight: 700;
-}
-
-.strategy-direction-takeaway {
-    max-width: 720px;
-
-    margin: 32px 0 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: var(--text-large);
-    font-weight: 800;
-    line-height: 1.4;
-}
-
-
 /* ============================
-    DESIGN 
+    DESIGN
 =============================== */
 
 .design-content {
-    display: grid;
-    gap: var(--space-8);
+    max-width: 100%;
+    background: var(--section-background-blue);
+    padding-bottom: 0;
 }
-
-
-/* ==== Introduction ==== */
 
 .design-intro {
     display: flex;
     flex-direction: column;
+    align-content: center;
     align-items: start;
-    gap: var(--space-9);
-    width: 100%;
+    margin-bottom: var(--space-5);
 }
 
 .design-intro h3 {
+    font-size: clamp(2.5rem, 3vw, 3rem);
+    font-family: var(--font-header);
     margin: 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 700;
-    line-height: 1.15;
 }
 
-.design-intro p {
-    margin: 0;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    line-height: var(--line-height-body-text);
-}
-
-/* Section Labels */
-
-.design-label {
-    margin: 0 0 var(--space-2);
-
-    color: var(--dark-blue);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-}
-
-
-/* Subsection Headers */
-
-.design-subsection-header {
-    margin-bottom: 48px;
-}
-
-.design-subsection-header h3 {
-    max-width: 720px;
-    margin: 0;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-main);
-    font-size: var(--text-xlarge);
-    font-weight: 800;
-    line-height: 1.2;
-}
-
-.design-subsection-header>p:last-child {
-    max-width: 100%;
+p.design-intro-description {
     margin: var(--space-2) 0 0;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-medium);
-    line-height: var(--line-height-body-text);
 }
 
 
@@ -1552,7 +1321,7 @@ body[data-page="project-dermidew"] {
 
 .design-feature {
     display: grid;
-    gap: 32px;
+    gap: var(--space-7);
 }
 
 .design-feature-header {
@@ -1577,7 +1346,6 @@ body[data-page="project-dermidew"] {
     color: var(--secondary-text-color-light);
 
     font-family: var(--font-main);
-    font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
 
@@ -1598,8 +1366,6 @@ body[data-page="project-dermidew"] {
     align-items: start;
     gap: var(--space-5);
 }
-
-
 
 .design-web-intro h4 {
     width: fit-content;
@@ -1622,7 +1388,6 @@ body[data-page="project-dermidew"] {
     color: var(--secondary-text-color-light);
 
     font-family: var(--font-main);
-    font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
 
@@ -1652,7 +1417,7 @@ body[data-page="project-dermidew"] {
 .design-interface-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+    gap: var(--space-4);
 
     margin: 0;
     padding: 0;
@@ -1679,15 +1444,6 @@ body[data-page="project-dermidew"] {
     border: var(--glass-border);
 }
 
-.design-feature-header .interface-title {
-    color: var(--dark-blue);
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    font-weight: 800;
-    text-transform: uppercase;
-}
-
-
 /* Key Interface Captions */
 
 .design-interface-grid figcaption {
@@ -1702,7 +1458,8 @@ body[data-page="project-dermidew"] {
 .design-interface-grid figcaption strong {
     color: var(--theme-text-color);
 
-    font-size: var(--text-medium);
+    font-family: var(--font-header);
+    font-size: var(--text-large);
     font-weight: 600;
 }
 
@@ -1714,163 +1471,12 @@ body[data-page="project-dermidew"] {
 }
 
 
-/* Working MVP */
-
-.design-mvp {
-    display: grid;
-    grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.7fr);
-    align-items: center;
-    gap: 48px;
-}
-
-
-/* Working MVP Video */
-
-.design-demo {
-    min-width: 0;
-    margin: 0;
-}
-
-.design-demo iframe {
-    display: block;
-
-    width: 100%;
-    aspect-ratio: 16 / 9;
-
-    background-color: var(--light-blue);
-
-    border: var(--glass-border);
-    border-radius: 14px;
-}
-
-.design-demo figcaption {
-    margin-top: var(--space-4);
-
-    color: var(--dark-blue);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    line-height: 1.6;
-    text-align: center;
-}
-
-
-/* Working MVP Copy */
-
-.design-mvp-copy {
-    min-width: 0;
-}
-
-.design-mvp-copy .design-feature-header {
-    margin: 0;
-}
-
-.design-mvp-copy>p {
-    margin: var(--space-3) 0 0;
-
-    color: var(--secondary-text-color-light);
-
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    line-height: var(--line-height-body-text);
-}
-
-
-/* Working MVP Tags */
-
-.design-feature-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-
-    margin: 24px 0 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-.design-feature-tags li {
-    padding: 7px 12px;
-
-    color: var(--dark-blue);
-    background-color: var(--light-blue);
-
-    border-radius: 100px;
-
-    font-family: var(--font-main);
-    font-size: 0.75rem;
-    font-weight: 700;
-}
-
-
-/* Interface Evolution */
-
-.design-evolution {
-    padding-top: var(--space-6);
-}
-
-.design-evolution-comparison {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-4);
-}
-
-.design-evolution-comparison figure {
-    min-width: 0;
-    margin: 0;
-}
-
-.design-evolution-media {
-    display: block;
-
-    width: 100%;
-    aspect-ratio: 16 / 10;
-
-    object-fit: contain;
-    overflow: hidden;
-
-    background-color: white;
-    box-sizing: border-box;
-}
-
-#interface-evolution-title {
-    margin-bottom: var(--space-4);
-}
-
-/* Interface Evolution Captions */
-
-.design-evolution-comparison figcaption {
-    display: grid;
-    gap: 4px;
-
-    margin-top: var(--space-2);
-
-    font-family: var(--font-main);
-}
-
-.design-evolution-comparison figcaption strong,
-.design-prototype-list figcaption strong {
-    color: var(--theme-text-color);
-    font-size: var(--text-medium);
-    font-weight: 600;
-    text-align: center;
-    margin: var(--space-2) 0;
-}
-
-.design-evolution-comparison figcaption span {
-    color: var(--secondary-text-color-light);
-    font-size: var(--text-small);
-    line-height: 1.5;
-    text-align: center;
-}
-
-
 /* Physical Product */
 
 .design-physical {
     display: grid;
     gap: var(--space-6);
-    padding-top: var(--space-6);
+    padding: var(--space-8) 0 var(--space-8);
 }
 
 .design-physical .design-subsection-header {
@@ -1916,12 +1522,17 @@ body[data-page="project-dermidew"] {
 
     width: 100%;
     height: 300px;
-    padding: 24px;
+    padding: var(--space-6);
 
     object-fit: contain;
     background: white;
     border: var(--glass-border);
     border-radius: 14px;
+}
+
+.design-prototype-list strong {
+    font-family: var(--font-header);
+    font-size: var(--text-large);
 }
 
 /* ==== Captions ==== */
@@ -1939,17 +1550,28 @@ body[data-page="project-dermidew"] {
 }
 
 
+
 /* ============================
    DEVELOPMENT
 =============================== */
 
 .development-content {
     display: grid;
-    gap: var(--space-8);
+    gap: var(--space-3);
+}
+
+#development-title {
+    margin: 0;
+    font-family: var(--font-header);
+    font-size: clamp(2.5rem, 3vw, 3rem);
 }
 
 .development-content>section {
     min-width: 0;
+}
+
+p.development-label {
+    margin-left: 0;
 }
 
 .development-intro {
@@ -1959,28 +1581,12 @@ body[data-page="project-dermidew"] {
     line-height: var(--line-height-body-text);
 }
 
-.development-subsection-header {
-    margin-bottom: 28px;
-}
-
-.development-label {
-    margin: 0 0 var(--space-2);
-
-    color: var(--dark-blue);
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-}
-
 .development-subsection-header h3 {
-    margin: 0;
+    margin: 0 0 var(--space-2);
 
     color: var(--theme-text-color);
     font-family: var(--font-main);
-    font-size: var(--text-xlarge);
+    font-size: 1.17rem;
     font-weight: 800;
     line-height: 1.2;
 }
@@ -2083,7 +1689,6 @@ body[data-page="project-dermidew"] {
     color: var(--theme-text-color);
     font-family: var(--font-main);
     font-size: var(--text-medium);
-    font-weight: 800;
 }
 
 .development-stack-card ul {
@@ -2151,12 +1756,11 @@ body[data-page="project-dermidew"] {
 }
 
 .development-challenge-list h4 {
-    margin: var(--space-4) 0;
+    margin: 0 0 var(--space-2);
 
     color: var(--theme-text-color);
-    font-family: var(--font-main);
-    font-size: var(--text-large);
-    font-weight: 800;
+    font-family: var(--font-header);
+    font-size: var(--text-xlarge);
 }
 
 .development-challenge-list article p {
@@ -2193,7 +1797,6 @@ body[data-page="project-dermidew"] {
 
     color: var(--secondary-text-color-light);
     font-family: var(--font-main);
-    font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
 
@@ -2226,11 +1829,19 @@ body[data-page="project-dermidew"] {
     font-weight: 800;
 }
 
-
 /* ============================
     REFLECTION
 =============================== */
 
+.reflection-content.project-content_section {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--section-background-yellow);
+
+}
 
 .reflection-block {
     align-items: start;
@@ -2243,7 +1854,6 @@ body[data-page="project-dermidew"] {
 
     color: var(--secondary-text-color-light);
     font-family: var(--font-main);
-    font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
 
@@ -2284,7 +1894,7 @@ body[data-page="project-dermidew"] {
 .lessons-article h3 {
     color: var(--medium-blue);
     font-size: clamp(2rem, 3vw, 2.5rem);
-    font-weight: 700;
+    font-family: var(--font-header);
     line-height: 1.5;
     white-space: wrap;
     margin-top: var(--space-1);
@@ -2292,434 +1902,11 @@ body[data-page="project-dermidew"] {
 }
 
 .lessons-article p {
-    width: 90%;
+    width: 85%;
 }
 
 .forwards-article {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-}
-
-
-/* ============================
-    RESPONSIVE
-=============================== */
-
-
-/* ==== SMALL MOBILE  ==== */
-@media (max-width: 600px) {
-
-    .project-section {
-        padding-top: var(--space-7);
-        padding-bottom: var(--space-5);
-    }
-
-    .project-section-number {
-        font-size: var(--text-small);
-    }
-
-    .project-section h2 {
-        font-size: 2.25rem;
-    }
-
-    /* ---- Overview Section ---- */
-
-    .overview-bento {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "hero"
-            "summary"
-            "problem"
-            "solution"
-            "role"
-            "details";
-    }
-
-    #overview-title {
-        margin-bottom: 0;
-    }
-
-    .overview-card.overview-card--hero {
-        box-shadow: none;
-        border: none;
-        height: 300px;
-    }
-
-    .overview-details-item {
-        border-bottom: none;
-        gap: var(--space-7);
-    }
-
-    /* ---- Research Section ---- */
-
-    .research-content {
-        gap: var(--space-9);
-    }
-
-    .research-intro,
-    .research-findings,
-    .research-persona-card {
-        grid-template-columns: 1fr;
-    }
-
-    .research-intro {
-        align-items: start;
-        gap: var(--space-3);
-        padding-bottom: var(--space-7);
-    }
-
-    .research-intro h3,
-    #personas-title {
-        font-size: var(--text-medium);
-        line-height: 1.3;
-    }
-
-    .research-intro p,
-    .research-personas-note {
-        font-size: var(--text-small);
-    }
-
-    .research-stat {
-        min-height: 280px;
-    }
-
-    .research-stat-number {
-        font-size: 4rem;
-        margin: var(--space-2) 0 0;
-    }
-
-    .bubble-3,
-    .bubble-4,
-    .bubble-5 {
-        display: none;
-    }
-
-    .research-insight {
-        grid-template-columns: 30px 1fr;
-    }
-
-    .research-insight h3 {
-        font-size: 1.15rem;
-        padding-bottom: var(--space-2);
-    }
-
-    .research-personas {
-        gap: var(--space-5);
-    }
-
-    .research-personas-image span {
-        right: 10px;
-        bottom: 10px;
-
-        padding: var(--space-2) var(--space-3);
-    }
-
-    .research-opportunity {
-        padding: var(--space-5) var(--space-3) var(--space-2);
-    }
-
-    .research-opportunity-content h3 {
-        font-size: 2rem;
-        line-height: 1.25;
-    }
-
-
-    /* ---- Product Strategy Section ---- */
-
-
-    /* ---- Product Strategy Section ---- */
-
-    .strategy-content {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        gap: var(--space-4);
-    }
-
-    .strategy-content,
-    .strategy-content * {
-        box-sizing: border-box;
-    }
-
-    /* Prevent child elements from expanding the section */
-    .strategy-content>*,
-    .strategy-intro>*,
-    .strategy-validation>*,
-    .strategy-evolution>*,
-    .strategy-mvp>* {
-        min-width: 0;
-        max-width: 100%;
-    }
-
-    /* Mobile grid layouts */
-    .strategy-intro,
-    .strategy-validation,
-    .strategy-evolution-list,
-    .strategy-reasoning-list,
-    .strategy-mvp-pillars,
-    .strategy-direction-options {
-        grid-template-columns: minmax(0, 1fr);
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-    }
-
-    /* Introduction */
-    .strategy-intro {
-        align-items: start;
-        gap: var(--space-3);
-        padding-bottom: 32px;
-    }
-
-    .strategy-intro h3,
-    #evolution-title,
-    .strategy-evolution-takeaway h3,
-    #mvp-title {
-        margin-top: var(--space-3);
-        font-size: var(--text-medium);
-    }
-
-    /* Paragraph sizing */
-    .strategy-intro p,
-    .strategy-evolution-takeaway>p:last-child,
-    .strategy-mvp p.strategy-subsection-description {
-        font-size: var(--text-small);
-    }
-
-    /* Prevent text from forcing horizontal overflow */
-    .strategy-content h3,
-    .strategy-content p,
-    .strategy-content li {
-        min-width: 0;
-        max-width: 100%;
-        overflow-wrap: break-word;
-    }
-
-    /* Product evolution */
-    .strategy-evolution {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-    }
-
-    .strategy-evolution-image {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-    }
-
-    .strategy-evolution-image img {
-        display: block;
-        width: 90%;
-        max-width: 100%;
-        height: auto;
-        margin-inline: auto;
-    }
-
-    .strategy-evolution-step {
-        min-width: 0;
-        max-width: 100%;
-    }
-
-    .strategy-evolution-step:not(:last-child)::after {
-        content: "↓";
-        top: auto;
-        right: 50%;
-        bottom: -20px;
-        transform: translateX(50%);
-    }
-
-    /* MVP section */
-    .strategy-mvp {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        padding: var(--space-5);
-    }
-
-    .strategy-mvp-title {
-        font-size: var(--text-medium);
-    }
-
-    .strategy-core-value {
-        max-width: 100%;
-        margin: var(--space-7) auto;
-    }
-
-    .strategy-mvp-file details[open] .strategy-mvp-file-content {
-        padding: 0 var(--space-7) 36px;
-    }
-
-    /* Cards and direction options */
-    .strategy-direction-options>*,
-    .strategy-reasoning-list>*,
-    .strategy-mvp-pillars>*,
-    .strategy-evolution-list>* {
-        min-width: 0;
-        max-width: 100%;
-    }
-
-    /* Ensure media stays inside containers */
-    .strategy-content video,
-    .strategy-content svg {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .strategy-content img {
-        width: 75%;
-    }
-
-    /* ---- Design Section ---- */
-
-    #design-dermidew h3 {
-        font-size: var(--text-medium);
-        margin-top: var(--space-4);
-    }
-
-    #design-dermidew p {
-        font-size: var(--text-small);
-    }
-
-    .design-content {
-        gap: var(--space-7);
-    }
-
-    .design-web,
-    .design-physical {
-        gap: var(--space-8);
-    }
-
-    .design-physical {
-        padding-top: var(--space-9);
-    }
-
-
-    /* Web Design */
-
-    .design-web {
-        gap: var(--space-5);
-    }
-
-    .design-feature {
-        gap: var(--space-6);
-    }
-
-
-    /* Interfaces */
-
-    .design-interface-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-7);
-    }
-
-    /* Evolution */
-
-    .design-evolution {
-        padding-top: var(--space-9);
-    }
-
-    .design-evolution-comparison {
-        grid-template-columns: 1fr;
-        gap: var(--space-7);
-    }
-
-
-    /* Physical Product */
-
-    .design-mirror figure {
-        min-height: 320px;
-        padding: var(--space-6);
-    }
-
-    .design-mirror dl {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .design-mirror dl>div {
-        padding: var(--space-5) 0;
-        border-bottom: 1px solid var(--light-blue);
-    }
-
-    .design-mirror dl>div:first-child {
-        padding-top: 0;
-    }
-
-    .design-mirror dl>div:last-child {
-        padding-bottom: 0;
-        border-bottom: none;
-    }
-
-    .design-prototypes {
-        padding-top: var(--space-9);
-    }
-
-    .design-prototype-list {
-        grid-template-columns: 1fr;
-        gap: var(--space-7);
-    }
-
-    .design-prototype-image {
-        aspect-ratio: 4 / 3;
-        padding: var(--space-6);
-    }
-
-    /* ---- Development Section ---- */
-
-    #development-dermidew h3 {
-        font-size: var(--text-medium);
-        margin-top: var(--space-4);
-    }
-
-    #development-dermidew p {
-        font-size: var(--text-small);
-    }
-
-    .development-content {
-        gap: var(--space-7);
-    }
-
-    .development-flow {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .development-flow li:not(:last-child)::after {
-        display: none;
-    }
-
-    .development-stack dl,
-    .development-stack-grid,
-    .development-challenge-list {
-        grid-template-columns: 1fr;
-    }
-
-    .development-challenges,
-    .development-iteration {
-        padding-top: var(--space-9);
-    }
-
-
-    /* ---- Reflection Section ---- */
-
-    #reflection-dermidew p {
-        font-size: var(--text-small);
-    }
-
-    .reflection-content {
-        gap: 48px;
-    }
-
-    .reflection-block {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding-bottom: 48px;
-    }
-
-    .lessons-article h3 {
-        margin-bottom: 0;
-    }
-
 }
