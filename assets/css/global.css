@@ -2240,6 +2240,7 @@ html[data-theme][data-fidelity="mid"] {
         grid-area: theme-toggle;
         place-self: center start;
         padding-left: var(--side-padding);
+        min-height: 42px;
     }
 }
 
