@@ -11,19 +11,19 @@ const steps = [
     phase: 1,
     counter: '01 / 03',
     fidelity: 'lo-fi',
-    headline: 'Think in products.'
+    headline: 'Think in products'
   },
   {
     phase: 2,
     counter: '02 / 03',
     fidelity: 'mid-fi',
-    headline: 'Design experiences.'
+    headline: 'Design experiences'
   },
   {
     phase: 3,
     counter: '03 / 03',
     fidelity: 'hi-fi',
-    headline: 'Build in code.'
+    headline: 'Build in code'
   }
 ];
 
