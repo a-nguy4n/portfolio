@@ -4,6 +4,257 @@ html {
 
 body[data-project] {
     overflow-y: visible;
+
+
+    --project-content-sides-padding: 10rem;
+
+    /* General Project Content Styling */
+
+    .project-content_section {
+        width: 100%;
+        max-width: 100%;
+
+        margin: var(--space-5) 0;
+        padding: var(--space-9) var(--project-content-sides-padding);
+        box-sizing: border-box;
+        color: var(--theme-text-color);
+    }
+
+    .project-content_section h1 {
+        margin: var(--space-0) var(--space-0) var(--space-8);
+        font-size: var(--text-xlarge);
+        font-weight: var(--primary-header-weight);
+    }
+
+    .project-content_section h2 {
+        margin: 0 0 1.75rem;
+        font-size: var(--text-medium);
+        font-weight: var(--primary-header-weight);
+
+        line-height: var(--line-height-headers);
+        letter-spacing: -0.04em;
+    }
+
+    .project-content_section h3 {
+        margin: 0 0 var(--space-5);
+        font-family: var(--font-headers);
+        font-size: clamp(1rem, 18px, 1.25rem);
+        font-weight: 300;
+
+        line-height: var(--line-height-headers);
+
+    }
+
+    .statement-phrase {
+        font-size: 45px !important;
+    }
+
+    .project-content_section .section-label {
+        display: block;
+        margin-bottom: var(--space-4);
+
+        font-family: var(--font-headers);
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+
+        text-transform: uppercase;
+    }
+
+    .project-content_section p {
+        margin: 0;
+        font-size: var(--text-small);
+        line-height: var(--line-height-body-text);
+        color: var(--theme-text-color);
+    }
+
+    /* General Overview Section Styling */
+
+    .overview-layout {
+        width: 100%;
+        min-width: 0;
+
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-10);
+
+        box-sizing: border-box;
+    }
+
+    .overview-description {
+        min-width: 0;
+    }
+
+    .overview-description p {
+        margin: var(--space-0) var(--space-0) var(--space-6);
+        font-family: var(--font-style);
+        font-size: var(--text-small);
+        line-height: var(--line-height-body-text);
+    }
+
+    .overview-description p:last-child {
+        margin-bottom: var(--space-0);
+    }
+
+    .project-details {
+        min-width: 0;
+
+        display: grid;
+        grid-template-columns: max-content minmax(0, 1fr) max-content minmax(0, 1fr);
+
+        grid-template-areas:
+            "role-title role-item timeframe-title timeframe-item"
+            "team-title team-item skills-title skills-item";
+
+        column-gap: var(--space-5);
+        row-gap: var(--space-8);
+        margin: var(--space-0);
+    }
+
+    /* Allows dt and dd to participate
+   directly in the parent grid */
+
+    .project-detail {
+        display: contents;
+    }
+
+    .project-detail dt {
+        margin: var(--space-0);
+
+        font-family: var(--font-headers);
+        font-size: var(--text-small);
+        font-weight: var(--primary-header-weight);
+        line-height: var(--line-height-body-text);
+    }
+
+    .project-detail dd {
+        min-width: 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+
+        margin: 0.3rem 0 0;
+
+        font-family: var(--font-style);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: var(--line-height-body-text);
+    }
+
+
+    .project-detail:nth-child(1) dt {
+        grid-area: role-title;
+    }
+
+    .project-detail:nth-child(1) dd {
+        grid-area: role-item;
+    }
+
+    .project-detail:nth-child(2) dt {
+        grid-area: timeframe-title;
+    }
+
+    .project-detail:nth-child(2) dd {
+        grid-area: timeframe-item;
+    }
+
+    .project-detail:nth-child(3) dt {
+        grid-area: team-title;
+    }
+
+    .project-detail:nth-child(3) dd {
+        grid-area: team-item;
+    }
+
+    .project-detail:nth-child(4) dt {
+        grid-area: skills-title;
+    }
+
+    .project-detail:nth-child(4) dd {
+        grid-area: skills-item;
+    }
+
+
+    /* General Problem Section Styling */
+
+    .problem-content.project-content_section {
+        display: grid;
+
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-areas:
+            "heading heading"
+            "problem challenge";
+
+        align-items: center;
+        column-gap: clamp(4rem, 7vw, 8rem);
+        row-gap: var(--space-4);
+    }
+
+    .problem-heading {
+        grid-area: heading;
+
+        margin: 0;
+        font-size: var(--text-xlarge);
+        font-weight: var(--primary-header-weight);
+        line-height: 1.2;
+    }
+
+    .problem-content {
+        grid-area: problem;
+
+        width: 100%;
+    }
+
+
+    .problem-description {
+        font-family: var(--font-style);
+        line-height: var(--line-height-body-text);
+    }
+
+    .challenge-label {
+        position: relative;
+        display: block;
+        margin-bottom: var(--space-4);
+
+        z-index: 1;
+
+        font-family: var(--font-headers);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .challenge-question {
+        position: relative;
+        z-index: 1;
+
+        font-family: var(--font-style);
+        font-size: var(--text-medium) !important;
+        font-weight: 400;
+
+        line-height: var(--line-height-body-text);
+    }
+
+
+    /* Research Finding Banner */
+
+    .research-finding-banner {
+        margin: var(--space-10) auto 0;
+        padding: var(--space-8) var(--space-9);
+
+        box-sizing: border-box;
+        border-left: 8px solid var(--color-three);
+        border-radius: 0 5px 5px 0;
+        text-align: left;
+    }
+
+    .research-finding-banner p {
+        max-width: 850px;
+
+    }
+
 }
 
 body[data-project] logo-button {
@@ -52,7 +303,7 @@ body[data-project] .project-specific-sections {
     gap: var(--space-3);
 }
 
-.project-specific-breadcrumb a{
+.project-specific-breadcrumb a {
     color: var(--theme-text-color);
     text-decoration: none;
 }
@@ -215,5 +466,76 @@ body[data-project] .project-specific-sections a.is-active {
 
     body[data-project] .project-specific-sections::-webkit-scrollbar {
         display: none;
+    }
+
+    /* General Section Stylings */
+    body[data-project] {
+
+        .project-content_section {
+            margin: var(--space-5) 0;
+            padding: var(--space-2) var(--space-5) var(--space-2);
+            box-sizing: border-box;
+            color: var(--theme-text-color);
+        }
+
+        .project-content_section h1 {
+            margin: var(--space-4) var(--space-0) var(--space-3);
+        }
+
+        .statement-phrase {
+            font-size: 40px !important;
+        }
+
+        .project-content_section h2 {
+            margin-bottom: var(--space-2);
+        }
+
+        /* ----- Overview ----- */
+        .overview-layout {
+            grid-template-columns: 1fr;
+            gap: var(--space-7);
+        }
+
+        .overview-description p {
+            margin: var(--space-0) var(--space-0) var(--space-1);
+        }
+
+        .project-details {
+            grid-template-columns:
+                max-content minmax(0, 1fr);
+
+            grid-template-areas:
+                "role-title role-item"
+                "timeframe-title timeframe-item"
+                "team-title team-item"
+                "skills-title skills-item";
+
+            column-gap: var(--space-5);
+            row-gap: var(--space-6);
+        }
+
+        .project-detail dd span {
+            padding-left: var(--space-3);
+        }
+
+
+        /* ----- Problem ----- */
+        .problem-content.project-content_section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            padding: var(--space-5) var(--space-5) var(--space-6);
+        }
+
+        .problem-heading {
+            text-align: left;
+            align-self: flex-start;
+            justify-self: start;
+        }
+
+        .challenge-question {
+            font-size: 1.25rem !important;
+        }
+
     }
 }
