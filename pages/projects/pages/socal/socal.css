@@ -8,6 +8,7 @@ body[data-page="project-socal"] {
 
     --font-headers: 'Doppio One', sans-serif;
     --secondary-text-color-light: #5b2a7c;
+    --line-height-headers: 1.25;
     --line-height-body-text: 1.75;
 
     --glass-border: 1px solid rgba(216, 216, 216, 0.452);
@@ -32,7 +33,7 @@ body[data-page="project-socal"] {
     }
 
     footer logo-button {
-        --logo-button-hover-color: #6f5cc4 !important; 
+        --logo-button-hover-color: #6f5cc4 !important;
     }
 
     .end-result {
@@ -50,7 +51,7 @@ body[data-page="project-socal"] {
 }
 
 /* ============================
-    HERO MOTION SECTION
+    HERO MOTION SECTION 
 =============================== */
 
 .motion-section {
@@ -157,227 +158,32 @@ body[data-page="project-socal"] {
 }
 
 /* ============================
-    GENERAL
-=============================== */
-
-.project-content_section {
-    width: 100%;
-    max-width: 100%;
-
-    margin: var(--space-5) 0;
-    padding: var(--space-9);
-    box-sizing: border-box;
-    color: var(--theme-text-color);
-}
-
-.project-content_section p {
-    margin: var(--space-4);
-    font-size: var(--text-medium);
-}
-
-/* ============================
-    OVERVIEW CONTENT
-=============================== */
-
-.overview-content h1 {
-    margin: var(--space-0) var(--space-0) var(--space-8);
-
-    font-family: var(--font-headers);
-    font-size: var(--text-xlarge);
-    font-weight: var(--primary-header-weight);
-    line-height: 1.2;
-}
-
-.overview-layout {
-    width: 100%;
-    min-width: 0;
-
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: var(--space-10);
-
-    box-sizing: border-box;
-}
-
-.overview-description {
-    min-width: 0;
-}
-
-.overview-description p {
-    margin: var(--space-0) var(--space-0) var(--space-6);
-    font-family: var(--font-style);
-    font-size: var(--text-small);
-    line-height: var(--line-height-body-text);
-}
-
-.overview-description p:last-child {
-    margin-bottom: var(--space-0);
-}
-
-.project-details {
-    min-width: 0;
-
-    display: grid;
-    grid-template-columns: max-content minmax(0, 1fr) max-content minmax(0, 1fr);
-
-    grid-template-areas:
-        "role-title role-item timeframe-title timeframe-item"
-        "team-title team-item skills-title skills-item";
-
-    column-gap: var(--space-3);
-    row-gap: var(--space-8);
-    margin: var(--space-0);
-}
-
-/* Allows dt and dd to participate
-   directly in the parent grid */
-
-.project-detail {
-    display: contents;
-}
-
-.project-detail:nth-child(1) dt {
-    grid-area: role-title;
-}
-
-.project-detail:nth-child(1) dd {
-    grid-area: role-item;
-}
-
-.project-detail:nth-child(2) dt {
-    grid-area: timeframe-title;
-}
-
-.project-detail:nth-child(2) dd {
-    grid-area: timeframe-item;
-}
-
-.project-detail:nth-child(3) dt {
-    grid-area: team-title;
-}
-
-.project-detail:nth-child(3) dd {
-    grid-area: team-item;
-}
-
-.project-detail:nth-child(4) dt {
-    grid-area: skills-title;
-}
-
-.project-detail:nth-child(4) dd {
-    grid-area: skills-item;
-}
-
-.project-detail dt {
-    margin: var(--space-0);
-
-    font-family: var(--font-headers);
-    font-size: var(--text-small);
-    font-weight: var(--primary-header-weight);
-    line-height: var(--line-height-body-text);
-}
-
-.project-detail dd {
-    min-width: 0;
-
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-
-    margin: var(--space-0);
-
-    font-family: var(--font-style);
-    font-size: var(--text-small);
-    font-weight: 400;
-    line-height: var(--line-height-body-text);
-}
-
-.project-detail dd span {
-    display: block;
-}
-
-/* ============================
     PROBLEM STATEMENT
 =============================== */
 
 .problem-content.project-content_section {
-    display: grid;
-
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-areas:
-        "heading heading"
-        "problem challenge";
-
-    align-items: center;
-
-    column-gap: clamp(4rem, 7vw, 8rem);
-    row-gap: var(--space-4);
-
-    margin-left: 0;
-    margin-right: 0;
-
-    padding: var(--space-9);
     background: #f7f3fb;
 }
 
 .problem-heading {
-    grid-area: heading;
-
-    margin: 0;
-
     color: var(--theme-text-color);
     font-family: var(--font-headers);
-    font-size: var(--text-xlarge);
-    font-weight: var(--primary-header-weight);
-    line-height: 1.2;
 }
 
-/* ==== Current Experience ==== */
-
-.problem-copy {
+.problem-content {
     grid-area: problem;
-
-    width: 100%;
-    max-width: 700px;
 }
 
 .section-label {
-    display: block;
-
-    margin-bottom: var(--space-4);
-
     color: var(--color-three);
-
-    font-family: var(--font-headers);
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-
-    text-transform: uppercase;
 }
 
-
-.problem-copy h2 {
-    margin: 0 0 1.75rem;
-
+.problem-content h2 {
     color: var(--theme-text-color);
-
-    font-family: var(--font-headers);
-    font-size: clamp(2.5rem, 3.4vw, 4rem);
-    font-weight: var(--primary-header-weight);
-
-    line-height: 1.05;
-    letter-spacing: -0.04em;
 }
 
 .problem-description {
-    max-width: 600px;
-
-    margin: 0 !important;
     color: var(--secondary-text-color-light);
-    font-family: var(--font-style);
-    font-size: 1.1rem !important;
-    line-height: var(--line-height-body-text);
 }
 
 
@@ -422,46 +228,12 @@ body[data-page="project-socal"] {
 /* ==== Challenge Content ==== */
 
 .challenge-label {
-    position: relative;
-    z-index: 1;
-
-    display: block;
-
-    margin-bottom: 1rem;
-
     color: rgba(255, 255, 255, 0.7);
-
-    font-family: var(--font-headers);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-
-    text-transform: uppercase;
 }
-
 
 .challenge-question {
-    position: relative;
-    z-index: 1;
-
-    max-width: 650px;
-
-    /*
-     * Override generic
-     * .project-content_section p styles
-     */
-    margin: 0 !important;
-
-    color: white;
-
-    font-family: var(--font-style);
-    font-size: var(--text-medium) !important;
-    font-weight: 400;
-
-    line-height: 1.45;
-    letter-spacing: -0.02em;
+    color: white !important;
 }
-
 
 .challenge-question strong {
     color: white;
@@ -473,28 +245,9 @@ body[data-page="project-socal"] {
     RESEARCH
 =============================== */
 
-.research-content {
-    padding-top: var(--space-9);
-    padding-bottom: var(--space-4);
-}
-
-.research-content>h1 {
-    margin: 0 0 var(--space-8);
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-headers);
-    font-size: var(--text-xlarge);
-    font-weight: var(--primary-header-weight);
-    line-height: 1.2;
-}
-
-
 /* ==== Research Overview ==== */
 
 .research-overview {
-    max-width: 1200px;
-
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: var(--space-10);
@@ -509,58 +262,13 @@ body[data-page="project-socal"] {
 
     grid-column: 1 / -1;
 
-    margin: 0 !important;
-
     color: var(--theme-text-color);
-
-    font-family: var(--font-style);
-    font-size: var(--text-medium) !important;
-    line-height: 1.75;
 }
 
 /* ==== Research Methods ==== */
 
 .research-method {
-    max-width: 520px;
     line-height: var(--line-height-body-text);
-}
-
-.research-method>span {
-    display: block;
-
-    margin-bottom: var(--space-2);
-
-    color: var(--color-three);
-
-    font-family: var(--font-headers);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-}
-
-.research-method h3 {
-    margin: 0 0 var(--space-2);
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-headers);
-    font-size: var(--text-medium);
-    font-weight: var(--primary-header-weight);
-    line-height: 1.3;
-}
-
-.research-method>p {
-    margin: 0 0 var(--space-3) !important;
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-style);
-    font-size: var(--text-small) !important;
-}
-
-.research-method ul {
-    margin: 0;
-    padding-left: 1.25rem;
 }
 
 .research-method li {
@@ -583,27 +291,18 @@ body[data-page="project-socal"] {
 /* ==== Persona Rows ==== */
 
 .persona-row {
-    max-width: 1200px;
-
     display: grid;
-    grid-template-columns:
-        minmax(0, 1fr) minmax(280px, 0.8fr);
-
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
     gap: clamp(5rem, 9vw, 10rem);
 
     align-items: center;
-
     margin: 0 auto;
     padding: var(--space-8) 0;
 }
 
 .persona-row--organization {
-    grid-template-columns:
-        minmax(280px, 0.8fr) minmax(0, 1fr);
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1fr);
 }
-
-
-/* ==== Persona Image ==== */
 
 .persona-figure {
     min-width: 0;
@@ -612,18 +311,11 @@ body[data-page="project-socal"] {
 
 .persona-figure img {
     display: block;
-
     width: 100%;
     height: auto;
-
     border-radius: 5px;
-
-    box-shadow:
-        0 12px 40px rgba(68, 19, 100, 0.08);
+    box-shadow: 0 12px 40px rgba(68, 19, 100, 0.08);
 }
-
-
-/* ==== Persona Insights ==== */
 
 .persona-insights {
     max-width: 430px;
@@ -631,18 +323,7 @@ body[data-page="project-socal"] {
 
 .persona-insights .insight-type {
     margin: 0 0 var(--space-2);
-    font-size: var(--text-xlarge);
-}
-
-.persona-insights h2 {
-    margin: 0 0 var(--space-4);
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-headers);
-    font-size: var(--text-medium);
-    font-weight: var(--primary-header-weight);
-    line-height: 1.2;
+    font-size: clamp(2rem, 35px, 3rem) !important;
 }
 
 .persona-insights ul {
@@ -664,63 +345,13 @@ body[data-page="project-socal"] {
     margin-bottom: 0;
 }
 
-
-/* ==== Findings ==== */
-
-.research-finding {
-    max-width: 1200px;
-
-    margin: var(--space-10) auto 0;
-    padding: var(--space-8) var(--space-9);
-
-    box-sizing: border-box;
-
+.research-finding-banner {
     background: #f7f3fb;
-    border-left: 8px solid var(--color-three);
-    border-radius: 0 5px 5px 0;
-
-    text-align: left;
 }
 
-.research-finding .section-label {
-    display: block;
-
-    margin: 0 0 var(--space-3);
-
-    color: var(--color-three);
-
-    font-family: var(--font-headers);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-}
-
-.research-finding h2 {
-    max-width: 850px;
-
-    margin: 0 0 var(--space-4);
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-headers);
-    font-size: clamp(2rem, 3vw, 3.25rem);
-    font-weight: var(--primary-header-weight);
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-}
-
-.research-finding p {
-    max-width: 800px;
-
-    margin: 0 !important;
-
+.research-finding-banner p {
     color: var(--secondary-text-color-light);
-
-    font-family: var(--font-style);
-    font-size: var(--text-small) !important;
-    line-height: var(--line-height-body-text);
 }
-
 
 /* ==== Section Divider ==== */
 
@@ -776,66 +407,14 @@ body[data-page="project-socal"] {
 }
 
 
+
 /* ============================
     STRATEGY
 =============================== */
 
-.strategy-content {
-    padding-top: var(--space-9);
-    padding-bottom: var(--space-10);
-}
-
-.strategy-content>h1 {
-    margin: 0 0 var(--space-8);
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-headers);
-    font-size: var(--text-xlarge);
-    font-weight: var(--primary-header-weight);
-    line-height: 1.2;
-}
-
-
-/* ==== Shared Labels ==== */
-
-.strategy-content .section-label {
-    margin: 0 0 var(--space-3);
-
-    color: var(--color-three);
-    font-family: var(--font-headers);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-}
-
-
-/* ==== Strategy Intro ==== */
-
 .strategy-intro {
-    max-width: 100%;
     margin: 0 0 var(--space-9);
 }
-
-.strategy-intro h2 {
-    margin: 0 0 var(--space-4);
-
-    color: var(--theme-text-color);
-    font-weight: 500;
-}
-
-.strategy-description {
-    max-width: 100%;
-    margin: 0 !important;
-
-    color: var(--theme-text-color);
-    font-family: var(--font-style);
-    font-size: var(--text-medium);
-    line-height: var(--line-height-body-text);
-}
-
-
-/* ==== Core Interaction ==== */
 
 .core-interaction {
     max-width: 900px;
@@ -964,40 +543,14 @@ body[data-page="project-socal"] {
 
 /* ==== MVP ==== */
 
-.strategy-mvp {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .mvp-heading {
-    max-width: 75%;
     margin-bottom: var(--space-7);
 }
-
-.mvp-heading h2 {
-    margin: 0 0 var(--space-3);
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-headers);
-    font-size: var(--text-large);
-    font-weight: var(--primary-header-weight);
-    line-height: 1.2;
-}
-
-.mvp-heading p {
-    margin: 0 0 var(--space-3);
-
-    font-family: var(--font-style);
-    line-height: var(--line-height-body-text);
-}
-
-/* ==== MVP Bento Grid ==== */
 
 .mvp-bento {
     display: grid;
 
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.85fr) minmax(0, 1fr);
     grid-template-areas:
         "discovery discovery accounts"
         "management details details";
@@ -1006,7 +559,7 @@ body[data-page="project-socal"] {
 }
 
 
-/* ==== Individual Card Themes ==== */
+/* Individual Card Themes */
 
 .mvp-card--discovery {
     grid-area: discovery;
@@ -1076,38 +629,12 @@ body[data-page="project-socal"] {
     border-radius: 8px;
 }
 
-.mvp-number {
-    display: block;
-
-    margin-bottom: var(--space-5);
-
-    color: var(--card-accent);
-    font-family: var(--font-headers);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-}
-
 .mvp-card h3 {
-    margin: 0 0 var(--space-3);
-
     color: var(--card-text);
-
-    font-family: var(--font-headers);
-    font-size: var(--text-medium);
-    font-weight: var(--primary-header-weight);
-    line-height: 1.25;
 }
 
 .mvp-card>p {
-    max-width: 520px;
-
-    margin: 0 0 var(--space-6) !important;
-
-    color: var(--card-secondary);
-    font-family: var(--font-style);
-    font-size: var(--text-small) !important;
-    line-height: 1.6;
+    color: var(--card-secondary) !important;
 }
 
 
@@ -1126,7 +653,7 @@ body[data-page="project-socal"] {
 
     color: var(--tag-text);
     background: var(--tag-bg);
-    border-radius: 100px;
+    border-radius: var(--widget-radius);
 
     font-family: var(--font-style);
     font-size: var(--text-xxsmall);
@@ -1149,35 +676,29 @@ body[data-page="project-socal"] {
     padding-bottom: 0;
 }
 
-
 .design-intro {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    grid-template-rows: min-content min-content;
+    grid-template-rows: 135px min-content;
     align-content: center;
     align-items: start;
 
     column-gap: var(--space-5);
-    row-gap: 1rem;
+    row-gap: var(--space-4);
 
     max-width: none;
-    min-height: 450px;
-    margin-bottom: clamp(3rem, 5vw, 7rem);
+    min-height: 420px;
 }
 
 .design-intro h2 {
     grid-column: 1;
     grid-row: 1;
-    margin-bottom: 0;
-    font-size: clamp(2.5rem, 3vw, 3rem);
+    margin-bottom: 0 !important;
 }
 
 .design-intro-description {
     grid-column: 1;
     grid-row: 2;
-    line-height: var(--line-height-body-text);
-    margin-left: 0;
-    padding-left: 0;
 }
 
 
@@ -1221,7 +742,6 @@ body[data-page="project-socal"] {
             transparent 100%);
 }
 
-
 .design-intro-visual img {
     position: relative;
     display: block;
@@ -1248,7 +768,6 @@ body[data-page="project-socal"] {
     margin-bottom: var(--space-7);
 }
 
-
 .design-stage-number {
     color: var(--design-accent);
 
@@ -1258,14 +777,12 @@ body[data-page="project-socal"] {
     letter-spacing: 0.08em;
 }
 
-
 .design-stage-label {
     margin: 0 !important;
 
     color: var(--theme-text-color);
 
     font-family: var(--font-headers);
-    font-size: var(--text-small) !important;
     font-weight: 700;
     letter-spacing: 0.08em;
 }
@@ -1292,39 +809,12 @@ body[data-page="project-socal"] {
     max-width: 100%;
 }
 
-
-.design-stage-note h3,
-.design-build-intro h3,
-.design-reflection-intro h3 {
-    margin: 0 0 var(--space-4);
-
-    color: var(--theme-text-color);
-
-    font-family: var(--font-headers);
-    font-size: clamp(1.5rem, 2.2vw, 2.15rem);
-    font-weight: var(--primary-header-weight);
-    line-height: 1.2;
-    letter-spacing: -0.025em;
-}
-
-
 .design-stage-note>p,
 .design-build-intro>p,
 .design-reflection-intro>p {
     margin: 0 0 var(--space-4) !important;
-
     color: var(--secondary-text-color-light);
-
-    font-family: var(--font-style);
-    font-size: var(--text-medium);
-    line-height: var(--line-height-body-text);
 }
-
-.design-stage-note>p {
-    font-size: var(--text-small) !important;
-    width: 100%;
-}
-
 
 /* ====  FIRST DRAFT WIREFRAMES ==== */
 
@@ -1473,8 +963,8 @@ body[data-page="project-socal"] {
     display: flex;
     flex-direction: column;
     margin-top: var(--space-6);
+    padding-left: 0;
 }
-
 
 .design-shift {
     display: grid;
@@ -1483,22 +973,18 @@ body[data-page="project-socal"] {
     align-items: center;
     gap: var(--space-3);
     padding: var(--space-3) 0;
-    border-bottom: 1px solid var(--design-border);
 
     font-family: var(--font-style);
     font-size: 0.8rem;
 }
 
-
 .design-shift>span:first-child {
     color: var(--design-muted);
 }
 
-
 .design-shift>span:nth-child(2) {
     color: var(--design-accent);
 }
-
 
 .design-shift strong {
     color: var(--theme-text-color);
@@ -1543,13 +1029,11 @@ body[data-page="project-socal"] {
     margin-top: var(--space-7);
 }
 
-
 .design-tech span {
     color: var(--secondary-text-color-light);
     font-family: var(--font-style);
     font-size: var(--text-xsmall);
 }
-
 
 .design-tech span:not(:last-child)::after {
     content: "·";
@@ -1561,11 +1045,6 @@ body[data-page="project-socal"] {
 
 /* ==== LOOKING BACK ==== */
 
-.design-reflection-intro {
-    max-width: 650px;
-    margin: 0;
-}
-
 .design-reflection-layout {
     display: grid;
 
@@ -1576,7 +1055,6 @@ body[data-page="project-socal"] {
     margin-top: var(--space-6);
     padding-bottom: var(--space-6);
 }
-
 
 /* Desktop + Mobile */
 .design-evolved {
@@ -1665,17 +1143,16 @@ body[data-page="project-socal"] {
 ======================================== */
 
 .takeaway-content.project-content_section {
+    position: relative;
+
     display: flex;
     flex-direction: column;
 
     width: 100%;
     box-sizing: border-box;
-
     gap: var(--space-8);
-    margin: 0;
-    padding: 0 var(--space-9) var(--space-11);
 
-    background: transparent;
+    isolation: isolate;
 }
 
 /* ==== Section Heading ==== */
@@ -1693,44 +1170,141 @@ body[data-page="project-socal"] {
 /* ==== Reflection Sections ==== */
 
 .takeaway-note {
+    position: relative;
+
     width: 100%;
     min-width: 0;
+    box-sizing: border-box;
 }
 
 .takeaway-note .section-label {
-    display: block;
-    margin: 0 0 var(--space-4);
     color: var(--color-one);
-}
-
-/* ==== Key Insight ==== */
-
-.takeaway-note h3:not(.section-label) {
-    margin: 0 0 1.75rem;
-
-    color: var(--theme-text-color);
-    font-family: var(--font-headers);
-    font-size: clamp(2.5rem, 3.4vw, 4rem);
-    font-weight: var(--primary-header-weight);
-
-    line-height: 1.05;
-    letter-spacing: -0.04em;
 }
 
 /* ==== Body Text ==== */
 
 .takeaway-note p {
-    width: 100%;
-    margin: 0;
-
     color: var(--secondary-text-color-light);
-    font-family: var(--font-style);
-    font-size: var(--text-medium);
-    line-height: var(--line-height-body-text);
+    width: 75%;
 }
 
-.takeaway-note p+p {
-    margin-top: var(--space-4);
+/* ==== Decorative Circles Container ==== */
+
+.takeaway-circles {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 30%;
+    height: 100%;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ==== Shared Circle Styles ==== */
+
+.takeaway-circles .circle {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+}
+
+/* ==== Upper Circles ==== */
+
+.takeaway-circles .circle-1 {
+    width: 180px;
+    height: 180px;
+
+    top: -90%;
+    right: 5%;
+
+    background-color: #e1daff;
+}
+
+.takeaway-circles .circle-2 {
+    width: 70px;
+    height: 70px;
+
+    top: -95%;
+    right: -5%;
+
+    background-color: #A68BD5;
+}
+
+.takeaway-circles .circle-3 {
+    width: 100px;
+    height: 100px;
+
+    top: -60%;
+    right: 0%;
+
+    background-color: #dde3ff;
+}
+
+/* ==== Middle Circles ==== */
+
+.takeaway-circles .circle-4 {
+    width: 125px;
+    height: 125px;
+
+    top: 70%;
+    right: 0%;
+
+    background-color: #bfb9ff;
+}
+
+.takeaway-circles .circle-5 {
+    width: 35px;
+    height: 35px;
+
+    top: -20%;
+    right: 5%;
+
+    background-color: #7951B7;
+}
+
+.takeaway-circles .circle-6 {
+    width: 85px;
+    height: 85px;
+
+    top: 5%;
+    right: 30%;
+
+    background-color: #E8DDF7;
+}
+
+/* ==== Lower Circles ==== */
+
+.takeaway-circles .circle-7 {
+    width: 180px;
+    height: 180px;
+
+    top: 25%;
+    right: -25%;
+
+    background-color: #CBB5E9;
+}
+
+.takeaway-circles .circle-8 {
+    width: 55px;
+    height: 55px;
+
+    top: 55%;
+    right: 65%;
+
+    background-color: #8b94d5;
+}
+
+.takeaway-circles .circle-9 {
+    width: 28px;
+    height: 28px;
+
+    top: 103%;
+    right: 30%;
+
+    background-color: #7951B7;
 }
 
 
@@ -1741,15 +1315,6 @@ body[data-page="project-socal"] {
 
 /* ==== SMALL MOBILE  ==== */
 @media (max-width: 600px) {
-   
-
-    /* ----- General Project Sections ----- */
-
-    .project-content_section {
-        margin-inline: 0;
-        margin-top: var(--space-3);
-        padding: var(--space-2) var(--space-5) var(--space-2);
-    }
 
     /* ----- Hero Motion Section ----- */
     .motion-section {
@@ -1778,71 +1343,6 @@ body[data-page="project-socal"] {
     .motion-label {
         display: none;
     }
-
-    /* ----- Overview ----- */
-
-    .overview-content h1 {
-        margin-bottom: var(--space-6);
-    }
-
-    .overview-layout {
-        grid-template-columns: 1fr;
-        gap: var(--space-7);
-    }
-
-    .overview-description p {
-        margin-bottom: var(--space-5);
-    }
-
-    .project-details {
-        grid-template-columns:
-            max-content minmax(0, 1fr);
-
-        grid-template-areas:
-            "role-title role-item"
-            "timeframe-title timeframe-item"
-            "team-title team-item"
-            "skills-title skills-item";
-
-        column-gap: var(--space-5);
-        row-gap: var(--space-6);
-    }
-
-
-    /* ----- Problem ----- */
-
-    .problem-content.project-content_section {
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-        padding: var(--space-5) var(--space-5) var(--space-6);
-    }
-
-    .problem-heading {
-        text-align: left;
-        align-self: flex-start;
-        justify-self: start;
-    }
-
-    .problem-copy h2,
-    #team-takeaway-heading {
-        font-size: var(--text-xlarge);
-    }
-
-    .problem-description {
-        font-size: var(--text-small) !important;
-        line-height: 1.65;
-    }
-
-    .challenge-card {
-        padding: 2rem;
-        border-radius: 18px;
-    }
-
-    .challenge-question {
-        font-size: 1.25rem !important;
-    }
-
 
     /* ----- Research ----- */
 
@@ -2008,6 +1508,10 @@ body[data-page="project-socal"] {
         margin-bottom: var(--space-7);
     }
 
+    .design-stage-heading {
+        margin-bottom: var(--space-3);
+    }
+
     .design-build-intro p,
     .design-reflection-intro p,
     #team-takeaway-heading p,
@@ -2042,6 +1546,17 @@ body[data-page="project-socal"] {
     #personal-takeaway-heading {
         font-size: var(--text-xsmall);
     }
+
+    .takeaway-note p {
+        color: var(--secondary-text-color-light);
+        width: 100%;
+    }
+
+    .takeaway-circles {
+        display: none;
+    }
+
+
 
 }
 
