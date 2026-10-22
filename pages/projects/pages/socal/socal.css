@@ -1,4 +1,5 @@
 body[data-page="project-socal"] {
+
     --color-one: #442AB8;
     --color-two: #5A2FAA;
     --color-three: #70349D;
@@ -48,6 +49,13 @@ body[data-page="project-socal"] {
     .project-content_section {
         scroll-margin-top: 120px;
     }
+
+    .project-content_section h1,
+    .project-content_section h2 {
+        font-family: var(--font-headers);
+    }
+
+
 }
 
 /* ============================

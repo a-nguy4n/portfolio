@@ -22,15 +22,12 @@ body[data-project] {
 
     .project-content_section h1 {
         margin: var(--space-0) var(--space-0) var(--space-8);
-
-        font-family: var(--font-headers);
         font-size: var(--text-xlarge);
         font-weight: var(--primary-header-weight);
     }
 
     .project-content_section h2 {
         margin: 0 0 1.75rem;
-        font-family: var(--font-headers);
         font-size: var(--text-medium);
         font-weight: var(--primary-header-weight);
 
@@ -482,7 +479,7 @@ body[data-project] .project-specific-sections a.is-active {
         }
 
         .project-content_section h1 {
-            margin: var(--space-1) var(--space-0) var(--space-2);
+            margin: var(--space-4) var(--space-0) var(--space-3);
         }
 
         .statement-phrase {
@@ -526,7 +523,7 @@ body[data-project] .project-specific-sections a.is-active {
         .problem-content.project-content_section {
             display: flex;
             flex-direction: column;
-            gap: 2.5rem;
+            gap: var(--space-3);
             padding: var(--space-5) var(--space-5) var(--space-6);
         }
 

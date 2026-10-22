@@ -22,7 +22,7 @@ body[data-page="project-dermidew"] {
     --glass-border: 1px solid rgba(156, 214, 255, 0.452);
     --hover-glow: drop-shadow(0 0 3px var(--theme-hover-color)) drop-shadow(0 0 3px var(--theme-hover-color));
 
-    --font-header: "Slackside One", cursive;
+    --font-headers: "Slackside One", cursive;
     --font-main: "Nunito Sans", sans-serif;
 
 
@@ -39,8 +39,8 @@ body[data-page="project-dermidew"] {
 
     .project-specific-breadcrumb h1 {
         color: var(--dark-yellow);
-        font-family: var(--font-header);
-        font-size: var(--text-large);
+        font-family: var(--font-headers);
+        font-size: var(--text-large) !important;
         margin: 0 0 var(--space-3);
     }
 
@@ -67,6 +67,16 @@ body[data-page="project-dermidew"] {
 
     .project-content_section {
         scroll-margin-top: 120px;
+    }
+
+    h3#personas-title,
+    h3#evolution-title,
+    .strategy-evolution-takeaway h3,
+    #mvp-title{
+        font-size: 23px !important;
+        line-height: 1.05 !important;
+        color: var(--medium-blue) !important;
+        margin-left: 0 !important;
     }
 }
 
@@ -117,8 +127,8 @@ body[data-page="project-dermidew"] {
 
 .motion-title {
     color: var(--dark-blue);
-    font-family: var(--font-header);
-    font-size: 7rem;
+    font-family: var(--font-headers);
+    font-size: 7rem !important;
     font-weight: 100;
     line-height: 1.2;
     margin: 0;
@@ -127,7 +137,7 @@ body[data-page="project-dermidew"] {
 .motion-tagline {
     color: var(--dark-blue);
     font-family: var(--font-main);
-    font-size: var(--text-xlarge);
+    font-size: var(--text-xlarge) !important;
     font-weight: 500;
     line-height: 1.2;
     margin: 0 0 var(--space-3);
@@ -136,7 +146,7 @@ body[data-page="project-dermidew"] {
 #content-cta {
     color: var(--dark-blue);
     font-family: var(--font-main);
-    font-size: var(--text-xsmall);
+    font-size: var(--text-xsmall) !important;
     font-weight: 500;
 
     padding: var(--space-2) var(--space-4);
@@ -201,34 +211,6 @@ body[data-page="project-dermidew"] {
 
 
 /* ============================
-    GENERAL
-=============================== */
-
-.project-content_section {
-    width: 100%;
-    max-width: 100%;
-
-    margin: var(--space-5) 0;
-    padding: var(--space-8) var(--space-9) var(--space-9);
-    box-sizing: border-box;
-    color: var(--theme-text-color);
-}
-
-.project-content_section h1 {
-    font-family: var(--font-main);
-    font-size: var(--text-xlarge);
-    font-weight: 700;
-}
-
-.project-content_section p {
-    margin: var(--space-4);
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    line-height: var(--line-height-body-text);
-}
-
-
-/* ============================
     OVERVIEW CONTENT
 =============================== */
 
@@ -259,7 +241,7 @@ body[data-page="project-dermidew"] {
 
 .overview-description p {
     margin: var(--space-0) var(--space-0) var(--space-6);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     line-height: var(--line-height-body-text);
 }
 
@@ -324,8 +306,8 @@ body[data-page="project-dermidew"] {
 .project-detail dt {
     margin: var(--space-0);
 
-    font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-family: var(--font-main) !important;
+    font-size: var(--text-small) !important;
     font-weight: 700;
     line-height: var(--line-height-body-text);
 }
@@ -340,7 +322,7 @@ body[data-page="project-dermidew"] {
     margin: var(--space-0);
 
     font-family: var(--font-style);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     font-weight: 400;
     line-height: var(--line-height-body-text);
 }
@@ -395,10 +377,10 @@ body[data-page="project-dermidew"] {
 
     color: var(--dark-yellow);
 
-    font-family: var(--font-header);
-    font-size: clamp(2.5rem, 3.4vw, 4rem);
+    font-family: var(--font-headers);
+    font-size: clamp(2.5rem, 3.4vw, 4rem) !important;
     font-weight: 100;
-    line-height: 1.05;
+    line-height: 1.05 !important;
     letter-spacing: -0.04em;
 }
 
@@ -438,8 +420,8 @@ body[data-page="project-dermidew"] {
 
     color: var(--dark-yellow);
 
-    font-family: var(--font-headers);
-    font-size: 0.8rem;
+    font-family: var(--font-main);
+    font-size: 0.8rem !important;
     font-weight: 700;
     letter-spacing: 0.12em;
 
@@ -502,7 +484,7 @@ body[data-page="project-dermidew"] {
     color: var(--dark-blue);
 
     font-family: var(--font-headers);
-    font-size: var(--text-xlarge);
+    font-size: var(--text-xlarge) !important;
     font-weight: var(--primary-header-weight);
     line-height: 1.2;
 }
@@ -524,10 +506,10 @@ body[data-page="project-dermidew"] {
 }
 
 .research-overview h3 {
-    font-family: var(--font-header);
-    font-size: clamp(2.25rem, 3.25vw, 3.5rem);
+    font-family: var(--font-headers);
+    font-size: clamp(2.25rem, 3.25vw, 3.5rem) !important;
     margin: 0;
-    line-height: 1.0;
+    line-height: 1.05 !important;
 }
 
 .research-summary {
@@ -560,13 +542,13 @@ body[data-page="project-dermidew"] {
 .design-feature-header .interface-title,
 .development-label,
 .reflection-content .section-label {
-    margin: 0 0 var(--space-2);
+    margin: 0 0 var(--space-2) !important;
 
     color: var(--dark-yellow);
 
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    font-weight: 800;
+    font-family: var(--font-main) !important;
+    font-size: var(--text-small) !important;
+    font-weight: 800 !important;
 
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -583,6 +565,7 @@ body[data-page="project-dermidew"] {
     flex-direction: column;
 
     min-height: 520px;
+    margin-top: var(--space-4);
     padding: var(--space-5);
 
     background: #fff;
@@ -598,8 +581,8 @@ body[data-page="project-dermidew"] {
 }
 
 #research-stat-card-eyebrow {
-    font-family: var(--font-header);
-    font-size: var(--text-large);
+    font-family: var(--font-headers);
+    font-size: var(--text-large) !important;
 
 }
 
@@ -620,7 +603,7 @@ body[data-page="project-dermidew"] {
     color: var(--yellow);
 
     font-family: var(--font-main);
-    font-size: clamp(7rem, 13vw, 10rem);
+    font-size: clamp(7rem, 13vw, 10rem) !important;
     font-weight: 800;
     line-height: 0.78;
 
@@ -632,13 +615,13 @@ body[data-page="project-dermidew"] {
     position: relative;
 
     width: fit-content;
-    margin: var(--space-3) 0 var(--space-5);
+    margin: var(--space-3) 0 var(--space-5) !important;
 
     color: var(--yellow);
-    font-family: var(--font-main);
-    font-size: var(--text-large);
-    font-weight: 600;
-    line-height: 1.1;
+    font-family: var(--font-main) !important;
+    font-size: var(--text-large) !important;
+    font-weight: 600 !important;
+    line-height: 1.05 !important;
 }
 
 /* Description */
@@ -647,7 +630,7 @@ body[data-page="project-dermidew"] {
     margin: 0;
 
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     line-height: var(--line-height-body-text);
 }
 
@@ -700,7 +683,7 @@ body[data-page="project-dermidew"] {
     color: var(--medium-blue);
 
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     font-weight: 800;
 }
 
@@ -714,10 +697,10 @@ body[data-page="project-dermidew"] {
     color: var(--medium-blue);
 
     font-family: var(--font-main);
-    font-size: var(--text-medium);
+    font-size: var(--text-medium) !important;
     font-style: italic;
-    font-weight: 600;
-    line-height: 1.25;
+    font-weight: 600 !important;
+    line-height: 1.05 !important;
 }
 
 .research-insight p {
@@ -725,7 +708,7 @@ body[data-page="project-dermidew"] {
     margin: 0 0 0 var(--space-3);
 
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     line-height: var(--line-height-body-text);
 }
 
@@ -779,7 +762,7 @@ body[data-page="project-dermidew"] {
     border-radius: var(--button-radius);
 
     font-family: var(--font-main);
-    font-size: var(--text-xsmall);
+    font-size: var(--text-xsmall) !important;
     font-weight: 700;
 
     pointer-events: none;
@@ -821,8 +804,9 @@ body[data-page="project-dermidew"] {
 
     color: var(--theme-text-color);
 
-    font-family: var(--font-main);
-    font-size: var(--space-small);
+    font-family: var(--font-main) !important;
+    font-size: var(--space-small) !important;
+    font-weight: 800 !important;
     font-weight: 800;
     letter-spacing: 0.12em;
 }
@@ -834,8 +818,8 @@ body[data-page="project-dermidew"] {
 
     color: var(--dark-blue);
 
-    font-family: var(--font-header);
-    font-size: clamp(2rem, 3vw, 3.25rem);
+    font-family: var(--font-headers);
+    font-size: clamp(2rem, 3vw, 3.25rem) !important;
     font-weight: var(--primary-header-weight);
     line-height: 1.1;
     letter-spacing: -0.03em;
@@ -874,7 +858,7 @@ body[data-page="project-dermidew"] {
 .strategy-intro h2 {
     color: var(--dark-yellow);
     font-weight: 700;
-    font-size: var(--text-medium);
+    font-size: var(--text-medium) !important;
     text-transform: uppercase;
 }
 
@@ -882,9 +866,9 @@ body[data-page="project-dermidew"] {
     margin: 0 0 var(--space-6);
 
     color: var(--theme-text-color);
-    font-family: var(--font-header);
-    font-size: clamp(2.25rem, 3.25vw, 3.5rem);
-    line-height: 1.0;
+    font-family: var(--font-headers);
+    font-size: clamp(2.25rem, 3.25vw, 3.5rem) !important;
+    line-height: 1.05 !important;
 }
 
 .strategy-description {
@@ -893,7 +877,6 @@ body[data-page="project-dermidew"] {
 
     color: var(--theme-text-color);
     font-family: var(--font-style);
-    font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
 
@@ -944,7 +927,7 @@ body[data-page="project-dermidew"] {
     border-radius: 50%;
 
     font-family: var(--font-main);
-    font-size: var(--text-large);
+    font-size: var(--text-large) !important;
     font-weight: 800;
 }
 
@@ -976,7 +959,7 @@ body[data-page="project-dermidew"] {
     color: white;
 
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     font-weight: 700;
 
     text-transform: uppercase;
@@ -988,8 +971,8 @@ body[data-page="project-dermidew"] {
 
     color: var(--theme-text-color);
 
-    font-family: var(--font-header);
-    font-size: var(--text-large);
+    font-family: var(--font-headers);
+    font-size: var(--text-large) !important;
 }
 
 .project-content_section p.strategy-step-description {
@@ -998,7 +981,7 @@ body[data-page="project-dermidew"] {
     color: white;
 
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     line-height: 1.4;
 }
 
@@ -1012,7 +995,7 @@ body[data-page="project-dermidew"] {
     color: white;
 
     font-family: var(--font-main);
-    font-size: var(--text-xsmall);
+    font-size: var(--text-xsmall) !important;
 
     list-style: disc inside;
 }
@@ -1131,7 +1114,7 @@ body[data-page="project-dermidew"] {
     color: var(--dark-yellow-text);
 
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     font-weight: 800;
 }
 
@@ -1148,7 +1131,7 @@ body[data-page="project-dermidew"] {
     color: var(--dark-yellow-text);
 
     font-family: var(--font-main);
-    font-size: 0.75rem;
+    font-size: 0.75rem !important;
     font-weight: 800;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1157,8 +1140,8 @@ body[data-page="project-dermidew"] {
 .strategy-mvp-title {
     color: var(--dark-yellow-text);
 
-    font-family: var(--font-header);
-    font-size: var(--text-large);
+    font-family: var(--font-headers);
+    font-size: var(--text-large) !important;
     font-weight: 800;
     line-height: 1.2;
 }
@@ -1234,7 +1217,7 @@ body[data-page="project-dermidew"] {
     color: rgb(65, 54, 1);
 
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     line-height: 1.6;
 }
 
@@ -1267,7 +1250,7 @@ body[data-page="project-dermidew"] {
     border-radius: 100px;
 
     font-family: var(--font-main);
-    font-size: 0.75rem;
+    font-size: 0.75rem !important;
     font-weight: 700;
 }
 
@@ -1307,9 +1290,10 @@ body[data-page="project-dermidew"] {
 }
 
 .design-intro h3 {
-    font-size: clamp(2.5rem, 3vw, 3rem);
-    font-family: var(--font-header);
+    font-size: clamp(2.5rem, 3vw, 3rem) !important;
+    font-family: var(--font-headers);
     margin: 0;
+    line-height: 1.05 !important;
 }
 
 p.design-intro-description {
@@ -1334,7 +1318,7 @@ p.design-intro-description {
     color: var(--theme-text-color);
 
     font-family: var(--font-main);
-    font-size: var(--text-large);
+    font-size: var(--text-large) !important;
     font-weight: 800;
     line-height: 1.25;
 }
@@ -1377,7 +1361,7 @@ p.design-intro-description {
     background-color: #ffe681;
 
     font-family: var(--font-main);
-    font-size: var(--text-heading);
+    font-size: var(--text-heading) !important;
     font-weight: 800;
     line-height: 1.15;
 }
@@ -1458,15 +1442,15 @@ p.design-intro-description {
 .design-interface-grid figcaption strong {
     color: var(--theme-text-color);
 
-    font-family: var(--font-header);
-    font-size: var(--text-large);
+    font-family: var(--font-headers);
+    font-size: var(--text-large) !important;
     font-weight: 600;
 }
 
 .design-interface-grid figcaption span {
     color: var(--secondary-text-color-light);
 
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     line-height: 1.5;
 }
 
@@ -1492,7 +1476,7 @@ p.design-intro-description {
     background: #ffe681;
 
     font-family: var(--font-main);
-    font-size: var(--text-heading);
+    font-size: var(--text-heading) !important;
     font-weight: 800;
     line-height: 1.15;
 }
@@ -1531,8 +1515,8 @@ p.design-intro-description {
 }
 
 .design-prototype-list strong {
-    font-family: var(--font-header);
-    font-size: var(--text-large);
+    font-family: var(--font-headers);
+    font-size: var(--text-large) !important;
 }
 
 /* ==== Captions ==== */
@@ -1545,7 +1529,7 @@ p.design-intro-description {
 
 .design-prototype-list figcaption span {
     color: var(--secondary-text-color-light);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     line-height: var(--line-height-body-text);
 }
 
@@ -1562,8 +1546,8 @@ p.design-intro-description {
 
 #development-title {
     margin: 0;
-    font-family: var(--font-header);
-    font-size: clamp(2.5rem, 3vw, 3rem);
+    font-family: var(--font-headers);
+    font-size: clamp(2.5rem, 3vw, 3rem) !important;
 }
 
 .development-content>section {
@@ -1577,17 +1561,19 @@ p.development-label {
 .development-intro {
     color: var(--secondary-text-color-light);
     font-family: var(--font-main);
-    font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
+}
+.development-intro {
+    margin-bottom: var(--space-4) !important
 }
 
 .development-subsection-header h3 {
     margin: 0 0 var(--space-2);
 
     color: var(--theme-text-color);
-    font-family: var(--font-main);
-    font-size: 1.17rem;
-    font-weight: 800;
+    font-family: var(--font-main) !important;
+    font-size: 1.17rem !important;
+    font-weight: 800 !important;
     line-height: 1.2;
 }
 
@@ -1623,7 +1609,7 @@ p.development-label {
 
     color: var(--dark-yellow);
     font-family: var(--font-main);
-    font-size: var(--text-large);
+    font-size: var(--text-large) !important;
     font-weight: 800;
 }
 
@@ -1633,7 +1619,7 @@ p.development-label {
 
     color: var(--dark-yellow);
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     font-weight: 800;
 }
 
@@ -1642,7 +1628,7 @@ p.development-label {
 
     color: var(--theme-text-color);
     font-family: var(--font-main);
-    font-size: var(--text-medium);
+    font-size: var(--text-medium) !important;
     font-weight: 800;
 }
 
@@ -1651,7 +1637,7 @@ p.development-label {
 
     color: var(--secondary-text-color-light);
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
 }
 
 .development-flow-description {
@@ -1659,7 +1645,6 @@ p.development-label {
 
     color: var(--secondary-text-color-light);
     font-family: var(--font-main);
-    font-size: var(--text-medium);
     line-height: var(--line-height-body-text);
 }
 
@@ -1688,7 +1673,7 @@ p.development-label {
 
     color: var(--theme-text-color);
     font-family: var(--font-main);
-    font-size: var(--text-medium);
+    font-size: var(--text-medium) !important;
 }
 
 .development-stack-card ul {
@@ -1709,7 +1694,7 @@ p.development-label {
     border-radius: 6px;
 
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     font-weight: 600;
 }
 
@@ -1751,7 +1736,7 @@ p.development-label {
 .development-challenge-number {
     color: var(--dark-yellow);
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     font-weight: 800;
 }
 
@@ -1759,15 +1744,15 @@ p.development-label {
     margin: 0 0 var(--space-2);
 
     color: var(--theme-text-color);
-    font-family: var(--font-header);
-    font-size: var(--text-xlarge);
+    font-family: var(--font-headers);
+    font-size: var(--text-xlarge) !important;
 }
 
 .development-challenge-list article p {
     margin: 0;
     color: var(--secondary-text-color-light);
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     line-height: var(--line-height-body-text);
 }
 
@@ -1782,7 +1767,7 @@ p.development-label {
 
     color: var(--dark-blue);
     font-family: var(--font-main);
-    font-size: var(--text-small);
+    font-size: var(--text-small) !important;
     font-weight: 800;
 }
 
@@ -1806,7 +1791,7 @@ p.development-label {
     flex-wrap: wrap;
     gap: 16px;
 
-    margin: 0;
+    margin: var(--space-4) 0 0;
     padding: 0;
     list-style: none;
 }
@@ -1818,7 +1803,7 @@ p.development-label {
 
     color: var(--theme-text-color);
     font-family: var(--font-main);
-    font-size: var(--text-medium);
+    font-size: var(--text-medium) !important;
     font-weight: 800;
 }
 
@@ -1858,12 +1843,12 @@ p.development-label {
 }
 
 .reflection-label {
-    margin: 0 0 var(--space-2);
+    margin: 0 !important;
 
     color: var(--dark-blue);
-    font-family: var(--font-main);
-    font-size: var(--text-small);
-    font-weight: 800;
+    font-family: var(--font-main) !important;
+    font-size: var(--text-small) !important;
+    font-weight: 800 !important;
 
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -1893,8 +1878,8 @@ p.development-label {
 
 .lessons-article h3 {
     color: var(--medium-blue);
-    font-size: clamp(2rem, 3vw, 2.5rem);
-    font-family: var(--font-header);
+    font-size: clamp(2rem, 3vw, 2.5rem) !important;
+    font-family: var(--font-headers);
     line-height: 1.5;
     white-space: wrap;
     margin-top: var(--space-1);
@@ -1932,7 +1917,7 @@ p.development-label {
     }
 
     .motion-title {
-        font-size: 4rem;
+        font-size: 4rem !important;
     }
 
     #swirl-sun {
@@ -1941,7 +1926,7 @@ p.development-label {
     }
 
     .motion-tagline {
-        font-size: var(--text-medium);
+        font-size: var(--text-medium) !important;
     }
 
     .motion-media {
@@ -1998,7 +1983,7 @@ p.development-label {
 
     .problem-copy h2,
     #team-takeaway-heading {
-        font-size: var(--text-xlarge);
+        font-size: var(--text-xlarge) !important;
     }
 
     .problem-description {
@@ -2054,7 +2039,7 @@ p.development-label {
     }
 
     .strategy-mvp-file-content p {
-        font-size: var(--text-xsmall);
+        font-size: var(--text-xsmall) !important;
     }
 
     .strategy-evolution-takeaway {
