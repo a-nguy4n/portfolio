@@ -17,7 +17,7 @@ const steps = [
     phase: 2,
     counter: '02 / 03',
     fidelity: 'mid-fi',
-    headline: 'Design experiences'
+    headline: 'Design in experiences'
   },
   {
     phase: 3,
