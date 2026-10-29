@@ -165,6 +165,10 @@ theme-toggle {
     }
 }
 
+logo-button.footer-logo {
+    min-height: fit-content;
+}
+
 /* =====================================
     MAIN LAYOUT
 ========================================*/

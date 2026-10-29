@@ -1,0 +1,271 @@
+body[data-page="project-portfolio"] {
+
+    --font-headers: "Playpen Sans 2";
+    --secondary-text-color-light: #5b2a7c;
+    --line-height-headers: 1.25;
+    --line-height-body-text: 1.75;
+
+    --glass-border: 1px solid rgba(216, 216, 216, 0.452);
+    --hover-glow: drop-shadow(0 0 3px var(--theme-hover-color)) drop-shadow(0 0 3px var(--theme-hover-color));
+
+    --theme-background-color: ;
+    --theme-hover-color: ;
+    --theme-text-color: ;
+
+    .project-site-header {
+        background: black;
+        color: white;
+        border-bottom: 1px solid var(--color-two) !important;
+    }
+
+    .project-specific-nav h1 {
+        font-family: var(--font-headers);
+    }
+
+    logo-button {
+        --logo-button-color: white;
+        --logo-button-hover-color: #65afde;
+    }
+
+    footer logo-button {
+        --logo-button-color: black;
+        --logo-button-hover-color: #65afde !important;
+    }
+
+    .end-result {
+        color: var(--color-two);
+    }
+
+    .footer-catchphrase--project {
+        color: #65afde;
+        margin-top: var(--space-4);
+    }
+
+    .project-content_section {
+        scroll-margin-top: 120px;
+    }
+
+    .project-content_section h1,
+    .project-content_section h2 {
+        font-family: var(--font-headers);
+    }
+
+}
+
+.design-item {
+    margin: var(--space-5) auto var(--space-8);
+}
+
+/* ---- DESIGN PROCESS: Inspiration Section ---- */
+
+/* Inspiration Carousel */
+
+.inspiration-collage {
+    --stage-height: clamp(320px, 42vw, 500px);
+
+    position: relative;
+    display: grid;
+    grid-template-rows: var(--stage-height) auto;
+    width: 100%;
+    margin: var(--space-5) auto;
+
+    perspective: 1000px;
+    perspective-origin: 50% calc(var(--stage-height) / 2);
+
+    overflow: visible;
+    touch-action: pan-y;
+}
+
+.inspiration-item {
+    display: contents;
+}
+
+.inspiration-item img {
+    position: absolute;
+    top: calc(var(--stage-height) / 2);
+    left: 50%;
+
+    width: 55%;
+    height: auto;
+    max-height: calc(var(--stage-height) * 0.8);
+    object-fit: contain;
+
+    transform-origin: center;
+    backface-visibility: hidden;
+
+    cursor: grab;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    transition:
+        transform 0.65s cubic-bezier(.22, 1, .36, 1),
+        opacity 0.5s ease;
+}
+
+.inspiration-item[data-position="front"] img {
+    transform:
+        translate(-50%, -50%)
+        translateZ(80px)
+        rotateY(0deg);
+
+    opacity: 1;
+    z-index: 4;
+}
+
+.inspiration-item[data-position="right"] img {
+    transform:
+        translate(-50%, -50%)
+        translateX(78%)
+        translateZ(-125px)
+        rotateY(38deg)
+        scale(0.85);
+
+    opacity: 0.75;
+    z-index: 2;
+}
+
+.inspiration-item[data-position="back"] img {
+    transform:
+        translate(-50%, -50%)
+        translateZ(-260px)
+        scale(0.7);
+
+    opacity: 0.25;
+    z-index: 1;
+}
+
+.inspiration-item[data-position="left"] img {
+    transform:
+        translate(-50%, -50%)
+        translateX(-78%)
+        translateZ(-125px)
+        rotateY(-38deg)
+        scale(0.85);
+
+    opacity: 0.75;
+    z-index: 2;
+}
+
+.inspiration-item figcaption {
+    display: none;
+    grid-column: 1;
+    grid-row: 2;
+
+    width: 100%;
+    padding-top: var(--space-4);
+}
+
+.inspiration-item[data-position="front"] figcaption {
+    display: block;
+}
+
+.inspiration-item h3 {
+    margin: 0 0 var(--space-2) !important;
+    font-family: var(--font-headers);
+    font-weight: 500 !important;
+    
+    background-color: #daf9ff;
+    width: fit-content;
+}
+
+.inspiration-item figcaption p {
+    margin: 0;
+    line-height: var(--line-height-body-text);
+}
+
+/* Navigation arrows */
+.inspiration-prev,
+.inspiration-next {
+    position: absolute;
+    top: calc(var(--stage-height) / 2);
+    transform: translateY(-50%);
+    z-index: 10;
+
+    display: grid;
+    place-items: center;
+
+    width: 44px;
+    height: 44px;
+    font-weight: 600;
+
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background: white;
+
+    color: black;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.inspiration-prev {
+    left: 0;
+}
+
+.inspiration-next {
+    right: 0;
+}
+
+.inspiration-prev:hover,
+.inspiration-next:hover {
+    background: #f5f5f5;
+    border-color: #555;
+}
+
+.inspiration-prev:focus-visible,
+.inspiration-next:focus-visible {
+    outline: 2px solid var(--color-two);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .inspiration-item img {
+        transition: none;
+    }
+}
+
+/* Scrapped Ideas Timeline */
+
+
+/* Mobile */
+@media (max-width: 650px) {
+    .inspiration-collage {
+        --stage-height: 270px;
+        perspective: 700px;
+    }
+
+    .inspiration-item img {
+        width: 65%;
+    }
+
+    .inspiration-item[data-position="front"] img {
+        transform:
+            translate(-50%, -50%)
+            translateZ(30px);
+    }
+
+    .inspiration-item[data-position="right"] img {
+        transform:
+            translate(-50%, -50%)
+            translateX(65%)
+            translateZ(-90px)
+            rotateY(30deg)
+            scale(0.8);
+    }
+
+    .inspiration-item[data-position="left"] img {
+        transform:
+            translate(-50%, -50%)
+            translateX(-65%)
+            translateZ(-90px)
+            rotateY(-30deg)
+            scale(0.8);
+    }
+
+    .inspiration-prev,
+    .inspiration-next {
+        width: 36px;
+        height: 36px;
+    }
+}

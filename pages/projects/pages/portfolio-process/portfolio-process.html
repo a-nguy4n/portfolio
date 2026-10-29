@@ -18,10 +18,8 @@
     <link rel="stylesheet" href="/assets/components/searchbar/searchbar.css">
     <link rel="stylesheet" href="/pages/projects/pages/styles.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back,arrow_forward" />
 
     <script type="module" src="/scripts/init.js"></script>
     <script type="module" src="/pages/projects/pages/styles-nav.js"></script>
@@ -37,8 +35,324 @@
     gtag('config', 'G-024PDVHRWY');
 </script>
 
-<body>
+<body data-project="portfolio" data-page="project-portfolio">
 
+    <header class="project-site-header">
+        <logo-button></logo-button>
+
+        <nav class="project-specific-nav">
+            <header class="project-specific-breadcrumb">
+                <p class="breadcrumb-separator">/</p>
+                <a href="/pages/projects/projects.html">PROJECTS</a>
+                <p class="breadcrumb-separator">/</p>
+                <h1>Portfolio Process</h1>
+            </header>
+
+            <span class="project-specific-sections">
+                <a href="#overview-portfolio">Overview</a>
+                <a href="#vision-portfolio">Vision & Goals</a>
+                <a href="#design-portfolio">Design Process</a>
+                <a href="#coding-portfolio">Coding Implementation</a>
+                <a href="#reflection-portfolio">Reflection</a>
+            </span>
+        </nav>
+
+        <search-bar></search-bar>
+    </header>
+
+    <main class="project-content">
+
+        <!-- ===== Hero Content ===== -->
+        <section class="motion-section">
+
+        </section>
+
+        <!-- ===== Overview ===== -->
+        <section id="overview-portfolio" class="overview-content project-content_section">
+            <h1>Overview</h1>
+
+            <div class="overview-layout">
+                <article class="overview-description">
+                    <p>
+                        At long last, after going through cycles of iterations and scrapped ideas, I have finally
+                        been able to push out my portfolio that is authentic to me. I believe that a portfolio is
+                        not just a showcase of my own work, but also a digital documentation of my own growth and
+                        my own little corner of the Internet.
+                    </p>
+
+                    <p>
+                        I decided to design and build my portfolio from scratch because I really wanted to challenge
+                        myself creatively and technically. Rather than relying on pre-made templates, I wanted the
+                        freedom to experiment and explore my own creative direction , all while learning how to
+                        translate my ideas into a fully functional website. And in a way, it has become its own
+                        project that has led me to look inward, reflect on who I am, and discover how I want
+                        to represent myself to the world.
+                    </p>
+                </article>
+
+                <img>
+            </div>
+        </section>
+
+        <!-- ===== Vision Statement ===== -->
+        <section id="vision-portfolio" class="problem-content project-content_section">
+
+            <h1 class="problem-heading">My Vision & Goals</h1>
+
+            <article class="problem-content">
+                <span class="section-label">THE VISION</span>
+
+                <h2 class="statement-phrase"> Building My Own Little Corner of the Internet </h2>
+
+                <p class="problem-description">
+                    When I first began planning my portfolio, I found myself caught between what a portfolio was
+                    expected to look like and what I actually wanted mine to be. Browsing through countless sleek,
+                    minimalist designs left me wondering whether I should follow the same direction or explore something
+                    more personal. But beyond finding the right visual direction, I also had to figure out which parts
+                    of my personality, interests, and experiences I wanted my portfolio to reflect.
+                </p>
+            </article>
+
+            <article class="challenge-card">
+                <span class="challenge-label">THE CREATIVE CHALLENGE</span>
+
+                <p class="challenge-question">
+                    How might I translate my personality and creative vision into an interactive portfolio that
+                    prioritizes authenticity over trends, while balancing creative expression, technical
+                    experimentation, and usability?
+                </p>
+            </article>
+
+        </section>
+
+        <!-- ===== Design ===== -->
+        <section id="design-portfolio" class="design-content project-content_section">
+            <h1> My Design Process </h1>
+
+            <!-- <header class="design-intro">
+
+                <h2 class="statement-phrase"> Mapping the <br> Campus Experience </h2>
+
+                <p class="design-intro-description">
+                    To begin developing SoCal Social, I started by creating sketches and wireframes to visualize the
+                    initial concept and establish a foundation for the design. Along the way, I identified potential
+                    risks, worked through technical challenges, and made design decisions based on user needs and
+                    what my team and I could build within our given timeframe.
+                </p>
+            </header> -->
+
+            <article class="design-item" id="design-inspiration">
+                <h2>1. Finding Inspiration & Exploring Ideas</h2>
+                <p>
+                    I began my design process by searching for inspiration, but I didn't want to limit myself to looking
+                    at other portfolios. I wanted to explore inspiration from different perspectives. I looked inward at
+                    my own experiences and the things that felt personal to me. I also explored how others expressed
+                    their creativity through art and design. Along the way, I collected unexpected ideas that caught my
+                    eye. Through this process, I hoped to find common themes in the things I loved and weave them into
+                    my own design.
+                </p>
+
+                <div class="inspiration-collage">
+
+                    <!-- Personal Photography -->
+                    <figure class="inspiration-item">
+                        <img src="/pages/projects/pages/portfolio-process/media/collage-photos.png"
+                            alt="Collage of photos I've taken" loading="lazy" decoding="async">
+
+                        <figcaption>
+                            <h3>Through My Own Lens</h3>
+                            <p>
+                                I decided to look through my own camera roll and revisit the moments and places that
+                                seem to call to me. Some brought back a sense of nostalgia, while others captured a mood
+                                I wanted to recreate. I've always like to take pictures of the sky and catching sunsets
+                                with
+                                friends. Now looking back, I realized how much those colors and vibes influenced
+                                the visual direction of my portfolio.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <!-- Album Covers -->
+                    <figure class="inspiration-item">
+                        <img src="/pages/projects/pages/portfolio-process/media/collage-album_covers.png"
+                            alt="Album Covers I found to be interesting" loading="lazy" decoding="async">
+
+                        <figcaption>
+                            <h3>Album Artwork</h3>
+                            <p>
+                                Another source of inspiration I explored was album artwork. I've always viewed album
+                                covers as their own form of art since they capture the artist's vision and the feeling
+                                behind their music. Looking through some of my favorites inspired me to think about how
+                                I could use colors, imagery, and composition to bring more personality into my
+                                portfolio.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <!-- Art -->
+                    <figure class="inspiration-item">
+                        <img src="/pages/projects/pages/portfolio-process/media/collage-art.png"
+                            alt="Artwork Inspiration Collage" loading="lazy" decoding="async">
+
+                        <figcaption>
+                            <h3>Art and Color</h3>
+                            <p>
+                                Following the guidance and suggestion of a professor, I explored different forms of art
+                                for inspiration.
+                                I looked at paintings, particularly natural landscapes, for inspiration. I broke down
+                                these artworks to
+                                better understand their colors, textures, and the moods they created. I ended up using
+                                some of these
+                                observations to experiment with background gradients, which eventually made their way
+                                into my current portfolio.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <!-- Pinterest Collage -->
+                    <figure class="inspiration-item">
+                        <img src="/pages/projects/pages/portfolio-process/media/collage-pinterest.png"
+                            alt="Pinterest Image College of Inspiration" loading="lazy" decoding="async">
+
+                        <figcaption>
+                            <h3>Visual Inspiration</h3>
+                            <p>
+                                I also turned to Pinterest to find images that captured the kind of vibe I wanted for my
+                                portfolio. I was drawn to colorful scenery, dreamy visuals, and some anime-inspired
+                                aesthetics, which ended up influencing some of my earlier design iterations. It was a
+                                fun way to explore different moods and see what I wanted to bring into my own designs.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+
+                    <button class="inspiration-prev arrow-btn" type="button" aria-label="Previous collage">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+
+                    <button class="inspiration-next arrow-btn" type="button" aria-label="Next collage">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </article>
+
+            <article class="design-timeline-item">
+                <h2>Scrapped Ideas Along the Way</h2>
+            </article>
+
+
+            <article class="design-timeline-item">
+                <h2>Refining through Iterations</h2>
+            </article>
+
+
+            <article class="design-timeline-item">
+                <h2>The Final Design & the Little Details</h2>
+            </article>
+
+
+
+        </section>
+
+        <!-- ===== Coding Implementation ===== -->
+        <section id="coding-implementation" class="strategy-content project-content_section">
+            <h1>Coding Implementation</h1>
+
+            <article class="strategy-intro">
+
+                <h2> Turning Research into Priorities </h2>
+
+                <p class="strategy-description">
+                    From there, we focused on the core interaction between organizations
+                    publishing and managing events and students discovering and organizing
+                    them. This helped us determine which features to prioritize before
+                    introducing more complex social features.
+                </p>
+
+            </article>
+        </section>
+
+        <!-- ===== TAKEAWAY ===== -->
+        <section id="takeaway-portfolio" class="project-content_section takeaway-content"
+            aria-labelledby="SoCalSocial Takeaway Section">
+
+            <h1 class="takeaway-heading" id="takeaway-heading"> Takeaway </h1>
+
+            <!-- Team Reflection -->
+            <article class="takeaway-note" aria-labelledby="team-takeaway-heading">
+
+                <span class="section-label">TEAM'S KEY INSIGHT</span>
+
+                <h3 id="team-takeaway-heading">
+                    The problem isn't a lack of events. It's a lack of connection.
+                </h3>
+
+                <p>
+                    Building SoCalSocial taught my team and I that creating a product
+                    involves more than designing interfaces and implementing features.
+                    We had to consider the needs of both students and organizations while
+                    working within our technical abilities and project timeline.
+                </p>
+                <br>
+                <p>
+                    Throughout the process, we learned to prioritize essential
+                    features, recognize potential risks early, and adapt
+                    when our initial ideas became too complex. Communication
+                    and collaboration helped us turn different ideas into
+                    one cohesive product.
+                </p>
+            </article>
+
+            <!-- Personal Reflection -->
+            <article class="takeaway-note" aria-labelledby="personal-takeaway-heading">
+
+                <h3 class="section-label" id="personal-takeaway-heading">
+                    MY LESSONS LEARNED
+                </h3>
+
+                <p>
+                    This project strengthened my skills in team management,
+                    collaboration, and problem-solving. I learned to
+                    coordinate responsibilities based on individual strengths,
+                    communicate design decisions, and keep the team aligned
+                    on a shared vision.
+
+                    Working across design and development challenged me
+                    to consider how design decisions affect implementation
+                    and the overall user experience.
+                </p>
+
+                <br>
+                <p>
+                    Revisiting SoCalSocial independently gave me a new
+                    perspective on my original work. I became more intentional
+                    about information hierarchy, responsive design, and
+                    designing for different types of users.
+                </p>
+                <br>
+                <p>
+                    Above all, I learned the importance of continuous
+                    evaluation, clear communication, and being willing
+                    to revisit earlier decisions.
+                </p>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer class="end-result">
+        <h3> - - - - Thanks for exploring my Portfolio Process - - - - </h3>
+        <logo-button class="footer-logo"></logo-button>
+        <p> Allison H. Nguyen's Portfolio</p>
+        <i> designed & coded-line-by-line, old school style </i>
+        <a href="/pages/projects/projects.html" class="footer-catchphrase--project">
+            One project down, more to discover . . . →
+        </a>
+    </footer>
+
+    <script type="module" src="/pages/projects/pages/portfolio-process/portfolio-process.js"></script>
 </body>
 
 </html>
