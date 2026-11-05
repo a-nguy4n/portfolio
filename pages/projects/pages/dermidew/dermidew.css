@@ -8,8 +8,8 @@ body[data-page="project-dermidew"] {
     --medium-blue: #87C1FB;
     --light-blue: #E0EFFF;
 
-    --section-background-blue: #f4f9ff;
-    --section-background-yellow: #fff7df;
+    --section-background-blue: #f8fbff;
+    --section-background-yellow: #fff9e6;
 
     --theme-background-color: #ffffff;
     --theme-hover-color: var(--medium-blue);
@@ -24,6 +24,83 @@ body[data-page="project-dermidew"] {
 
     --font-headers: "Slackside One", cursive;
     --font-main: "Nunito Sans", sans-serif;
+
+    .writing-notice {
+        position: fixed;
+        z-index: 1000;
+        top: 24px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 0 16px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 200ms ease;
+    }
+
+    .writing-notice.is-visible {
+        opacity: 1;
+    }
+
+    .writing-notice.is-closing {
+        opacity: 0;
+    }
+
+    .writing-notice__card {
+        position: relative;
+        width: min(360px, 100%);
+        padding: 20px 28px;
+        border: 1px solid #101E3A;
+        border-radius: 25px;
+        background: #FFFFFF;
+        box-shadow: 0 8px 20px rgba(16, 30, 58, 0.16);
+        color: var(--theme-text-color);
+        font-family: var(--font-main);
+        text-align: center;
+        pointer-events: auto;
+    }
+
+    .writing-notice__card h2 {
+        margin: 0 20px 6px;
+        color: var(--dark-blue);
+        font-family: var(--font-main);
+        font-size: 1rem;
+        font-weight: 800;
+        line-height: 1.25;
+    }
+
+    .writing-notice__card p {
+        margin: 0;
+        color: #313e4f;
+        font-size: 0.84rem;
+        line-height: 1.4;
+    }
+
+    .writing-notice__close {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        padding: 2px 4px;
+        border: 0;
+        background: transparent;
+        color: #C62828;
+        cursor: pointer;
+        font: inherit;
+        font-size: 1.2rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .writing-notice__close:hover {
+        color: #8E1B1B;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .writing-notice {
+            transition: none;
+        }
+    }
 
 
     .project-site-header {
@@ -72,11 +149,22 @@ body[data-page="project-dermidew"] {
     h3#personas-title,
     h3#evolution-title,
     .strategy-evolution-takeaway h3,
-    #mvp-title{
+    #mvp-title {
         font-size: 23px !important;
         line-height: 1.05 !important;
         color: var(--medium-blue) !important;
         margin-left: 0 !important;
+    }
+
+    .project-content_section h1 {
+        font-family: var(--font-main);
+        font-weight: bold;
+    }
+
+    .phrasing-header {
+        font-family: var(--font-headers);
+        font-size: clamp(2rem, 2.75vw, 3rem) !important;
+        color: var(--medium-blue);
     }
 }
 
@@ -214,10 +302,6 @@ body[data-page="project-dermidew"] {
     OVERVIEW CONTENT
 =============================== */
 
-.overview-content.project-content_section {
-    border-top: 1px solid var(--dark-blue)
-}
-
 .overview-content h1 {
     margin: var(--space-0) var(--space-0) var(--space-8);
     line-height: 1.2;
@@ -305,7 +389,7 @@ body[data-page="project-dermidew"] {
 
 .project-detail dt {
     margin: var(--space-0);
-
+    color: var(--medium-blue);
     font-family: var(--font-main) !important;
     font-size: var(--text-small) !important;
     font-weight: 700;
@@ -329,6 +413,7 @@ body[data-page="project-dermidew"] {
 
 .project-detail dd span {
     display: block;
+    color: var()
 }
 
 /* ============================
@@ -374,21 +459,16 @@ body[data-page="project-dermidew"] {
 
 .problem-statement h2 {
     margin: 0 0 1.75rem;
-
-    color: var(--dark-yellow);
-
-    font-family: var(--font-headers);
-    font-size: clamp(2.5rem, 3.4vw, 4rem) !important;
-    font-weight: 100;
     line-height: 1.05 !important;
     letter-spacing: -0.04em;
+    color: var(--dark-yellow) !important;
 }
 
 .problem-description {
     width: 100%;
 
-    margin: 0 !important;
-    color: var(--dark-yellow-text);
+    margin: var(--space-5) 0 !important;
+    color: var(--dark-yellow-text) !important;
     font-family: var(--font-style);
     font-size: 1.1rem !important;
     line-height: var(--line-height-body-text);
@@ -440,7 +520,7 @@ body[data-page="project-dermidew"] {
      */
     margin: 0 !important;
 
-    color: var(--dark-yellow-text);
+    color: var(--dark-yellow-text) !important;
 
     font-family: var(--font-style);
     font-size: var(--text-medium) !important;
@@ -680,7 +760,7 @@ body[data-page="project-dermidew"] {
 }
 
 .research-insight dt {
-    color: var(--medium-blue);
+    color: var(--dark-yellow);
 
     font-family: var(--font-main);
     font-size: var(--text-small) !important;
@@ -694,10 +774,10 @@ body[data-page="project-dermidew"] {
 .research-insight h3 {
     margin: 0 0 var(--space-3);
 
-    color: var(--medium-blue);
+    color: var(--dark-yellow);
 
-    font-family: var(--font-main);
-    font-size: var(--text-medium) !important;
+    font-family: var(--font-main) !important;
+    font-size: var(--text-small) !important;
     font-style: italic;
     font-weight: 600 !important;
     line-height: 1.05 !important;
@@ -738,8 +818,9 @@ body[data-page="project-dermidew"] {
 .research-personas-image img {
     display: block;
 
-    width: 100%;
-    height: auto;
+    width: 90%;
+    height: auto; 
+    justify-self: center;
 
     transition: transform 0.25s ease;
 }
@@ -859,7 +940,6 @@ body[data-page="project-dermidew"] {
     color: var(--dark-yellow);
     font-weight: 700;
     font-size: var(--text-medium) !important;
-    text-transform: uppercase;
 }
 
 .strategy-intro h3 {
@@ -1563,6 +1643,7 @@ p.development-label {
     font-family: var(--font-main);
     line-height: var(--line-height-body-text);
 }
+
 .development-intro {
     margin-bottom: var(--space-4) !important
 }
@@ -1824,8 +1905,6 @@ p.development-label {
 
     width: 100%;
     box-sizing: border-box;
-    background: var(--section-background-yellow);
-
 }
 
 .reflection-block {
