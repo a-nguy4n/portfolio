@@ -29,11 +29,11 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-024PDVHRWY"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-024PDVHRWY');
+    gtag('config', 'G-024PDVHRWY');
 </script>
 
 <body data-project="weather-wardrobe" data-page="project-weather-wardrobe">
@@ -51,6 +51,7 @@
 
             <span class="project-specific-sections">
                 <a href="#overview-weather">Overview</a>
+                <a href="#objective-weather">Objective</a>
                 <a href="#technical-weather">Technical Implementation</a>
                 <a href="#product-weather">Synthesis</a>
             </span>
@@ -60,7 +61,7 @@
     </header>
 
     <main class="project-content">
-        <!-- 01 / HERO -->
+        <!-- HERO -->
         <section class="motion-section" aria-labelledby="weather-title">
             <p class="eyebrow hero-eyebrow">FULL-STACK · IOT · AI INTEGRATION</p>
             <h1 class="motion-title" id="weather-title">Weather Wardrobe</h1>
@@ -71,10 +72,10 @@
             </figure>
         </section>
 
-        <!-- 02 / OVERVIEW -->
+        <!-- OVERVIEW -->
         <section id="overview-weather" class="overview-content project-content_section"
             aria-labelledby="overview-title">
-            <h2 id="overview-title" class="section-heading">Overview</h2>
+            <h2 id="overview-title" class="section-heading">OVERVIEW</h2>
 
             <article class="overview-layout">
 
@@ -138,8 +139,8 @@
                 </dl>
 
                 <!-- BOTTOM: Full-Width Objective -->
-                <div class="overview-objective">
-                    <span class="section-label">THE OBJECTIVE</span>
+                <!-- <div class="overview-objective">
+                    <span class="section-label">MY OBJECTIVE</span>
 
                     <h3>Connecting physical sensors to everyday decisions.</h3>
 
@@ -150,21 +151,35 @@
                         real-time conditions and receive personalized outfit
                         recommendations from their closet based on the weather.
                     </p>
-                </div>
+                </div> -->
 
             </article>
+        </section>
+
+        <!-- OBJECTIVE -->
+        <section id="objective-weather" class="project-content_section">
+            <h2 id="technical-title" class="section-heading">MY OBJECTIVE</h2>
+            
+            <img src="/pages/projects/pages/weather-wardrobe/media/raincoat.png" alt="Rain Coat Decorative Image"
+                loading="lazy" decoding="async">
+            <p>
+                My goal was to collect temperature data from an ESP32
+                device and use it to create an interactive dashboard
+                integrated with AI. This would allow users to monitor
+                real-time conditions and receive personalized outfit
+                recommendations from their closet based on the weather.
+            </p>
 
         </section>
 
-        <!-- 03 / TECHNICAL IMPLEMENTATION -->
+        <!-- TECHNICAL IMPLEMENTATION -->
         <section id="technical-weather" class="technical-content project-content_section"
             aria-labelledby="technical-title">
 
             <h2 id="technical-title" class="section-heading">Technical Implementation</h2>
 
             <header class="technical-intro">
-                <span class="section-label">SYSTEM ARCHITECTURE</span>
-                <h3>How Weather Wardrobe works</h3>
+                <h3>System Architecture</h3>
                 <p>
                     The system connects an ESP32 sensor to a web application
                     using MQTT and FastAPI. Users can view temperature data
@@ -216,7 +231,7 @@
             </ol>
 
             <article class="technical-card">
-                <span class="card-number">01</span>
+                <span class="card-number">(1)</span>
                 <div>
                     <h4>Sensor Integration</h4>
                     <p>
@@ -227,7 +242,7 @@
             </article>
 
             <article class="technical-card">
-                <span class="card-number">02</span>
+                <span class="card-number">(2)</span>
                 <div>
                     <h4>Backend &amp; Data</h4>
                     <p>
@@ -239,7 +254,7 @@
             </article>
 
             <article class="technical-card">
-                <span class="card-number">03</span>
+                <span class="card-number">(3)</span>
                 <div>
                     <h4>Weather &amp; AI</h4>
                     <p>
@@ -259,7 +274,6 @@
                 <!-- ROW 1 -->
                 <article class="diagram-section" id="entity-diagram">
                     <section class="diagram-description">
-                        <span class="card-number">01 / DATA MODEL</span>
                         <h4>Entity-Relationship Diagram</h4>
                         <p>
                             The Entity-Relationship Diagram here outlines the database
@@ -316,7 +330,6 @@
                 <!-- ROW 2 -->
                 <article class="diagram-section diagram-section--reverse" id="sequence-diagram">
                     <section class="diagram-description">
-                        <span class="card-number">02 / INTERACTIONS</span>
                         <h4>Sequence Diagrams</h4>
 
                         <p>
@@ -345,7 +358,6 @@
                 <!-- ROW 3 -->
                 <article class="diagram-section" id="component-diagram">
                     <section class="diagram-description">
-                        <span class="card-number">03 / COMPONENTS</span>
                         <h4>Component Diagram</h4>
                         <p>
                             The Component Diagram shows how Weather Wardrobe's hardware,
@@ -404,7 +416,6 @@
                 <!-- ROW 4 -->
                 <article class="diagram-section diagram-section--reverse" id="user-flow">
                     <section class="diagram-description">
-                        <span class="card-number">04 / USER FLOW</span>
                         <h4>User Logic Flow Diagram</h4>
                         <p>
                             The User Logic Flow Diagram illustrates how users navigate through Weather Wardrobe. From
@@ -425,7 +436,7 @@
 
         </section>
 
-        <!-- 04 / FINAL PRODUCT -->
+        <!-- FINAL PRODUCT -->
         <section id="product-weather" class="product-content project-content_section" aria-labelledby="product-title">
 
             <h2 id="product-title" class="section-heading">
@@ -433,8 +444,7 @@
             </h2>
 
             <header class="product-intro">
-                <span class="section-label">PROJECT REFLECTION</span>
-                <h3>Connecting hardware and software.</h3>
+                <!-- <h3>Connecting hardware and software.</h3> -->
                 <p>
                     Weather Wardrobe challenged me to think beyond individual features and focus on how different parts
                     of an application work together. From managing communication between devices to organizing data and
@@ -451,25 +461,23 @@
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                 </iframe>
 
-
                 <figcaption>
-                    ESP32 temperature data collection and transmission demo.
+                    ESP32 temperature data collection and transmission demo
                 </figcaption>
             </figure>
 
             <div class="project-takeaway">
-                <span class="section-label">TAKEAWAY</span>
-                <h3>What I've learned</h3>
+                <h3> My Takeaway </h3>
                 <p>
                     This project gave me hands-on experience building a full-stack application that communicates with
                     physical hardware. I developed a stronger understanding of backend development and how data moves
                     between connected systems.
-                </p>
+                </p> <br>
                 <p>
                     One of the main challenges was integrating the ESP32 with the backend and ensuring sensor readings
                     were processed and stored correctly. Troubleshooting this connection helped to reinforce my
                     debugging skills and taught me how to approach problems across multiple components.
-                </p>
+                </p> <br>
                 <p>
                     Overall, Weather Wardrobe helped me become more confident in building integrated applications and
                     using AI to make collected data more useful.

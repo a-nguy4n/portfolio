@@ -24,7 +24,7 @@ body[data-page="project-weather-wardrobe"] {
   --color-cloud-white: #F8FBFF;
 
   --theme-text-color: #213041;
-  --secondary-text-color-light: #666;
+  --secondary-text-color-light: #364658;
 
   --theme-hover-color: var(--color-cloud-white);
 
@@ -71,6 +71,10 @@ body[data-page="project-weather-wardrobe"] {
     margin-top: var(--space-4);
   }
 
+  .project-content_section h2 {
+    text-transform: capitalize !important;
+  }
+
 }
 
 .project-content {
@@ -97,6 +101,16 @@ body[data-page="project-weather-wardrobe"] {
   font-weight: var(--weight-heading);
   line-height: var(--leading-heading);
   letter-spacing: -0.025em;
+}
+
+body[data-page="project-weather-wardrobe"] main.project-content.project-content .project-content_section h2 {
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+}
+
+body[data-page="project-weather-wardrobe"] main.project-content.project-content .project-content_section h3 {
+  font-size: var(--text-medium);
+  color: var(--color-leaf-green);
 }
 
 .project-content h3 {
@@ -216,12 +230,6 @@ body[data-page="project-weather-wardrobe"] {
   margin-bottom: 0;
 }
 
-.overview-objective {
-  grid-column: 1 / -1;
-  margin-top: 0;
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--weather-border);
-}
 
 .overview-objective p {
   width: 90%;
@@ -253,19 +261,48 @@ body[data-page="project-weather-wardrobe"] {
   color: var(--color-warm-red);
 }
 
-/* TECHNICAL IMPLEMENTATION */
+#objective-weather {
+  background: #eef7ff;
 
-.technical-content {
-  background: var(--color-cloud-blue);
+  display: grid;
+  grid-template-columns: 1fr 0.25fr;
+  grid-template-rows: auto 1fr;
 }
 
+#objective-weather h2 {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#objective-weather p {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+#objective-weather img {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  justify-self: center;
+  align-self: center;
+}
+
+/* TECHNICAL IMPLEMENTATION */
+
 .technical-intro {
-  width: 75%;
+  width: 80%;
   margin-bottom: var(--space-8);
 }
 
 .technical-intro p {
   font-size: var(--text-small);
+}
+
+.technical-intro h3,
+.technical-intro p {
+  margin-left: var(--space-4) !important;
 }
 
 .architecture-figure {
@@ -400,7 +437,11 @@ body[data-page="project-weather-wardrobe"] {
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   align-items: center;
   gap: var(--space-10);
-  padding: var(--space-8) 0;
+  padding: var(--space-6) 0;
+}
+
+#diagrams-title {
+  margin: 0;
 }
 
 #entity-diagram.diagram-section {
@@ -501,6 +542,10 @@ body[data-page="project-weather-wardrobe"] {
 
 
 /* FINAL PRODUCT */
+
+#product-weather {
+  background: #eef7ff;
+}
 
 .product-intro {
   font-size: var(--text-small);
@@ -627,6 +672,16 @@ body[data-page="project-weather-wardrobe"] {
   .overview-objective p,
   .technical-intro p {
     width: 100%;
+  }
+
+  #objective-weather {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #objective-weather img {
+    max-width: 155px;
+    padding: var(--space-2);
   }
 
   /* Technical Implementation Section */
