@@ -93,10 +93,10 @@
 /* ---- PROJECT TITLE ---- */
 
 .cloud-card--project .cloud-card__title {
-    font-size: var(--text-xlarge);
+    font-size: var(--text-large);
     font-weight: 600;
     line-height: 1.05;
-    margin:  var(--space-0);
+    margin:  var(--space-0) var(--space-0) var(--space-3);
 }
 
 
@@ -690,6 +690,7 @@ html[data-theme][data-fidelity="mid"] {
     /* 2. Title */
     .cloud-card__title {
         order: 2;
+        font-size: var(--text-medium) !important;
     }
 
     /* 3. Subtitle */

@@ -30,7 +30,6 @@ body[data-project] {
         margin: 0 0 1.75rem;
         font-size: var(--text-medium);
         font-weight: var(--primary-header-weight);
-
         line-height: var(--line-height-headers);
         letter-spacing: -0.04em;
     }
@@ -40,9 +39,7 @@ body[data-project] {
         font-family: var(--font-headers);
         font-size: clamp(1rem, 18px, 1.25rem);
         font-weight: 300;
-
         line-height: var(--line-height-headers);
-
     }
 
     .statement-phrase {
@@ -374,7 +371,7 @@ body[data-project] .project-specific-sections a.is-active {
     }
 
     body[data-project] logo-button svg {
-        width: 75px;
+        width: 75px !important;
     }
 
     .project-specific-nav {
