@@ -65,7 +65,7 @@ primary-navbar .nav-shape:hover{
     transform: translateY(-8px) scale(1.04);
 }
 
-@keyframes cloudFloat{
+/* @keyframes cloudFloat{
     0%, 100% {
         transform: translateY(0) scale(1);
     }
@@ -73,7 +73,7 @@ primary-navbar .nav-shape:hover{
     50% {
         transform: translateY(-6px) scale(1.03);
     }
-}
+} */
 
 primary-navbar .nav-home{ 
     --nav-shape-size: var(--nav-home-size); 
