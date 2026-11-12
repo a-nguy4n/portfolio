@@ -7,7 +7,7 @@ export class PrimaryNavbar extends HTMLElement {
         this.innerHTML = `
         <nav class="primary-nav">
             <a class="nav-shape nav-home" href="/pages/home/home.html">
-                <span class="nav-text"> HOME </span>
+                <span class="nav-text"> Home </span>
                 <svg viewBox="0 0 59.55265 39.687496" class="nav-cloud-home">
                     <g transform="translate(-1.5320183,-2.3713723)">
                         <path 
@@ -20,7 +20,7 @@ export class PrimaryNavbar extends HTMLElement {
             </a>
 
             <a class="nav-shape nav-projects" href="/pages/projects/projects.html">
-                <span class="nav-text"> PROJECTS </span>
+                <span class="nav-text"> Projects </span>
                 <svg class="nav-cloud-projects" viewBox="0 0 83.079163 40.156078">
                     <g transform="translate(-1.8392461,-3.3869979)">
                         <path 
@@ -33,7 +33,7 @@ export class PrimaryNavbar extends HTMLElement {
             </a>
 
             <a class="nav-shape nav-resume" href="/pages/resume/resume.html">
-                <span class="nav-text"> RESUME </span>
+                <span class="nav-text"> Resume </span>
                 <svg class="nav-cloud-resume" viewBox="0 0 76.499359 43.030727">
                     <g transform="translate(-2.3997453,-3.1872905)">
                         <path
@@ -46,7 +46,7 @@ export class PrimaryNavbar extends HTMLElement {
             </a>
 
             <a class="nav-shape nav-about" href="/pages/about-me/about.html">
-                <span class="nav-text"> ABOUT ME </span>
+                <span class="nav-text"> About Me </span>
                 <svg class="nav-cloud-about" viewBox="0 0 84.649139 43.052387">
                     <g transform="translate(-1.8877286,-1.5785733)">
                         <path
@@ -59,7 +59,7 @@ export class PrimaryNavbar extends HTMLElement {
             </a>
 
             <a class="nav-shape nav-contact" href="/pages/contact-me/contact.html">
-                <span class="nav-text"> CONTACT ME </span>
+                <span class="nav-text"> Contact Me </span>
                 <svg class="nav-cloud-contact" viewBox="0 0 106.62708 43.05814">
                     <g transform="translate(-1.8341485,-2.0308697)">
                         <path
@@ -72,7 +72,7 @@ export class PrimaryNavbar extends HTMLElement {
             </a>
 
             <a class="nav-shape nav-extras" href="/pages/extras/extras.html">
-                <span class="nav-text"> MORE TO DISCOVER </span>
+                <span class="nav-text"> More to Discover </span>
                 <svg class="nav-cloud-extras" viewBox="0 0 148.3196 43.067776">
                     <g transform="translate(-1.4096773,-3.3028229)">
                         <path
